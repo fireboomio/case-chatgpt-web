@@ -1,0 +1,8 @@
+query MyQuery {
+  my_findUniquequestion(where: {}) {
+    question
+    id
+    createdAt
+    answer
+  }
+}

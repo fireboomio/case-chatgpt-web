@@ -1,0 +1,19 @@
+query GetHistoryList($take: Int = 10, $skip: Int = 0, $orderBy: [grace_HistoryOrderByWithRelationInput], $query: grace_HistoryWhereInput) @internalOperation {
+  data: grace_findManyHistory(
+    skip: $skip
+    take: $take
+    orderBy: $orderBy
+    where: {AND: $query}
+  ) {
+    id
+    uuid
+    title
+    createdAt
+    updatedAt
+  }
+  total: grace_aggregateHistory(where: {AND: $query}) @transform(get: "_count.id") {
+    _count {
+      id
+    }
+  }
+}

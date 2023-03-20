@@ -1,0 +1,234 @@
+{
+  "api": {
+    "operations": [
+      {
+        "name": "ChatGPT__Chat__CreateOneChatMessage",
+        "path": "ChatGPT/Chat/CreateOneChatMessage",
+        "operationType": 1
+      },
+      {
+        "name": "ChatGPT__Chat__CreateOneHistory",
+        "path": "ChatGPT/Chat/CreateOneHistory",
+        "operationType": 1
+      },
+      {
+        "name": "ChatGPT__Chat__DeleteOneChatMessage",
+        "path": "ChatGPT/Chat/DeleteOneChatMessage",
+        "operationType": 1
+      },
+      {
+        "name": "ChatGPT__Chat__DeleteOneHistory",
+        "path": "ChatGPT/Chat/DeleteOneHistory",
+        "operationType": 1
+      },
+      {
+        "name": "ChatGPT__Chat__GetHistoryList",
+        "path": "ChatGPT/Chat/GetHistoryList",
+        "operationType": 0
+      },
+      {
+        "name": "ChatGPT__Chat__GetManyChatMessage",
+        "path": "ChatGPT/Chat/GetManyChatMessage",
+        "operationType": 0
+      },
+      {
+        "name": "ChatGPT__Chat__UpdateOneHistory",
+        "path": "ChatGPT/Chat/UpdateOneHistory",
+        "operationType": 1
+      },
+      {
+        "name": "ChatGPT__Propmt__CreateOnePrompt",
+        "path": "ChatGPT/Propmt/CreateOnePrompt",
+        "operationType": 1
+      },
+      {
+        "name": "ChatGPT__Propmt__DeleteManyPrompt",
+        "path": "ChatGPT/Propmt/DeleteManyPrompt",
+        "operationType": 1
+      },
+      {
+        "name": "ChatGPT__Propmt__DeleteOnePrompt",
+        "path": "ChatGPT/Propmt/DeleteOnePrompt",
+        "operationType": 1
+      },
+      {
+        "name": "ChatGPT__Propmt__GetPromptList",
+        "path": "ChatGPT/Propmt/GetPromptList",
+        "operationType": 0
+      },
+      {
+        "name": "ChatGPT__Propmt__UpdateOnePrompt",
+        "path": "ChatGPT/Propmt/UpdateOnePrompt",
+        "operationType": 1
+      }
+    ],
+    "authenticationConfig": {
+      "cookieBased": {
+        "providers": [
+          {
+            "id": "authing",
+            "kind": 1,
+            "githubConfig": null,
+            "oidcConfig": {
+              "issuer": {
+                "kind": 0,
+                "staticVariableContent": "https://rvjbtbc4q09g-demo.authing.cn/oidc",
+                "environmentVariableName": "",
+                "environmentVariableDefaultValue": "",
+                "placeholderVariableName": ""
+              },
+              "clientId": {
+                "kind": 0,
+                "staticVariableContent": "63e1f004d53141741a3c7a10",
+                "environmentVariableName": "",
+                "environmentVariableDefaultValue": "",
+                "placeholderVariableName": ""
+              },
+              "clientSecret": {
+                "kind": 0,
+                "staticVariableContent": "535b9ee9d950bc58980221242da3464c",
+                "environmentVariableName": "",
+                "environmentVariableDefaultValue": "",
+                "placeholderVariableName": ""
+              },
+              "queryParameters": null,
+              "AuthURL": "https://rvjbtbc4q09g-demo.authing.cn/oidc/auth",
+              "TokenURL": "https://rvjbtbc4q09g-demo.authing.cn/oidc/token"
+            }
+          }
+        ],
+        "authorizedRedirectUris": [
+          {
+            "kind": 0,
+            "staticVariableContent": "http://localhost:9123/#/workbench/userInfo",
+            "environmentVariableName": "",
+            "environmentVariableDefaultValue": "",
+            "placeholderVariableName": ""
+          },
+          {
+            "kind": 0,
+            "staticVariableContent": "http://localhost:9123/#/workbench/rapi/loginBack",
+            "environmentVariableName": "",
+            "environmentVariableDefaultValue": "",
+            "placeholderVariableName": ""
+          }
+        ],
+        "authorizedRedirectUriRegexes": null,
+        "hashKey": {
+          "kind": 0,
+          "staticVariableContent": "12345123451234512345123451234512",
+          "environmentVariableName": "",
+          "environmentVariableDefaultValue": "",
+          "placeholderVariableName": ""
+        },
+        "blockKey": {
+          "kind": 0,
+          "staticVariableContent": "12345123451234512345123451234512",
+          "environmentVariableName": "",
+          "environmentVariableDefaultValue": "",
+          "placeholderVariableName": ""
+        },
+        "csrfSecret": {
+          "kind": 0,
+          "staticVariableContent": "12345678910",
+          "environmentVariableName": "",
+          "environmentVariableDefaultValue": "",
+          "placeholderVariableName": ""
+        }
+      },
+      "hooks": {
+        "postAuthentication": false,
+        "mutatingPostAuthentication": false,
+        "revalidateAuthentication": false,
+        "postLogout": false,
+        "TsPathMap": null
+      },
+      "jwksBased": {
+        "providers": []
+      }
+    },
+    "webhooks": [],
+    "serverOptions": {
+      "serverUrl": {
+        "kind": 0,
+        "staticVariableContent": "http://localhost:9992",
+        "environmentVariableName": "",
+        "environmentVariableDefaultValue": "",
+        "placeholderVariableName": ""
+      },
+      "listen": {
+        "host": {
+          "kind": 0,
+          "staticVariableContent": "localhost",
+          "environmentVariableName": "",
+          "environmentVariableDefaultValue": "",
+          "placeholderVariableName": ""
+        },
+        "port": {
+          "kind": 0,
+          "staticVariableContent": "9992",
+          "environmentVariableName": "",
+          "environmentVariableDefaultValue": "",
+          "placeholderVariableName": ""
+        }
+      },
+      "logger": {
+        "level": {
+          "kind": 0,
+          "staticVariableContent": "DEBUG",
+          "environmentVariableName": "",
+          "environmentVariableDefaultValue": "",
+          "placeholderVariableName": ""
+        }
+      }
+    },
+    "nodeOptions": {
+      "nodeUrl": {
+        "kind": 0,
+        "staticVariableContent": "http://localhost:9991",
+        "environmentVariableName": "",
+        "environmentVariableDefaultValue": "",
+        "placeholderVariableName": ""
+      },
+      "publicNodeUrl": {
+        "kind": 0,
+        "staticVariableContent": "http://localhost:9991",
+        "environmentVariableName": "",
+        "environmentVariableDefaultValue": "",
+        "placeholderVariableName": ""
+      },
+      "listen": {
+        "host": {
+          "kind": 0,
+          "staticVariableContent": "localhost",
+          "environmentVariableName": "",
+          "environmentVariableDefaultValue": "",
+          "placeholderVariableName": ""
+        },
+        "port": {
+          "kind": 0,
+          "staticVariableContent": "9991",
+          "environmentVariableName": "",
+          "environmentVariableDefaultValue": "",
+          "placeholderVariableName": ""
+        }
+      },
+      "logger": {
+        "level": {
+          "kind": 0,
+          "staticVariableContent": "DEBUG",
+          "environmentVariableName": "",
+          "environmentVariableDefaultValue": "",
+          "placeholderVariableName": ""
+        }
+      },
+      "defaultRequestTimeoutSeconds": 10
+    }
+  },
+  "environmentIds": [
+    ""
+  ],
+  "dangerouslyEnableGraphQLEndpoint": true,
+  "deploymentName": "main",
+  "apiName": "app"
+}

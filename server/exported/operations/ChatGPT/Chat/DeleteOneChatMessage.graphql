@@ -1,0 +1,5 @@
+mutation DeleteOneChatMessage($id: Int!) {
+  data: grace_deleteOneChatMessage(where: {id: $id}) {
+    id
+  }
+}

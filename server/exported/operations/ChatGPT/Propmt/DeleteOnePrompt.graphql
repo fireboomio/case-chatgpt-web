@@ -1,0 +1,5 @@
+mutation DeleteOnePrompt($id: Int!) {
+  data: grace_deleteOnePrompt(where: {id: $id}) {
+    id
+  }
+}

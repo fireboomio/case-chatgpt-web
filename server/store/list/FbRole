@@ -1,0 +1,18 @@
+[
+	{
+		"code": "admin",
+		"createTime": "2023-03-01 02:23:47Z",
+		"deleteTime": "",
+		"id": 1361922157314048,
+		"remark": "",
+		"updateTime": ""
+	},
+	{
+		"id": 1361922158690304,
+		"code": "user",
+		"remark": "",
+		"createTime": "2023-03-01 02:23:47Z",
+		"updateTime": "",
+		"deleteTime": ""
+	}
+]

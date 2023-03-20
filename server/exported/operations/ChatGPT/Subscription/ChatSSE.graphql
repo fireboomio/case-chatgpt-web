@@ -1,0 +1,5 @@
+subscription MyQuery($prompt: String!, $chatId: Int!, $regrenerateId: Int = null) {
+  chatGPT_completion(
+    promptInput: {prompt: $prompt, chatId: $chatId, regenId: $regrenerateId}
+  )
+}

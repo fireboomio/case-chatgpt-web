@@ -1,0 +1,13 @@
+mutation UpdateOneHistory($id: Int!, $uuid: BigInt, $title: String, $updatedAt: DateTime! @injectCurrentDateTime(format: UnixDate)) {
+  data: grace_updateOneHistory(
+    data: {uuid: {set: $uuid}, title: {set: $title}, updatedAt: {set: $updatedAt}}
+    where: {id: $id}
+  ) {
+    
+    id
+    uuid
+    title
+    createdAt
+    updatedAt
+  }
+}

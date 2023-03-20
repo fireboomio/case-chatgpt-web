@@ -1,0 +1,387 @@
+[
+	{
+		"config": {
+			"apiNamespace": "mysql",
+			"appendType": "0",
+			"databaseUrl": {
+				"key": "",
+				"kind": "0",
+				"val": "mysql://root:shaoxiong123456@8.142.115.204:3306/wunder-demo"
+			},
+			"dbName": "wunder-demo",
+			"dbType": "MySQL",
+			"host": "8.142.115.204",
+			"password": {
+				"key": "",
+				"kind": "0",
+				"val": "shaoxiong123456"
+			},
+			"port": "3306",
+			"replaceJSONTypeFieldConfiguration": null,
+			"schemaExtension": "",
+			"userName": {
+				"key": "",
+				"kind": "0",
+				"val": "root"
+			}
+		},
+		"createTime": "2023-03-01 02:24:17Z",
+		"deleteTime": "",
+		"enabled": false,
+		"id": 1361924089970688,
+		"name": "mysql",
+		"sourceType": 1,
+		"updateTime": "2023-03-19 02:00:31Z"
+	},
+	{
+		"config": {
+			"apiNamespace": "node",
+			"serverName": "node"
+		},
+		"createTime": "2023-03-01 08:35:11Z",
+		"deleteTime": "",
+		"enabled": false,
+		"id": 1363382532243456,
+		"name": "node",
+		"sourceType": 4,
+		"updateTime": "2023-03-20 01:45:23Z"
+	},
+	{
+		"config": {
+			"apiNamespace": "sqlite",
+			"appendType": "",
+			"databaseUrl": {
+				"key": "",
+				"kind": "0",
+				"val": "sqlite.db"
+			},
+			"dbName": "",
+			"dbType": "SQLite",
+			"host": "",
+			"password": {
+				"key": "",
+				"kind": "0",
+				"val": ""
+			},
+			"port": "",
+			"replaceJSONTypeFieldConfiguration": null,
+			"schemaExtension": "",
+			"userName": {
+				"key": "",
+				"kind": "0",
+				"val": ""
+			}
+		},
+		"createTime": "2023-03-05 01:17:27Z",
+		"deleteTime": "",
+		"enabled": false,
+		"id": 1384310580838400,
+		"name": "sqlite",
+		"sourceType": 1,
+		"updateTime": "2023-03-19 02:00:35Z"
+	},
+	{
+		"config": {
+			"apiNamespace": "nacos",
+			"appendType": "0",
+			"databaseUrl": {
+				"key": "",
+				"kind": "0",
+				"val": "mysql://root:5SrWNpx5NQ@192.168.211.211:32045/nacos"
+			},
+			"dbName": "nacos",
+			"dbType": "MySQL",
+			"host": "192.168.211.211",
+			"password": {
+				"key": "",
+				"kind": "0",
+				"val": "5SrWNpx5NQ"
+			},
+			"port": "32045",
+			"replaceJSONTypeFieldConfiguration": null,
+			"schemaExtension": "",
+			"userName": {
+				"key": "",
+				"kind": "0",
+				"val": "root"
+			}
+		},
+		"createTime": "2023-03-06 10:15:32Z",
+		"deleteTime": "",
+		"enabled": false,
+		"id": 1392088704286720,
+		"name": "nacos",
+		"sourceType": 1,
+		"updateTime": "2023-03-19 06:12:32Z"
+	},
+	{
+		"config": {
+			"apiNamespace": "my",
+			"appendType": "0",
+			"databaseUrl": {
+				"key": "",
+				"kind": "0",
+				"val": "mysql://root:shaoxiong123456@8.142.115.204:3306/test1122"
+			},
+			"dbName": "test1122",
+			"dbType": "MySQL",
+			"host": "8.142.115.204",
+			"password": {
+				"key": "",
+				"kind": "0",
+				"val": "shaoxiong123456"
+			},
+			"port": "3306",
+			"replaceJSONTypeFieldConfiguration": null,
+			"schemaExtension": "",
+			"userName": {
+				"key": "",
+				"kind": "0",
+				"val": "root"
+			}
+		},
+		"createTime": "2023-03-07 02:57:38Z",
+		"deleteTime": "",
+		"enabled": false,
+		"id": 1396029115465728,
+		"name": "my",
+		"sourceType": 1,
+		"updateTime": "2023-03-19 02:00:42Z"
+	},
+	{
+		"config": {
+			"apiNamespace": "aigc",
+			"appendType": "1",
+			"databaseUrl": {
+				"key": "",
+				"kind": "0",
+				"val": "mysql://root:PV5ua0tJF1BDiWjjkp4oFOmBRe@182.92.77.112:3306/aigc"
+			},
+			"dbName": "aigc",
+			"dbType": "MySQL",
+			"host": "182.92.77.112",
+			"password": {
+				"key": "",
+				"kind": "0",
+				"val": "PV5ua0tJF1BDiWjjkp4oFOmBRe"
+			},
+			"port": "3306",
+			"replaceJSONTypeFieldConfiguration": null,
+			"schemaExtension": "",
+			"userName": {
+				"key": "",
+				"kind": "0",
+				"val": "root"
+			}
+		},
+		"createTime": "2023-03-10 11:58:27Z",
+		"deleteTime": "",
+		"enabled": false,
+		"id": 1415142618955776,
+		"name": "aigc",
+		"sourceType": 1,
+		"updateTime": "2023-03-13 07:53:40Z"
+	},
+	{
+		"config": {
+			"apiNameSpace": "graphql",
+			"customFloatScalars": null,
+			"customIntScalars": null,
+			"headers": [
+				{
+					"key": "Authorization",
+					"kind": "0",
+					"val": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik9FWTJSVGM1UlVOR05qSXhSRUV5TURJNFFUWXdNekZETWtReU1EQXdSVUV4UVVRM05EazFNQSJ9.eyJodHRwczovL2hhc3VyYS5pby9qd3QvY2xhaW1zIjp7IngtaGFzdXJhLWRlZmF1bHQtcm9sZSI6InVzZXIiLCJ4LWhhc3VyYS1hbGxvd2VkLXJvbGVzIjpbInVzZXIiXSwieC1oYXN1cmEtdXNlci1pZCI6ImF1dGgwfDYzNmRiMGUzYzQwYTBiZGJkMzk4OGQ2ZCJ9LCJuaWNrbmFtZSI6IjgzODYxNjI1OCIsIm5hbWUiOiI4Mzg2MTYyNThAcXEuY29tIiwicGljdHVyZSI6Imh0dHBzOi8vcy5ncmF2YXRhci5jb20vYXZhdGFyL2UzYTljYjNjMWU2NjM4MTNiNTQ1ZTIyZTY2ZTg4ZTExP3M9NDgwJnI9cGcmZD1odHRwcyUzQSUyRiUyRmNkbi5hdXRoMC5jb20lMkZhdmF0YXJzJTJGODMucG5nIiwidXBkYXRlZF9hdCI6IjIwMjMtMDMtMTdUMDg6NDU6MTEuNTE0WiIsImlzcyI6Imh0dHBzOi8vZ3JhcGhxbC10dXRvcmlhbHMuYXV0aDAuY29tLyIsImF1ZCI6IlAzOHFuRm8xbEZBUUpyemt1bi0td0V6cWxqVk5HY1dXIiwiaWF0IjoxNjc5MDQyNzEyLCJleHAiOjE2NzkwNzg3MTIsInN1YiI6ImF1dGgwfDYzNmRiMGUzYzQwYTBiZGJkMzk4OGQ2ZCIsImF0X2hhc2giOiJBNW5jRDhWblpTaXpNWktnMld4WDh3Iiwic2lkIjoiN1ZnNVJveGtUSndQd3NJcGJ2T09NdWVnUFlseWNKWDUiLCJub25jZSI6ImwtQ29ZMm5EMGRpZW05dVJFRjVTemRNWWxpeWJ1VWh2In0.HnnJGQYB1g1f0Ygeyi9kwNUsK60M7zRrh-kloZoediQbleEHnl2i-SVkbAWA4tcXEeMcce31UDhwnV5C2XRuqEhhpH9cHISaQXWyRo1Gxu02Kh-ih14IWHszyAf89wzttwVZC0I6_5qxN0E7rMDzS5YJXI0bFZVLd8G1a9GhwunKTjAdvx7m2cZeVKr6rmWJN0-xNC1FurlCUmf6HBeiaqMuo8Z4F1ZLzL1RkZcF-F1COKwtrHwI4oInMufmum7tmna3p_R6LwYjhMmp9zdAlLLUHlLvzsYwoy5hZ4lJ_gKP8HZbU8YD1YJldAZrhgV90EDIMQjDaH0FI45feJEPiQ"
+				}
+			],
+			"internal": false,
+			"loadSchemaFromString": "",
+			"skipRenameRootFields": null,
+			"url": "https://hasura.io/learn/graphql"
+		},
+		"createTime": "2023-03-13 10:53:54Z",
+		"deleteTime": "",
+		"enabled": false,
+		"id": 1431875719004160,
+		"name": "graphql",
+		"sourceType": 3,
+		"updateTime": "2023-03-19 02:00:44Z"
+	},
+	{
+		"config": {
+			"apiNamespace": "grace",
+			"appendType": "1",
+			"databaseUrl": {
+				"key": "",
+				"kind": "0",
+				"val": "mysql://root:5SrWNpx5NQ@192.168.211.211:32045/fireboom"
+			},
+			"dbName": "fireboom",
+			"dbType": "MySQL",
+			"host": "192.168.211.211",
+			"password": {
+				"key": "",
+				"kind": "0",
+				"val": "5SrWNpx5NQ"
+			},
+			"port": "32045",
+			"replaceJSONTypeFieldConfiguration": null,
+			"schemaExtension": "",
+			"userName": {
+				"key": "",
+				"kind": "0",
+				"val": "root"
+			}
+		},
+		"createTime": "2023-03-15 06:36:49Z",
+		"deleteTime": "",
+		"enabled": true,
+		"id": 1442189468237824,
+		"name": "grace",
+		"sourceType": 1,
+		"updateTime": "2023-03-19 06:13:20Z"
+	},
+	{
+		"config": {
+			"apiNamespace": "yasin",
+			"appendType": "0",
+			"databaseUrl": {
+				"key": "",
+				"kind": "0",
+				"val": "mysql://root:5SrWNpx5NQ@192.168.211.211:32045/yasin"
+			},
+			"dbName": "yasin",
+			"dbType": "MySQL",
+			"host": "192.168.211.211",
+			"password": {
+				"key": "",
+				"kind": "0",
+				"val": "5SrWNpx5NQ"
+			},
+			"port": "32045",
+			"replaceJSONTypeFieldConfiguration": null,
+			"schemaExtension": "",
+			"userName": {
+				"key": "",
+				"kind": "0",
+				"val": "root"
+			}
+		},
+		"createTime": "2023-03-16 02:23:54Z",
+		"deleteTime": "",
+		"enabled": false,
+		"id": 1446857266823168,
+		"name": "yasin",
+		"sourceType": 1,
+		"updateTime": "2023-03-19 02:00:50Z"
+	},
+	{
+		"config": {
+			"apiNamespace": "Test",
+			"serverName": "Test"
+		},
+		"createTime": "2023-03-16 06:59:08Z",
+		"deleteTime": "",
+		"enabled": false,
+		"id": 1447939542745088,
+		"name": "Test",
+		"sourceType": 4,
+		"updateTime": "2023-03-20 01:45:23Z"
+	},
+	{
+		"config": {
+			"apiNamespace": "sqlite1",
+			"appendType": "",
+			"databaseUrl": {
+				"key": "",
+				"kind": "0",
+				"val": "a.db"
+			},
+			"dbName": "",
+			"dbType": "SQLite",
+			"host": "",
+			"password": {
+				"key": "",
+				"kind": "0",
+				"val": ""
+			},
+			"port": "",
+			"replaceJSONTypeFieldConfiguration": null,
+			"schemaExtension": "",
+			"userName": {
+				"key": "",
+				"kind": "0",
+				"val": ""
+			}
+		},
+		"createTime": "2023-03-17 01:51:04Z",
+		"deleteTime": "",
+		"enabled": false,
+		"id": 1452390473465856,
+		"name": "sqlite1",
+		"sourceType": 1,
+		"updateTime": "2023-03-19 02:00:53Z"
+	},
+	{
+		"config": {
+			"apiNamespace": "sub",
+			"serverName": "sub"
+		},
+		"createTime": "2023-03-17 06:11:13Z",
+		"deleteTime": "",
+		"enabled": false,
+		"id": 1453413402607616,
+		"name": "sub",
+		"sourceType": 4,
+		"updateTime": "2023-03-20 01:45:23Z"
+	},
+	{
+		"id": 1464058506903552,
+		"name": "chatGPT",
+		"sourceType": 4,
+		"config": {
+			"apiNamespace": "chatGPT",
+			"enableGraphQLEndpoint": false,
+			"schema": "",
+			"serverName": "chatGPT"
+		},
+		"enabled": true,
+		"createTime": "2023-03-19 03:18:24Z",
+		"updateTime": "2023-03-20 01:45:23Z",
+		"deleteTime": ""
+	},
+	{
+		"config": {
+			"apiNamespace": "chat",
+			"appendType": "",
+			"databaseUrl": {
+				"key": "",
+				"kind": "0",
+				"val": "chatGPT.db"
+			},
+			"dbName": "",
+			"dbType": "SQLite",
+			"host": "",
+			"password": {
+				"key": "",
+				"kind": "0",
+				"val": ""
+			},
+			"port": "",
+			"replaceJSONTypeFieldConfiguration": null,
+			"schemaExtension": "",
+			"userName": {
+				"key": "",
+				"kind": "0",
+				"val": ""
+			}
+		},
+		"createTime": "2023-03-19 06:00:35Z",
+		"deleteTime": "",
+		"enabled": false,
+		"id": 1464696206327808,
+		"name": "chat",
+		"sourceType": 1,
+		"updateTime": ""
+	}
+]

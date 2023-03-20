@@ -1,0 +1,25 @@
+{
+  "system": {
+    "apiPublicAddr": "http://localhost:9991",
+    "apiInternalAddr": "http://localhost:9991",
+    "apiListenHost": "localhost",
+    "apiListenPort": "9991",
+    "hooksServerURL": "http://localhost:9992",
+    "hooksServerPath": "./custom-ts",
+    "logLevel": -1,
+    "isDev": true,
+    "forcedJumpEnabled": true,
+    "debugEnabled": true,
+    "usageReport": true
+  },
+  "version": {
+    "versionNum": "dev",
+    "prismaVersion": "3.13.0",
+    "prismaEngineVersion": "694eea289a8462c80264df36757e4fdc129b1b32",
+    "copyright": "fireboom"
+  },
+  "environment": {
+    "environmentList": [],
+    "systemVariable": ""
+  }
+}

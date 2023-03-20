@@ -1,0 +1,10 @@
+mutation CreateOneChatMessage($text: String!, $parentMessageId: String, $chatId: BigInt!) {
+  data: grace_createOneChatMessage(data: {text: $text, parentMessageId: $parentMessageId, chatId: $chatId}) {
+    
+    id
+    text
+    parentMessageId
+    createdAt
+    chatId
+  }
+}
