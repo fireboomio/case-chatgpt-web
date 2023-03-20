@@ -1,0 +1,850 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "fire_boom",
+        "title": "fire_boom",
+        "version": "v1"
+    },
+    "host": "localhost:9991",
+    "paths": {
+        "/operations/ChatGPT/Chat/CreateOneChatMessage": {
+            "post": {
+                "description": "```graphql\nmutation CreateOneChatMessage($text: String!, $parentMessageId: String, $chatId: BigInt!) {\n  data: grace_createOneChatMessage(data: {text: $text, parentMessageId: $parentMessageId, chatId: $chatId}) {\n    \n    id\n    text\n    parentMessageId\n    createdAt\n    chatId\n  }\n}\n```",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ChatGPT"
+                ],
+                "summary": "POST /operations/ChatGPT/Chat/CreateOneChatMessage",
+                "operationId": "ChatGPT__Chat__CreateOneChatMessage",
+                "parameters": [
+                    {
+                        "name": "key",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "text",
+                                "chatId"
+                            ],
+                            "properties": {
+                                "chatId": {
+                                    "type": "string"
+                                },
+                                "parentMessageId": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                },
+                                "text": {
+                                    "type": "string"
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "required": [
+                                                "id",
+                                                "text",
+                                                "createdAt",
+                                                "chatId"
+                                            ],
+                                            "properties": {
+                                                "chatId": {
+                                                    "type": "string"
+                                                },
+                                                "createdAt": {
+                                                    "type": "string"
+                                                },
+                                                "id": {
+                                                    "type": "integer"
+                                                },
+                                                "parentMessageId": {
+                                                    "type": "string"
+                                                },
+                                                "text": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    }
+                }
+            }
+        },
+        "/operations/ChatGPT/Chat/DeleteOneChatMessage": {
+            "post": {
+                "description": "```graphql\nmutation DeleteOneChatMessage($id: Int!) {\n  data: grace_deleteOneChatMessage(where: {id: $id}) {\n    id\n  }\n}\n```",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ChatGPT"
+                ],
+                "summary": "POST /operations/ChatGPT/Chat/DeleteOneChatMessage",
+                "operationId": "ChatGPT__Chat__DeleteOneChatMessage",
+                "parameters": [
+                    {
+                        "name": "key",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "id"
+                            ],
+                            "properties": {
+                                "id": {
+                                    "type": "integer"
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "required": [
+                                                "id"
+                                            ],
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    }
+                }
+            }
+        },
+        "/operations/ChatGPT/Chat/DeleteOneHistory": {
+            "post": {
+                "description": "```graphql\nmutation DeleteOneHistory($id: Int!) {\n  data: grace_deleteOneHistory(where: {id: $id}) {\n    id\n  }\n}\n```",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ChatGPT"
+                ],
+                "summary": "POST /operations/ChatGPT/Chat/DeleteOneHistory",
+                "operationId": "ChatGPT__Chat__DeleteOneHistory",
+                "parameters": [
+                    {
+                        "name": "key",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "id"
+                            ],
+                            "properties": {
+                                "id": {
+                                    "type": "integer"
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "required": [
+                                                "id"
+                                            ],
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    }
+                }
+            }
+        },
+        "/operations/ChatGPT/Chat/UpdateOneHistory": {
+            "post": {
+                "description": "```graphql\nmutation UpdateOneHistory($id: Int!, $uuid: BigInt, $title: String, $updatedAt: DateTime! @injectCurrentDateTime(format: UnixDate)) {\n  data: grace_updateOneHistory(\n    data: {uuid: {set: $uuid}, title: {set: $title}, updatedAt: {set: $updatedAt}}\n    where: {id: $id}\n  ) {\n    \n    id\n    uuid\n    title\n    createdAt\n    updatedAt\n  }\n}\n```",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ChatGPT"
+                ],
+                "summary": "POST /operations/ChatGPT/Chat/UpdateOneHistory",
+                "operationId": "ChatGPT__Chat__UpdateOneHistory",
+                "parameters": [
+                    {
+                        "name": "key",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "id"
+                            ],
+                            "properties": {
+                                "id": {
+                                    "type": "integer"
+                                },
+                                "title": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                },
+                                "uuid": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "required": [
+                                                "id",
+                                                "uuid",
+                                                "title",
+                                                "createdAt"
+                                            ],
+                                            "properties": {
+                                                "createdAt": {
+                                                    "type": "string"
+                                                },
+                                                "id": {
+                                                    "type": "integer"
+                                                },
+                                                "title": {
+                                                    "type": "string"
+                                                },
+                                                "updatedAt": {
+                                                    "type": "string"
+                                                },
+                                                "uuid": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    }
+                }
+            }
+        },
+        "/operations/ChatGPT/Propmt/CreateOnePrompt": {
+            "post": {
+                "description": "```graphql\nmutation CreateOnePrompt($prompt: String!, $title: String!, $updatedAt: DateTime! @injectCurrentDateTime(format: UnixDate)) {\n  data: grace_createOnePrompt(data: {prompt: $prompt, title: $title, updatedAt: $updatedAt}) {\n    \n    id\n    prompt\n    title\n    createdAt\n    updatedAt\n  }\n}\n```",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ChatGPT"
+                ],
+                "summary": "POST /operations/ChatGPT/Propmt/CreateOnePrompt",
+                "operationId": "ChatGPT__Propmt__CreateOnePrompt",
+                "parameters": [
+                    {
+                        "name": "key",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "prompt",
+                                "title"
+                            ],
+                            "properties": {
+                                "prompt": {
+                                    "type": "string"
+                                },
+                                "title": {
+                                    "type": "string"
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "required": [
+                                                "id",
+                                                "prompt",
+                                                "title",
+                                                "createdAt"
+                                            ],
+                                            "properties": {
+                                                "createdAt": {
+                                                    "type": "string"
+                                                },
+                                                "id": {
+                                                    "type": "integer"
+                                                },
+                                                "prompt": {
+                                                    "type": "string"
+                                                },
+                                                "title": {
+                                                    "type": "string"
+                                                },
+                                                "updatedAt": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    }
+                }
+            }
+        },
+        "/operations/ChatGPT/Propmt/DeleteManyPrompt": {
+            "post": {
+                "description": "```graphql\nmutation DeleteManyPrompt($ids: [Int]!) {\n  data: grace_deleteManyPrompt(where: {id: {in: $ids}}) {\n    count\n  }\n}\n```",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ChatGPT"
+                ],
+                "summary": "POST /operations/ChatGPT/Propmt/DeleteManyPrompt",
+                "operationId": "ChatGPT__Propmt__DeleteManyPrompt",
+                "parameters": [
+                    {
+                        "name": "key",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "ids"
+                            ],
+                            "properties": {
+                                "ids": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": [
+                                            "integer",
+                                            "null"
+                                        ]
+                                    }
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "required": [
+                                                "count"
+                                            ],
+                                            "properties": {
+                                                "count": {
+                                                    "type": "integer"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    }
+                }
+            }
+        },
+        "/operations/ChatGPT/Propmt/DeleteOnePrompt": {
+            "post": {
+                "description": "```graphql\nmutation DeleteOnePrompt($id: Int!) {\n  data: grace_deleteOnePrompt(where: {id: $id}) {\n    id\n  }\n}\n```",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ChatGPT"
+                ],
+                "summary": "POST /operations/ChatGPT/Propmt/DeleteOnePrompt",
+                "operationId": "ChatGPT__Propmt__DeleteOnePrompt",
+                "parameters": [
+                    {
+                        "name": "key",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "id"
+                            ],
+                            "properties": {
+                                "id": {
+                                    "type": "integer"
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "required": [
+                                                "id"
+                                            ],
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    }
+                }
+            }
+        },
+        "/operations/ChatGPT/Propmt/GetPromptList": {
+            "get": {
+                "description": "```graphql\nquery GetPromptList($take: Int = 10, $skip: Int = 0, $orderBy: [grace_PromptOrderByWithRelationInput], $query: grace_PromptWhereInput) {\n  data: grace_findManyPrompt(\n    skip: $skip\n    take: $take\n  orderBy: $orderBy\n    where: {AND: $query}) {\n    \n    id\n    prompt\n    title\n    createdAt\n    updatedAt\n  }\n  total: grace_aggregatePrompt(where: {AND: $query}) @transform(get: \"_count.id\") {\n    _count {\n      id\n    }\n  }\n}\n```",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ChatGPT"
+                ],
+                "summary": "GET /operations/ChatGPT/Propmt/GetPromptList",
+                "operationId": "ChatGPT__Propmt__GetPromptList",
+                "parameters": [
+                    {
+                        "type": "array",
+                        "description": "build value by graphql input",
+                        "name": "orderBy",
+                        "in": "query"
+                    },
+                    {
+                        "description": "build value by graphql input",
+                        "name": "query",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "build value by graphql input",
+                        "name": "skip",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "build value by graphql input",
+                        "name": "take",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "data": {
+                                    "type": "object",
+                                    "required": [
+                                        "data",
+                                        "total"
+                                    ],
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "required": [
+                                                    "id",
+                                                    "prompt",
+                                                    "title",
+                                                    "createdAt"
+                                                ],
+                                                "properties": {
+                                                    "createdAt": {
+                                                        "type": "string"
+                                                    },
+                                                    "id": {
+                                                        "type": "integer"
+                                                    },
+                                                    "prompt": {
+                                                        "type": "string"
+                                                    },
+                                                    "title": {
+                                                        "type": "string"
+                                                    },
+                                                    "updatedAt": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "total": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    }
+                }
+            }
+        },
+        "/operations/ChatGPT/Propmt/UpdateOnePrompt": {
+            "post": {
+                "description": "```graphql\nmutation UpdateOnePrompt($id: Int!, $prompt: String, $title: String, $updatedAt: DateTime! @injectCurrentDateTime(format: UnixDate)) {\n  data: grace_updateOnePrompt(\n    data: {prompt: {set: $prompt}, title: {set: $title}, updatedAt: {set: $updatedAt}}\n    where: {id: $id}\n  ) {\n    \n    id\n    prompt\n    title\n    createdAt\n    updatedAt\n  }\n}\n```",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ChatGPT"
+                ],
+                "summary": "POST /operations/ChatGPT/Propmt/UpdateOnePrompt",
+                "operationId": "ChatGPT__Propmt__UpdateOnePrompt",
+                "parameters": [
+                    {
+                        "name": "key",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "id"
+                            ],
+                            "properties": {
+                                "id": {
+                                    "type": "integer"
+                                },
+                                "prompt": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                },
+                                "title": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "required": [
+                                                "id",
+                                                "prompt",
+                                                "title",
+                                                "createdAt"
+                                            ],
+                                            "properties": {
+                                                "createdAt": {
+                                                    "type": "string"
+                                                },
+                                                "id": {
+                                                    "type": "integer"
+                                                },
+                                                "prompt": {
+                                                    "type": "string"
+                                                },
+                                                "title": {
+                                                    "type": "string"
+                                                },
+                                                "updatedAt": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    }
+                }
+            }
+        },
+        "/s3/TTTTT/upload": {
+            "post": {
+                "security": [
+                    {
+                        "authing": [
+                            "user"
+                        ]
+                    },
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "description": "上传文件到TTTTT",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "FileUpload"
+                ],
+                "summary": "POST /s3/TTTTT/upload",
+                "operationId": "FileUpload",
+                "parameters": [
+                    {
+                        "type": "file",
+                        "description": "file to upload",
+                        "name": "files",
+                        "in": "formData"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {}
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+        "/s3/Test1/upload": {
+            "post": {
+                "security": [
+                    {
+                        "authing": [
+                            "user"
+                        ]
+                    },
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "description": "上传文件到Test1",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "FileUpload"
+                ],
+                "summary": "POST /s3/Test1/upload",
+                "operationId": "FileUpload",
+                "parameters": [
+                    {
+                        "type": "file",
+                        "description": "file to upload",
+                        "name": "files",
+                        "in": "formData"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {}
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+        "/s3/aaa/upload": {
+            "post": {
+                "security": [
+                    {
+                        "authing": [
+                            "user"
+                        ]
+                    },
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "description": "上传文件到aaa",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "FileUpload"
+                ],
+                "summary": "POST /s3/aaa/upload",
+                "operationId": "FileUpload",
+                "parameters": [
+                    {
+                        "type": "file",
+                        "description": "file to upload",
+                        "name": "files",
+                        "in": "formData"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {}
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+        "/s3/ttt/upload": {
+            "post": {
+                "security": [
+                    {
+                        "authing": [
+                            "user"
+                        ]
+                    },
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "description": "上传文件到ttt",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "FileUpload"
+                ],
+                "summary": "POST /s3/ttt/upload",
+                "operationId": "FileUpload",
+                "parameters": [
+                    {
+                        "type": "file",
+                        "description": "file to upload",
+                        "name": "files",
+                        "in": "formData"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {}
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        }
+    }
+}

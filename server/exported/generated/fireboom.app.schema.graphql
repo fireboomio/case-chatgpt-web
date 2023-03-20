@@ -1,0 +1,1338 @@
+type Query {
+  grace_findFirstChatMessage(where: grace_ChatMessageWhereInput, orderBy: [grace_ChatMessageOrderByWithRelationInput], cursor: grace_ChatMessageWhereUniqueInput, take: Int, skip: Int, distinct: [grace_ChatMessageScalarFieldEnum]): grace_ChatMessage
+  grace_findFirstChatMessageOrThrow(where: grace_ChatMessageWhereInput, orderBy: [grace_ChatMessageOrderByWithRelationInput], cursor: grace_ChatMessageWhereUniqueInput, take: Int, skip: Int, distinct: [grace_ChatMessageScalarFieldEnum]): grace_ChatMessage
+  grace_findManyChatMessage(where: grace_ChatMessageWhereInput, orderBy: [grace_ChatMessageOrderByWithRelationInput], cursor: grace_ChatMessageWhereUniqueInput, take: Int, skip: Int, distinct: [grace_ChatMessageScalarFieldEnum]): [grace_ChatMessage]!
+  grace_aggregateChatMessage(where: grace_ChatMessageWhereInput, orderBy: [grace_ChatMessageOrderByWithRelationInput], cursor: grace_ChatMessageWhereUniqueInput, take: Int, skip: Int): grace_AggregateChatMessage!
+  grace_groupByChatMessage(where: grace_ChatMessageWhereInput, orderBy: [grace_ChatMessageOrderByWithAggregationInput], by: [grace_ChatMessageScalarFieldEnum]!, having: grace_ChatMessageScalarWhereWithAggregatesInput, take: Int, skip: Int): [grace_ChatMessageGroupByOutputType]!
+  grace_findUniqueChatMessage(where: grace_ChatMessageWhereUniqueInput!): grace_ChatMessage
+  grace_findUniqueChatMessageOrThrow(where: grace_ChatMessageWhereUniqueInput!): grace_ChatMessage
+  grace_findFirstHistory(where: grace_HistoryWhereInput, orderBy: [grace_HistoryOrderByWithRelationInput], cursor: grace_HistoryWhereUniqueInput, take: Int, skip: Int, distinct: [grace_HistoryScalarFieldEnum]): grace_History
+  grace_findFirstHistoryOrThrow(where: grace_HistoryWhereInput, orderBy: [grace_HistoryOrderByWithRelationInput], cursor: grace_HistoryWhereUniqueInput, take: Int, skip: Int, distinct: [grace_HistoryScalarFieldEnum]): grace_History
+  grace_findManyHistory(where: grace_HistoryWhereInput, orderBy: [grace_HistoryOrderByWithRelationInput], cursor: grace_HistoryWhereUniqueInput, take: Int, skip: Int, distinct: [grace_HistoryScalarFieldEnum]): [grace_History]!
+  grace_aggregateHistory(where: grace_HistoryWhereInput, orderBy: [grace_HistoryOrderByWithRelationInput], cursor: grace_HistoryWhereUniqueInput, take: Int, skip: Int): grace_AggregateHistory!
+  grace_groupByHistory(where: grace_HistoryWhereInput, orderBy: [grace_HistoryOrderByWithAggregationInput], by: [grace_HistoryScalarFieldEnum]!, having: grace_HistoryScalarWhereWithAggregatesInput, take: Int, skip: Int): [grace_HistoryGroupByOutputType]!
+  grace_findUniqueHistory(where: grace_HistoryWhereUniqueInput!): grace_History
+  grace_findUniqueHistoryOrThrow(where: grace_HistoryWhereUniqueInput!): grace_History
+  grace_findFirstPrompt(where: grace_PromptWhereInput, orderBy: [grace_PromptOrderByWithRelationInput], cursor: grace_PromptWhereUniqueInput, take: Int, skip: Int, distinct: [grace_PromptScalarFieldEnum]): grace_Prompt
+  grace_findFirstPromptOrThrow(where: grace_PromptWhereInput, orderBy: [grace_PromptOrderByWithRelationInput], cursor: grace_PromptWhereUniqueInput, take: Int, skip: Int, distinct: [grace_PromptScalarFieldEnum]): grace_Prompt
+  grace_findManyPrompt(where: grace_PromptWhereInput, orderBy: [grace_PromptOrderByWithRelationInput], cursor: grace_PromptWhereUniqueInput, take: Int, skip: Int, distinct: [grace_PromptScalarFieldEnum]): [grace_Prompt]!
+  grace_aggregatePrompt(where: grace_PromptWhereInput, orderBy: [grace_PromptOrderByWithRelationInput], cursor: grace_PromptWhereUniqueInput, take: Int, skip: Int): grace_AggregatePrompt!
+  grace_groupByPrompt(where: grace_PromptWhereInput, orderBy: [grace_PromptOrderByWithAggregationInput], by: [grace_PromptScalarFieldEnum]!, having: grace_PromptScalarWhereWithAggregatesInput, take: Int, skip: Int): [grace_PromptGroupByOutputType]!
+  grace_findUniquePrompt(where: grace_PromptWhereUniqueInput!): grace_Prompt
+  grace_findUniquePromptOrThrow(where: grace_PromptWhereUniqueInput!): grace_Prompt
+}
+
+type Mutation {
+  grace_createOneChatMessage(data: grace_ChatMessageCreateInput!): grace_ChatMessage
+  grace_upsertOneChatMessage(where: grace_ChatMessageWhereUniqueInput!, create: grace_ChatMessageCreateInput!, update: grace_ChatMessageUpdateInput!): grace_ChatMessage
+  grace_createManyChatMessage(data: [grace_ChatMessageCreateManyInput]!, skipDuplicates: Boolean): grace_AffectedRowsOutput
+  grace_deleteOneChatMessage(where: grace_ChatMessageWhereUniqueInput!): grace_ChatMessage
+  grace_updateOneChatMessage(data: grace_ChatMessageUpdateInput!, where: grace_ChatMessageWhereUniqueInput!): grace_ChatMessage
+  grace_updateManyChatMessage(data: grace_ChatMessageUpdateManyMutationInput!, where: grace_ChatMessageWhereInput): grace_AffectedRowsOutput
+  grace_deleteManyChatMessage(where: grace_ChatMessageWhereInput): grace_AffectedRowsOutput
+  grace_createOneHistory(data: grace_HistoryCreateInput!): grace_History
+  grace_upsertOneHistory(where: grace_HistoryWhereUniqueInput!, create: grace_HistoryCreateInput!, update: grace_HistoryUpdateInput!): grace_History
+  grace_createManyHistory(data: [grace_HistoryCreateManyInput]!, skipDuplicates: Boolean): grace_AffectedRowsOutput
+  grace_deleteOneHistory(where: grace_HistoryWhereUniqueInput!): grace_History
+  grace_updateOneHistory(data: grace_HistoryUpdateInput!, where: grace_HistoryWhereUniqueInput!): grace_History
+  grace_updateManyHistory(data: grace_HistoryUpdateManyMutationInput!, where: grace_HistoryWhereInput): grace_AffectedRowsOutput
+  grace_deleteManyHistory(where: grace_HistoryWhereInput): grace_AffectedRowsOutput
+  grace_createOnePrompt(data: grace_PromptCreateInput!): grace_Prompt
+  grace_upsertOnePrompt(where: grace_PromptWhereUniqueInput!, create: grace_PromptCreateInput!, update: grace_PromptUpdateInput!): grace_Prompt
+  grace_createManyPrompt(data: [grace_PromptCreateManyInput]!, skipDuplicates: Boolean): grace_AffectedRowsOutput
+  grace_deleteOnePrompt(where: grace_PromptWhereUniqueInput!): grace_Prompt
+  grace_updateOnePrompt(data: grace_PromptUpdateInput!, where: grace_PromptWhereUniqueInput!): grace_Prompt
+  grace_updateManyPrompt(data: grace_PromptUpdateManyMutationInput!, where: grace_PromptWhereInput): grace_AffectedRowsOutput
+  grace_deleteManyPrompt(where: grace_PromptWhereInput): grace_AffectedRowsOutput
+}
+
+
+
+input grace_NestedIntFilter {
+  equals: Int
+  in: [Int]
+  notIn: [Int]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: grace_NestedIntFilter
+}
+
+input grace_IntFilter {
+  equals: Int
+  in: [Int]
+  notIn: [Int]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: grace_NestedIntFilter
+}
+
+input grace_NestedStringFilter {
+  equals: String
+  in: [String]
+  notIn: [String]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: grace_NestedStringFilter
+}
+
+input grace_StringFilter {
+  equals: String
+  in: [String]
+  notIn: [String]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: grace_NestedStringFilter
+}
+
+input grace_NestedStringNullableFilter {
+  equals: String
+  in: [String]
+  notIn: [String]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: grace_NestedStringNullableFilter
+}
+
+input grace_StringNullableFilter {
+  equals: String
+  in: [String]
+  notIn: [String]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: grace_NestedStringNullableFilter
+}
+
+input grace_NestedDateTimeFilter {
+  equals: DateTime
+  in: [DateTime]
+  notIn: [DateTime]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: grace_NestedDateTimeFilter
+}
+
+input grace_DateTimeFilter {
+  equals: DateTime
+  in: [DateTime]
+  notIn: [DateTime]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: grace_NestedDateTimeFilter
+}
+
+input grace_NestedBigIntFilter {
+  equals: BigInt
+  in: [BigInt]
+  notIn: [BigInt]
+  lt: BigInt
+  lte: BigInt
+  gt: BigInt
+  gte: BigInt
+  not: grace_NestedBigIntFilter
+}
+
+input grace_BigIntFilter {
+  equals: BigInt
+  in: [BigInt]
+  notIn: [BigInt]
+  lt: BigInt
+  lte: BigInt
+  gt: BigInt
+  gte: BigInt
+  not: grace_NestedBigIntFilter
+}
+
+input grace_ChatMessageWhereInput {
+  AND: grace_ChatMessageWhereInput
+  OR: [grace_ChatMessageWhereInput]
+  NOT: grace_ChatMessageWhereInput
+  id: grace_IntFilter
+  text: grace_StringFilter
+  parentMessageId: grace_StringNullableFilter
+  createdAt: grace_DateTimeFilter
+  chatId: grace_BigIntFilter
+}
+
+enum grace_SortOrder {
+  asc
+  desc
+}
+
+input grace_ChatMessageOrderByWithRelationInput {
+  id: grace_SortOrder
+  text: grace_SortOrder
+  parentMessageId: grace_SortOrder
+  createdAt: grace_SortOrder
+  chatId: grace_SortOrder
+}
+
+input grace_ChatMessageWhereUniqueInput {
+  id: Int
+}
+
+enum grace_ChatMessageScalarFieldEnum {
+  id
+  text
+  parentMessageId
+  createdAt
+  chatId
+}
+
+type grace_ChatMessage {
+  id: Int!
+  text: String!
+  parentMessageId: String
+  createdAt: DateTime!
+  chatId: BigInt!
+  _join: Query!
+}
+
+type grace_ChatMessageCountAggregateOutputType {
+  id: Int!
+  text: Int!
+  parentMessageId: Int!
+  createdAt: Int!
+  chatId: Int!
+  _all: Int!
+  _join: Query!
+}
+
+type grace_ChatMessageAvgAggregateOutputType {
+  id: Float
+  chatId: Float
+  _join: Query!
+}
+
+type grace_ChatMessageSumAggregateOutputType {
+  id: Int
+  chatId: BigInt
+  _join: Query!
+}
+
+type grace_ChatMessageMinAggregateOutputType {
+  id: Int
+  text: String
+  parentMessageId: String
+  createdAt: DateTime
+  chatId: BigInt
+  _join: Query!
+}
+
+type grace_ChatMessageMaxAggregateOutputType {
+  id: Int
+  text: String
+  parentMessageId: String
+  createdAt: DateTime
+  chatId: BigInt
+  _join: Query!
+}
+
+type grace_AggregateChatMessage {
+  _count: grace_ChatMessageCountAggregateOutputType
+  _avg: grace_ChatMessageAvgAggregateOutputType
+  _sum: grace_ChatMessageSumAggregateOutputType
+  _min: grace_ChatMessageMinAggregateOutputType
+  _max: grace_ChatMessageMaxAggregateOutputType
+  _join: Query!
+}
+
+input grace_ChatMessageCountOrderByAggregateInput {
+  id: grace_SortOrder
+  text: grace_SortOrder
+  parentMessageId: grace_SortOrder
+  createdAt: grace_SortOrder
+  chatId: grace_SortOrder
+}
+
+input grace_ChatMessageAvgOrderByAggregateInput {
+  id: grace_SortOrder
+  chatId: grace_SortOrder
+}
+
+input grace_ChatMessageMaxOrderByAggregateInput {
+  id: grace_SortOrder
+  text: grace_SortOrder
+  parentMessageId: grace_SortOrder
+  createdAt: grace_SortOrder
+  chatId: grace_SortOrder
+}
+
+input grace_ChatMessageMinOrderByAggregateInput {
+  id: grace_SortOrder
+  text: grace_SortOrder
+  parentMessageId: grace_SortOrder
+  createdAt: grace_SortOrder
+  chatId: grace_SortOrder
+}
+
+input grace_ChatMessageSumOrderByAggregateInput {
+  id: grace_SortOrder
+  chatId: grace_SortOrder
+}
+
+input grace_ChatMessageOrderByWithAggregationInput {
+  id: grace_SortOrder
+  text: grace_SortOrder
+  parentMessageId: grace_SortOrder
+  createdAt: grace_SortOrder
+  chatId: grace_SortOrder
+  _count: grace_ChatMessageCountOrderByAggregateInput
+  _avg: grace_ChatMessageAvgOrderByAggregateInput
+  _max: grace_ChatMessageMaxOrderByAggregateInput
+  _min: grace_ChatMessageMinOrderByAggregateInput
+  _sum: grace_ChatMessageSumOrderByAggregateInput
+}
+
+input grace_NestedFloatFilter {
+  equals: Float
+  in: [Float]
+  notIn: [Float]
+  lt: Float
+  lte: Float
+  gt: Float
+  gte: Float
+  not: grace_NestedFloatFilter
+}
+
+input grace_NestedIntWithAggregatesFilter {
+  equals: Int
+  in: [Int]
+  notIn: [Int]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: grace_NestedIntWithAggregatesFilter
+  _count: grace_NestedIntFilter
+  _avg: grace_NestedFloatFilter
+  _sum: grace_NestedIntFilter
+  _min: grace_NestedIntFilter
+  _max: grace_NestedIntFilter
+}
+
+input grace_IntWithAggregatesFilter {
+  equals: Int
+  in: [Int]
+  notIn: [Int]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: grace_NestedIntWithAggregatesFilter
+  _count: grace_NestedIntFilter
+  _avg: grace_NestedFloatFilter
+  _sum: grace_NestedIntFilter
+  _min: grace_NestedIntFilter
+  _max: grace_NestedIntFilter
+}
+
+input grace_NestedStringWithAggregatesFilter {
+  equals: String
+  in: [String]
+  notIn: [String]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: grace_NestedStringWithAggregatesFilter
+  _count: grace_NestedIntFilter
+  _min: grace_NestedStringFilter
+  _max: grace_NestedStringFilter
+}
+
+input grace_StringWithAggregatesFilter {
+  equals: String
+  in: [String]
+  notIn: [String]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: grace_NestedStringWithAggregatesFilter
+  _count: grace_NestedIntFilter
+  _min: grace_NestedStringFilter
+  _max: grace_NestedStringFilter
+}
+
+input grace_NestedIntNullableFilter {
+  equals: Int
+  in: [Int]
+  notIn: [Int]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: grace_NestedIntNullableFilter
+}
+
+input grace_NestedStringNullableWithAggregatesFilter {
+  equals: String
+  in: [String]
+  notIn: [String]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: grace_NestedStringNullableWithAggregatesFilter
+  _count: grace_NestedIntNullableFilter
+  _min: grace_NestedStringNullableFilter
+  _max: grace_NestedStringNullableFilter
+}
+
+input grace_StringNullableWithAggregatesFilter {
+  equals: String
+  in: [String]
+  notIn: [String]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: grace_NestedStringNullableWithAggregatesFilter
+  _count: grace_NestedIntNullableFilter
+  _min: grace_NestedStringNullableFilter
+  _max: grace_NestedStringNullableFilter
+}
+
+input grace_NestedDateTimeWithAggregatesFilter {
+  equals: DateTime
+  in: [DateTime]
+  notIn: [DateTime]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: grace_NestedDateTimeWithAggregatesFilter
+  _count: grace_NestedIntFilter
+  _min: grace_NestedDateTimeFilter
+  _max: grace_NestedDateTimeFilter
+}
+
+input grace_DateTimeWithAggregatesFilter {
+  equals: DateTime
+  in: [DateTime]
+  notIn: [DateTime]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: grace_NestedDateTimeWithAggregatesFilter
+  _count: grace_NestedIntFilter
+  _min: grace_NestedDateTimeFilter
+  _max: grace_NestedDateTimeFilter
+}
+
+input grace_NestedBigIntWithAggregatesFilter {
+  equals: BigInt
+  in: [BigInt]
+  notIn: [BigInt]
+  lt: BigInt
+  lte: BigInt
+  gt: BigInt
+  gte: BigInt
+  not: grace_NestedBigIntWithAggregatesFilter
+  _count: grace_NestedIntFilter
+  _avg: grace_NestedFloatFilter
+  _sum: grace_NestedBigIntFilter
+  _min: grace_NestedBigIntFilter
+  _max: grace_NestedBigIntFilter
+}
+
+input grace_BigIntWithAggregatesFilter {
+  equals: BigInt
+  in: [BigInt]
+  notIn: [BigInt]
+  lt: BigInt
+  lte: BigInt
+  gt: BigInt
+  gte: BigInt
+  not: grace_NestedBigIntWithAggregatesFilter
+  _count: grace_NestedIntFilter
+  _avg: grace_NestedFloatFilter
+  _sum: grace_NestedBigIntFilter
+  _min: grace_NestedBigIntFilter
+  _max: grace_NestedBigIntFilter
+}
+
+input grace_ChatMessageScalarWhereWithAggregatesInput {
+  AND: grace_ChatMessageScalarWhereWithAggregatesInput
+  OR: [grace_ChatMessageScalarWhereWithAggregatesInput]
+  NOT: grace_ChatMessageScalarWhereWithAggregatesInput
+  id: grace_IntWithAggregatesFilter
+  text: grace_StringWithAggregatesFilter
+  parentMessageId: grace_StringNullableWithAggregatesFilter
+  createdAt: grace_DateTimeWithAggregatesFilter
+  chatId: grace_BigIntWithAggregatesFilter
+}
+
+type grace_ChatMessageGroupByOutputType {
+  id: Int!
+  text: String!
+  parentMessageId: String
+  createdAt: DateTime!
+  chatId: BigInt!
+  _count: grace_ChatMessageCountAggregateOutputType
+  _avg: grace_ChatMessageAvgAggregateOutputType
+  _sum: grace_ChatMessageSumAggregateOutputType
+  _min: grace_ChatMessageMinAggregateOutputType
+  _max: grace_ChatMessageMaxAggregateOutputType
+  _join: Query!
+}
+
+input grace_NestedDateTimeNullableFilter {
+  equals: DateTime
+  in: [DateTime]
+  notIn: [DateTime]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: grace_NestedDateTimeNullableFilter
+}
+
+input grace_DateTimeNullableFilter {
+  equals: DateTime
+  in: [DateTime]
+  notIn: [DateTime]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: grace_NestedDateTimeNullableFilter
+}
+
+input grace_HistoryWhereInput {
+  AND: grace_HistoryWhereInput
+  OR: [grace_HistoryWhereInput]
+  NOT: grace_HistoryWhereInput
+  id: grace_IntFilter
+  uuid: grace_BigIntFilter
+  title: grace_StringFilter
+  createdAt: grace_DateTimeFilter
+  updatedAt: grace_DateTimeNullableFilter
+}
+
+input grace_HistoryOrderByWithRelationInput {
+  id: grace_SortOrder
+  uuid: grace_SortOrder
+  title: grace_SortOrder
+  createdAt: grace_SortOrder
+  updatedAt: grace_SortOrder
+}
+
+input grace_HistoryWhereUniqueInput {
+  id: Int
+  uuid: BigInt
+}
+
+enum grace_HistoryScalarFieldEnum {
+  id
+  uuid
+  title
+  createdAt
+  updatedAt
+}
+
+type grace_History {
+  id: Int!
+  uuid: BigInt!
+  title: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
+  _join: Query!
+}
+
+type grace_HistoryCountAggregateOutputType {
+  id: Int!
+  uuid: Int!
+  title: Int!
+  createdAt: Int!
+  updatedAt: Int!
+  _all: Int!
+  _join: Query!
+}
+
+type grace_HistoryAvgAggregateOutputType {
+  id: Float
+  uuid: Float
+  _join: Query!
+}
+
+type grace_HistorySumAggregateOutputType {
+  id: Int
+  uuid: BigInt
+  _join: Query!
+}
+
+type grace_HistoryMinAggregateOutputType {
+  id: Int
+  uuid: BigInt
+  title: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  _join: Query!
+}
+
+type grace_HistoryMaxAggregateOutputType {
+  id: Int
+  uuid: BigInt
+  title: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  _join: Query!
+}
+
+type grace_AggregateHistory {
+  _count: grace_HistoryCountAggregateOutputType
+  _avg: grace_HistoryAvgAggregateOutputType
+  _sum: grace_HistorySumAggregateOutputType
+  _min: grace_HistoryMinAggregateOutputType
+  _max: grace_HistoryMaxAggregateOutputType
+  _join: Query!
+}
+
+input grace_HistoryCountOrderByAggregateInput {
+  id: grace_SortOrder
+  uuid: grace_SortOrder
+  title: grace_SortOrder
+  createdAt: grace_SortOrder
+  updatedAt: grace_SortOrder
+}
+
+input grace_HistoryAvgOrderByAggregateInput {
+  id: grace_SortOrder
+  uuid: grace_SortOrder
+}
+
+input grace_HistoryMaxOrderByAggregateInput {
+  id: grace_SortOrder
+  uuid: grace_SortOrder
+  title: grace_SortOrder
+  createdAt: grace_SortOrder
+  updatedAt: grace_SortOrder
+}
+
+input grace_HistoryMinOrderByAggregateInput {
+  id: grace_SortOrder
+  uuid: grace_SortOrder
+  title: grace_SortOrder
+  createdAt: grace_SortOrder
+  updatedAt: grace_SortOrder
+}
+
+input grace_HistorySumOrderByAggregateInput {
+  id: grace_SortOrder
+  uuid: grace_SortOrder
+}
+
+input grace_HistoryOrderByWithAggregationInput {
+  id: grace_SortOrder
+  uuid: grace_SortOrder
+  title: grace_SortOrder
+  createdAt: grace_SortOrder
+  updatedAt: grace_SortOrder
+  _count: grace_HistoryCountOrderByAggregateInput
+  _avg: grace_HistoryAvgOrderByAggregateInput
+  _max: grace_HistoryMaxOrderByAggregateInput
+  _min: grace_HistoryMinOrderByAggregateInput
+  _sum: grace_HistorySumOrderByAggregateInput
+}
+
+input grace_NestedDateTimeNullableWithAggregatesFilter {
+  equals: DateTime
+  in: [DateTime]
+  notIn: [DateTime]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: grace_NestedDateTimeNullableWithAggregatesFilter
+  _count: grace_NestedIntNullableFilter
+  _min: grace_NestedDateTimeNullableFilter
+  _max: grace_NestedDateTimeNullableFilter
+}
+
+input grace_DateTimeNullableWithAggregatesFilter {
+  equals: DateTime
+  in: [DateTime]
+  notIn: [DateTime]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: grace_NestedDateTimeNullableWithAggregatesFilter
+  _count: grace_NestedIntNullableFilter
+  _min: grace_NestedDateTimeNullableFilter
+  _max: grace_NestedDateTimeNullableFilter
+}
+
+input grace_HistoryScalarWhereWithAggregatesInput {
+  AND: grace_HistoryScalarWhereWithAggregatesInput
+  OR: [grace_HistoryScalarWhereWithAggregatesInput]
+  NOT: grace_HistoryScalarWhereWithAggregatesInput
+  id: grace_IntWithAggregatesFilter
+  uuid: grace_BigIntWithAggregatesFilter
+  title: grace_StringWithAggregatesFilter
+  createdAt: grace_DateTimeWithAggregatesFilter
+  updatedAt: grace_DateTimeNullableWithAggregatesFilter
+}
+
+type grace_HistoryGroupByOutputType {
+  id: Int!
+  uuid: BigInt!
+  title: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
+  _count: grace_HistoryCountAggregateOutputType
+  _avg: grace_HistoryAvgAggregateOutputType
+  _sum: grace_HistorySumAggregateOutputType
+  _min: grace_HistoryMinAggregateOutputType
+  _max: grace_HistoryMaxAggregateOutputType
+  _join: Query!
+}
+
+input grace_PromptWhereInput {
+  AND: grace_PromptWhereInput
+  OR: [grace_PromptWhereInput]
+  NOT: grace_PromptWhereInput
+  id: grace_IntFilter
+  prompt: grace_StringFilter
+  title: grace_StringFilter
+  createdAt: grace_DateTimeFilter
+  updatedAt: grace_DateTimeNullableFilter
+}
+
+input grace_PromptOrderByWithRelationInput {
+  id: grace_SortOrder
+  prompt: grace_SortOrder
+  title: grace_SortOrder
+  createdAt: grace_SortOrder
+  updatedAt: grace_SortOrder
+}
+
+input grace_PromptWhereUniqueInput {
+  id: Int
+}
+
+enum grace_PromptScalarFieldEnum {
+  id
+  prompt
+  title
+  createdAt
+  updatedAt
+}
+
+type grace_Prompt {
+  id: Int!
+  prompt: String!
+  title: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
+  _join: Query!
+}
+
+type grace_PromptCountAggregateOutputType {
+  id: Int!
+  prompt: Int!
+  title: Int!
+  createdAt: Int!
+  updatedAt: Int!
+  _all: Int!
+  _join: Query!
+}
+
+type grace_PromptAvgAggregateOutputType {
+  id: Float
+  _join: Query!
+}
+
+type grace_PromptSumAggregateOutputType {
+  id: Int
+  _join: Query!
+}
+
+type grace_PromptMinAggregateOutputType {
+  id: Int
+  prompt: String
+  title: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  _join: Query!
+}
+
+type grace_PromptMaxAggregateOutputType {
+  id: Int
+  prompt: String
+  title: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  _join: Query!
+}
+
+type grace_AggregatePrompt {
+  _count: grace_PromptCountAggregateOutputType
+  _avg: grace_PromptAvgAggregateOutputType
+  _sum: grace_PromptSumAggregateOutputType
+  _min: grace_PromptMinAggregateOutputType
+  _max: grace_PromptMaxAggregateOutputType
+  _join: Query!
+}
+
+input grace_PromptCountOrderByAggregateInput {
+  id: grace_SortOrder
+  prompt: grace_SortOrder
+  title: grace_SortOrder
+  createdAt: grace_SortOrder
+  updatedAt: grace_SortOrder
+}
+
+input grace_PromptAvgOrderByAggregateInput {
+  id: grace_SortOrder
+}
+
+input grace_PromptMaxOrderByAggregateInput {
+  id: grace_SortOrder
+  prompt: grace_SortOrder
+  title: grace_SortOrder
+  createdAt: grace_SortOrder
+  updatedAt: grace_SortOrder
+}
+
+input grace_PromptMinOrderByAggregateInput {
+  id: grace_SortOrder
+  prompt: grace_SortOrder
+  title: grace_SortOrder
+  createdAt: grace_SortOrder
+  updatedAt: grace_SortOrder
+}
+
+input grace_PromptSumOrderByAggregateInput {
+  id: grace_SortOrder
+}
+
+input grace_PromptOrderByWithAggregationInput {
+  id: grace_SortOrder
+  prompt: grace_SortOrder
+  title: grace_SortOrder
+  createdAt: grace_SortOrder
+  updatedAt: grace_SortOrder
+  _count: grace_PromptCountOrderByAggregateInput
+  _avg: grace_PromptAvgOrderByAggregateInput
+  _max: grace_PromptMaxOrderByAggregateInput
+  _min: grace_PromptMinOrderByAggregateInput
+  _sum: grace_PromptSumOrderByAggregateInput
+}
+
+input grace_PromptScalarWhereWithAggregatesInput {
+  AND: grace_PromptScalarWhereWithAggregatesInput
+  OR: [grace_PromptScalarWhereWithAggregatesInput]
+  NOT: grace_PromptScalarWhereWithAggregatesInput
+  id: grace_IntWithAggregatesFilter
+  prompt: grace_StringWithAggregatesFilter
+  title: grace_StringWithAggregatesFilter
+  createdAt: grace_DateTimeWithAggregatesFilter
+  updatedAt: grace_DateTimeNullableWithAggregatesFilter
+}
+
+type grace_PromptGroupByOutputType {
+  id: Int!
+  prompt: String!
+  title: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
+  _count: grace_PromptCountAggregateOutputType
+  _avg: grace_PromptAvgAggregateOutputType
+  _sum: grace_PromptSumAggregateOutputType
+  _min: grace_PromptMinAggregateOutputType
+  _max: grace_PromptMaxAggregateOutputType
+  _join: Query!
+}
+
+input grace_ChatMessageCreateInput {
+  text: String!
+  parentMessageId: String
+  createdAt: DateTime
+  chatId: BigInt!
+}
+
+input grace_StringFieldUpdateOperationsInput {
+  set: String
+}
+
+input grace_NullableStringFieldUpdateOperationsInput {
+  set: String
+}
+
+input grace_DateTimeFieldUpdateOperationsInput {
+  set: DateTime
+}
+
+input grace_BigIntFieldUpdateOperationsInput {
+  set: BigInt
+  increment: BigInt
+  decrement: BigInt
+  multiply: BigInt
+  divide: BigInt
+}
+
+input grace_ChatMessageUpdateInput {
+  text: grace_StringFieldUpdateOperationsInput
+  parentMessageId: grace_NullableStringFieldUpdateOperationsInput
+  createdAt: grace_DateTimeFieldUpdateOperationsInput
+  chatId: grace_BigIntFieldUpdateOperationsInput
+}
+
+input grace_ChatMessageCreateManyInput {
+  id: Int
+  text: String!
+  parentMessageId: String
+  createdAt: DateTime
+  chatId: BigInt!
+}
+
+type grace_AffectedRowsOutput {
+  count: Int!
+  _join: Query!
+}
+
+input grace_ChatMessageUpdateManyMutationInput {
+  text: grace_StringFieldUpdateOperationsInput
+  parentMessageId: grace_NullableStringFieldUpdateOperationsInput
+  createdAt: grace_DateTimeFieldUpdateOperationsInput
+  chatId: grace_BigIntFieldUpdateOperationsInput
+}
+
+input grace_HistoryCreateInput {
+  uuid: BigInt!
+  title: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input grace_NullableDateTimeFieldUpdateOperationsInput {
+  set: DateTime
+}
+
+input grace_HistoryUpdateInput {
+  uuid: grace_BigIntFieldUpdateOperationsInput
+  title: grace_StringFieldUpdateOperationsInput
+  createdAt: grace_DateTimeFieldUpdateOperationsInput
+  updatedAt: grace_NullableDateTimeFieldUpdateOperationsInput
+}
+
+input grace_HistoryCreateManyInput {
+  id: Int
+  uuid: BigInt!
+  title: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input grace_HistoryUpdateManyMutationInput {
+  uuid: grace_BigIntFieldUpdateOperationsInput
+  title: grace_StringFieldUpdateOperationsInput
+  createdAt: grace_DateTimeFieldUpdateOperationsInput
+  updatedAt: grace_NullableDateTimeFieldUpdateOperationsInput
+}
+
+input grace_PromptCreateInput {
+  prompt: String!
+  title: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input grace_PromptUpdateInput {
+  prompt: grace_StringFieldUpdateOperationsInput
+  title: grace_StringFieldUpdateOperationsInput
+  createdAt: grace_DateTimeFieldUpdateOperationsInput
+  updatedAt: grace_NullableDateTimeFieldUpdateOperationsInput
+}
+
+input grace_PromptCreateManyInput {
+  id: Int
+  prompt: String!
+  title: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input grace_PromptUpdateManyMutationInput {
+  prompt: grace_StringFieldUpdateOperationsInput
+  title: grace_StringFieldUpdateOperationsInput
+  createdAt: grace_DateTimeFieldUpdateOperationsInput
+  updatedAt: grace_NullableDateTimeFieldUpdateOperationsInput
+}
+
+scalar DateTime
+
+scalar grace_Json
+
+scalar UUID
+
+scalar BigInt
+
+scalar grace_Decimal
+
+scalar grace_Bytes
+
+directive @rbac(
+  
+  """the user must match all roles"""
+  requireMatchAll: [WG_ROLE]
+  
+  """the user must match at least one of the roles"""
+  requireMatchAny: [WG_ROLE]
+  
+  """the user must not match all of the roles"""
+  denyMatchAll: [WG_ROLE]
+  
+  """the user must not match any of the roles"""
+  denyMatchAny: [WG_ROLE]
+) on QUERY | MUTATION | SUBSCRIPTION
+
+enum WG_ROLE {
+  admin
+  user
+}
+
+directive @fromClaim(name: Claim) on VARIABLE_DEFINITION
+
+enum Claim {
+  USERID
+  EMAIL
+  EMAIL_VERIFIED
+  NAME
+  NICKNAME
+  LOCATION
+  PROVIDER
+}
+
+directive @hooksVariable on VARIABLE_DEFINITION
+
+directive @jsonSchema(
+  
+  """
+  The value of both of these keywords MUST be a string.
+  
+  Both of these keywords can be used to decorate a user interface with
+  information about the data produced by this user interface.  A title
+  will preferably be short, whereas a description will provide
+  explanation about the purpose of the instance described by this
+  schema.
+  """
+  title: String
+  
+  """
+  The value of both of these keywords MUST be a string.
+  
+  Both of these keywords can be used to decorate a user interface with
+  information about the data produced by this user interface.  A title
+  will preferably be short, whereas a description will provide
+  explanation about the purpose of the instance described by this
+  schema.
+  """
+  description: String
+  
+  """
+  The value of "multipleOf" MUST be a number, strictly greater than 0.
+  
+  A numeric instance is valid only if division by this keyword's value
+  results in an integer.
+  """
+  multipleOf: Int
+  
+  """
+  The value of "maximum" MUST be a number, representing an inclusive
+  upper limit for a numeric instance.
+  
+  If the instance is a number, then this keyword validates only if the
+  instance is less than or exactly equal to "maximum".
+  """
+  maximum: Int
+  
+  """
+  The value of "exclusiveMaximum" MUST be number, representing an
+  exclusive upper limit for a numeric instance.
+  
+  If the instance is a number, then the instance is valid only if it
+  has a value strictly less than (not equal to) "exclusiveMaximum".
+  """
+  exclusiveMaximum: Int
+  
+  """
+  The value of "minimum" MUST be a number, representing an inclusive
+  lower limit for a numeric instance.
+  
+  If the instance is a number, then this keyword validates only if the
+  instance is greater than or exactly equal to "minimum".
+  """
+  minimum: Int
+  
+  """
+  The value of "exclusiveMinimum" MUST be number, representing an
+  exclusive lower limit for a numeric instance.
+  
+  If the instance is a number, then the instance is valid only if it
+  has a value strictly greater than (not equal to) "exclusiveMinimum".
+  """
+  exclusiveMinimum: Int
+  
+  """
+  The value of this keyword MUST be a non-negative integer.
+  
+  A string instance is valid against this keyword if its length is less
+  than, or equal to, the value of this keyword.
+  
+  The length of a string instance is defined as the number of its
+  characters as defined by RFC 7159 [RFC7159].
+  """
+  maxLength: Int
+  
+  """
+  The value of this keyword MUST be a non-negative integer.
+  
+  A string instance is valid against this keyword if its length is
+  greater than, or equal to, the value of this keyword.
+  
+  The length of a string instance is defined as the number of its
+  characters as defined by RFC 7159 [RFC7159].
+  
+  Omitting this keyword has the same behavior as a value of 0.
+  """
+  minLength: Int
+  
+  """
+  The value of this keyword MUST be a string.  This string SHOULD be a
+  valid regular expression, according to the ECMA 262 regular
+  expression dialect.
+  
+  A string instance is considered valid if the regular expression
+  matches the instance successfully.  Recall: regular expressions are
+  not implicitly anchored.
+  """
+  pattern: String
+  
+  """
+  The value of this keyword MUST be a non-negative integer.
+  
+  An array instance is valid against "maxItems" if its size is less
+  than, or equal to, the value of this keyword.
+  """
+  maxItems: Int
+  
+  """
+  The value of this keyword MUST be a non-negative integer.
+  
+  An array instance is valid against "minItems" if its size is greater
+  than, or equal to, the value of this keyword.
+  
+  Omitting this keyword has the same behavior as a value of 0.
+  """
+  minItems: Int
+  
+  """
+  The value of this keyword MUST be a boolean.
+  
+  If this keyword has boolean value false, the instance validates
+  successfully.  If it has boolean value true, the instance validates
+  successfully if all of its elements are unique.
+  
+  Omitting this keyword has the same behavior as a value of false.
+  """
+  uniqueItems: Boolean
+  commonPattern: COMMON_REGEX_PATTERN
+) on VARIABLE_DEFINITION
+
+enum COMMON_REGEX_PATTERN {
+  EMAIL
+  DOMAIN
+}
+
+"""
+The directive @injectCurrentDateTime injects a DateTime string of the current date and time into the variable.
+This variable MUST be a string compatible scalar. 
+
+The default format, is: ISO 8601
+If no format is chosen, the default format is used.
+Custom formats are allowed by specifying a format conforming to the Golang specification for specifying a date time format.
+"""
+directive @injectCurrentDateTime(
+  format: WunderGraphDateTimeFormat = ISO8601
+  
+  """customFormat must conform to the Golang specification for specifying a date time format"""
+  customFormat: String
+) on VARIABLE_DEFINITION
+
+enum WunderGraphDateTimeFormat {
+  
+  """2006-01-02T15:04:05-0700"""
+  ISO8601
+  
+  """Mon Jan _2 15:04:05 2006"""
+  ANSIC
+  
+  """Mon Jan _2 15:04:05 MST 2006"""
+  UnixDate
+  
+  """Mon Jan 02 15:04:05 -0700 2006"""
+  RubyDate
+  
+  """02 Jan 06 15:04 MST"""
+  RFC822
+  
+  """02 Jan 06 15:04 -0700"""
+  RFC822Z
+  
+  """Monday, 02-Jan-06 15:04:05 MST"""
+  RFC850
+  
+  """Mon, 02 Jan 2006 15:04:05 MST"""
+  RFC1123
+  
+  """Mon, 02 Jan 2006 15:04:05 -0700"""
+  RFC1123Z
+  
+  """2006-01-02T15:04:05Z07:00"""
+  RFC3339
+  
+  """2006-01-02T15:04:05.999999999Z07:00"""
+  RFC3339Nano
+  
+  """3:04PM"""
+  Kitchen
+  
+  """Jan _2 15:04:05"""
+  Stamp
+  
+  """Jan _2 15:04:05.000"""
+  StampMilli
+  
+  """Jan _2 15:04:05.000000"""
+  StampMicro
+  
+  """Jan _2 15:04:05.000000000"""
+  StampNano
+}
+
+"""
+The directive @injectGeneratedUUID injects a generated UUID into the variable.
+This variable MUST be a string.
+At the same time, it removes the variable from the input definition,
+disallowing the user to supply it.
+
+This means, the UUID is 100% generated server-side and can be considered untempered.
+"""
+directive @injectGeneratedUUID on VARIABLE_DEFINITION
+
+"""
+The @internalOperation Directive marks an Operation as internal.
+By doing so, the Operation is no longer accessible from the public API.
+It can only be accessed by internal services, like hooks.
+"""
+directive @internalOperation on QUERY | MUTATION | SUBSCRIPTION
+
+"""The directive @injectEnvironmentVariable allows you to inject an environment variable into the variable definition."""
+directive @injectEnvironmentVariable(name: String!) on VARIABLE_DEFINITION
+
+"""
+The @export directive instructs the Execution Planner to export the field during the execution into the variable of the 'as' argument.
+As the execution is depth first, a field can only be used after it has been exported.
+Additionally, a field can only be used after using the '_join' field or on a different data source.
+It's not possible to export a field and use it in for the same data source.
+
+Note that the @export directive only works on fields that return a single value.
+It's not possible to export a list or object field.
+"""
+directive @export(
+  
+  """The argument 'as' is the name of the variable to export the field to."""
+  as: String!
+) on FIELD
+
+"""
+The directive @internal marks a variable definition as internal so that clients can't access it.
+The field is also not visible in the public API.
+It's only being used as an internal variable to export fields into.
+"""
+directive @internal on VARIABLE_DEFINITION
+
+"""
+The @transform directive allows to apply transformations to the response.
+By applying the directive, the shape of the response can be altered,
+which will also modify the JSON-Schema of the response.
+That is, you will keep full type safety and code-generation for transformed fields.
+"""
+directive @transform(
+  
+  """
+  Using the 'get' transformation allows you to extract a nested field using a JSON path.
+  This is useful to unnest data, e.g. when using the '_join' field, which adds an extra layer of nesting.
+  
+  Example:
+  
+  query GetName {
+  name: me @transform(get: "info.name") {
+      info {
+          name
+      }
+  }
+  }
+  
+  Before the transformation, the resolve looks like this:
+  
+  {
+  "name": {
+      "info": {
+          "name": "John Doe"
+      }
+  }
+  }
+  
+  With the transformation applied, the response will be reshaped like this:
+  
+  {
+  "name": "John Doe"
+  }
+  """
+  get: String
+) on FIELD

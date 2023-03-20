@@ -1,0 +1,11 @@
+mutation CreateOneHistory($uuid: BigInt!, $title: String!, $updatedAt: DateTime! @injectCurrentDateTime(format: UnixDate)) @internalOperation {
+  data: grace_createOneHistory(
+    data: {uuid: $uuid, title: $title, updatedAt: $updatedAt}
+  ) {
+    id
+    uuid
+    title
+    createdAt
+    updatedAt
+  }
+}

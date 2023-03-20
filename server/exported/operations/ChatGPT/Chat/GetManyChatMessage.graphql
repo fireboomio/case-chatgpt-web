@@ -1,0 +1,9 @@
+query GetManyChatMessage @internalOperation {
+  data: grace_findManyChatMessage {
+    id
+    text
+    parentMessageId
+    createdAt
+    chatId
+  }
+}

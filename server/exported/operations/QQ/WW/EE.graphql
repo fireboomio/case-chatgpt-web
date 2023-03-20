@@ -1,0 +1,10 @@
+query MyQuery {
+  nacos_findFirstroles {
+    role
+    username
+  }
+  sqlite_findFirstUntitled1 {
+    createdAt
+    deletedAt
+  }
+}
