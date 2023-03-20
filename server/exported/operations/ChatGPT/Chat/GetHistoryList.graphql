@@ -6,7 +6,6 @@ query GetHistoryList($take: Int = 10, $skip: Int = 0, $orderBy: [grace_HistoryOr
     where: {AND: $query}
   ) {
     id
-    uuid
     title
     createdAt
     updatedAt

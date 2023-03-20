@@ -1,22 +1,16 @@
 {
 "graphql_operation_files": [
 {
-"operation_name": "AAA__BBB__T",
-"api_mount_path": "AAA/BBB/T",
-"file_path": "AAA/BBB/T.graphql",
-"content": ""
-},
-{
 "operation_name": "ChatGPT__Chat__CreateOneChatMessage",
 "api_mount_path": "ChatGPT/Chat/CreateOneChatMessage",
 "file_path": "ChatGPT/Chat/CreateOneChatMessage.graphql",
-"content": "mutation ChatGPT__Chat__CreateOneChatMessage($text: String!, $parentMessageId: String, $chatId: BigInt!){data: grace_createOneChatMessage(data: {text: $text,parentMessageId: $parentMessageId,chatId: $chatId}){id text parentMessageId createdAt chatId}}"
+"content": "mutation ChatGPT__Chat__CreateOneChatMessage($text: String!, $parentMessageId: String, $chatId: Int!){data: grace_createOneChatMessage(data: {text: $text,parentMessageId: $parentMessageId,History: {connect: {id: $chatId}}}){id text parentMessageId createdAt chatId}}"
 },
 {
 "operation_name": "ChatGPT__Chat__CreateOneHistory",
 "api_mount_path": "ChatGPT/Chat/CreateOneHistory",
 "file_path": "ChatGPT/Chat/CreateOneHistory.graphql",
-"content": "mutation ChatGPT__Chat__CreateOneHistory($uuid: BigInt!, $title: String!, $updatedAt: DateTime! @injectCurrentDateTime(format: UnixDate) )@internalOperation {data: grace_createOneHistory(data: {uuid: $uuid,title: $title,updatedAt: $updatedAt}){id uuid title createdAt updatedAt}}"
+"content": "mutation ChatGPT__Chat__CreateOneHistory($title: String!)@internalOperation {data: grace_createOneHistory(data: {title: $title}){id title createdAt updatedAt}}"
 },
 {
 "operation_name": "ChatGPT__Chat__DeleteOneChatMessage",
@@ -34,7 +28,7 @@
 "operation_name": "ChatGPT__Chat__GetHistoryList",
 "api_mount_path": "ChatGPT/Chat/GetHistoryList",
 "file_path": "ChatGPT/Chat/GetHistoryList.graphql",
-"content": "query ChatGPT__Chat__GetHistoryList($take: Int = 10, $skip: Int = 0, $orderBy: [grace_HistoryOrderByWithRelationInput], $query: grace_HistoryWhereInput)@internalOperation {data: grace_findManyHistory(skip: $skip, take: $take, orderBy: $orderBy, where: {AND: $query}){id uuid title createdAt updatedAt} total: grace_aggregateHistory(where: {AND: $query})@transform(get: \"_count.id\") {_count {id}}}"
+"content": "query ChatGPT__Chat__GetHistoryList($take: Int = 10, $skip: Int = 0, $orderBy: [grace_HistoryOrderByWithRelationInput], $query: grace_HistoryWhereInput)@internalOperation {data: grace_findManyHistory(skip: $skip, take: $take, orderBy: $orderBy, where: {AND: $query}){id title createdAt updatedAt} total: grace_aggregateHistory(where: {AND: $query})@transform(get: \"_count.id\") {_count {id}}}"
 },
 {
 "operation_name": "ChatGPT__Chat__GetManyChatMessage",
@@ -46,7 +40,7 @@
 "operation_name": "ChatGPT__Chat__UpdateOneHistory",
 "api_mount_path": "ChatGPT/Chat/UpdateOneHistory",
 "file_path": "ChatGPT/Chat/UpdateOneHistory.graphql",
-"content": "mutation ChatGPT__Chat__UpdateOneHistory($id: Int!, $uuid: BigInt, $title: String, $updatedAt: DateTime! @injectCurrentDateTime(format: UnixDate) ){data: grace_updateOneHistory(data: {uuid: {set: $uuid},title: {set: $title},updatedAt: {set: $updatedAt}}, where: {id: $id}){id uuid title createdAt updatedAt}}"
+"content": "mutation ChatGPT__Chat__UpdateOneHistory($id: Int!, $title: String){data: grace_updateOneHistory(data: {title: {set: $title}}, where: {id: $id}){id title createdAt updatedAt}}"
 },
 {
 "operation_name": "ChatGPT__Propmt__CreateOnePrompt",
@@ -77,53 +71,15 @@
 "api_mount_path": "ChatGPT/Propmt/UpdateOnePrompt",
 "file_path": "ChatGPT/Propmt/UpdateOnePrompt.graphql",
 "content": "mutation ChatGPT__Propmt__UpdateOnePrompt($id: Int!, $prompt: String, $title: String, $updatedAt: DateTime! @injectCurrentDateTime(format: UnixDate) ){data: grace_updateOnePrompt(data: {prompt: {set: $prompt},title: {set: $title},updatedAt: {set: $updatedAt}}, where: {id: $id}){id prompt title createdAt updatedAt}}"
-},
+}
+],
+"typescript_operation_files": [
 {
 "operation_name": "ChatGPT__Subscription__ChatSSE",
 "api_mount_path": "ChatGPT/Subscription/ChatSSE",
-"file_path": "ChatGPT/Subscription/ChatSSE.graphql",
-"content": ""
-},
-{
-"operation_name": "QQ__WW__EE",
-"api_mount_path": "QQ/WW/EE",
-"file_path": "QQ/WW/EE.graphql",
-"content": ""
-},
-{
-"operation_name": "Sub__Test",
-"api_mount_path": "Sub/Test",
-"file_path": "Sub/Test.graphql.off",
-"content": ""
+"file_path": "ChatGPT/Subscription/ChatSSE.ts",
+"module_path": "operations/ChatGPT/Subscription/ChatSSE"
 }
 ],
-"typescript_operation_files": null,
-"invalid": [
-"AAA__BBB__T",
-"ChatGPT__Subscription__ChatSSE",
-"QQ__WW__EE",
-"Sub__Test"
-],
-"questions": [
-{
-"model": 2,
-"name": "AAA/BBB/T",
-"msg": "error normalizing operation: external: field: my_findUniquequestion not defined on type: Query, locations: [], path: [query,my_findUniquequestion], operationFilePath: AAA/BBB/T.graphql"
-},
-{
-"model": 2,
-"name": "ChatGPT/Subscription/ChatSSE",
-"msg": "error normalizing operation: external: Unknown type \"\"., locations: [], path: [subscription], operationFilePath: ChatGPT/Subscription/ChatSSE.graphql"
-},
-{
-"model": 2,
-"name": "QQ/WW/EE",
-"msg": "error normalizing operation: external: field: nacos_findFirstroles not defined on type: Query, locations: [], path: [query,nacos_findFirstroles], operationFilePath: QQ/WW/EE.graphql"
-},
-{
-"model": 2,
-"name": "Sub/Test",
-"msg": "error normalizing operation: external: Unknown type \"\"., locations: [], path: [subscription], operationFilePath: Sub/Test.graphql.off"
-}
-]
+"questions": null
 }

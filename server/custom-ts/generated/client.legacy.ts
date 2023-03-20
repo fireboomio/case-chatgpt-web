@@ -11,19 +11,9 @@ import {
     LogoutOptions
 } from "fireboom-wundersdk/client";
 
-export const FIREBOOM_S3_ENABLED = true
+export const FIREBOOM_S3_ENABLED = false
 export const FIREBOOM_AUTH_ENABLED = true
 
-export interface UploadResponse { key: string }
-
-export enum S3Provider {
-    "Test1" = "Test1",
-    "ttt" = "ttt",
-    "aaa" = "aaa",
-    "TTTTT" = "TTTTT",
-}
-
-export type UploadConfig = UploadRequestOptions<S3Provider>
 
 export enum AuthProviderId {
     "authing" = "authing",
@@ -43,7 +33,7 @@ export class Client {
 
         this._client = new WunderGraphClient({
             baseURL,
-            applicationHash: "69fb5af7",
+            applicationHash: "3aed7b29",
             sdkVersion: "",
             // customFetch: fetch,
             ...rest
@@ -192,20 +182,6 @@ export class Client {
     }
     
     
-    public uploadFiles = async (config: UploadConfig): Promise<Response<UploadResponse[]>> => {
-      try {
-        const result = await this._client.uploadFiles(config);
-        return {
-          status: "ok",
-          body: result.fileKeys.map((key) => ({key})),
-        };
-      } catch (e: any) {
-        return {
-          status: 'error',
-          message: e.message
-        }
-      }
-    };
 
     public fetchUser = async (revalidate?: boolean): Promise<User | null> => {
 		try {

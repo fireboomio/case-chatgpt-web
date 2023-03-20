@@ -1,3 +1,0 @@
-subscription MyQuery {
-  chatGPT_completion(promptInput: {})
-}

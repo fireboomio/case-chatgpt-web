@@ -1,18 +1,18 @@
 export interface ChatGPT__Chat__CreateOneChatMessageInput {
-     chatId: string
+     chatId: number
                  parentMessageId?: string
                  text: string
             
 }
 export interface InternalChatGPT__Chat__CreateOneChatMessageInput {
-      parentMessageId?: string
       text: string
-      chatId: string
+      chatId: number
+      parentMessageId?: string
 }
 export interface InjectedChatGPT__Chat__CreateOneChatMessageInput {
-     parentMessageId?: string
+     chatId: number
+         parentMessageId?: string
          text: string
-         chatId: string
     
 }
 
@@ -24,26 +24,21 @@ export interface ChatGPT__Chat__CreateOneChatMessageResponse {
 }
 export interface ChatGPT__Chat__CreateOneChatMessageResponseData {
     data?: {
+        chatId?: number
+        createdAt?: string
         id?: number
         parentMessageId?: string
         text?: string
-        chatId?: string
-        createdAt?: string
     },
 }export interface ChatGPT__Chat__CreateOneHistoryInput {
-     uuid: string
-                 title: string
+     title: string
             
 }
 export interface InternalChatGPT__Chat__CreateOneHistoryInput {
       title: string
-      updatedAt?: string
-      uuid: string
 }
 export interface InjectedChatGPT__Chat__CreateOneHistoryInput {
      title: string
-         updatedAt: string
-         uuid: string
     
 }
 
@@ -55,11 +50,10 @@ export interface ChatGPT__Chat__CreateOneHistoryResponse {
 }
 export interface ChatGPT__Chat__CreateOneHistoryResponseData {
     data?: {
-        createdAt?: string
-        id?: number
         title?: string
         updatedAt?: string
-        uuid?: string
+        createdAt?: string
+        id?: number
     },
 }export interface ChatGPT__Chat__DeleteOneChatMessageInput {
      id: number
@@ -113,13 +107,67 @@ export interface ChatGPT__Chat__DeleteOneHistoryResponseData {
             
 }
 export interface InternalChatGPT__Chat__GetHistoryListInput {
-    orderBy?: {
-    }[],
       skip?: number
       take?: number
+    orderBy?: {
+    }[],
+}
+export interface grace_HistoryOrderByWithRelationInput {
+     createdAt?: string
+                 id?: string
+                 title?: string
+                 updatedAt?: string
+                        
+}
+export interface grace_NestedStringFilter {
+     equals?: string
+               in?: {
+   }[],
+                 lt?: string
+                 lte?: string
+                             contains?: string
+                 endsWith?: string
+                 gt?: string
+                 gte?: string
+               notIn?: {
+   }[],
+                 startsWith?: string
+            
+}
+export interface grace_StringNullableFilter {
+   notIn?: {
+   }[],
+                 equals?: string
+                 gte?: string
+                 lt?: string
+               in?: {
+   }[],
+                 lte?: string
+                             startsWith?: string
+                 contains?: string
+                 endsWith?: string
+                 gt?: string
+            
+}
+export interface grace_DateTimeNullableFilter {
+     gt?: string
+                 gte?: string
+               in?: {
+   }[],
+                 lt?: string
+                 lte?: string
+                           notIn?: {
+   }[],
+                 equals?: string
+            
+}
+export interface grace_ChatMessageOrderByRelationAggregateInput {
+     _count?: string
+            
 }
 export interface grace_IntFilter {
-   notIn?: {
+     lte?: number
+                           notIn?: {
    }[],
                  equals?: number
                  gt?: number
@@ -127,62 +175,25 @@ export interface grace_IntFilter {
                in?: {
    }[],
                  lt?: number
-                 lte?: number
-                        
+            
 }
-export interface grace_NestedDateTimeFilter {
+export interface grace_NestedStringNullableFilter {
    notIn?: {
    }[],
-                 equals?: string
-                 gt?: string
                  gte?: string
-               in?: {
-   }[],
                  lt?: string
                  lte?: string
-                        
-}
-export interface grace_NestedDateTimeNullableFilter {
-   in?: {
+                           in?: {
    }[],
-                 lt?: string
-                 lte?: string
-                           notIn?: {
-   }[],
-                 equals?: string
-                 gt?: string
-                 gte?: string
-            
-}
-export interface grace_NestedStringFilter {
-     endsWith?: string
-                 gt?: string
-                 lt?: string
-                 lte?: string
                  startsWith?: string
                  contains?: string
-                 gte?: string
-               in?: {
-   }[],
-                           notIn?: {
-   }[],
-                 equals?: string
-            
-}
-export interface grace_StringFilter {
-     lt?: string
-                 lte?: string
-               notIn?: {
-   }[],
-                 startsWith?: string
                  endsWith?: string
-                 gte?: string
-               in?: {
-   }[],
-                             contains?: string
                  equals?: string
                  gt?: string
             
+}
+export interface grace_ChatMessageListRelationFilter {
+                                    
 }
 export interface grace_HistoryWhereInput {
                                                                OR?: {
@@ -190,39 +201,8 @@ export interface grace_HistoryWhereInput {
                                     
 }
 export interface grace_DateTimeFilter {
-     lt?: string
-                 lte?: string
-                           notIn?: {
-   }[],
-                 equals?: string
-                 gt?: string
+     gt?: string
                  gte?: string
-               in?: {
-   }[],
-            
-}
-export interface grace_DateTimeNullableFilter {
-     lt?: string
-                 lte?: string
-                           notIn?: {
-   }[],
-                 equals?: string
-                 gt?: string
-                 gte?: string
-               in?: {
-   }[],
-            
-}
-export interface grace_HistoryOrderByWithRelationInput {
-     createdAt?: string
-                 id?: string
-                 title?: string
-                 updatedAt?: string
-                 uuid?: string
-            
-}
-export interface grace_NestedBigIntFilter {
-     gte?: string
                in?: {
    }[],
                  lt?: string
@@ -230,38 +210,72 @@ export interface grace_NestedBigIntFilter {
                            notIn?: {
    }[],
                  equals?: string
+            
+}
+export interface grace_HistoryRelationFilter {
+                        
+}
+export interface grace_NestedDateTimeFilter {
+     equals?: string
                  gt?: string
+                 gte?: string
+               in?: {
+   }[],
+                 lt?: string
+                 lte?: string
+                           notIn?: {
+   }[],
+            
+}
+export interface grace_NestedDateTimeNullableFilter {
+     lt?: string
+                 lte?: string
+                           notIn?: {
+   }[],
+                 equals?: string
+                 gt?: string
+                 gte?: string
+               in?: {
+   }[],
             
 }
 export interface grace_NestedIntFilter {
-   in?: {
-   }[],
-                 lt?: number
-                 lte?: number
-                           notIn?: {
+               notIn?: {
    }[],
                  equals?: number
                  gt?: number
                  gte?: number
+               in?: {
+   }[],
+                 lt?: number
+                 lte?: number
             
 }
-export interface grace_BigIntFilter {
+export interface grace_StringFilter {
      gte?: string
                in?: {
    }[],
-                 lt?: string
                  lte?: string
-                           notIn?: {
+               notIn?: {
    }[],
-                 equals?: string
+                 endsWith?: string
                  gt?: string
+                 lt?: string
+                             startsWith?: string
+                 contains?: string
+                 equals?: string
             
 }
-export interface InjectedChatGPT__Chat__GetHistoryListInput {
-         skip?: number
-         take?: number
-       orderBy?: {
+export interface grace_ChatMessageWhereInput {
+                           OR?: {
    }[],
+                                                                                    
+}
+export interface InjectedChatGPT__Chat__GetHistoryListInput {
+   orderBy?: {
+   }[],
+             skip?: number
+         take?: number
     
 }
 
@@ -277,7 +291,6 @@ export interface ChatGPT__Chat__GetHistoryListResponseData {
         id?: number
         title?: string
         updatedAt?: string
-        uuid?: string
     }[],
       total?: number
 }
@@ -289,29 +302,24 @@ export interface ChatGPT__Chat__GetManyChatMessageResponse {
 }
 export interface ChatGPT__Chat__GetManyChatMessageResponseData {
     data?: {
-        chatId?: string
+        chatId?: number
         createdAt?: string
         id?: number
         parentMessageId?: string
         text?: string
     }[],
 }export interface ChatGPT__Chat__UpdateOneHistoryInput {
-     uuid?: string
-                 id: number
+     id: number
                  title?: string
             
 }
 export interface InternalChatGPT__Chat__UpdateOneHistoryInput {
-      updatedAt?: string
-      uuid?: string
-      id: number
       title?: string
+      id: number
 }
 export interface InjectedChatGPT__Chat__UpdateOneHistoryInput {
      id: number
          title?: string
-         updatedAt: string
-         uuid?: string
     
 }
 
@@ -327,7 +335,6 @@ export interface ChatGPT__Chat__UpdateOneHistoryResponseData {
         id?: number
         title?: string
         updatedAt?: string
-        uuid?: string
     },
 }export interface ChatGPT__Propmt__CreateOnePromptInput {
      prompt: string
@@ -340,9 +347,9 @@ export interface InternalChatGPT__Propmt__CreateOnePromptInput {
       updatedAt?: string
 }
 export interface InjectedChatGPT__Propmt__CreateOnePromptInput {
-     prompt: string
+     updatedAt: string
+         prompt: string
          title: string
-         updatedAt: string
     
 }
 
@@ -354,11 +361,11 @@ export interface ChatGPT__Propmt__CreateOnePromptResponse {
 }
 export interface ChatGPT__Propmt__CreateOnePromptResponseData {
     data?: {
+        prompt?: string
+        title?: string
         updatedAt?: string
         createdAt?: string
         id?: number
-        prompt?: string
-        title?: string
     },
 }export interface ChatGPT__Propmt__DeleteManyPromptInput {
    ids: {
@@ -408,10 +415,10 @@ export interface ChatGPT__Propmt__DeleteOnePromptResponseData {
         id?: number
     },
 }export interface ChatGPT__Propmt__GetPromptListInput {
-   orderBy?: {
+     take?: number
+               orderBy?: {
    }[],
                              skip?: number
-                 take?: number
             
 }
 export interface InternalChatGPT__Propmt__GetPromptListInput {
@@ -420,16 +427,70 @@ export interface InternalChatGPT__Propmt__GetPromptListInput {
       skip?: number
       take?: number
 }
-export interface grace_DateTimeFilter {
-     equals?: string
-                 gt?: string
-                 gte?: string
+export interface grace_DateTimeNullableFilter {
+     gte?: string
                in?: {
    }[],
                  lt?: string
                  lte?: string
                            notIn?: {
    }[],
+                 equals?: string
+                 gt?: string
+            
+}
+export interface grace_NestedIntFilter {
+     gt?: number
+                 gte?: number
+               in?: {
+   }[],
+                 lt?: number
+                 lte?: number
+                           notIn?: {
+   }[],
+                 equals?: number
+            
+}
+export interface grace_NestedStringFilter {
+     equals?: string
+                 gt?: string
+                 gte?: string
+               in?: {
+   }[],
+                 lte?: string
+                             startsWith?: string
+                 contains?: string
+                 lt?: string
+               notIn?: {
+   }[],
+                 endsWith?: string
+            
+}
+export interface grace_StringFilter {
+     lte?: string
+                             startsWith?: string
+                 contains?: string
+                 endsWith?: string
+                 gte?: string
+               in?: {
+   }[],
+                 lt?: string
+               notIn?: {
+   }[],
+                 equals?: string
+                 gt?: string
+            
+}
+export interface grace_DateTimeFilter {
+   in?: {
+   }[],
+                 lt?: string
+                 lte?: string
+                           notIn?: {
+   }[],
+                 equals?: string
+                 gt?: string
+                 gte?: string
             
 }
 export interface grace_IntFilter {
@@ -444,54 +505,7 @@ export interface grace_IntFilter {
    }[],
             
 }
-export interface grace_PromptOrderByWithRelationInput {
-     createdAt?: string
-                 id?: string
-                 prompt?: string
-                 title?: string
-                 updatedAt?: string
-            
-}
-export interface grace_StringFilter {
-     contains?: string
-                 gte?: string
-               in?: {
-   }[],
-                 lte?: string
-               notIn?: {
-   }[],
-                 startsWith?: string
-                 endsWith?: string
-                 equals?: string
-                 gt?: string
-                 lt?: string
-                        
-}
-export interface grace_DateTimeNullableFilter {
-   in?: {
-   }[],
-                 lt?: string
-                 lte?: string
-                           notIn?: {
-   }[],
-                 equals?: string
-                 gt?: string
-                 gte?: string
-            
-}
 export interface grace_NestedDateTimeFilter {
-     gte?: string
-               in?: {
-   }[],
-                 lt?: string
-                 lte?: string
-                           notIn?: {
-   }[],
-                 equals?: string
-                 gt?: string
-            
-}
-export interface grace_NestedDateTimeNullableFilter {
      gt?: string
                  gte?: string
                in?: {
@@ -503,44 +517,37 @@ export interface grace_NestedDateTimeNullableFilter {
                  equals?: string
             
 }
-export interface grace_NestedIntFilter {
-               notIn?: {
+export interface grace_NestedDateTimeNullableFilter {
+     lt?: string
+                 lte?: string
+                           notIn?: {
    }[],
-                 equals?: number
-                 gt?: number
-                 gte?: number
-               in?: {
-   }[],
-                 lt?: number
-                 lte?: number
-            
-}
-export interface grace_NestedStringFilter {
-     startsWith?: string
-                 contains?: string
-                 endsWith?: string
                  equals?: string
                  gt?: string
                  gte?: string
-                 lte?: string
-                           in?: {
-   }[],
-                 lt?: string
-               notIn?: {
+               in?: {
    }[],
             
 }
+export interface grace_PromptOrderByWithRelationInput {
+     title?: string
+                 updatedAt?: string
+                 createdAt?: string
+                 id?: string
+                 prompt?: string
+            
+}
 export interface grace_PromptWhereInput {
-               OR?: {
+                                                   OR?: {
    }[],
-                                                                                    
+                                                
 }
 export interface InjectedChatGPT__Propmt__GetPromptListInput {
-     skip?: number
-         take?: number
-       orderBy?: {
+   orderBy?: {
    }[],
-        
+             skip?: number
+         take?: number
+    
 }
 
 
@@ -565,16 +572,16 @@ export interface ChatGPT__Propmt__GetPromptListResponseData {
             
 }
 export interface InternalChatGPT__Propmt__UpdateOnePromptInput {
-      title?: string
-      updatedAt?: string
       id: number
       prompt?: string
+      title?: string
+      updatedAt?: string
 }
 export interface InjectedChatGPT__Propmt__UpdateOnePromptInput {
-     title?: string
-         updatedAt: string
-         id: number
+     id: number
          prompt?: string
+         title?: string
+         updatedAt: string
     
 }
 
@@ -586,11 +593,11 @@ export interface ChatGPT__Propmt__UpdateOnePromptResponse {
 }
 export interface ChatGPT__Propmt__UpdateOnePromptResponseData {
     data?: {
-        updatedAt?: string
         createdAt?: string
         id?: number
         prompt?: string
         title?: string
+        updatedAt?: string
     },
 }
 export type JSONValue = string | number | boolean | JSONObject | Array<JSONValue>;

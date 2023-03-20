@@ -2,6 +2,7 @@
   "dependencies": {
     "@apollo/server": "4.5.0",
     "@web-std/fetch": "^4.1.0",
+    "axios": "^1.3.4",
     "chatgpt": "5.1.2",
     "express": "4.18.2",
     "fireboom-wundersdk": "^0.137.4",
@@ -27,9 +28,9 @@
   "name": "fireboom-hooks",
   "scripts": {
     "build": "tsc",
-    "build-operations": "ts-node scripts/buildOperations.ts \u0026\u0026 tsc --project operations.tsconfig.json",
+    "build-operations": "ts-node scripts/buildOperations.ts && tsc --project operations.tsconfig.json",
     "clear": "rm -rf **/*.js",
-    "dev": "npm run build-operations \u0026\u0026 cross-env WG_CLI_LOG_PRETTY=true START_HOOKS_SERVER=true WG_DIR_ABS=. ts-node fireboom.server.ts --files",
+    "dev": "npm run build-operations && cross-env WG_CLI_LOG_PRETTY=true START_HOOKS_SERVER=true WG_DIR_ABS=. ts-node fireboom.server.ts --files",
     "start": "cross-env NODE_ENV=production START_HOOKS_SERVER=true WG_DIR_ABS=. node fireboom.server.js",
     "watch": "nodemon"
   },

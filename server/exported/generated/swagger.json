@@ -9,7 +9,7 @@
     "paths": {
         "/operations/ChatGPT/Chat/CreateOneChatMessage": {
             "post": {
-                "description": "```graphql\nmutation CreateOneChatMessage($text: String!, $parentMessageId: String, $chatId: BigInt!) {\n  data: grace_createOneChatMessage(data: {text: $text, parentMessageId: $parentMessageId, chatId: $chatId}) {\n    \n    id\n    text\n    parentMessageId\n    createdAt\n    chatId\n  }\n}\n```",
+                "description": "```graphql\nmutation CreateOneChatMessage($text: String!, $parentMessageId: String, $chatId: Int!) {\n  data: grace_createOneChatMessage(\n    data: {text: $text, parentMessageId: $parentMessageId, History: {connect: {id: $chatId}}}\n  ) {\n    id\n    text\n    parentMessageId\n    createdAt\n    chatId\n  }\n}\n```",
                 "produces": [
                     "application/json"
                 ],
@@ -30,7 +30,7 @@
                             ],
                             "properties": {
                                 "chatId": {
-                                    "type": "string"
+                                    "type": "integer"
                                 },
                                 "parentMessageId": {
                                     "type": [
@@ -65,7 +65,7 @@
                                             ],
                                             "properties": {
                                                 "chatId": {
-                                                    "type": "string"
+                                                    "type": "integer"
                                                 },
                                                 "createdAt": {
                                                     "type": "string"
@@ -211,7 +211,7 @@
         },
         "/operations/ChatGPT/Chat/UpdateOneHistory": {
             "post": {
-                "description": "```graphql\nmutation UpdateOneHistory($id: Int!, $uuid: BigInt, $title: String, $updatedAt: DateTime! @injectCurrentDateTime(format: UnixDate)) {\n  data: grace_updateOneHistory(\n    data: {uuid: {set: $uuid}, title: {set: $title}, updatedAt: {set: $updatedAt}}\n    where: {id: $id}\n  ) {\n    \n    id\n    uuid\n    title\n    createdAt\n    updatedAt\n  }\n}\n```",
+                "description": "```graphql\nmutation UpdateOneHistory($id: Int!, $title: String) {\n  data: grace_updateOneHistory(\n    data: {title: {set: $title}}\n    where: {id: $id}\n  ) {\n    id\n    title\n    createdAt\n    updatedAt\n  }\n} \n```",
                 "produces": [
                     "application/json"
                 ],
@@ -238,12 +238,6 @@
                                         "string",
                                         "null"
                                     ]
-                                },
-                                "uuid": {
-                                    "type": [
-                                        "string",
-                                        "null"
-                                    ]
                                 }
                             },
                             "additionalProperties": false
@@ -263,7 +257,6 @@
                                             "type": "object",
                                             "required": [
                                                 "id",
-                                                "uuid",
                                                 "title",
                                                 "createdAt"
                                             ],
@@ -278,9 +271,6 @@
                                                     "type": "string"
                                                 },
                                                 "updatedAt": {
-                                                    "type": "string"
-                                                },
-                                                "uuid": {
                                                     "type": "string"
                                                 }
                                             }
@@ -670,178 +660,6 @@
                             },
                             "additionalProperties": false
                         }
-                    }
-                }
-            }
-        },
-        "/s3/TTTTT/upload": {
-            "post": {
-                "security": [
-                    {
-                        "authing": [
-                            "user"
-                        ]
-                    },
-                    {
-                        "Authorization": []
-                    }
-                ],
-                "description": "上传文件到TTTTT",
-                "consumes": [
-                    "multipart/form-data"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "FileUpload"
-                ],
-                "summary": "POST /s3/TTTTT/upload",
-                "operationId": "FileUpload",
-                "parameters": [
-                    {
-                        "type": "file",
-                        "description": "file to upload",
-                        "name": "files",
-                        "in": "formData"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {}
-                    },
-                    "401": {
-                        "description": "Unauthorized"
-                    }
-                }
-            }
-        },
-        "/s3/Test1/upload": {
-            "post": {
-                "security": [
-                    {
-                        "authing": [
-                            "user"
-                        ]
-                    },
-                    {
-                        "Authorization": []
-                    }
-                ],
-                "description": "上传文件到Test1",
-                "consumes": [
-                    "multipart/form-data"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "FileUpload"
-                ],
-                "summary": "POST /s3/Test1/upload",
-                "operationId": "FileUpload",
-                "parameters": [
-                    {
-                        "type": "file",
-                        "description": "file to upload",
-                        "name": "files",
-                        "in": "formData"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {}
-                    },
-                    "401": {
-                        "description": "Unauthorized"
-                    }
-                }
-            }
-        },
-        "/s3/aaa/upload": {
-            "post": {
-                "security": [
-                    {
-                        "authing": [
-                            "user"
-                        ]
-                    },
-                    {
-                        "Authorization": []
-                    }
-                ],
-                "description": "上传文件到aaa",
-                "consumes": [
-                    "multipart/form-data"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "FileUpload"
-                ],
-                "summary": "POST /s3/aaa/upload",
-                "operationId": "FileUpload",
-                "parameters": [
-                    {
-                        "type": "file",
-                        "description": "file to upload",
-                        "name": "files",
-                        "in": "formData"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {}
-                    },
-                    "401": {
-                        "description": "Unauthorized"
-                    }
-                }
-            }
-        },
-        "/s3/ttt/upload": {
-            "post": {
-                "security": [
-                    {
-                        "authing": [
-                            "user"
-                        ]
-                    },
-                    {
-                        "Authorization": []
-                    }
-                ],
-                "description": "上传文件到ttt",
-                "consumes": [
-                    "multipart/form-data"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "FileUpload"
-                ],
-                "summary": "POST /s3/ttt/upload",
-                "operationId": "FileUpload",
-                "parameters": [
-                    {
-                        "type": "file",
-                        "description": "file to upload",
-                        "name": "files",
-                        "in": "formData"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {}
-                    },
-                    "401": {
-                        "description": "Unauthorized"
                     }
                 }
             }

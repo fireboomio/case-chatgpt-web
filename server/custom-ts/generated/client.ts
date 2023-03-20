@@ -18,26 +18,9 @@ import {
 import type { CustomClaims, Role } from './claims'
 import type { ChatGPT__Chat__CreateOneChatMessageInput,ChatGPT__Chat__CreateOneChatMessageResponse,            ChatGPT__Chat__CreateOneChatMessageResponseData,ChatGPT__Chat__CreateOneHistoryInput,ChatGPT__Chat__CreateOneHistoryResponse,            ChatGPT__Chat__CreateOneHistoryResponseData,ChatGPT__Chat__DeleteOneChatMessageInput,ChatGPT__Chat__DeleteOneChatMessageResponse,            ChatGPT__Chat__DeleteOneChatMessageResponseData,ChatGPT__Chat__DeleteOneHistoryInput,ChatGPT__Chat__DeleteOneHistoryResponse,            ChatGPT__Chat__DeleteOneHistoryResponseData,ChatGPT__Chat__GetHistoryListInput,ChatGPT__Chat__GetHistoryListResponse,            ChatGPT__Chat__GetHistoryListResponseData,ChatGPT__Chat__GetManyChatMessageResponse,            ChatGPT__Chat__GetManyChatMessageResponseData,ChatGPT__Chat__UpdateOneHistoryInput,ChatGPT__Chat__UpdateOneHistoryResponse,            ChatGPT__Chat__UpdateOneHistoryResponseData,ChatGPT__Propmt__CreateOnePromptInput,ChatGPT__Propmt__CreateOnePromptResponse,            ChatGPT__Propmt__CreateOnePromptResponseData,ChatGPT__Propmt__DeleteManyPromptInput,ChatGPT__Propmt__DeleteManyPromptResponse,            ChatGPT__Propmt__DeleteManyPromptResponseData,ChatGPT__Propmt__DeleteOnePromptInput,ChatGPT__Propmt__DeleteOnePromptResponse,            ChatGPT__Propmt__DeleteOnePromptResponseData,ChatGPT__Propmt__GetPromptListInput,ChatGPT__Propmt__GetPromptListResponse,            ChatGPT__Propmt__GetPromptListResponseData,ChatGPT__Propmt__UpdateOnePromptInput,ChatGPT__Propmt__UpdateOnePromptResponse,            ChatGPT__Propmt__UpdateOnePromptResponseData, } from './models'
 
-export const WUNDERGRAPH_S3_ENABLED = true
+export const WUNDERGRAPH_S3_ENABLED = false
 export const WUNDERGRAPH_AUTH_ENABLED = true
 
-export interface UploadResponse { key: string }
-
-// TODO: missing upload profiles
-
-type S3Providers ={
-	Test1: 'Test1'
-	ttt: 'ttt'
-	aaa: 'aaa'
-	TTTTT: 'TTTTT'
-}
-
-const S3UploadProviderData: { [provider: string]: { [profile: string]: UploadValidationOptions } } = {
-	Test1: 'Test1',
-	ttt: 'ttt',
-	aaa: 'aaa',
-	TTTTT: 'TTTTT',
-}
 
 export enum AuthProviderId {
     "authing" = "authing",
@@ -49,7 +32,7 @@ export interface AuthProvider {
 }
 
 export const defaultClientConfig: ClientConfig = {
-    applicationHash: "69fb5af7",
+    applicationHash: "3aed7b29",
     baseURL: "http://localhost:9991",
     sdkVersion: "",
     customFetch: fetch,
@@ -132,14 +115,6 @@ export class WunderGraphClient extends Client {
 		cb: SubscriptionEventHandler<Data>
 	) {
 		return super.subscribe(options, cb);
-	}
-	public async uploadFiles<
-		ProviderName extends Extract<keyof S3Providers, string>,
-		any, any
-	>(
-		config: any
-	) {
-		return super.uploadFiles(config, undefined);
 	}
 	public login(authProviderID: Operations['authProvider'], redirectURI?: string) {
 		return super.login(authProviderID, redirectURI);

@@ -1,41 +1,5 @@
 [
 	{
-		"content": "query MyQuery {\n  my_findUniquequestion(where: {}) {\n    question\n    id\n    createdAt\n    answer\n  }\n}",
-		"createTime": "2023-03-09 02:51:49Z",
-		"deleteTime": "",
-		"enabled": true,
-		"id": 1407330881830912,
-		"illegal": false,
-		"isPublic": true,
-		"liveQuery": false,
-		"method": "GET",
-		"operationType": "queries",
-		"remark": "",
-		"restUrl": "",
-		"roleType": "",
-		"roles": "",
-		"title": "/AAA/BBB/T",
-		"updateTime": "2023-03-10 11:29:34Z"
-	},
-	{
-		"content": "query MyQuery {\n  nacos_findFirstroles {\n    role\n    username\n  }\n  sqlite_findFirstUntitled1 {\n    createdAt\n    deletedAt\n  }\n}",
-		"createTime": "2023-03-09 06:22:37Z",
-		"deleteTime": "",
-		"enabled": true,
-		"id": 1408159789613056,
-		"illegal": false,
-		"isPublic": true,
-		"liveQuery": false,
-		"method": "GET",
-		"operationType": "queries",
-		"remark": "",
-		"restUrl": "",
-		"roleType": "",
-		"roles": "",
-		"title": "/QQ/WW/EE",
-		"updateTime": "2023-03-14 05:51:56Z"
-	},
-	{
 		"content": "subscription MySubscription {\n  graphql_todos(order_by: { id: desc }, limit: 10) {\n    id\n    is_completed\n    is_public\n  }\n}",
 		"createTime": "2023-03-13 10:54:07Z",
 		"deleteTime": "",
@@ -126,43 +90,7 @@
 		"updateTime": ""
 	},
 	{
-		"content": "subscription MyQuery($prompt: String!, $chatId: Int!, $regrenerateId: Int = null) {\n  chatGPT_completion(\n    promptInput: {prompt: $prompt, chatId: $chatId, regenId: $regrenerateId}\n  )\n}",
-		"createTime": "2023-03-19 04:01:41Z",
-		"deleteTime": "",
-		"enabled": true,
-		"id": 1464228700946432,
-		"illegal": false,
-		"isPublic": true,
-		"liveQuery": true,
-		"method": "GET",
-		"operationType": "subscriptions",
-		"remark": "",
-		"restUrl": "",
-		"roleType": "",
-		"roles": "",
-		"title": "/ChatGPT/Subscription/ChatSSE",
-		"updateTime": "2023-03-19 09:49:07Z"
-	},
-	{
-		"content": "subscription MyQuery {\n  chatGPT_completion(promptInput: {})\n}",
-		"createTime": "2023-03-19 05:44:24Z",
-		"deleteTime": "",
-		"enabled": false,
-		"id": 1464632589877248,
-		"illegal": false,
-		"isPublic": true,
-		"liveQuery": true,
-		"method": "GET",
-		"operationType": "subscriptions",
-		"remark": "",
-		"restUrl": "",
-		"roleType": "",
-		"roles": "",
-		"title": "/Sub/Test",
-		"updateTime": "2023-03-19 05:46:54Z"
-	},
-	{
-		"content": "mutation CreateOneHistory($uuid: BigInt!, $title: String!, $updatedAt: DateTime! @injectCurrentDateTime(format: UnixDate)) @internalOperation {\n  data: grace_createOneHistory(\n    data: {uuid: $uuid, title: $title, updatedAt: $updatedAt}\n  ) {\n    id\n    uuid\n    title\n    createdAt\n    updatedAt\n  }\n}",
+		"content": "mutation CreateOneHistory($title: String!) @internalOperation {\n  data: grace_createOneHistory(\n    data: {title: $title}\n  ) {\n    id\n    title\n    createdAt\n    updatedAt\n  }\n}",
 		"createTime": "",
 		"deleteTime": "",
 		"enabled": true,
@@ -177,7 +105,7 @@
 		"roleType": "",
 		"roles": "",
 		"title": "/ChatGPT/Chat/CreateOneHistory",
-		"updateTime": "2023-03-19 10:44:08Z"
+		"updateTime": "2023-03-20 10:01:36Z"
 	},
 	{
 		"content": "mutation DeleteOneHistory($id: Int!) {\n  data: grace_deleteOneHistory(where: {id: $id}) {\n    id\n  }\n}",
@@ -198,7 +126,7 @@
 		"updateTime": "2023-03-19 10:44:14Z"
 	},
 	{
-		"content": "mutation UpdateOneHistory($id: Int!, $uuid: BigInt, $title: String, $updatedAt: DateTime! @injectCurrentDateTime(format: UnixDate)) {\n  data: grace_updateOneHistory(\n    data: {uuid: {set: $uuid}, title: {set: $title}, updatedAt: {set: $updatedAt}}\n    where: {id: $id}\n  ) {\n    \n    id\n    uuid\n    title\n    createdAt\n    updatedAt\n  }\n}",
+		"content": "mutation UpdateOneHistory($id: Int!, $title: String) {\n  data: grace_updateOneHistory(\n    data: {title: {set: $title}}\n    where: {id: $id}\n  ) {\n    id\n    title\n    createdAt\n    updatedAt\n  }\n} ",
 		"createTime": "",
 		"deleteTime": "",
 		"enabled": true,
@@ -213,10 +141,10 @@
 		"roleType": "",
 		"roles": "",
 		"title": "/ChatGPT/Chat/UpdateOneHistory",
-		"updateTime": "2023-03-19 10:44:21Z"
+		"updateTime": "2023-03-20 10:03:18Z"
 	},
 	{
-		"content": "query GetHistoryList($take: Int = 10, $skip: Int = 0, $orderBy: [grace_HistoryOrderByWithRelationInput], $query: grace_HistoryWhereInput) @internalOperation {\n  data: grace_findManyHistory(\n    skip: $skip\n    take: $take\n    orderBy: $orderBy\n    where: {AND: $query}\n  ) {\n    id\n    uuid\n    title\n    createdAt\n    updatedAt\n  }\n  total: grace_aggregateHistory(where: {AND: $query}) @transform(get: \"_count.id\") {\n    _count {\n      id\n    }\n  }\n}",
+		"content": "query GetHistoryList($take: Int = 10, $skip: Int = 0, $orderBy: [grace_HistoryOrderByWithRelationInput], $query: grace_HistoryWhereInput) @internalOperation {\n  data: grace_findManyHistory(\n    skip: $skip\n    take: $take\n    orderBy: $orderBy\n    where: {AND: $query}\n  ) {\n    id\n    title\n    createdAt\n    updatedAt\n  }\n  total: grace_aggregateHistory(where: {AND: $query}) @transform(get: \"_count.id\") {\n    _count {\n      id\n    }\n  }\n}",
 		"createTime": "",
 		"deleteTime": "",
 		"enabled": true,
@@ -231,10 +159,10 @@
 		"roleType": "",
 		"roles": "",
 		"title": "/ChatGPT/Chat/GetHistoryList",
-		"updateTime": "2023-03-19 10:44:18Z"
+		"updateTime": "2023-03-20 10:01:55Z"
 	},
 	{
-		"content": "mutation CreateOneChatMessage($text: String!, $parentMessageId: String, $chatId: BigInt!) {\n  data: grace_createOneChatMessage(data: {text: $text, parentMessageId: $parentMessageId, chatId: $chatId}) {\n    \n    id\n    text\n    parentMessageId\n    createdAt\n    chatId\n  }\n}",
+		"content": "mutation CreateOneChatMessage($text: String!, $parentMessageId: String, $chatId: Int!) {\n  data: grace_createOneChatMessage(\n    data: {text: $text, parentMessageId: $parentMessageId, History: {connect: {id: $chatId}}}\n  ) {\n    id\n    text\n    parentMessageId\n    createdAt\n    chatId\n  }\n}",
 		"createTime": "",
 		"deleteTime": "",
 		"enabled": true,
@@ -249,7 +177,7 @@
 		"roleType": "",
 		"roles": "",
 		"title": "/ChatGPT/Chat/CreateOneChatMessage",
-		"updateTime": "2023-03-19 10:44:02Z"
+		"updateTime": "2023-03-20 10:00:43Z"
 	},
 	{
 		"content": "mutation DeleteOneChatMessage($id: Int!) {\n  data: grace_deleteOneChatMessage(where: {id: $id}) {\n    id\n  }\n}",
@@ -270,22 +198,22 @@
 		"updateTime": "2023-03-19 10:44:10Z"
 	},
 	{
-		"id": 1464845195280384,
-		"method": "GET",
-		"restUrl": "",
-		"operationType": "queries",
-		"isPublic": false,
-		"remark": "",
-		"illegal": false,
-		"liveQuery": false,
-		"title": "/ChatGPT/Chat/GetManyChatMessage",
 		"content": "query GetManyChatMessage @internalOperation {\n  data: grace_findManyChatMessage {\n    id\n    text\n    parentMessageId\n    createdAt\n    chatId\n  }\n}",
-		"enabled": true,
 		"createTime": "",
-		"updateTime": "2023-03-19 10:44:31Z",
 		"deleteTime": "",
+		"enabled": true,
+		"id": 1464845195280384,
+		"illegal": false,
+		"isPublic": false,
+		"liveQuery": false,
+		"method": "GET",
+		"operationType": "queries",
+		"remark": "",
+		"restUrl": "",
 		"roleType": "",
-		"roles": ""
+		"roles": "",
+		"title": "/ChatGPT/Chat/GetManyChatMessage",
+		"updateTime": "2023-03-19 10:44:31Z"
 	},
 	{
 		"content": "mutation CreateOnePrompt($prompt: String!, $title: String!, $updatedAt: DateTime! @injectCurrentDateTime(format: UnixDate)) {\n  data: grace_createOnePrompt(data: {prompt: $prompt, title: $title, updatedAt: $updatedAt}) {\n    \n    id\n    prompt\n    title\n    createdAt\n    updatedAt\n  }\n}",
