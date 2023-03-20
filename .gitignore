@@ -1,0 +1,4 @@
+node_modules
+dist
+fireboom
+server/log
