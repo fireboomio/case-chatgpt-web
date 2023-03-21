@@ -51,6 +51,8 @@ export default createOperation.subscription({
                   yield { completion: delta.content, id: id, finish: false }
                 }
               }
+            } else {
+              yield { completion: '', id: id, finish: true }
             }
           }
         }
