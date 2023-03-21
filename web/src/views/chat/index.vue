@@ -129,15 +129,16 @@ async function onConversation() {
 
   try {
     const lastText = ''
-    const spokenText = ''
+    let spokenText = ''
     const speaker = new sdk.SpeechSynthesizer(speechConfig)
     const fetchChatAPIOnce = async () => {
-      const res = await streamAPI<{ prompt: string }, { data: { completion: string } }>('/ChatGPT/Subscription/ChatSSE', {
+      const res = await streamAPI<{ prompt: string }, { data: { completion: string, id: string, finish: boolean } }>('/ChatGPT/Subscription/ChatSSE', {
         params: {
           prompt: message,
         },
       })
       const messages: string[] = []
+      const msgStr = messages.join('')
       for await (const data of res) {
         messages.push(data.data.completion)
         updateChat(
@@ -149,10 +150,15 @@ async function onConversation() {
             inversion: false,
             error: false,
             loading: false,
-            conversationOptions: { conversationId: data.conversationId, parentMessageId: data.id },
+            conversationOptions: { parentMessageId: data.data.id },
             requestOptions: { prompt: message, options: { ...options } },
           },
         )
+        // 如果当前内容是以标点符号结尾，或者是已完成对话，就开始语音合成
+        if (msgStr.match(/[.!?,]\s*$/) || data.data.finish) {
+          speaker.speakTextAsync(msgStr.replace(spokenText, '').trim())
+          spokenText = msgStr
+        }
       }
 
       // if (openLongReply && data.detail.choices[0].finish_reason === 'length') {
