@@ -1,0 +1,9 @@
+{
+  "name": "vue sdk",
+  "author": "fireboom",
+  "version": "0.1.0",
+  "type": "hook",
+  "description": "这里是sdk的描述",
+  "outputPath": "../web/src/services",
+  "enabled": true
+}

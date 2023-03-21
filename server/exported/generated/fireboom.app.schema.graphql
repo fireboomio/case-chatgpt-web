@@ -20,6 +20,13 @@ type Query {
   grace_groupByPrompt(where: grace_PromptWhereInput, orderBy: [grace_PromptOrderByWithAggregationInput], by: [grace_PromptScalarFieldEnum]!, having: grace_PromptScalarWhereWithAggregatesInput, take: Int, skip: Int): [grace_PromptGroupByOutputType]!
   grace_findUniquePrompt(where: grace_PromptWhereUniqueInput!): grace_Prompt
   grace_findUniquePromptOrThrow(where: grace_PromptWhereUniqueInput!): grace_Prompt
+  grace_findFirstUser(where: grace_UserWhereInput, orderBy: [grace_UserOrderByWithRelationInput], cursor: grace_UserWhereUniqueInput, take: Int, skip: Int, distinct: [grace_UserScalarFieldEnum]): grace_User
+  grace_findFirstUserOrThrow(where: grace_UserWhereInput, orderBy: [grace_UserOrderByWithRelationInput], cursor: grace_UserWhereUniqueInput, take: Int, skip: Int, distinct: [grace_UserScalarFieldEnum]): grace_User
+  grace_findManyUser(where: grace_UserWhereInput, orderBy: [grace_UserOrderByWithRelationInput], cursor: grace_UserWhereUniqueInput, take: Int, skip: Int, distinct: [grace_UserScalarFieldEnum]): [grace_User]!
+  grace_aggregateUser(where: grace_UserWhereInput, orderBy: [grace_UserOrderByWithRelationInput], cursor: grace_UserWhereUniqueInput, take: Int, skip: Int): grace_AggregateUser!
+  grace_groupByUser(where: grace_UserWhereInput, orderBy: [grace_UserOrderByWithAggregationInput], by: [grace_UserScalarFieldEnum]!, having: grace_UserScalarWhereWithAggregatesInput, take: Int, skip: Int): [grace_UserGroupByOutputType]!
+  grace_findUniqueUser(where: grace_UserWhereUniqueInput!): grace_User
+  grace_findUniqueUserOrThrow(where: grace_UserWhereUniqueInput!): grace_User
 }
 
 type Mutation {
@@ -41,6 +48,12 @@ type Mutation {
   grace_updateOnePrompt(data: grace_PromptUpdateInput!, where: grace_PromptWhereUniqueInput!): grace_Prompt
   grace_updateManyPrompt(data: grace_PromptUpdateManyMutationInput!, where: grace_PromptWhereInput): grace_AffectedRowsOutput
   grace_deleteManyPrompt(where: grace_PromptWhereInput): grace_AffectedRowsOutput
+  grace_createOneUser(data: grace_UserCreateInput!): grace_User
+  grace_upsertOneUser(where: grace_UserWhereUniqueInput!, create: grace_UserCreateInput!, update: grace_UserUpdateInput!): grace_User
+  grace_deleteOneUser(where: grace_UserWhereUniqueInput!): grace_User
+  grace_updateOneUser(data: grace_UserUpdateInput!, where: grace_UserWhereUniqueInput!): grace_User
+  grace_updateManyUser(data: grace_UserUpdateManyMutationInput!, where: grace_UserWhereInput): grace_AffectedRowsOutput
+  grace_deleteManyUser(where: grace_UserWhereInput): grace_AffectedRowsOutput
 }
 
 
@@ -167,6 +180,50 @@ input grace_DateTimeNullableFilter {
   not: grace_NestedDateTimeNullableFilter
 }
 
+input grace_HistoryListRelationFilter {
+  every: grace_HistoryWhereInput
+  some: grace_HistoryWhereInput
+  none: grace_HistoryWhereInput
+}
+
+input grace_PromptWhereInput {
+  AND: grace_PromptWhereInput
+  OR: [grace_PromptWhereInput]
+  NOT: grace_PromptWhereInput
+  id: grace_IntFilter
+  prompt: grace_StringFilter
+  title: grace_StringFilter
+  userId: grace_StringFilter
+  createdAt: grace_DateTimeFilter
+  updatedAt: grace_DateTimeNullableFilter
+  User: grace_UserRelationFilter
+}
+
+input grace_PromptListRelationFilter {
+  every: grace_PromptWhereInput
+  some: grace_PromptWhereInput
+  none: grace_PromptWhereInput
+}
+
+input grace_UserWhereInput {
+  AND: grace_UserWhereInput
+  OR: [grace_UserWhereInput]
+  NOT: grace_UserWhereInput
+  id: grace_StringFilter
+  name: grace_StringFilter
+  avatar: grace_StringFilter
+  bio: grace_StringNullableFilter
+  provider: grace_StringFilter
+  createdAt: grace_DateTimeFilter
+  History: grace_HistoryListRelationFilter
+  Prompt: grace_PromptListRelationFilter
+}
+
+input grace_UserRelationFilter {
+  is: grace_UserWhereInput
+  isNot: grace_UserWhereInput
+}
+
 input grace_ChatMessageListRelationFilter {
   every: grace_ChatMessageWhereInput
   some: grace_ChatMessageWhereInput
@@ -181,6 +238,8 @@ input grace_HistoryWhereInput {
   title: grace_StringFilter
   createdAt: grace_DateTimeFilter
   updatedAt: grace_DateTimeNullableFilter
+  userId: grace_StringFilter
+  User: grace_UserRelationFilter
   ChatMessage: grace_ChatMessageListRelationFilter
 }
 
@@ -206,6 +265,25 @@ enum grace_SortOrder {
   desc
 }
 
+input grace_HistoryOrderByRelationAggregateInput {
+  _count: grace_SortOrder
+}
+
+input grace_PromptOrderByRelationAggregateInput {
+  _count: grace_SortOrder
+}
+
+input grace_UserOrderByWithRelationInput {
+  id: grace_SortOrder
+  name: grace_SortOrder
+  avatar: grace_SortOrder
+  bio: grace_SortOrder
+  provider: grace_SortOrder
+  createdAt: grace_SortOrder
+  History: grace_HistoryOrderByRelationAggregateInput
+  Prompt: grace_PromptOrderByRelationAggregateInput
+}
+
 input grace_ChatMessageOrderByRelationAggregateInput {
   _count: grace_SortOrder
 }
@@ -215,6 +293,8 @@ input grace_HistoryOrderByWithRelationInput {
   title: grace_SortOrder
   createdAt: grace_SortOrder
   updatedAt: grace_SortOrder
+  userId: grace_SortOrder
+  User: grace_UserOrderByWithRelationInput
   ChatMessage: grace_ChatMessageOrderByRelationAggregateInput
 }
 
@@ -239,6 +319,71 @@ enum grace_ChatMessageScalarFieldEnum {
   chatId
 }
 
+input grace_HistoryWhereUniqueInput {
+  id: Int
+}
+
+enum grace_HistoryScalarFieldEnum {
+  id
+  title
+  createdAt
+  updatedAt
+  userId
+}
+
+input grace_PromptOrderByWithRelationInput {
+  id: grace_SortOrder
+  prompt: grace_SortOrder
+  title: grace_SortOrder
+  userId: grace_SortOrder
+  createdAt: grace_SortOrder
+  updatedAt: grace_SortOrder
+  User: grace_UserOrderByWithRelationInput
+}
+
+input grace_PromptWhereUniqueInput {
+  id: Int
+}
+
+enum grace_PromptScalarFieldEnum {
+  id
+  prompt
+  title
+  userId
+  createdAt
+  updatedAt
+}
+
+type grace_Prompt {
+  id: Int!
+  prompt: String!
+  title: String!
+  userId: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
+  User: grace_User!
+  _join: Query!
+}
+
+type grace_UserCountOutputType {
+  History: Int!
+  Prompt: Int!
+  _join: Query!
+}
+
+type grace_User {
+  id: String!
+  name: String!
+  avatar: String!
+  bio: String
+  provider: String!
+  createdAt: DateTime!
+  History(where: grace_HistoryWhereInput, orderBy: [grace_HistoryOrderByWithRelationInput], cursor: grace_HistoryWhereUniqueInput, take: Int, skip: Int, distinct: [grace_HistoryScalarFieldEnum]): [grace_History]
+  Prompt(where: grace_PromptWhereInput, orderBy: [grace_PromptOrderByWithRelationInput], cursor: grace_PromptWhereUniqueInput, take: Int, skip: Int, distinct: [grace_PromptScalarFieldEnum]): [grace_Prompt]
+  _count: grace_UserCountOutputType!
+  _join: Query!
+}
+
 type grace_HistoryCountOutputType {
   ChatMessage: Int!
   _join: Query!
@@ -249,6 +394,8 @@ type grace_History {
   title: String!
   createdAt: DateTime!
   updatedAt: DateTime
+  userId: String!
+  User: grace_User!
   ChatMessage(where: grace_ChatMessageWhereInput, orderBy: [grace_ChatMessageOrderByWithRelationInput], cursor: grace_ChatMessageWhereUniqueInput, take: Int, skip: Int, distinct: [grace_ChatMessageScalarFieldEnum]): [grace_ChatMessage]
   _count: grace_HistoryCountOutputType!
   _join: Query!
@@ -535,22 +682,12 @@ type grace_ChatMessageGroupByOutputType {
   _join: Query!
 }
 
-input grace_HistoryWhereUniqueInput {
-  id: Int
-}
-
-enum grace_HistoryScalarFieldEnum {
-  id
-  title
-  createdAt
-  updatedAt
-}
-
 type grace_HistoryCountAggregateOutputType {
   id: Int!
   title: Int!
   createdAt: Int!
   updatedAt: Int!
+  userId: Int!
   _all: Int!
   _join: Query!
 }
@@ -570,6 +707,7 @@ type grace_HistoryMinAggregateOutputType {
   title: String
   createdAt: DateTime
   updatedAt: DateTime
+  userId: String
   _join: Query!
 }
 
@@ -578,6 +716,7 @@ type grace_HistoryMaxAggregateOutputType {
   title: String
   createdAt: DateTime
   updatedAt: DateTime
+  userId: String
   _join: Query!
 }
 
@@ -595,6 +734,7 @@ input grace_HistoryCountOrderByAggregateInput {
   title: grace_SortOrder
   createdAt: grace_SortOrder
   updatedAt: grace_SortOrder
+  userId: grace_SortOrder
 }
 
 input grace_HistoryAvgOrderByAggregateInput {
@@ -606,6 +746,7 @@ input grace_HistoryMaxOrderByAggregateInput {
   title: grace_SortOrder
   createdAt: grace_SortOrder
   updatedAt: grace_SortOrder
+  userId: grace_SortOrder
 }
 
 input grace_HistoryMinOrderByAggregateInput {
@@ -613,6 +754,7 @@ input grace_HistoryMinOrderByAggregateInput {
   title: grace_SortOrder
   createdAt: grace_SortOrder
   updatedAt: grace_SortOrder
+  userId: grace_SortOrder
 }
 
 input grace_HistorySumOrderByAggregateInput {
@@ -624,6 +766,7 @@ input grace_HistoryOrderByWithAggregationInput {
   title: grace_SortOrder
   createdAt: grace_SortOrder
   updatedAt: grace_SortOrder
+  userId: grace_SortOrder
   _count: grace_HistoryCountOrderByAggregateInput
   _avg: grace_HistoryAvgOrderByAggregateInput
   _max: grace_HistoryMaxOrderByAggregateInput
@@ -667,6 +810,7 @@ input grace_HistoryScalarWhereWithAggregatesInput {
   title: grace_StringWithAggregatesFilter
   createdAt: grace_DateTimeWithAggregatesFilter
   updatedAt: grace_DateTimeNullableWithAggregatesFilter
+  userId: grace_StringWithAggregatesFilter
 }
 
 type grace_HistoryGroupByOutputType {
@@ -674,6 +818,7 @@ type grace_HistoryGroupByOutputType {
   title: String!
   createdAt: DateTime!
   updatedAt: DateTime
+  userId: String!
   _count: grace_HistoryCountAggregateOutputType
   _avg: grace_HistoryAvgAggregateOutputType
   _sum: grace_HistorySumAggregateOutputType
@@ -682,50 +827,11 @@ type grace_HistoryGroupByOutputType {
   _join: Query!
 }
 
-input grace_PromptWhereInput {
-  AND: grace_PromptWhereInput
-  OR: [grace_PromptWhereInput]
-  NOT: grace_PromptWhereInput
-  id: grace_IntFilter
-  prompt: grace_StringFilter
-  title: grace_StringFilter
-  createdAt: grace_DateTimeFilter
-  updatedAt: grace_DateTimeNullableFilter
-}
-
-input grace_PromptOrderByWithRelationInput {
-  id: grace_SortOrder
-  prompt: grace_SortOrder
-  title: grace_SortOrder
-  createdAt: grace_SortOrder
-  updatedAt: grace_SortOrder
-}
-
-input grace_PromptWhereUniqueInput {
-  id: Int
-}
-
-enum grace_PromptScalarFieldEnum {
-  id
-  prompt
-  title
-  createdAt
-  updatedAt
-}
-
-type grace_Prompt {
-  id: Int!
-  prompt: String!
-  title: String!
-  createdAt: DateTime!
-  updatedAt: DateTime
-  _join: Query!
-}
-
 type grace_PromptCountAggregateOutputType {
   id: Int!
   prompt: Int!
   title: Int!
+  userId: Int!
   createdAt: Int!
   updatedAt: Int!
   _all: Int!
@@ -746,6 +852,7 @@ type grace_PromptMinAggregateOutputType {
   id: Int
   prompt: String
   title: String
+  userId: String
   createdAt: DateTime
   updatedAt: DateTime
   _join: Query!
@@ -755,6 +862,7 @@ type grace_PromptMaxAggregateOutputType {
   id: Int
   prompt: String
   title: String
+  userId: String
   createdAt: DateTime
   updatedAt: DateTime
   _join: Query!
@@ -773,6 +881,7 @@ input grace_PromptCountOrderByAggregateInput {
   id: grace_SortOrder
   prompt: grace_SortOrder
   title: grace_SortOrder
+  userId: grace_SortOrder
   createdAt: grace_SortOrder
   updatedAt: grace_SortOrder
 }
@@ -785,6 +894,7 @@ input grace_PromptMaxOrderByAggregateInput {
   id: grace_SortOrder
   prompt: grace_SortOrder
   title: grace_SortOrder
+  userId: grace_SortOrder
   createdAt: grace_SortOrder
   updatedAt: grace_SortOrder
 }
@@ -793,6 +903,7 @@ input grace_PromptMinOrderByAggregateInput {
   id: grace_SortOrder
   prompt: grace_SortOrder
   title: grace_SortOrder
+  userId: grace_SortOrder
   createdAt: grace_SortOrder
   updatedAt: grace_SortOrder
 }
@@ -805,6 +916,7 @@ input grace_PromptOrderByWithAggregationInput {
   id: grace_SortOrder
   prompt: grace_SortOrder
   title: grace_SortOrder
+  userId: grace_SortOrder
   createdAt: grace_SortOrder
   updatedAt: grace_SortOrder
   _count: grace_PromptCountOrderByAggregateInput
@@ -821,6 +933,7 @@ input grace_PromptScalarWhereWithAggregatesInput {
   id: grace_IntWithAggregatesFilter
   prompt: grace_StringWithAggregatesFilter
   title: grace_StringWithAggregatesFilter
+  userId: grace_StringWithAggregatesFilter
   createdAt: grace_DateTimeWithAggregatesFilter
   updatedAt: grace_DateTimeNullableWithAggregatesFilter
 }
@@ -829,6 +942,7 @@ type grace_PromptGroupByOutputType {
   id: Int!
   prompt: String!
   title: String!
+  userId: String!
   createdAt: DateTime!
   updatedAt: DateTime
   _count: grace_PromptCountAggregateOutputType
@@ -839,10 +953,165 @@ type grace_PromptGroupByOutputType {
   _join: Query!
 }
 
+input grace_UserWhereUniqueInput {
+  id: String
+}
+
+enum grace_UserScalarFieldEnum {
+  id
+  name
+  avatar
+  bio
+  provider
+  createdAt
+}
+
+type grace_UserCountAggregateOutputType {
+  id: Int!
+  name: Int!
+  avatar: Int!
+  bio: Int!
+  provider: Int!
+  createdAt: Int!
+  _all: Int!
+  _join: Query!
+}
+
+type grace_UserMinAggregateOutputType {
+  id: String
+  name: String
+  avatar: String
+  bio: String
+  provider: String
+  createdAt: DateTime
+  _join: Query!
+}
+
+type grace_UserMaxAggregateOutputType {
+  id: String
+  name: String
+  avatar: String
+  bio: String
+  provider: String
+  createdAt: DateTime
+  _join: Query!
+}
+
+type grace_AggregateUser {
+  _count: grace_UserCountAggregateOutputType
+  _min: grace_UserMinAggregateOutputType
+  _max: grace_UserMaxAggregateOutputType
+  _join: Query!
+}
+
+input grace_UserCountOrderByAggregateInput {
+  id: grace_SortOrder
+  name: grace_SortOrder
+  avatar: grace_SortOrder
+  bio: grace_SortOrder
+  provider: grace_SortOrder
+  createdAt: grace_SortOrder
+}
+
+input grace_UserMaxOrderByAggregateInput {
+  id: grace_SortOrder
+  name: grace_SortOrder
+  avatar: grace_SortOrder
+  bio: grace_SortOrder
+  provider: grace_SortOrder
+  createdAt: grace_SortOrder
+}
+
+input grace_UserMinOrderByAggregateInput {
+  id: grace_SortOrder
+  name: grace_SortOrder
+  avatar: grace_SortOrder
+  bio: grace_SortOrder
+  provider: grace_SortOrder
+  createdAt: grace_SortOrder
+}
+
+input grace_UserOrderByWithAggregationInput {
+  id: grace_SortOrder
+  name: grace_SortOrder
+  avatar: grace_SortOrder
+  bio: grace_SortOrder
+  provider: grace_SortOrder
+  createdAt: grace_SortOrder
+  _count: grace_UserCountOrderByAggregateInput
+  _max: grace_UserMaxOrderByAggregateInput
+  _min: grace_UserMinOrderByAggregateInput
+}
+
+input grace_UserScalarWhereWithAggregatesInput {
+  AND: grace_UserScalarWhereWithAggregatesInput
+  OR: [grace_UserScalarWhereWithAggregatesInput]
+  NOT: grace_UserScalarWhereWithAggregatesInput
+  id: grace_StringWithAggregatesFilter
+  name: grace_StringWithAggregatesFilter
+  avatar: grace_StringWithAggregatesFilter
+  bio: grace_StringNullableWithAggregatesFilter
+  provider: grace_StringWithAggregatesFilter
+  createdAt: grace_DateTimeWithAggregatesFilter
+}
+
+type grace_UserGroupByOutputType {
+  id: String!
+  name: String!
+  avatar: String!
+  bio: String
+  provider: String!
+  createdAt: DateTime!
+  _count: grace_UserCountAggregateOutputType
+  _min: grace_UserMinAggregateOutputType
+  _max: grace_UserMaxAggregateOutputType
+  _join: Query!
+}
+
+input grace_PromptCreateWithoutUserInput {
+  prompt: String!
+  title: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input grace_PromptCreateOrConnectWithoutUserInput {
+  where: grace_PromptWhereUniqueInput!
+  create: grace_PromptCreateWithoutUserInput!
+}
+
+input grace_PromptCreateNestedManyWithoutUserInput {
+  create: grace_PromptCreateWithoutUserInput
+  connectOrCreate: grace_PromptCreateOrConnectWithoutUserInput
+  connect: grace_PromptWhereUniqueInput
+}
+
+input grace_UserCreateWithoutHistoryInput {
+  id: String!
+  name: String!
+  avatar: String!
+  bio: String
+  provider: String!
+  createdAt: DateTime
+  Prompt: grace_PromptCreateNestedManyWithoutUserInput
+}
+
+input grace_UserCreateOrConnectWithoutHistoryInput {
+  where: grace_UserWhereUniqueInput!
+  create: grace_UserCreateWithoutHistoryInput!
+}
+
+input grace_UserCreateNestedOneWithoutHistoryInput {
+  create: grace_UserCreateWithoutHistoryInput
+  connectOrCreate: grace_UserCreateOrConnectWithoutHistoryInput
+  connect: grace_UserWhereUniqueInput
+}
+
 input grace_HistoryCreateWithoutChatMessageInput {
   title: String!
   createdAt: DateTime
   updatedAt: DateTime
+  User: grace_UserCreateNestedOneWithoutHistoryInput!
 }
 
 input grace_HistoryCreateOrConnectWithoutChatMessageInput {
@@ -879,10 +1148,89 @@ input grace_NullableDateTimeFieldUpdateOperationsInput {
   set: DateTime
 }
 
+input grace_PromptUpdateWithoutUserInput {
+  prompt: grace_StringFieldUpdateOperationsInput
+  title: grace_StringFieldUpdateOperationsInput
+  createdAt: grace_DateTimeFieldUpdateOperationsInput
+  updatedAt: grace_NullableDateTimeFieldUpdateOperationsInput
+}
+
+input grace_PromptUpsertWithWhereUniqueWithoutUserInput {
+  where: grace_PromptWhereUniqueInput!
+  update: grace_PromptUpdateWithoutUserInput!
+  create: grace_PromptCreateWithoutUserInput!
+}
+
+input grace_PromptUpdateWithWhereUniqueWithoutUserInput {
+  where: grace_PromptWhereUniqueInput!
+  data: grace_PromptUpdateWithoutUserInput!
+}
+
+input grace_PromptScalarWhereInput {
+  AND: grace_PromptScalarWhereInput
+  OR: [grace_PromptScalarWhereInput]
+  NOT: grace_PromptScalarWhereInput
+  id: grace_IntFilter
+  prompt: grace_StringFilter
+  title: grace_StringFilter
+  userId: grace_StringFilter
+  createdAt: grace_DateTimeFilter
+  updatedAt: grace_DateTimeNullableFilter
+}
+
+input grace_PromptUpdateManyMutationInput {
+  prompt: grace_StringFieldUpdateOperationsInput
+  title: grace_StringFieldUpdateOperationsInput
+  createdAt: grace_DateTimeFieldUpdateOperationsInput
+  updatedAt: grace_NullableDateTimeFieldUpdateOperationsInput
+}
+
+input grace_PromptUpdateManyWithWhereWithoutUserInput {
+  where: grace_PromptScalarWhereInput!
+  data: grace_PromptUpdateManyMutationInput!
+}
+
+input grace_PromptUpdateManyWithoutUserNestedInput {
+  create: grace_PromptCreateWithoutUserInput
+  connectOrCreate: grace_PromptCreateOrConnectWithoutUserInput
+  upsert: grace_PromptUpsertWithWhereUniqueWithoutUserInput
+  set: grace_PromptWhereUniqueInput
+  disconnect: grace_PromptWhereUniqueInput
+  delete: grace_PromptWhereUniqueInput
+  connect: grace_PromptWhereUniqueInput
+  update: grace_PromptUpdateWithWhereUniqueWithoutUserInput
+  updateMany: grace_PromptUpdateManyWithWhereWithoutUserInput
+  deleteMany: grace_PromptScalarWhereInput
+}
+
+input grace_UserUpdateWithoutHistoryInput {
+  id: grace_StringFieldUpdateOperationsInput
+  name: grace_StringFieldUpdateOperationsInput
+  avatar: grace_StringFieldUpdateOperationsInput
+  bio: grace_NullableStringFieldUpdateOperationsInput
+  provider: grace_StringFieldUpdateOperationsInput
+  createdAt: grace_DateTimeFieldUpdateOperationsInput
+  Prompt: grace_PromptUpdateManyWithoutUserNestedInput
+}
+
+input grace_UserUpsertWithoutHistoryInput {
+  update: grace_UserUpdateWithoutHistoryInput!
+  create: grace_UserCreateWithoutHistoryInput!
+}
+
+input grace_UserUpdateOneRequiredWithoutHistoryNestedInput {
+  create: grace_UserCreateWithoutHistoryInput
+  connectOrCreate: grace_UserCreateOrConnectWithoutHistoryInput
+  upsert: grace_UserUpsertWithoutHistoryInput
+  connect: grace_UserWhereUniqueInput
+  update: grace_UserUpdateWithoutHistoryInput
+}
+
 input grace_HistoryUpdateWithoutChatMessageInput {
   title: grace_StringFieldUpdateOperationsInput
   createdAt: grace_DateTimeFieldUpdateOperationsInput
   updatedAt: grace_NullableDateTimeFieldUpdateOperationsInput
+  User: grace_UserUpdateOneRequiredWithoutHistoryNestedInput
 }
 
 input grace_HistoryUpsertWithoutChatMessageInput {
@@ -937,6 +1285,7 @@ input grace_HistoryCreateInput {
   title: String!
   createdAt: DateTime
   updatedAt: DateTime
+  User: grace_UserCreateNestedOneWithoutHistoryInput!
   ChatMessage: grace_ChatMessageCreateNestedManyWithoutHistoryInput
 }
 
@@ -990,6 +1339,7 @@ input grace_HistoryUpdateInput {
   title: grace_StringFieldUpdateOperationsInput
   createdAt: grace_DateTimeFieldUpdateOperationsInput
   updatedAt: grace_NullableDateTimeFieldUpdateOperationsInput
+  User: grace_UserUpdateOneRequiredWithoutHistoryNestedInput
   ChatMessage: grace_ChatMessageUpdateManyWithoutHistoryNestedInput
 }
 
@@ -999,11 +1349,121 @@ input grace_HistoryUpdateManyMutationInput {
   updatedAt: grace_NullableDateTimeFieldUpdateOperationsInput
 }
 
+input grace_HistoryCreateWithoutUserInput {
+  title: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+  ChatMessage: grace_ChatMessageCreateNestedManyWithoutHistoryInput
+}
+
+input grace_HistoryCreateOrConnectWithoutUserInput {
+  where: grace_HistoryWhereUniqueInput!
+  create: grace_HistoryCreateWithoutUserInput!
+}
+
+input grace_HistoryCreateNestedManyWithoutUserInput {
+  create: grace_HistoryCreateWithoutUserInput
+  connectOrCreate: grace_HistoryCreateOrConnectWithoutUserInput
+  connect: grace_HistoryWhereUniqueInput
+}
+
+input grace_UserCreateWithoutPromptInput {
+  id: String!
+  name: String!
+  avatar: String!
+  bio: String
+  provider: String!
+  createdAt: DateTime
+  History: grace_HistoryCreateNestedManyWithoutUserInput
+}
+
+input grace_UserCreateOrConnectWithoutPromptInput {
+  where: grace_UserWhereUniqueInput!
+  create: grace_UserCreateWithoutPromptInput!
+}
+
+input grace_UserCreateNestedOneWithoutPromptInput {
+  create: grace_UserCreateWithoutPromptInput
+  connectOrCreate: grace_UserCreateOrConnectWithoutPromptInput
+  connect: grace_UserWhereUniqueInput
+}
+
 input grace_PromptCreateInput {
   prompt: String!
   title: String!
   createdAt: DateTime
   updatedAt: DateTime
+  User: grace_UserCreateNestedOneWithoutPromptInput!
+}
+
+input grace_HistoryUpdateWithoutUserInput {
+  title: grace_StringFieldUpdateOperationsInput
+  createdAt: grace_DateTimeFieldUpdateOperationsInput
+  updatedAt: grace_NullableDateTimeFieldUpdateOperationsInput
+  ChatMessage: grace_ChatMessageUpdateManyWithoutHistoryNestedInput
+}
+
+input grace_HistoryUpsertWithWhereUniqueWithoutUserInput {
+  where: grace_HistoryWhereUniqueInput!
+  update: grace_HistoryUpdateWithoutUserInput!
+  create: grace_HistoryCreateWithoutUserInput!
+}
+
+input grace_HistoryUpdateWithWhereUniqueWithoutUserInput {
+  where: grace_HistoryWhereUniqueInput!
+  data: grace_HistoryUpdateWithoutUserInput!
+}
+
+input grace_HistoryScalarWhereInput {
+  AND: grace_HistoryScalarWhereInput
+  OR: [grace_HistoryScalarWhereInput]
+  NOT: grace_HistoryScalarWhereInput
+  id: grace_IntFilter
+  title: grace_StringFilter
+  createdAt: grace_DateTimeFilter
+  updatedAt: grace_DateTimeNullableFilter
+  userId: grace_StringFilter
+}
+
+input grace_HistoryUpdateManyWithWhereWithoutUserInput {
+  where: grace_HistoryScalarWhereInput!
+  data: grace_HistoryUpdateManyMutationInput!
+}
+
+input grace_HistoryUpdateManyWithoutUserNestedInput {
+  create: grace_HistoryCreateWithoutUserInput
+  connectOrCreate: grace_HistoryCreateOrConnectWithoutUserInput
+  upsert: grace_HistoryUpsertWithWhereUniqueWithoutUserInput
+  set: grace_HistoryWhereUniqueInput
+  disconnect: grace_HistoryWhereUniqueInput
+  delete: grace_HistoryWhereUniqueInput
+  connect: grace_HistoryWhereUniqueInput
+  update: grace_HistoryUpdateWithWhereUniqueWithoutUserInput
+  updateMany: grace_HistoryUpdateManyWithWhereWithoutUserInput
+  deleteMany: grace_HistoryScalarWhereInput
+}
+
+input grace_UserUpdateWithoutPromptInput {
+  id: grace_StringFieldUpdateOperationsInput
+  name: grace_StringFieldUpdateOperationsInput
+  avatar: grace_StringFieldUpdateOperationsInput
+  bio: grace_NullableStringFieldUpdateOperationsInput
+  provider: grace_StringFieldUpdateOperationsInput
+  createdAt: grace_DateTimeFieldUpdateOperationsInput
+  History: grace_HistoryUpdateManyWithoutUserNestedInput
+}
+
+input grace_UserUpsertWithoutPromptInput {
+  update: grace_UserUpdateWithoutPromptInput!
+  create: grace_UserCreateWithoutPromptInput!
+}
+
+input grace_UserUpdateOneRequiredWithoutPromptNestedInput {
+  create: grace_UserCreateWithoutPromptInput
+  connectOrCreate: grace_UserCreateOrConnectWithoutPromptInput
+  upsert: grace_UserUpsertWithoutPromptInput
+  connect: grace_UserWhereUniqueInput
+  update: grace_UserUpdateWithoutPromptInput
 }
 
 input grace_PromptUpdateInput {
@@ -1011,13 +1471,38 @@ input grace_PromptUpdateInput {
   title: grace_StringFieldUpdateOperationsInput
   createdAt: grace_DateTimeFieldUpdateOperationsInput
   updatedAt: grace_NullableDateTimeFieldUpdateOperationsInput
+  User: grace_UserUpdateOneRequiredWithoutPromptNestedInput
 }
 
-input grace_PromptUpdateManyMutationInput {
-  prompt: grace_StringFieldUpdateOperationsInput
-  title: grace_StringFieldUpdateOperationsInput
+input grace_UserCreateInput {
+  id: String!
+  name: String!
+  avatar: String!
+  bio: String
+  provider: String!
+  createdAt: DateTime
+  History: grace_HistoryCreateNestedManyWithoutUserInput
+  Prompt: grace_PromptCreateNestedManyWithoutUserInput
+}
+
+input grace_UserUpdateInput {
+  id: grace_StringFieldUpdateOperationsInput
+  name: grace_StringFieldUpdateOperationsInput
+  avatar: grace_StringFieldUpdateOperationsInput
+  bio: grace_NullableStringFieldUpdateOperationsInput
+  provider: grace_StringFieldUpdateOperationsInput
   createdAt: grace_DateTimeFieldUpdateOperationsInput
-  updatedAt: grace_NullableDateTimeFieldUpdateOperationsInput
+  History: grace_HistoryUpdateManyWithoutUserNestedInput
+  Prompt: grace_PromptUpdateManyWithoutUserNestedInput
+}
+
+input grace_UserUpdateManyMutationInput {
+  id: grace_StringFieldUpdateOperationsInput
+  name: grace_StringFieldUpdateOperationsInput
+  avatar: grace_StringFieldUpdateOperationsInput
+  bio: grace_NullableStringFieldUpdateOperationsInput
+  provider: grace_StringFieldUpdateOperationsInput
+  createdAt: grace_DateTimeFieldUpdateOperationsInput
 }
 
 scalar DateTime

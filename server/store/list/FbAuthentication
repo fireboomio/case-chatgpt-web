@@ -12,25 +12,25 @@
 			"clientId": {
 				"key": "",
 				"kind": "0",
-				"val": "63e1f004d53141741a3c7a10"
+				"val": "641976e6570caa8192cf3f93"
 			},
 			"clientSecret": {
 				"key": "",
 				"kind": "0",
-				"val": "535b9ee9d950bc58980221242da3464c"
+				"val": "535b9ee 30f13f9df7b33e35737d584efdbf1e7a 9d950bc58980221242da3464c"
 			},
-			"issuer": "https://rvjbtbc4q09g-demo.authing.cn/oidc",
+			"issuer": "https://fb-chatgpt-web.authing.cn/oidc",
 			"discoveryURL": "",
 			"jwks": 0,
 			"jwksJSON": "",
-			"jwksURL": "https://rvjbtbc4q09g-demo.authing.cn/oidc/.well-known/jwks.json",
-			"userInfoEndpoint": "https://rvjbtbc4q09g-demo.authing.cn/oidc/me",
+			"jwksURL": "https://fb-chatgpt-web.authing.cn/oidc/.well-known/jwks.json",
+			"userInfoEndpoint": "https://fb-chatgpt-web.authing.cn/oidc/me",
 			"userInfoCacheTtlSeconds": 0,
-			"AuthorizationEndpoint": "https://rvjbtbc4q09g-demo.authing.cn/oidc/auth",
-			"tokenEndpoint": "https://rvjbtbc4q09g-demo.authing.cn/oidc/token"
+			"AuthorizationEndpoint": "https://fb-chatgpt-web.authing.cn/oidc/auth",
+			"tokenEndpoint": "https://fb-chatgpt-web.authing.cn/oidc/token"
 		},
 		"createTime": "2023-03-08 06:25:03Z",
-		"updateTime": "2023-03-15 09:29:02Z",
+		"updateTime": "2023-03-21 09:21:20Z",
 		"deleteTime": ""
 	}
 ]

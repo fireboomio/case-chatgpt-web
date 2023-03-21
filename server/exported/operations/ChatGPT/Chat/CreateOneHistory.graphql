@@ -1,6 +1,6 @@
-mutation CreateOneHistory($title: String!) @internalOperation {
+mutation CreateOneHistory($title: String!, $userId: String! @fromClaim(name: USERID)) {
   data: grace_createOneHistory(
-    data: {title: $title}
+    data: {title: $title, User: {connect: {id: $userId}}}
   ) {
     id
     title

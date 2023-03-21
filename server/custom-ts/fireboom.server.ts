@@ -2,6 +2,7 @@ import { configureWunderGraphServer } from 'fireboom-wundersdk/server';
 import type { HooksConfig } from './generated/fireboom.hooks';
 import type { InternalClient } from './generated/fireboom.internal.client';
 
+import postAuthentication from './auth/postAuthentication';
 
 export default configureWunderGraphServer<HooksConfig, InternalClient, {}>(() => ({
     hooks: {
@@ -13,6 +14,7 @@ export default configureWunderGraphServer<HooksConfig, InternalClient, {}>(() =>
         },
         authentication: {
     
+            postAuthentication,
     
         },
         queries: {

@@ -10,7 +10,7 @@
 "operation_name": "ChatGPT__Chat__CreateOneHistory",
 "api_mount_path": "ChatGPT/Chat/CreateOneHistory",
 "file_path": "ChatGPT/Chat/CreateOneHistory.graphql",
-"content": "mutation ChatGPT__Chat__CreateOneHistory($title: String!)@internalOperation {data: grace_createOneHistory(data: {title: $title}){id title createdAt updatedAt}}"
+"content": "mutation ChatGPT__Chat__CreateOneHistory($title: String!, $userId: String! @fromClaim(name: USERID) ){data: grace_createOneHistory(data: {title: $title,User: {connect: {id: $userId}}}){id title createdAt updatedAt}}"
 },
 {
 "operation_name": "ChatGPT__Chat__DeleteOneChatMessage",
@@ -71,6 +71,18 @@
 "api_mount_path": "ChatGPT/Propmt/UpdateOnePrompt",
 "file_path": "ChatGPT/Propmt/UpdateOnePrompt.graphql",
 "content": "mutation ChatGPT__Propmt__UpdateOnePrompt($id: Int!, $prompt: String, $title: String, $updatedAt: DateTime! @injectCurrentDateTime(format: UnixDate) ){data: grace_updateOnePrompt(data: {prompt: {set: $prompt},title: {set: $title},updatedAt: {set: $updatedAt}}, where: {id: $id}){id prompt title createdAt updatedAt}}"
+},
+{
+"operation_name": "User__CreateOneUser",
+"api_mount_path": "User/CreateOneUser",
+"file_path": "User/CreateOneUser.graphql",
+"content": "mutation User__CreateOneUser($avatar: String!, $bio: String!, $id: String!, $name: String!, $provider: String = \"\")@internalOperation {data: grace_createOneUser(data: {id: $id,name: $name,avatar: $avatar,bio: $bio,provider: $provider}){id}}"
+},
+{
+"operation_name": "User__GetOneUser",
+"api_mount_path": "User/GetOneUser",
+"file_path": "User/GetOneUser.graphql",
+"content": "query User__GetOneUser($id: String = \"\")@internalOperation {data: grace_findFirstUser(where: {id: {equals: $id}}){id bio avatar name}}"
 }
 ],
 "typescript_operation_files": [
