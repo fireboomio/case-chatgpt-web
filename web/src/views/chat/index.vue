@@ -82,6 +82,12 @@ function speakOnce(str: string) {
 
 async function onConversation() {
   const message = prompt.value
+  const openAIMsgList = []
+  conversationList.value.forEach(x => {
+    openAIMsgList.push({role: 'user', content: x.requestOptions.prompt})
+    openAIMsgList.push({role: 'assistant', content: x.text})
+  })
+  openAIMsgList.push({role: 'user', content: message})
 
   if (loading.value)
     return
@@ -108,10 +114,7 @@ async function onConversation() {
   prompt.value = ''
 
   let options: Chat.ConversationRequest = {}
-  const lastContext = conversationList.value[conversationList.value.length - 1]?.conversationOptions
 
-  if (lastContext && usingContext.value)
-    options = { ...lastContext }
 
   addChat(
     +uuid,
@@ -134,7 +137,7 @@ async function onConversation() {
     const fetchChatAPIOnce = async () => {
       const res = await streamAPI<{ prompt: string }, { data: { completion: string, id: string, finish: boolean } }>('/ChatGPT/Subscription/ChatSSE', {
         params: {
-          prompt: message,
+          messages: JSON.stringify(openAIMsgList),
         },
       })
       const messages: string[] = []
