@@ -1,58 +1,62 @@
-import axios from 'axios'
-import { createOperation, z } from '../../generated/fireboom.factory'
+import fetch from '@web-std/fetch';
+// import axios from 'axios'
+import { createOperation, z } from 'generated/fireboom.factory'
+
+function readChunks(reader: ReadableStreamDefaultReader<Uint8Array>) {
+  return {
+    async*[Symbol.asyncIterator]() {
+      let readResult = await reader.read();
+      while (!readResult.done) {
+        yield readResult.value;
+        readResult = await reader.read();
+      }
+    },
+  };
+}
 
 export default createOperation.subscription({
   input: z.object({
     prompt: z.string(),
-    chatId: z.string(),
-    regrenerateId: z.string()
+    chatId: z.optional(z.string()),
+    regenerateId: z.optional(z.string())
   }),
   handler: async function* ({ input }) {
     try {
-      // setup your subscription here, e.g. connect to a queue / stream
-      // for (let i = 0; i < 10; i++) {
-      //   yield {
-      //     id: input.id,
-      //     name: 'Jens',
-      //     bio: 'Founder of WunderGraph',
-      //     time: new Date().toISOString(),
-      //   };
-      //   // let's fake some delay
-      //   await new Promise((resolve) => setTimeout(resolve, 1000));
-      // }
-
       const msg = []
-      msg.push(({ "role": "user", "content": input.prompt }))
-      const res = await axios.post(
-        'https://api.openai.com/v1/chat/completions',
-        {
-          "model": "gpt-3.5-turbo",
-          "messages": msg,
-          stream: true
+      msg.push(({ role: "user", content: input.prompt }))
+      const res = await fetch('https://api.openai.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + process.env.OPENAI_KEY
         },
-        {
-          headers: {
-            Authorization: `Bearer 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`,
-            'Content-Type': 'application/json',
-          },
-          responseType: 'stream', // 设为流响应类型
-        }
-      )
-      const id = Math.floor(Math.random() * 1e10)
-      const msgData = [] as any
-      res.data.on('data', async function* (data: any) {
-        data.toString().split('\n').filter((x: string) => x.trim()).forEach((line: string) => {
-          if (line === 'data: [DONE]') {
-            console.log('完球')
-            //internalClient.mutations.ChatGPT__Chat__CreateOneChatMessage({ input: { equals: promptInput.chatId } })
-            yield { completion: JSON.stringify({ data: msgData.join(''), id: id, finish: true }) }
-          } else {
-            const json = JSON.parse(line.substring(6))
-            msgData.push(json.choices[0].delta.content || '')
-            yield { completion: JSON.stringify({ data: msgData.join(''), id: id, finish: false }) }
-          }
+        body: JSON.stringify({
+          model: 'gpt-3.5-turbo',
+          messages: msg,
+          stream: true
         })
       })
+      const id = Math.random().toString(36).substring(2)
+      if (res.ok) {
+        const reader = res.body!.getReader();
+        for await (const chunk of readChunks(reader)) {
+          const str = chunk.toString()
+          const lines = str.split('\n').map(line => line.substring(6)).filter(Boolean)
+          for (const line of lines) {
+            if (line !== '[DONE]') {
+              const json = JSON.parse(line)
+              if (json.choices.length > 0) {
+                const delta = json.choices[0].delta
+                if (delta.content) {
+                  yield { completion: delta.content, id: id, finish: false }
+                }
+              }
+            }
+          }
+        }
+      } else {
+        yield { error: res.statusText }
+      }
     } finally {
       console.log('client disconnected');
     }

@@ -78,10 +78,8 @@ function createPrismaSDK(dataSourceId: string | number): PrismaDataSource {
   return { queryRaw }
 }
 
-const chatGPT = createPrismaSDK('1464058506903552')
 const grace = createPrismaSDK('1471257658589184')
 
 export const prisma = {
-  "chatGPT" : chatGPT,
   "grace" : grace,
 }

@@ -2,3 +2,4 @@ node_modules
 dist
 fireboom
 server/log
+server/custom-ts/**/*.js

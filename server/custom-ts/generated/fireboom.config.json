@@ -60,6 +60,11 @@
         "name": "ChatGPT__Propmt__UpdateOnePrompt",
         "path": "ChatGPT/Propmt/UpdateOnePrompt",
         "operationType": 1
+      },
+      {
+        "name": "ChatGPT__Subscription__ChatSSE",
+        "path": "ChatGPT/Subscription/ChatSSE",
+        "operationType": 2
       }
     ],
     "authenticationConfig": {
@@ -200,7 +205,7 @@
       "listen": {
         "host": {
           "kind": 0,
-          "staticVariableContent": "localhost",
+          "staticVariableContent": "0.0.0.0",
           "environmentVariableName": "",
           "environmentVariableDefaultValue": "",
           "placeholderVariableName": ""

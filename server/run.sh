@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-curl -fsSL https://www.fireboom.io/update.sh | bash -s
+curl -fsSL https://www.fireboom.io/update-test.sh | bash -s
 ./fireboom dev

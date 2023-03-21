@@ -2,7 +2,7 @@
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
-import { NAutoComplete, NButton, NInput, useDialog, useMessage, NSpin } from 'naive-ui'
+import { NAutoComplete, NButton, NInput, useDialog, useMessage } from 'naive-ui'
 import html2canvas from 'html2canvas'
 import * as sdk from 'microsoft-cognitiveservices-speech-sdk'
 import { ResultReason } from 'microsoft-cognitiveservices-speech-sdk'
@@ -12,11 +12,12 @@ import { useChat } from './hooks/useChat'
 import { useCopyCode } from './hooks/useCopyCode'
 import { useUsingContext } from './hooks/useUsingContext'
 import HeaderComponent from './components/Header/index.vue'
-import VoiceInputComponent from './components/VoiceInput/index.vue'
+// import VoiceInputComponent from './components/VoiceInput/index.vue'
 import { HoverButton, SvgIcon } from '@/components/common'
 import { useBasicLayout } from '@/hooks/useBasicLayout'
-import {useChatStore, usePromptStore, useSpeakStore} from '@/store'
+import { useChatStore, usePromptStore } from '@/store'
 import { fetchChatAPIProcess } from '@/api'
+import { streamAPI } from '@/utils/request/sse'
 
 import { t } from '@/locales'
 
@@ -67,7 +68,7 @@ function voiceInput() {
   }
   speaking.value = true
   recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig)
-  recognizer.recognizeOnceAsync((result: { reason: any; text: string; }) => {
+  recognizer.recognizeOnceAsync((result: { reason: any; text: string }) => {
     if (result.reason === ResultReason.RecognizedSpeech)
       prompt.value = prompt.value + result.text
     recognizer.close()
@@ -80,7 +81,7 @@ function speakOnce(str: string) {
 }
 
 async function onConversation() {
-  let message = prompt.value
+  const message = prompt.value
 
   if (loading.value)
     return
@@ -127,56 +128,45 @@ async function onConversation() {
   scrollToBottom()
 
   try {
-    let lastText = ''
-    let spokenText = ''
+    const lastText = ''
+    const spokenText = ''
     const speaker = new sdk.SpeechSynthesizer(speechConfig)
     const fetchChatAPIOnce = async () => {
-      await fetchChatAPIProcess<Chat.ConversationResponse>({
-        prompt: message,
-        options,
-        signal: controller.signal,
-        onDownloadProgress: ({ event }) => {
-          const xhr = event.target
-          const { responseText } = xhr
-          // Always process the final line
-          const lastIndex = responseText.lastIndexOf('\n')
-          let chunk = responseText
-          if (lastIndex !== -1)
-            chunk = responseText.substring(lastIndex)
-          try {
-            const data = JSON.parse(chunk)
-            updateChat(
-              +uuid,
-              dataSources.value.length - 1,
-              {
-                dateTime: new Date().toLocaleString(),
-                text: lastText + data.text ?? '',
-                inversion: false,
-                error: false,
-                loading: false,
-                conversationOptions: { conversationId: data.conversationId, parentMessageId: data.id },
-                requestOptions: { prompt: message, options: { ...options } },
-              },
-            )
-
-            if (openLongReply && data.detail.choices[0].finish_reason === 'length') {
-              options.parentMessageId = data.id
-              lastText = data.text
-              message = ''
-              return fetchChatAPIOnce()
-            }
-            if (data.detail.choices[0].finish_reason === 'stop' || data.text.match(/[.!?,]\s*$/)) {
-              speaker.speakTextAsync(data.text.replace(spokenText, '').trim())
-              spokenText = data.text
-            }
-
-            scrollToBottom()
-          }
-          catch (error) {
-          //
-          }
+      const res = await streamAPI<{ prompt: string }, { data: { completion: string } }>('/ChatGPT/Subscription/ChatSSE', {
+        params: {
+          prompt: message,
         },
       })
+      const messages: string[] = []
+      for await (const data of res) {
+        messages.push(data.data.completion)
+        updateChat(
+          +uuid,
+          dataSources.value.length - 1,
+          {
+            dateTime: new Date().toLocaleString(),
+            text: lastText + (messages.join('')),
+            inversion: false,
+            error: false,
+            loading: false,
+            conversationOptions: { conversationId: data.conversationId, parentMessageId: data.id },
+            requestOptions: { prompt: message, options: { ...options } },
+          },
+        )
+      }
+
+      // if (openLongReply && data.detail.choices[0].finish_reason === 'length') {
+      //   options.parentMessageId = data.id
+      //   lastText = data.text
+      //   message = ''
+      //   return fetchChatAPIOnce()
+      // }
+      // if (data.detail.choices[0].finish_reason === 'stop' || data.text.match(/[.!?,]\s*$/)) {
+      //   speaker.speakTextAsync(data.text.replace(spokenText, '').trim())
+      //   spokenText = data.text
+      // }
+
+      scrollToBottom()
     }
 
     await fetchChatAPIOnce()
@@ -495,7 +485,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="flex flex-col w-full h-full">
+  <div class="flex flex-col h-full w-full">
     <HeaderComponent
       v-if="isMobile"
       :using-context="usingContext"
@@ -510,11 +500,11 @@ onUnmounted(() => {
       >
         <div
           id="image-wrapper"
-          class="w-full max-w-screen-xl m-auto dark:bg-[#101014]"
+          class="m-auto max-w-screen-xl w-full dark:bg-[#101014]"
           :class="[isMobile ? 'p-2' : 'p-4']"
         >
           <template v-if="!dataSources.length">
-            <div class="flex items-center justify-center mt-4 text-center text-neutral-300">
+            <div class="flex mt-4 text-center text-neutral-300 items-center justify-center">
               <SvgIcon icon="ri:bubble-chart-fill" class="mr-2 text-3xl" />
               <span>Aha~</span>
             </div>
@@ -533,7 +523,7 @@ onUnmounted(() => {
                 @delete="handleDelete(index)"
                 @speak="speakOnce(item.text)"
               />
-              <div class="sticky bottom-0 left-0 flex justify-center">
+              <div class="flex bottom-0 left-0 sticky justify-center">
                 <NButton v-if="loading" type="warning" @click="handleStop">
                   <template #icon>
                     <SvgIcon icon="ri:stop-circle-line" />
@@ -547,8 +537,8 @@ onUnmounted(() => {
       </div>
     </main>
     <footer :class="footerClass">
-      <div class="w-full max-w-screen-xl m-auto">
-        <div class="flex items-center justify-between space-x-2">
+      <div class="m-auto max-w-screen-xl w-full">
+        <div class="flex space-x-2 items-center justify-between">
           <HoverButton @click="handleClear">
             <span class="text-xl text-[#4f555e] dark:text-white">
               <SvgIcon icon="ri:delete-bin-line" />
@@ -590,7 +580,7 @@ onUnmounted(() => {
               <span v-if="!speaking" class="dark:text-black">
                 <SvgIcon icon="mdi:microphone" />
               </span>
-              <NSpin class="scale-50" v-if="speaking" size="small" />
+              <NSpin v-if="speaking" class="scale-50" size="small" />
             </template>
           </NButton>
         </div>

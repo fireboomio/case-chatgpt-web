@@ -34,6 +34,25 @@ export function fetchChatAPIProcess<T = any>(
   })
 }
 
+// export function chatWithAI<T = any>(params: {
+//   prompt: string
+//   chatId: string
+//   parentMessageId?: string
+//   signal?: GenericAbortSignal
+// }) {
+//   return get<T>({
+//     url: '/ChatGPT/Subscription/ChatSSE',
+//     data: {
+//       prompt: params.prompt,
+//       chatId: params.chatId,
+//       parentMessageId: params.parentMessageId,
+//       wg_sse: true,
+//     },
+//     responseType: 'stream',
+//     signal: params.signal,
+//   })
+// }
+
 export function fetchSession<T>() {
   return post<T>({
     url: '/session',

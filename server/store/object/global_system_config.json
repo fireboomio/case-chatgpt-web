@@ -2,7 +2,7 @@
   "system": {
     "apiPublicAddr": "http://localhost:9991",
     "apiInternalAddr": "http://localhost:9991",
-    "apiListenHost": "localhost",
+    "apiListenHost": "0.0.0.0",
     "apiListenPort": "9991",
     "hooksServerURL": "http://localhost:9992",
     "hooksServerPath": "./custom-ts",

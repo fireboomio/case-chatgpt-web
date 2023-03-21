@@ -663,6 +663,38 @@
                     }
                 }
             }
+        },
+        "/operations/ChatGPT/Subscription/ChatSSE": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ChatGPT"
+                ],
+                "summary": "GET /operations/ChatGPT/Subscription/ChatSSE",
+                "operationId": "ChatGPT__Subscription__ChatSSE",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "build value by graphql input",
+                        "name": "prompt",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "build value by graphql input",
+                        "name": "chatId",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "build value by graphql input",
+                        "name": "regenerateId",
+                        "in": "query"
+                    }
+                ]
+            }
         }
     }
 }

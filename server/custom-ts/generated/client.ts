@@ -16,7 +16,7 @@ import {
 } from "fireboom-wundersdk/client";
 
 import type { CustomClaims, Role } from './claims'
-import type { ChatGPT__Chat__CreateOneChatMessageInput,ChatGPT__Chat__CreateOneChatMessageResponse,            ChatGPT__Chat__CreateOneChatMessageResponseData,ChatGPT__Chat__CreateOneHistoryInput,ChatGPT__Chat__CreateOneHistoryResponse,            ChatGPT__Chat__CreateOneHistoryResponseData,ChatGPT__Chat__DeleteOneChatMessageInput,ChatGPT__Chat__DeleteOneChatMessageResponse,            ChatGPT__Chat__DeleteOneChatMessageResponseData,ChatGPT__Chat__DeleteOneHistoryInput,ChatGPT__Chat__DeleteOneHistoryResponse,            ChatGPT__Chat__DeleteOneHistoryResponseData,ChatGPT__Chat__GetHistoryListInput,ChatGPT__Chat__GetHistoryListResponse,            ChatGPT__Chat__GetHistoryListResponseData,ChatGPT__Chat__GetManyChatMessageResponse,            ChatGPT__Chat__GetManyChatMessageResponseData,ChatGPT__Chat__UpdateOneHistoryInput,ChatGPT__Chat__UpdateOneHistoryResponse,            ChatGPT__Chat__UpdateOneHistoryResponseData,ChatGPT__Propmt__CreateOnePromptInput,ChatGPT__Propmt__CreateOnePromptResponse,            ChatGPT__Propmt__CreateOnePromptResponseData,ChatGPT__Propmt__DeleteManyPromptInput,ChatGPT__Propmt__DeleteManyPromptResponse,            ChatGPT__Propmt__DeleteManyPromptResponseData,ChatGPT__Propmt__DeleteOnePromptInput,ChatGPT__Propmt__DeleteOnePromptResponse,            ChatGPT__Propmt__DeleteOnePromptResponseData,ChatGPT__Propmt__GetPromptListInput,ChatGPT__Propmt__GetPromptListResponse,            ChatGPT__Propmt__GetPromptListResponseData,ChatGPT__Propmt__UpdateOnePromptInput,ChatGPT__Propmt__UpdateOnePromptResponse,            ChatGPT__Propmt__UpdateOnePromptResponseData, } from './models'
+import type { ChatGPT__Chat__CreateOneChatMessageInput,ChatGPT__Chat__CreateOneChatMessageResponse,            ChatGPT__Chat__CreateOneChatMessageResponseData,ChatGPT__Chat__CreateOneHistoryInput,ChatGPT__Chat__CreateOneHistoryResponse,            ChatGPT__Chat__CreateOneHistoryResponseData,ChatGPT__Chat__DeleteOneChatMessageInput,ChatGPT__Chat__DeleteOneChatMessageResponse,            ChatGPT__Chat__DeleteOneChatMessageResponseData,ChatGPT__Chat__DeleteOneHistoryInput,ChatGPT__Chat__DeleteOneHistoryResponse,            ChatGPT__Chat__DeleteOneHistoryResponseData,ChatGPT__Chat__GetHistoryListInput,ChatGPT__Chat__GetHistoryListResponse,            ChatGPT__Chat__GetHistoryListResponseData,ChatGPT__Chat__GetManyChatMessageResponse,            ChatGPT__Chat__GetManyChatMessageResponseData,ChatGPT__Chat__UpdateOneHistoryInput,ChatGPT__Chat__UpdateOneHistoryResponse,            ChatGPT__Chat__UpdateOneHistoryResponseData,ChatGPT__Propmt__CreateOnePromptInput,ChatGPT__Propmt__CreateOnePromptResponse,            ChatGPT__Propmt__CreateOnePromptResponseData,ChatGPT__Propmt__DeleteManyPromptInput,ChatGPT__Propmt__DeleteManyPromptResponse,            ChatGPT__Propmt__DeleteManyPromptResponseData,ChatGPT__Propmt__DeleteOnePromptInput,ChatGPT__Propmt__DeleteOnePromptResponse,            ChatGPT__Propmt__DeleteOnePromptResponseData,ChatGPT__Propmt__GetPromptListInput,ChatGPT__Propmt__GetPromptListResponse,            ChatGPT__Propmt__GetPromptListResponseData,ChatGPT__Propmt__UpdateOnePromptInput,ChatGPT__Propmt__UpdateOnePromptResponse,            ChatGPT__Propmt__UpdateOnePromptResponseData,ChatGPT__Subscription__ChatSSEInput,ChatGPT__Subscription__ChatSSEResponse,ChatGPT__Subscription__ChatSSEResponseData, } from './models'
 
 export const WUNDERGRAPH_S3_ENABLED = false
 export const WUNDERGRAPH_AUTH_ENABLED = true
@@ -32,7 +32,7 @@ export interface AuthProvider {
 }
 
 export const defaultClientConfig: ClientConfig = {
-    applicationHash: "3aed7b29",
+    applicationHash: "375c9f41",
     baseURL: "http://localhost:9991",
     sdkVersion: "",
     customFetch: fetch,
@@ -84,6 +84,10 @@ export const operationMetadata: OperationMetadata = {
 		}
     ,
     "ChatGPT/Propmt/UpdateOnePrompt": {
+        requiresAuthentication: false
+		}
+    ,
+    "ChatGPT/Subscription/ChatSSE": {
         requiresAuthentication: false
 		}
     
@@ -203,6 +207,11 @@ export type Mutations = {
 }
 
 export type Subscriptions = {
+    'ChatGPT/Subscription/ChatSSE': {
+        input: ChatGPT__Subscription__ChatSSEInput
+        data: ChatGPT__Subscription__ChatSSEResponseData
+        requiresAuthentication: false
+    }
 }
 
 export type LiveQueries = {
