@@ -1,5 +1,5 @@
 import type { BaseRequestContext, WunderGraphRequest, WunderGraphResponse, AuthenticationResponse, AuthenticationHookRequest, HooksConfiguration, WsTransportOnConnectionInitResponse, PreUploadHookRequest, PreUploadHookResponse, PostUploadHookRequest, PostUploadHookResponse } from "fireboom-wundersdk/server";
-import { ChatGPT__Chat__CreateOneChatMessageInput,InternalChatGPT__Chat__CreateOneChatMessageInput,InjectedChatGPT__Chat__CreateOneChatMessageInput,ChatGPT__Chat__CreateOneChatMessageResponse,ChatGPT__Chat__CreateOneHistoryInput,InternalChatGPT__Chat__CreateOneHistoryInput,InjectedChatGPT__Chat__CreateOneHistoryInput,ChatGPT__Chat__CreateOneHistoryResponse,ChatGPT__Chat__DeleteOneChatMessageInput,InternalChatGPT__Chat__DeleteOneChatMessageInput,InjectedChatGPT__Chat__DeleteOneChatMessageInput,ChatGPT__Chat__DeleteOneChatMessageResponse,ChatGPT__Chat__DeleteOneHistoryInput,InternalChatGPT__Chat__DeleteOneHistoryInput,InjectedChatGPT__Chat__DeleteOneHistoryInput,ChatGPT__Chat__DeleteOneHistoryResponse,ChatGPT__Chat__GetHistoryListInput,InternalChatGPT__Chat__GetHistoryListInput,InjectedChatGPT__Chat__GetHistoryListInput,ChatGPT__Chat__GetHistoryListResponse,ChatGPT__Chat__GetManyChatMessageResponse,ChatGPT__Chat__UpdateOneHistoryInput,InternalChatGPT__Chat__UpdateOneHistoryInput,InjectedChatGPT__Chat__UpdateOneHistoryInput,ChatGPT__Chat__UpdateOneHistoryResponse,ChatGPT__Propmt__CreateOnePromptInput,InternalChatGPT__Propmt__CreateOnePromptInput,InjectedChatGPT__Propmt__CreateOnePromptInput,ChatGPT__Propmt__CreateOnePromptResponse,ChatGPT__Propmt__DeleteManyPromptInput,InternalChatGPT__Propmt__DeleteManyPromptInput,InjectedChatGPT__Propmt__DeleteManyPromptInput,ChatGPT__Propmt__DeleteManyPromptResponse,ChatGPT__Propmt__DeleteOnePromptInput,InternalChatGPT__Propmt__DeleteOnePromptInput,InjectedChatGPT__Propmt__DeleteOnePromptInput,ChatGPT__Propmt__DeleteOnePromptResponse,ChatGPT__Propmt__GetPromptListInput,InternalChatGPT__Propmt__GetPromptListInput,InjectedChatGPT__Propmt__GetPromptListInput,ChatGPT__Propmt__GetPromptListResponse,ChatGPT__Propmt__UpdateOnePromptInput,InternalChatGPT__Propmt__UpdateOnePromptInput,InjectedChatGPT__Propmt__UpdateOnePromptInput,ChatGPT__Propmt__UpdateOnePromptResponse,ChatGPT__Subscription__ChatSSEInput,InternalChatGPT__Subscription__ChatSSEInput,ChatGPT__Subscription__ChatSSEResponse, } from "./models"
+import { ChatGPT__Chat__CreateOneChatMessageInput,InternalChatGPT__Chat__CreateOneChatMessageInput,InjectedChatGPT__Chat__CreateOneChatMessageInput,ChatGPT__Chat__CreateOneChatMessageResponse,ChatGPT__Chat__CreateOneHistoryInput,InternalChatGPT__Chat__CreateOneHistoryInput,InjectedChatGPT__Chat__CreateOneHistoryInput,ChatGPT__Chat__CreateOneHistoryResponse,ChatGPT__Chat__DeleteOneChatMessageInput,InternalChatGPT__Chat__DeleteOneChatMessageInput,InjectedChatGPT__Chat__DeleteOneChatMessageInput,ChatGPT__Chat__DeleteOneChatMessageResponse,ChatGPT__Chat__DeleteOneHistoryInput,InternalChatGPT__Chat__DeleteOneHistoryInput,InjectedChatGPT__Chat__DeleteOneHistoryInput,ChatGPT__Chat__DeleteOneHistoryResponse,ChatGPT__Chat__GetHistoryListInput,InternalChatGPT__Chat__GetHistoryListInput,InjectedChatGPT__Chat__GetHistoryListInput,ChatGPT__Chat__GetHistoryListResponse,ChatGPT__Chat__GetManyChatMessageResponse,ChatGPT__Chat__UpdateOneHistoryInput,InternalChatGPT__Chat__UpdateOneHistoryInput,InjectedChatGPT__Chat__UpdateOneHistoryInput,ChatGPT__Chat__UpdateOneHistoryResponse,ChatGPT__Propmt__CreateOnePromptInput,InternalChatGPT__Propmt__CreateOnePromptInput,InjectedChatGPT__Propmt__CreateOnePromptInput,ChatGPT__Propmt__CreateOnePromptResponse,ChatGPT__Propmt__DeleteManyPromptInput,InternalChatGPT__Propmt__DeleteManyPromptInput,InjectedChatGPT__Propmt__DeleteManyPromptInput,ChatGPT__Propmt__DeleteManyPromptResponse,ChatGPT__Propmt__DeleteOnePromptInput,InternalChatGPT__Propmt__DeleteOnePromptInput,InjectedChatGPT__Propmt__DeleteOnePromptInput,ChatGPT__Propmt__DeleteOnePromptResponse,ChatGPT__Propmt__GetPromptListInput,InternalChatGPT__Propmt__GetPromptListInput,InjectedChatGPT__Propmt__GetPromptListInput,ChatGPT__Propmt__GetPromptListResponse,ChatGPT__Propmt__UpdateOnePromptInput,InternalChatGPT__Propmt__UpdateOnePromptInput,InjectedChatGPT__Propmt__UpdateOnePromptInput,ChatGPT__Propmt__UpdateOnePromptResponse,User__CreateOneUserInput,InternalUser__CreateOneUserInput,InjectedUser__CreateOneUserInput,User__CreateOneUserResponse,User__GetOneUserInput,InternalUser__GetOneUserInput,InjectedUser__GetOneUserInput,User__GetOneUserResponse,ChatGPT__Subscription__ChatSSEInput,InternalChatGPT__Subscription__ChatSSEInput,ChatGPT__Subscription__ChatSSEResponse, } from "./models"
 import type { InternalClient } from "./fireboom.internal.client"
 import type { User } from "./claims"
 
@@ -10,7 +10,7 @@ export type SKIP = "skip";
 // this is semantically equal to throwing an error (500)
 export type CANCEL = "cancel";
 
-export type WUNDERGRAPH_OPERATION ="ChatGPT/Chat/CreateOneChatMessage" | "ChatGPT/Chat/CreateOneHistory" | "ChatGPT/Chat/DeleteOneChatMessage" | "ChatGPT/Chat/DeleteOneHistory" | "ChatGPT/Chat/GetHistoryList" | "ChatGPT/Chat/GetManyChatMessage" | "ChatGPT/Chat/UpdateOneHistory" | "ChatGPT/Propmt/CreateOnePrompt" | "ChatGPT/Propmt/DeleteManyPrompt" | "ChatGPT/Propmt/DeleteOnePrompt" | "ChatGPT/Propmt/GetPromptList" | "ChatGPT/Propmt/UpdateOnePrompt" | "ChatGPT/Subscription/ChatSSE";
+export type WUNDERGRAPH_OPERATION ="ChatGPT/Chat/CreateOneChatMessage" | "ChatGPT/Chat/CreateOneHistory" | "ChatGPT/Chat/DeleteOneChatMessage" | "ChatGPT/Chat/DeleteOneHistory" | "ChatGPT/Chat/GetHistoryList" | "ChatGPT/Chat/GetManyChatMessage" | "ChatGPT/Chat/UpdateOneHistory" | "ChatGPT/Propmt/CreateOnePrompt" | "ChatGPT/Propmt/DeleteManyPrompt" | "ChatGPT/Propmt/DeleteOnePrompt" | "ChatGPT/Propmt/GetPromptList" | "ChatGPT/Propmt/UpdateOnePrompt" | "User/CreateOneUser" | "User/GetOneUser" | "ChatGPT/Subscription/ChatSSE";
 
 export type DATA_SOURCES =never;
 
@@ -130,6 +130,14 @@ export interface Queries {
         customResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__GetPromptListInput>) => Promise<void | ChatGPT__Propmt__GetPromptListResponse | null>;
         mutatingPostResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__GetPromptListInput> & HookRequestWithResponse<ChatGPT__Propmt__GetPromptListResponse>) => Promise<ChatGPT__Propmt__GetPromptListResponse>;
         }
+        "User/GetOneUser"?: {
+        mockResolve?: (hook: HookRequestWithInput<InjectedUser__GetOneUserInput>) => Promise<User__GetOneUserResponse>;
+        preResolve?: (hook: HookRequestWithInput<InjectedUser__GetOneUserInput>) => Promise<void>;
+         mutatingPreResolve?: (hook: HookRequestWithInput<InjectedUser__GetOneUserInput>) => Promise<InjectedUser__GetOneUserInput>;
+        postResolve?: (hook: HookRequestWithInput<InjectedUser__GetOneUserInput> & HookRequestWithResponse<User__GetOneUserResponse>) => Promise<void>;
+        customResolve?: (hook: HookRequestWithInput<InjectedUser__GetOneUserInput>) => Promise<void | User__GetOneUserResponse | null>;
+        mutatingPostResolve?: (hook: HookRequestWithInput<InjectedUser__GetOneUserInput> & HookRequestWithResponse<User__GetOneUserResponse>) => Promise<User__GetOneUserResponse>;
+        }
 }
 
 export interface Mutations {
@@ -204,6 +212,14 @@ export interface Mutations {
         postResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__UpdateOnePromptInput> & HookRequestWithResponse<ChatGPT__Propmt__UpdateOnePromptResponse>) => Promise<void>;
         customResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__UpdateOnePromptInput>) => Promise<void | ChatGPT__Propmt__UpdateOnePromptResponse>;
         mutatingPostResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__UpdateOnePromptInput> & HookRequestWithResponse<ChatGPT__Propmt__UpdateOnePromptResponse>) => Promise<ChatGPT__Propmt__UpdateOnePromptResponse>;
+        }
+        "User/CreateOneUser"?: {
+        mockResolve?: (hook: HookRequestWithInput<InjectedUser__CreateOneUserInput>) => Promise<User__CreateOneUserResponse>;
+        preResolve?: (hook: HookRequestWithInput<InjectedUser__CreateOneUserInput>) => Promise<void>;
+         mutatingPreResolve?: (hook: HookRequestWithInput<InjectedUser__CreateOneUserInput>) => Promise<InjectedUser__CreateOneUserInput>;
+        postResolve?: (hook: HookRequestWithInput<InjectedUser__CreateOneUserInput> & HookRequestWithResponse<User__CreateOneUserResponse>) => Promise<void>;
+        customResolve?: (hook: HookRequestWithInput<InjectedUser__CreateOneUserInput>) => Promise<void | User__CreateOneUserResponse>;
+        mutatingPostResolve?: (hook: HookRequestWithInput<InjectedUser__CreateOneUserInput> & HookRequestWithResponse<User__CreateOneUserResponse>) => Promise<User__CreateOneUserResponse>;
         }
 }
 

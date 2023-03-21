@@ -90,13 +90,13 @@
 		"updateTime": ""
 	},
 	{
-		"content": "mutation CreateOneHistory($title: String!) @internalOperation {\n  data: grace_createOneHistory(\n    data: {title: $title}\n  ) {\n    id\n    title\n    createdAt\n    updatedAt\n  }\n}",
+		"content": "mutation CreateOneHistory($title: String!, $userId: String! @fromClaim(name: USERID)) {\n  data: grace_createOneHistory(\n    data: {title: $title, User: {connect: {id: $userId}}}\n  ) {\n    id\n    title\n    createdAt\n    updatedAt\n  }\n}",
 		"createTime": "",
 		"deleteTime": "",
 		"enabled": true,
 		"id": 1464832902168576,
 		"illegal": false,
-		"isPublic": false,
+		"isPublic": true,
 		"liveQuery": false,
 		"method": "POST",
 		"operationType": "mutations",
@@ -105,7 +105,7 @@
 		"roleType": "",
 		"roles": "",
 		"title": "/ChatGPT/Chat/CreateOneHistory",
-		"updateTime": "2023-03-20 10:01:36Z"
+		"updateTime": "2023-03-21 09:18:03Z"
 	},
 	{
 		"content": "mutation DeleteOneHistory($id: Int!) {\n  data: grace_deleteOneHistory(where: {id: $id}) {\n    id\n  }\n}",
@@ -304,5 +304,41 @@
 		"roles": "",
 		"title": "/ChatGPT/Propmt/DeleteManyPrompt",
 		"updateTime": "2023-03-19 08:03:52Z"
+	},
+	{
+		"content": "query MyQuery($id: String = \"\") @internalOperation {\n  data: grace_findFirstUser(where: {id: {equals: $id}}) {\n    id\n    bio\n    avatar\n    name\n  }\n}",
+		"createTime": "2023-03-21 09:25:16Z",
+		"deleteTime": "",
+		"enabled": true,
+		"id": 1476825671794688,
+		"illegal": false,
+		"isPublic": false,
+		"liveQuery": false,
+		"method": "GET",
+		"operationType": "queries",
+		"remark": "",
+		"restUrl": "",
+		"roleType": "",
+		"roles": "",
+		"title": "/User/GetOneUser",
+		"updateTime": "2023-03-21 09:28:59Z"
+	},
+	{
+		"id": 1476828421160960,
+		"method": "POST",
+		"restUrl": "",
+		"operationType": "mutations",
+		"isPublic": false,
+		"remark": "",
+		"illegal": false,
+		"liveQuery": false,
+		"title": "/User/CreateOneUser",
+		"content": "mutation MyQuery($avatar: String!, $bio: String!, $id: String!, $name: String!, $provider: String = \"\") @internalOperation {\n  data: grace_createOneUser(\n    data: {id: $id, name: $name, avatar: $avatar, bio: $bio, provider: $provider}\n  ) {\n    id\n  }\n}",
+		"enabled": true,
+		"createTime": "2023-03-21 09:25:58Z",
+		"updateTime": "2023-03-21 09:32:14Z",
+		"deleteTime": "",
+		"roleType": "",
+		"roles": ""
 	}
 ]

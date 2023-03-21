@@ -62,6 +62,16 @@
         "operationType": 1
       },
       {
+        "name": "User__CreateOneUser",
+        "path": "User/CreateOneUser",
+        "operationType": 1
+      },
+      {
+        "name": "User__GetOneUser",
+        "path": "User/GetOneUser",
+        "operationType": 0
+      },
+      {
         "name": "ChatGPT__Subscription__ChatSSE",
         "path": "ChatGPT/Subscription/ChatSSE",
         "operationType": 2
@@ -77,28 +87,28 @@
             "oidcConfig": {
               "issuer": {
                 "kind": 0,
-                "staticVariableContent": "https://rvjbtbc4q09g-demo.authing.cn/oidc",
+                "staticVariableContent": "https://fb-chatgpt-web.authing.cn/oidc",
                 "environmentVariableName": "",
                 "environmentVariableDefaultValue": "",
                 "placeholderVariableName": ""
               },
               "clientId": {
                 "kind": 0,
-                "staticVariableContent": "63e1f004d53141741a3c7a10",
+                "staticVariableContent": "641976e6570caa8192cf3f93",
                 "environmentVariableName": "",
                 "environmentVariableDefaultValue": "",
                 "placeholderVariableName": ""
               },
               "clientSecret": {
                 "kind": 0,
-                "staticVariableContent": "535b9ee9d950bc58980221242da3464c",
+                "staticVariableContent": "535b9ee 30f13f9df7b33e35737d584efdbf1e7a 9d950bc58980221242da3464c",
                 "environmentVariableName": "",
                 "environmentVariableDefaultValue": "",
                 "placeholderVariableName": ""
               },
               "queryParameters": null,
-              "AuthURL": "https://rvjbtbc4q09g-demo.authing.cn/oidc/auth",
-              "TokenURL": "https://rvjbtbc4q09g-demo.authing.cn/oidc/token"
+              "AuthURL": "https://fb-chatgpt-web.authing.cn/oidc/auth",
+              "TokenURL": "https://fb-chatgpt-web.authing.cn/oidc/token"
             }
           }
         ],

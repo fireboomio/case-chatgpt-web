@@ -1,0 +1,26 @@
+{{#each operations~}}
+    {{~#if hasInput~}}
+        {{name}}Input,
+    {{~/if~}}
+    {{~#if hasInternalInput~}}
+        {{~#if includeInternal~}}
+            Internal{{name}}Input,
+        {{~/if~}}
+    {{~/if~}}
+    {{~#equal engine 0}}
+        {{~#if hasInjectedInput~}}
+            {{~#if includeInject~}}
+                Injected{{name}}Input,
+            {{~/if~}}
+        {{~/if~}}
+    {{~/equal~}}
+    {{~name}}Response,
+    {{~#if includeResponseData~}}
+        {{~#if (isNotEmpty responseSchema)}}
+            {{name}}ResponseData,
+        {{~/if~}}
+        {{~#equal engine 1~}}
+            {{name}}ResponseData,
+        {{~/equal~}}
+    {{~/if~}}
+{{~/each}}

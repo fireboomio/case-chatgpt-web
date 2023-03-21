@@ -1,0 +1,7 @@
+mutation MyQuery($avatar: String!, $bio: String!, $id: String!, $name: String!, $provider: String = "") @internalOperation {
+  data: grace_createOneUser(
+    data: {id: $id, name: $name, avatar: $avatar, bio: $bio, provider: $provider}
+  ) {
+    id
+  }
+}

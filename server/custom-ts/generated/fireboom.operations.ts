@@ -35,6 +35,8 @@ export interface OperationsConfiguration {
         "ChatGPT/Propmt/DeleteOnePrompt"?: CustomizeMutation;
         "ChatGPT/Propmt/GetPromptList"?: CustomizeQuery;
         "ChatGPT/Propmt/UpdateOnePrompt"?: CustomizeMutation;
+        "User/CreateOneUser"?: CustomizeMutation;
+        "User/GetOneUser"?: CustomizeQuery;
         "ChatGPT/Subscription/ChatSSE"?: CustomizeSubscription;
     }
 }

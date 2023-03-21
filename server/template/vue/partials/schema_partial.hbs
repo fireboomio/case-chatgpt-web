@@ -1,0 +1,23 @@
+{{#if (equalAny (realType type) 'string,bool,JSONValue')}}
+  {{key}}{{#unless isRequired}}?{{/unless}}: {{realType type}}
+{{/if~}}
+
+{{#if (equalAny (realType type) 'integer,float')}}
+  {{key}}{{#unless isRequired}}?{{/unless}}: number
+{{/if~}}
+
+{{~#if (equalAny (realType type) 'object')}}
+{{key}}{{#unless isRequired}}?{{/unless}}: {
+    {{#each properties as |schema key|~}}
+  {{> schema_partial data=schema.properties key=key isRequired=(stringInArray key required)}}
+    {{~/each~}}
+},
+{{/if~}}
+
+{{~#if (equalAny (realType type) 'array')}}
+{{key}}{{#unless isRequired}}?{{/unless}}: {
+{{#each items.properties as |schema key|~}}
+  {{> schema_partial data=schema key=key isRequired=(stringInArray key required)}}
+{{~/each}}
+}[],
+{{/if~}}

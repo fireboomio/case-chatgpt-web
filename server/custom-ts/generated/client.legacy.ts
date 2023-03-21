@@ -1,6 +1,6 @@
 // import fetch from '@web-std/fetch'
 import type { RequestOptions, UserListener, Response } from 'fireboom-wundersdk/server';
-import type { ChatGPT__Chat__CreateOneChatMessageInput,ChatGPT__Chat__CreateOneChatMessageResponse,ChatGPT__Chat__CreateOneHistoryInput,ChatGPT__Chat__CreateOneHistoryResponse,ChatGPT__Chat__DeleteOneChatMessageInput,ChatGPT__Chat__DeleteOneChatMessageResponse,ChatGPT__Chat__DeleteOneHistoryInput,ChatGPT__Chat__DeleteOneHistoryResponse,ChatGPT__Chat__GetHistoryListInput,ChatGPT__Chat__GetHistoryListResponse,ChatGPT__Chat__GetManyChatMessageResponse,ChatGPT__Chat__UpdateOneHistoryInput,ChatGPT__Chat__UpdateOneHistoryResponse,ChatGPT__Propmt__CreateOnePromptInput,ChatGPT__Propmt__CreateOnePromptResponse,ChatGPT__Propmt__DeleteManyPromptInput,ChatGPT__Propmt__DeleteManyPromptResponse,ChatGPT__Propmt__DeleteOnePromptInput,ChatGPT__Propmt__DeleteOnePromptResponse,ChatGPT__Propmt__GetPromptListInput,ChatGPT__Propmt__GetPromptListResponse,ChatGPT__Propmt__UpdateOnePromptInput,ChatGPT__Propmt__UpdateOnePromptResponse,ChatGPT__Subscription__ChatSSEInput,ChatGPT__Subscription__ChatSSEResponse, } from './models'
+import type { ChatGPT__Chat__CreateOneChatMessageInput,ChatGPT__Chat__CreateOneChatMessageResponse,ChatGPT__Chat__CreateOneHistoryInput,ChatGPT__Chat__CreateOneHistoryResponse,ChatGPT__Chat__DeleteOneChatMessageInput,ChatGPT__Chat__DeleteOneChatMessageResponse,ChatGPT__Chat__DeleteOneHistoryInput,ChatGPT__Chat__DeleteOneHistoryResponse,ChatGPT__Chat__GetHistoryListInput,ChatGPT__Chat__GetHistoryListResponse,ChatGPT__Chat__GetManyChatMessageResponse,ChatGPT__Chat__UpdateOneHistoryInput,ChatGPT__Chat__UpdateOneHistoryResponse,ChatGPT__Propmt__CreateOnePromptInput,ChatGPT__Propmt__CreateOnePromptResponse,ChatGPT__Propmt__DeleteManyPromptInput,ChatGPT__Propmt__DeleteManyPromptResponse,ChatGPT__Propmt__DeleteOnePromptInput,ChatGPT__Propmt__DeleteOnePromptResponse,ChatGPT__Propmt__GetPromptListInput,ChatGPT__Propmt__GetPromptListResponse,ChatGPT__Propmt__UpdateOnePromptInput,ChatGPT__Propmt__UpdateOnePromptResponse,User__CreateOneUserInput,User__CreateOneUserResponse,User__GetOneUserInput,User__GetOneUserResponse,ChatGPT__Subscription__ChatSSEInput,ChatGPT__Subscription__ChatSSEResponse, } from './models'
 import type { User, Role } from './claims'
 
 import {
@@ -33,7 +33,7 @@ export class Client {
 
         this._client = new WunderGraphClient({
             baseURL,
-            applicationHash: "375c9f41",
+            applicationHash: "89f283af",
             sdkVersion: "",
             // customFetch: fetch,
             ...rest
@@ -103,6 +103,14 @@ export class Client {
                 abortSignal: options.abortSignal,
             })
             return this.resultToResponse<ChatGPT__Propmt__GetPromptListResponse>(result)
+        },
+        'User/GetOneUser': async (options: RequestOptions<User__GetOneUserInput,User__GetOneUserResponse>) => {
+            const result = await this._client.query({
+                operationName: 'User__GetOneUser',
+                input: options.input,
+                abortSignal: options.abortSignal,
+            })
+            return this.resultToResponse<User__GetOneUserResponse>(result)
         },
     }
     
@@ -178,6 +186,14 @@ export class Client {
                 abortSignal: options.abortSignal,
             })
             return this.resultToResponse<ChatGPT__Propmt__UpdateOnePromptResponse>(result)
+        },
+        'User/CreateOneUser': async (options: RequestOptions<User__CreateOneUserInput,User__CreateOneUserResponse>) => {
+            const result =  await this._client.mutate({
+                operationName: 'User__CreateOneUser',
+                input: options.input,
+                abortSignal: options.abortSignal,
+            })
+            return this.resultToResponse<User__CreateOneUserResponse>(result)
         },
     }
     

@@ -91,6 +91,89 @@
                 }
             }
         },
+        "/operations/ChatGPT/Chat/CreateOneHistory": {
+            "post": {
+                "security": [
+                    {
+                        "authing": [
+                            "user"
+                        ]
+                    },
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "description": "```graphql\nmutation CreateOneHistory($title: String!, $userId: String! @fromClaim(name: USERID)) {\n  data: grace_createOneHistory(\n    data: {title: $title, User: {connect: {id: $userId}}}\n  ) {\n    id\n    title\n    createdAt\n    updatedAt\n  }\n}\n```",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ChatGPT"
+                ],
+                "summary": "POST /operations/ChatGPT/Chat/CreateOneHistory",
+                "operationId": "ChatGPT__Chat__CreateOneHistory",
+                "parameters": [
+                    {
+                        "name": "key",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "title"
+                            ],
+                            "properties": {
+                                "title": {
+                                    "type": "string"
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "required": [
+                                                "id",
+                                                "title",
+                                                "createdAt"
+                                            ],
+                                            "properties": {
+                                                "createdAt": {
+                                                    "type": "string"
+                                                },
+                                                "id": {
+                                                    "type": "integer"
+                                                },
+                                                "title": {
+                                                    "type": "string"
+                                                },
+                                                "updatedAt": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
         "/operations/ChatGPT/Chat/DeleteOneChatMessage": {
             "post": {
                 "description": "```graphql\nmutation DeleteOneChatMessage($id: Int!) {\n  data: grace_deleteOneChatMessage(where: {id: $id}) {\n    id\n  }\n}\n```",
