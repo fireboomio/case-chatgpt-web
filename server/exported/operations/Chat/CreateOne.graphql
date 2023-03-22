@@ -1,4 +1,4 @@
-mutation CreateOneChatMessage($text: String!, $parentMessageId: String, $chatId: Int!) {
+mutation CreateOneChatMessage($text: String!, $parentMessageId: Int, $chatId: Int!) @internalOperation {
   data: grace_createOneChatMessage(
     data: {text: $text, parentMessageId: $parentMessageId, History: {connect: {id: $chatId}}}
   ) {
@@ -8,4 +8,4 @@ mutation CreateOneChatMessage($text: String!, $parentMessageId: String, $chatId:
     createdAt
     chatId
   }
-}
+} 

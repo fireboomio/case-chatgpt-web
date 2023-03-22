@@ -16,7 +16,7 @@ import {
 } from "fireboom-wundersdk/client";
 
 import type { CustomClaims, Role } from './claims'
-import type { ChatGPT__Chat__CreateOneChatMessageInput,ChatGPT__Chat__CreateOneChatMessageResponse,            ChatGPT__Chat__CreateOneChatMessageResponseData,ChatGPT__Chat__CreateOneHistoryInput,ChatGPT__Chat__CreateOneHistoryResponse,            ChatGPT__Chat__CreateOneHistoryResponseData,ChatGPT__Chat__DeleteOneChatMessageInput,ChatGPT__Chat__DeleteOneChatMessageResponse,            ChatGPT__Chat__DeleteOneChatMessageResponseData,ChatGPT__Chat__DeleteOneHistoryInput,ChatGPT__Chat__DeleteOneHistoryResponse,            ChatGPT__Chat__DeleteOneHistoryResponseData,ChatGPT__Chat__GetHistoryListInput,ChatGPT__Chat__GetHistoryListResponse,            ChatGPT__Chat__GetHistoryListResponseData,ChatGPT__Chat__GetManyChatMessageResponse,            ChatGPT__Chat__GetManyChatMessageResponseData,ChatGPT__Chat__UpdateOneHistoryInput,ChatGPT__Chat__UpdateOneHistoryResponse,            ChatGPT__Chat__UpdateOneHistoryResponseData,ChatGPT__Propmt__CreateOnePromptInput,ChatGPT__Propmt__CreateOnePromptResponse,            ChatGPT__Propmt__CreateOnePromptResponseData,ChatGPT__Propmt__DeleteManyPromptInput,ChatGPT__Propmt__DeleteManyPromptResponse,            ChatGPT__Propmt__DeleteManyPromptResponseData,ChatGPT__Propmt__DeleteOnePromptInput,ChatGPT__Propmt__DeleteOnePromptResponse,            ChatGPT__Propmt__DeleteOnePromptResponseData,ChatGPT__Propmt__GetPromptListInput,ChatGPT__Propmt__GetPromptListResponse,            ChatGPT__Propmt__GetPromptListResponseData,ChatGPT__Propmt__UpdateOnePromptInput,ChatGPT__Propmt__UpdateOnePromptResponse,            ChatGPT__Propmt__UpdateOnePromptResponseData,User__CreateOneUserInput,User__CreateOneUserResponse,            User__CreateOneUserResponseData,User__GetOneUserInput,User__GetOneUserResponse,            User__GetOneUserResponseData,ChatGPT__Subscription__ChatSSEInput,ChatGPT__Subscription__ChatSSEResponse,ChatGPT__Subscription__ChatSSEResponseData, } from './models'
+import type { Chat__CreateOneInput,Chat__CreateOneResponse,            Chat__CreateOneResponseData,Chat__DeleteOneInput,Chat__DeleteOneResponse,            Chat__DeleteOneResponseData,Chat__GetByHistoryInput,Chat__GetByHistoryResponse,            Chat__GetByHistoryResponseData,Chat__GetListResponse,            Chat__GetListResponseData,Chat__UpdateChatTextInput,Chat__UpdateChatTextResponse,            Chat__UpdateChatTextResponseData,History__CreateOneInput,History__CreateOneResponse,            History__CreateOneResponseData,History__DeleteOneInput,History__DeleteOneResponse,            History__DeleteOneResponseData,History__GetListResponse,            History__GetListResponseData,History__UpdateOneInput,History__UpdateOneResponse,            History__UpdateOneResponseData,Propmt__CreateOneInput,Propmt__CreateOneResponse,            Propmt__CreateOneResponseData,Propmt__DeleteManyInput,Propmt__DeleteManyResponse,            Propmt__DeleteManyResponseData,Propmt__DeleteOneInput,Propmt__DeleteOneResponse,            Propmt__DeleteOneResponseData,Propmt__GetListInput,Propmt__GetListResponse,            Propmt__GetListResponseData,Propmt__UpdateOneInput,Propmt__UpdateOneResponse,            Propmt__UpdateOneResponseData,User__CreateOneUserInput,User__CreateOneUserResponse,            User__CreateOneUserResponseData,User__GetOneUserInput,User__GetOneUserResponse,            User__GetOneUserResponseData,User__MeResponse,            User__MeResponseData,User__UpdateInfoInput,User__UpdateInfoResponse,            User__UpdateInfoResponseData,Chat__ChatSSEInput,Chat__ChatSSEResponse,Chat__ChatSSEResponseData, } from './models'
 
 export const WUNDERGRAPH_S3_ENABLED = false
 export const WUNDERGRAPH_AUTH_ENABLED = true
@@ -32,70 +32,86 @@ export interface AuthProvider {
 }
 
 export const defaultClientConfig: ClientConfig = {
-    applicationHash: "89f283af",
+    applicationHash: "f823b703",
     baseURL: "http://localhost:9991",
     sdkVersion: "",
     customFetch: fetch,
 }
 
 export const operationMetadata: OperationMetadata = {
-    "ChatGPT/Chat/CreateOneChatMessage": {
-        requiresAuthentication: false
-		}
-    ,
-    "ChatGPT/Chat/CreateOneHistory": {
+    "Chat/CreateOne": {
         requiresAuthentication: true
 		}
     ,
-    "ChatGPT/Chat/DeleteOneChatMessage": {
-        requiresAuthentication: false
+    "Chat/DeleteOne": {
+        requiresAuthentication: true
 		}
     ,
-    "ChatGPT/Chat/DeleteOneHistory": {
-        requiresAuthentication: false
+    "Chat/GetByHistory": {
+        requiresAuthentication: true
 		}
     ,
-    "ChatGPT/Chat/GetHistoryList": {
-        requiresAuthentication: false
+    "Chat/GetList": {
+        requiresAuthentication: true
 		}
     ,
-    "ChatGPT/Chat/GetManyChatMessage": {
-        requiresAuthentication: false
+    "Chat/UpdateChatText": {
+        requiresAuthentication: true
 		}
     ,
-    "ChatGPT/Chat/UpdateOneHistory": {
-        requiresAuthentication: false
+    "History/CreateOne": {
+        requiresAuthentication: true
 		}
     ,
-    "ChatGPT/Propmt/CreateOnePrompt": {
-        requiresAuthentication: false
+    "History/DeleteOne": {
+        requiresAuthentication: true
 		}
     ,
-    "ChatGPT/Propmt/DeleteManyPrompt": {
-        requiresAuthentication: false
+    "History/GetList": {
+        requiresAuthentication: true
 		}
     ,
-    "ChatGPT/Propmt/DeleteOnePrompt": {
-        requiresAuthentication: false
+    "History/UpdateOne": {
+        requiresAuthentication: true
 		}
     ,
-    "ChatGPT/Propmt/GetPromptList": {
-        requiresAuthentication: false
+    "Propmt/CreateOne": {
+        requiresAuthentication: true
 		}
     ,
-    "ChatGPT/Propmt/UpdateOnePrompt": {
-        requiresAuthentication: false
+    "Propmt/DeleteMany": {
+        requiresAuthentication: true
+		}
+    ,
+    "Propmt/DeleteOne": {
+        requiresAuthentication: true
+		}
+    ,
+    "Propmt/GetList": {
+        requiresAuthentication: true
+		}
+    ,
+    "Propmt/UpdateOne": {
+        requiresAuthentication: true
 		}
     ,
     "User/CreateOneUser": {
-        requiresAuthentication: false
+        requiresAuthentication: true
 		}
     ,
     "User/GetOneUser": {
-        requiresAuthentication: false
+        requiresAuthentication: true
 		}
     ,
-    "ChatGPT/Subscription/ChatSSE": {
+    "User/Me": {
+        requiresAuthentication: true
+		}
+    ,
+    "User/UpdateInfo": {
+        requiresAuthentication: true
+		}
+    ,
+    "Chat/ChatSSE": {
         requiresAuthentication: false
 		}
     
@@ -146,89 +162,111 @@ export const createClient = (config?: CreateClientConfig) => {
 };
 
 export type Queries = {
-    'ChatGPT/Chat/GetHistoryList': {
-        input: ChatGPT__Chat__GetHistoryListInput
-        data: ChatGPT__Chat__GetHistoryListResponseData
-        requiresAuthentication: false
+    'Chat/GetByHistory': {
+        input: Chat__GetByHistoryInput
+        data: Chat__GetByHistoryResponseData
+        requiresAuthentication: true
         
     }
-    'ChatGPT/Chat/GetManyChatMessage': {
+    'Chat/GetList': {
         input?: undefined
-        data: ChatGPT__Chat__GetManyChatMessageResponseData
-        requiresAuthentication: false
+        data: Chat__GetListResponseData
+        requiresAuthentication: true
         
     }
-    'ChatGPT/Propmt/GetPromptList': {
-        input: ChatGPT__Propmt__GetPromptListInput
-        data: ChatGPT__Propmt__GetPromptListResponseData
-        requiresAuthentication: false
+    'History/GetList': {
+        input?: undefined
+        data: History__GetListResponseData
+        requiresAuthentication: true
+        
+    }
+    'Propmt/GetList': {
+        input: Propmt__GetListInput
+        data: Propmt__GetListResponseData
+        requiresAuthentication: true
         
     }
     'User/GetOneUser': {
         input: User__GetOneUserInput
         data: User__GetOneUserResponseData
-        requiresAuthentication: false
+        requiresAuthentication: true
+        
+    }
+    'User/Me': {
+        input?: undefined
+        data: User__MeResponseData
+        requiresAuthentication: true
         
     }
 }
 
 export type Mutations = {
-    'ChatGPT/Chat/CreateOneChatMessage': {
-        input: ChatGPT__Chat__CreateOneChatMessageInput
-        data: ChatGPT__Chat__CreateOneChatMessageResponseData
-        requiresAuthentication: false
-    }
-    'ChatGPT/Chat/CreateOneHistory': {
-        input: ChatGPT__Chat__CreateOneHistoryInput
-        data: ChatGPT__Chat__CreateOneHistoryResponseData
+    'Chat/CreateOne': {
+        input: Chat__CreateOneInput
+        data: Chat__CreateOneResponseData
         requiresAuthentication: true
     }
-    'ChatGPT/Chat/DeleteOneChatMessage': {
-        input: ChatGPT__Chat__DeleteOneChatMessageInput
-        data: ChatGPT__Chat__DeleteOneChatMessageResponseData
-        requiresAuthentication: false
+    'Chat/DeleteOne': {
+        input: Chat__DeleteOneInput
+        data: Chat__DeleteOneResponseData
+        requiresAuthentication: true
     }
-    'ChatGPT/Chat/DeleteOneHistory': {
-        input: ChatGPT__Chat__DeleteOneHistoryInput
-        data: ChatGPT__Chat__DeleteOneHistoryResponseData
-        requiresAuthentication: false
+    'Chat/UpdateChatText': {
+        input: Chat__UpdateChatTextInput
+        data: Chat__UpdateChatTextResponseData
+        requiresAuthentication: true
     }
-    'ChatGPT/Chat/UpdateOneHistory': {
-        input: ChatGPT__Chat__UpdateOneHistoryInput
-        data: ChatGPT__Chat__UpdateOneHistoryResponseData
-        requiresAuthentication: false
+    'History/CreateOne': {
+        input: History__CreateOneInput
+        data: History__CreateOneResponseData
+        requiresAuthentication: true
     }
-    'ChatGPT/Propmt/CreateOnePrompt': {
-        input: ChatGPT__Propmt__CreateOnePromptInput
-        data: ChatGPT__Propmt__CreateOnePromptResponseData
-        requiresAuthentication: false
+    'History/DeleteOne': {
+        input: History__DeleteOneInput
+        data: History__DeleteOneResponseData
+        requiresAuthentication: true
     }
-    'ChatGPT/Propmt/DeleteManyPrompt': {
-        input: ChatGPT__Propmt__DeleteManyPromptInput
-        data: ChatGPT__Propmt__DeleteManyPromptResponseData
-        requiresAuthentication: false
+    'History/UpdateOne': {
+        input: History__UpdateOneInput
+        data: History__UpdateOneResponseData
+        requiresAuthentication: true
     }
-    'ChatGPT/Propmt/DeleteOnePrompt': {
-        input: ChatGPT__Propmt__DeleteOnePromptInput
-        data: ChatGPT__Propmt__DeleteOnePromptResponseData
-        requiresAuthentication: false
+    'Propmt/CreateOne': {
+        input: Propmt__CreateOneInput
+        data: Propmt__CreateOneResponseData
+        requiresAuthentication: true
     }
-    'ChatGPT/Propmt/UpdateOnePrompt': {
-        input: ChatGPT__Propmt__UpdateOnePromptInput
-        data: ChatGPT__Propmt__UpdateOnePromptResponseData
-        requiresAuthentication: false
+    'Propmt/DeleteMany': {
+        input: Propmt__DeleteManyInput
+        data: Propmt__DeleteManyResponseData
+        requiresAuthentication: true
+    }
+    'Propmt/DeleteOne': {
+        input: Propmt__DeleteOneInput
+        data: Propmt__DeleteOneResponseData
+        requiresAuthentication: true
+    }
+    'Propmt/UpdateOne': {
+        input: Propmt__UpdateOneInput
+        data: Propmt__UpdateOneResponseData
+        requiresAuthentication: true
     }
     'User/CreateOneUser': {
         input: User__CreateOneUserInput
         data: User__CreateOneUserResponseData
-        requiresAuthentication: false
+        requiresAuthentication: true
+    }
+    'User/UpdateInfo': {
+        input: User__UpdateInfoInput
+        data: User__UpdateInfoResponseData
+        requiresAuthentication: true
     }
 }
 
 export type Subscriptions = {
-    'ChatGPT/Subscription/ChatSSE': {
-        input: ChatGPT__Subscription__ChatSSEInput
-        data: ChatGPT__Subscription__ChatSSEResponseData
+    'Chat/ChatSSE': {
+        input: Chat__ChatSSEInput
+        data: Chat__ChatSSEResponseData
         requiresAuthentication: false
     }
 }

@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { getLocalState, setLocalState } from './helper'
 import { router } from '@/router'
+import client from '@/services'
 
 export const useChatStore = defineStore('chat-store', {
   state: (): Chat.ChatState => getLocalState(),
@@ -23,20 +24,55 @@ export const useChatStore = defineStore('chat-store', {
   },
 
   actions: {
+    async fetchHistories() {
+      const { error, data } = await client.query({
+        operationName: 'History/GetList',
+      })
+      if (!error) {
+        this.history = data!.data!.map(item => ({
+          title: item.title!,
+          isEdit: false,
+          uuid: item.id!,
+        }))
+      }
+    },
     setUsingContext(context: boolean) {
       this.usingContext = context
       this.recordState()
     },
 
-    addHistory(history: Chat.History, chatData: Chat.Chat[] = []) {
-      this.history.unshift(history)
-      this.chat.unshift({ uuid: history.uuid, data: chatData })
-      this.active = history.uuid
-      this.reloadRoute(history.uuid)
+    async addHistory(history: Omit<Chat.History, 'uuid'>, chatData: Chat.Chat[] = []) {
+      const { error, data } = await client.mutate({
+        operationName: 'History/CreateOne',
+        input: {
+          title: history.title,
+        },
+      })
+      if (!error) {
+        const item = data!.data!
+        this.history.unshift({
+          ...history,
+          uuid: item.id!,
+        })
+        this.chat.unshift({ uuid: item.id!, data: chatData })
+        this.active = item.id!
+        this.reloadRoute(item.id!)
+      }
     },
 
-    updateHistory(uuid: number, edit: Partial<Chat.History>) {
+    async updateHistory(uuid: number, edit: Partial<Chat.History>) {
       const index = this.history.findIndex(item => item.uuid === uuid)
+      if (edit.isEdit === false) {
+        const { error } = await client.mutate({
+          operationName: 'History/UpdateOne',
+          input: {
+            id: uuid,
+            title: this.history[index].title,
+          },
+        })
+        if (error)
+          return
+      }
       if (index !== -1) {
         this.history[index] = { ...this.history[index], ...edit }
         this.recordState()
@@ -44,34 +80,42 @@ export const useChatStore = defineStore('chat-store', {
     },
 
     async deleteHistory(index: number) {
-      this.history.splice(index, 1)
-      this.chat.splice(index, 1)
+      const { error } = await client.mutate({
+        operationName: 'History/DeleteOne',
+        input: {
+          id: this.history[index].uuid,
+        },
+      })
+      if (!error) {
+        this.history.splice(index, 1)
+        this.chat.splice(index, 1)
 
-      if (this.history.length === 0) {
-        this.active = null
-        this.reloadRoute()
-        return
-      }
+        if (this.history.length === 0) {
+          this.active = null
+          this.reloadRoute()
+          return
+        }
 
-      if (index > 0 && index <= this.history.length) {
-        const uuid = this.history[index - 1].uuid
-        this.active = uuid
-        this.reloadRoute(uuid)
-        return
-      }
+        if (index > 0 && index <= this.history.length) {
+          const uuid = this.history[index - 1].uuid
+          this.active = uuid
+          this.reloadRoute(uuid)
+          return
+        }
 
-      if (index === 0) {
-        if (this.history.length > 0) {
-          const uuid = this.history[0].uuid
+        if (index === 0) {
+          if (this.history.length > 0) {
+            const uuid = this.history[0].uuid
+            this.active = uuid
+            this.reloadRoute(uuid)
+          }
+        }
+
+        if (index > this.history.length) {
+          const uuid = this.history[this.history.length - 1].uuid
           this.active = uuid
           this.reloadRoute(uuid)
         }
-      }
-
-      if (index > this.history.length) {
-        const uuid = this.history[this.history.length - 1].uuid
-        this.active = uuid
-        this.reloadRoute(uuid)
       }
     },
 

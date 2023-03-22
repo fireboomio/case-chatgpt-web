@@ -8,4 +8,4 @@ mutation UpdateOneHistory($id: Int!, $title: String) {
     createdAt
     updatedAt
   }
-} 
+}

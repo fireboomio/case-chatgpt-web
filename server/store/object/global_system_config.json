@@ -10,7 +10,7 @@
     "isDev": true,
     "forcedJumpEnabled": true,
     "debugEnabled": true,
-    "usageReport": true
+    "usageReport": false
   },
   "version": {
     "versionNum": "dev",

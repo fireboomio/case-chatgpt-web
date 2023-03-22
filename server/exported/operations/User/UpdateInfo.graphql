@@ -1,0 +1,11 @@
+mutation MyQuery($id: String! @fromClaim(name: USERID), $name: String = "", $description: String = "", $avatar: String = "") {
+  data: grace_updateOneUser(
+    where: {id: $id}
+    data: {name: {set: $name}, description: {set: $description}, avatar: {set: $avatar}}
+  ) {
+    id
+    name
+    description
+    avatar
+  }
+} 

@@ -13,7 +13,7 @@ import { useCopyCode } from './hooks/useCopyCode'
 import { useUsingContext } from './hooks/useUsingContext'
 import HeaderComponent from './components/Header/index.vue'
 // import VoiceInputComponent from './components/VoiceInput/index.vue'
-import { HoverButton, SvgIcon } from '@/components/common'
+import { SvgIcon } from '@/components/common'
 import { useBasicLayout } from '@/hooks/useBasicLayout'
 import { useChatStore, usePromptStore } from '@/store'
 import { fetchChatAPIProcess } from '@/api'
@@ -41,7 +41,7 @@ const { usingContext, toggleUsingContext } = useUsingContext()
 const { uuid } = route.params as { uuid: string }
 
 const dataSources = computed(() => chatStore.getChatByUuid(+uuid))
-const conversationList = computed(() => dataSources.value.filter(item => (!item.inversion && !item.error)))
+// const conversationList = computed(() => dataSources.value.filter(item => (!item.inversion && !item.error)))
 
 const prompt = ref<string>('')
 const loading = ref<boolean>(false)
@@ -52,7 +52,10 @@ const promptStore = usePromptStore()
 // 使用storeToRefs，保证store修改后，联想部分能够重新渲染
 const { promptList: promptTemplate } = storeToRefs<any>(promptStore)
 
-function handleSubmit() {
+async function handleSubmit() {
+  if (chatStore.active == null)
+    await chatStore.addHistory({ title: prompt.value, isEdit: false })
+
   onConversation()
 }
 const speechConfig = sdk.SpeechConfig.fromSubscription(import.meta.env.VITE_SPEECH_KEY, import.meta.env.VITE_SPEECH_REGION)
@@ -82,12 +85,12 @@ function speakOnce(str: string) {
 
 async function onConversation() {
   const message = prompt.value
-  const openAIMsgList = []
-  conversationList.value.forEach(x => {
-    openAIMsgList.push({role: 'user', content: x.requestOptions.prompt})
-    openAIMsgList.push({role: 'assistant', content: x.text})
-  })
-  openAIMsgList.push({role: 'user', content: message})
+  // const openAIMsgList = []
+  // conversationList.value.forEach((x) => {
+  //   openAIMsgList.push({ role: 'user', content: x.requestOptions.prompt })
+  //   openAIMsgList.push({ role: 'assistant', content: x.text })
+  // })
+  // openAIMsgList.push({ role: 'user', content: message })
 
   if (loading.value)
     return
@@ -96,7 +99,6 @@ async function onConversation() {
     return
 
   controller = new AbortController()
-
   addChat(
     +uuid,
     {
@@ -113,8 +115,7 @@ async function onConversation() {
   loading.value = true
   prompt.value = ''
 
-  let options: Chat.ConversationRequest = {}
-
+  const options: Chat.ConversationRequest = {}
 
   addChat(
     +uuid,
@@ -135,9 +136,10 @@ async function onConversation() {
     let spokenText = ''
     const speaker = new sdk.SpeechSynthesizer(speechConfig)
     const fetchChatAPIOnce = async () => {
-      const res = await streamAPI<{ prompt: string }, { data: { completion: string, id: string, finish: boolean } }>('/ChatGPT/Subscription/ChatSSE', {
+      const res = await streamAPI<{ prompt: string; chatId: number }, { data: { completion: string; id: string } }>('/Chat/ChatSSE', {
         params: {
-          messages: JSON.stringify(openAIMsgList),
+          prompt: message,
+          chatId: +uuid,
         },
       })
       const messages: string[] = []
@@ -157,12 +159,9 @@ async function onConversation() {
             requestOptions: { prompt: message, options: { ...options } },
           },
         )
-        // 如果当前内容是以标点符号结尾，或者是已完成对话，就开始语音合成
-        if (msgStr.match(/[.!?,]\s*$/) || data.data.finish) {
-          speaker.speakTextAsync(msgStr.replace(spokenText, '').trim())
-          spokenText = msgStr
-        }
       }
+      speaker.speakTextAsync(msgStr.replace(spokenText, '').trim())
+      spokenText = msgStr
 
       // if (openLongReply && data.detail.choices[0].finish_reason === 'length') {
       //   options.parentMessageId = data.id
@@ -403,20 +402,20 @@ function handleDelete(index: number) {
   })
 }
 
-function handleClear() {
-  if (loading.value)
-    return
+// function handleClear() {
+//   if (loading.value)
+//     return
 
-  dialog.warning({
-    title: t('chat.clearChat'),
-    content: t('chat.clearChatConfirm'),
-    positiveText: t('common.yes'),
-    negativeText: t('common.no'),
-    onPositiveClick: () => {
-      chatStore.clearChatByUuid(+uuid)
-    },
-  })
-}
+//   dialog.warning({
+//     title: t('chat.clearChat'),
+//     content: t('chat.clearChatConfirm'),
+//     positiveText: t('common.yes'),
+//     negativeText: t('common.no'),
+//     onPositiveClick: () => {
+//       chatStore.clearChatByUuid(+uuid)
+//     },
+//   })
+// }
 
 function handleEnter(event: KeyboardEvent) {
   if (!isMobile.value) {
@@ -548,7 +547,7 @@ onUnmounted(() => {
     <footer :class="footerClass">
       <div class="m-auto max-w-screen-xl w-full">
         <div class="flex space-x-2 items-center justify-between">
-          <HoverButton @click="handleClear">
+          <!-- <HoverButton @click="handleClear">
             <span class="text-xl text-[#4f555e] dark:text-white">
               <SvgIcon icon="ri:delete-bin-line" />
             </span>
@@ -562,7 +561,7 @@ onUnmounted(() => {
             <span class="text-xl" :class="{ 'text-[#4b9e5f]': usingContext, 'text-[#a8071a]': !usingContext }">
               <SvgIcon icon="ri:chat-history-line" />
             </span>
-          </HoverButton>
+          </HoverButton> -->
           <NAutoComplete v-model:value="prompt" :options="searchOptions" :render-label="renderOption">
             <template #default="{ handleInput, handleBlur, handleFocus }">
               <NInput

@@ -1,7 +1,7 @@
 {
-  "authenticationQueriesRequired": true,
-  "authenticationMutationsRequired": true,
-  "authenticationSubscriptionsRequired": true,
+  "authenticationQueriesRequired": false,
+  "authenticationMutationsRequired": false,
+  "authenticationSubscriptionsRequired": false,
   "enabled": false,
   "authenticationRequired": false,
   "cachingEnabled": false,

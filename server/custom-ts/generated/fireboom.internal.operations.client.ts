@@ -1,29 +1,33 @@
 
 import type { OperationsClientType } from 'fireboom-wundersdk/server'
-import { ChatGPT__Chat__CreateOneChatMessageInput,InternalChatGPT__Chat__CreateOneChatMessageInput,ChatGPT__Chat__CreateOneChatMessageResponse,ChatGPT__Chat__CreateOneHistoryInput,InternalChatGPT__Chat__CreateOneHistoryInput,ChatGPT__Chat__CreateOneHistoryResponse,ChatGPT__Chat__DeleteOneChatMessageInput,InternalChatGPT__Chat__DeleteOneChatMessageInput,ChatGPT__Chat__DeleteOneChatMessageResponse,ChatGPT__Chat__DeleteOneHistoryInput,InternalChatGPT__Chat__DeleteOneHistoryInput,ChatGPT__Chat__DeleteOneHistoryResponse,ChatGPT__Chat__GetHistoryListInput,InternalChatGPT__Chat__GetHistoryListInput,ChatGPT__Chat__GetHistoryListResponse,ChatGPT__Chat__GetManyChatMessageResponse,ChatGPT__Chat__UpdateOneHistoryInput,InternalChatGPT__Chat__UpdateOneHistoryInput,ChatGPT__Chat__UpdateOneHistoryResponse,ChatGPT__Propmt__CreateOnePromptInput,InternalChatGPT__Propmt__CreateOnePromptInput,ChatGPT__Propmt__CreateOnePromptResponse,ChatGPT__Propmt__DeleteManyPromptInput,InternalChatGPT__Propmt__DeleteManyPromptInput,ChatGPT__Propmt__DeleteManyPromptResponse,ChatGPT__Propmt__DeleteOnePromptInput,InternalChatGPT__Propmt__DeleteOnePromptInput,ChatGPT__Propmt__DeleteOnePromptResponse,ChatGPT__Propmt__GetPromptListInput,InternalChatGPT__Propmt__GetPromptListInput,ChatGPT__Propmt__GetPromptListResponse,ChatGPT__Propmt__UpdateOnePromptInput,InternalChatGPT__Propmt__UpdateOnePromptInput,ChatGPT__Propmt__UpdateOnePromptResponse,User__CreateOneUserInput,InternalUser__CreateOneUserInput,User__CreateOneUserResponse,User__GetOneUserInput,InternalUser__GetOneUserInput,User__GetOneUserResponse,ChatGPT__Subscription__ChatSSEInput,InternalChatGPT__Subscription__ChatSSEInput,ChatGPT__Subscription__ChatSSEResponse, } from "./models"
+import { Chat__CreateOneInput,InternalChat__CreateOneInput,Chat__CreateOneResponse,Chat__DeleteOneInput,InternalChat__DeleteOneInput,Chat__DeleteOneResponse,Chat__GetByHistoryInput,InternalChat__GetByHistoryInput,Chat__GetByHistoryResponse,Chat__GetListResponse,Chat__UpdateChatTextInput,InternalChat__UpdateChatTextInput,Chat__UpdateChatTextResponse,History__CreateOneInput,InternalHistory__CreateOneInput,History__CreateOneResponse,History__DeleteOneInput,InternalHistory__DeleteOneInput,History__DeleteOneResponse,InternalHistory__GetListInput,History__GetListResponse,History__UpdateOneInput,InternalHistory__UpdateOneInput,History__UpdateOneResponse,Propmt__CreateOneInput,InternalPropmt__CreateOneInput,Propmt__CreateOneResponse,Propmt__DeleteManyInput,InternalPropmt__DeleteManyInput,Propmt__DeleteManyResponse,Propmt__DeleteOneInput,InternalPropmt__DeleteOneInput,Propmt__DeleteOneResponse,Propmt__GetListInput,InternalPropmt__GetListInput,Propmt__GetListResponse,Propmt__UpdateOneInput,InternalPropmt__UpdateOneInput,Propmt__UpdateOneResponse,User__CreateOneUserInput,InternalUser__CreateOneUserInput,User__CreateOneUserResponse,User__GetOneUserInput,InternalUser__GetOneUserInput,User__GetOneUserResponse,InternalUser__MeInput,User__MeResponse,User__UpdateInfoInput,InternalUser__UpdateInfoInput,User__UpdateInfoResponse,Chat__ChatSSEInput,InternalChat__ChatSSEInput,Chat__ChatSSEResponse, } from "./models"
 
 export interface Queries {
-  'ChatGPT/Chat/GetHistoryList':  { input: InternalChatGPT__Chat__GetHistoryListInput, response: ChatGPT__Chat__GetHistoryListResponse };
-  'ChatGPT/Chat/GetManyChatMessage':  { input: never, response: ChatGPT__Chat__GetManyChatMessageResponse };
-  'ChatGPT/Propmt/GetPromptList':  { input: InternalChatGPT__Propmt__GetPromptListInput, response: ChatGPT__Propmt__GetPromptListResponse };
-  'User/GetOneUser':  { input: InternalUser__GetOneUserInput, response: User__GetOneUserResponse };
+  'Chat__GetByHistory':  { input: InternalChat__GetByHistoryInput, response: Chat__GetByHistoryResponse };
+  'Chat__GetList':  { input: never, response: Chat__GetListResponse };
+  'History__GetList':  { input: InternalHistory__GetListInput, response: History__GetListResponse };
+  'Propmt__GetList':  { input: InternalPropmt__GetListInput, response: Propmt__GetListResponse };
+  'User__GetOneUser':  { input: InternalUser__GetOneUserInput, response: User__GetOneUserResponse };
+  'User__Me':  { input: InternalUser__MeInput, response: User__MeResponse };
 }
 
 export interface Mutations {
-  'ChatGPT/Chat/CreateOneChatMessage':  { input: InternalChatGPT__Chat__CreateOneChatMessageInput, response: ChatGPT__Chat__CreateOneChatMessageResponse };
-  'ChatGPT/Chat/CreateOneHistory':  { input: InternalChatGPT__Chat__CreateOneHistoryInput, response: ChatGPT__Chat__CreateOneHistoryResponse };
-  'ChatGPT/Chat/DeleteOneChatMessage':  { input: InternalChatGPT__Chat__DeleteOneChatMessageInput, response: ChatGPT__Chat__DeleteOneChatMessageResponse };
-  'ChatGPT/Chat/DeleteOneHistory':  { input: InternalChatGPT__Chat__DeleteOneHistoryInput, response: ChatGPT__Chat__DeleteOneHistoryResponse };
-  'ChatGPT/Chat/UpdateOneHistory':  { input: InternalChatGPT__Chat__UpdateOneHistoryInput, response: ChatGPT__Chat__UpdateOneHistoryResponse };
-  'ChatGPT/Propmt/CreateOnePrompt':  { input: InternalChatGPT__Propmt__CreateOnePromptInput, response: ChatGPT__Propmt__CreateOnePromptResponse };
-  'ChatGPT/Propmt/DeleteManyPrompt':  { input: InternalChatGPT__Propmt__DeleteManyPromptInput, response: ChatGPT__Propmt__DeleteManyPromptResponse };
-  'ChatGPT/Propmt/DeleteOnePrompt':  { input: InternalChatGPT__Propmt__DeleteOnePromptInput, response: ChatGPT__Propmt__DeleteOnePromptResponse };
-  'ChatGPT/Propmt/UpdateOnePrompt':  { input: InternalChatGPT__Propmt__UpdateOnePromptInput, response: ChatGPT__Propmt__UpdateOnePromptResponse };
-  'User/CreateOneUser':  { input: InternalUser__CreateOneUserInput, response: User__CreateOneUserResponse };
+  'Chat__CreateOne':  { input: InternalChat__CreateOneInput, response: Chat__CreateOneResponse };
+  'Chat__DeleteOne':  { input: InternalChat__DeleteOneInput, response: Chat__DeleteOneResponse };
+  'Chat__UpdateChatText':  { input: InternalChat__UpdateChatTextInput, response: Chat__UpdateChatTextResponse };
+  'History__CreateOne':  { input: InternalHistory__CreateOneInput, response: History__CreateOneResponse };
+  'History__DeleteOne':  { input: InternalHistory__DeleteOneInput, response: History__DeleteOneResponse };
+  'History__UpdateOne':  { input: InternalHistory__UpdateOneInput, response: History__UpdateOneResponse };
+  'Propmt__CreateOne':  { input: InternalPropmt__CreateOneInput, response: Propmt__CreateOneResponse };
+  'Propmt__DeleteMany':  { input: InternalPropmt__DeleteManyInput, response: Propmt__DeleteManyResponse };
+  'Propmt__DeleteOne':  { input: InternalPropmt__DeleteOneInput, response: Propmt__DeleteOneResponse };
+  'Propmt__UpdateOne':  { input: InternalPropmt__UpdateOneInput, response: Propmt__UpdateOneResponse };
+  'User__CreateOneUser':  { input: InternalUser__CreateOneUserInput, response: User__CreateOneUserResponse };
+  'User__UpdateInfo':  { input: InternalUser__UpdateInfoInput, response: User__UpdateInfoResponse };
 }
 
 export interface Subscriptions {
-  'ChatGPT/Subscription/ChatSSE':  { input: InternalChatGPT__Subscription__ChatSSEInput, response: ChatGPT__Subscription__ChatSSEResponse };
+  'Chat__ChatSSE':  { input: InternalChat__ChatSSEInput, response: Chat__ChatSSEResponse };
 }
 
 export type InternalOperations = OperationsClientType<Queries, Mutations, Subscriptions>

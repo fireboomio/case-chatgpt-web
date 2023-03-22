@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { NButton, NModal, useMessage } from 'naive-ui'
 import { useAuthStore } from '@/store'
 import Icon403 from '@/icons/403.vue'
+import fbClient from '@/services'
 
 interface Props {
   visible: boolean
@@ -18,7 +19,7 @@ const loading = ref(false)
 const token = ref('')
 
 async function handleVerify() {
-  console.log('跳登录')
+  fbClient.login('authing')
 }
 
 function handlePress(event: KeyboardEvent) {

@@ -1,0 +1,8 @@
+query GetHistoryList($userId: String! @fromClaim(name: USERID)) {
+  data: grace_findManyHistory(where: { User:{ is:{id:{equals:$userId}}}}) {
+    id
+    title
+    createdAt
+    updatedAt
+  }
+}

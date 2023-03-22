@@ -1,404 +1,527 @@
+import type function_Chat__ChatSSE from '../../server/custom-ts/operations/Chat/ChatSSE'
+
 import type { ExtractResponse } from 'fireboom-wundersdk/operations'
-import type function_ChatGPT__Subscription__ChatSSE from '../../../server/custom-ts/operations/ChatGPT/Subscription/ChatSSE'
-
-export interface ChatGPT__Chat__CreateOneChatMessageInput {
-  chatId: number
-  parentMessageId?: string
-  text: string
-
+export interface Chat__CreateOneInput {
+     chatId: number
+                 parentMessageId?: number
+                 text: string
+            
 }
-export interface InternalChatGPT__Chat__CreateOneChatMessageInput {
-  chatId: number
-  parentMessageId?: string
-  text: string
+export interface InternalChat__CreateOneInput {
+      parentMessageId?: number
+      text: string
+      chatId: number
 }
-export interface InjectedChatGPT__Chat__CreateOneChatMessageInput {
-  chatId: number
-  parentMessageId?: string
-  text: string
-
+    export interface InjectedChat__CreateOneInput {
+     text: string
+         chatId: number
+         parentMessageId?: number
+    
 }
 
-export interface ChatGPT__Chat__CreateOneChatMessageResponse {
-  data?: ChatGPT__Chat__CreateOneChatMessageResponseData
-  errors?: ReadonlyArray<GraphQLError>
-}
-export interface ChatGPT__Chat__CreateOneChatMessageResponseData {
-  data?: {
-    chatId?: number
-    createdAt?: string
-    id?: number
-    parentMessageId?: string
-    text?: string
-  }
-}
-export interface ChatGPT__Chat__CreateOneHistoryInput {
-  title: string
 
+    
+export interface Chat__CreateOneResponse {
+    data?: Chat__CreateOneResponseData
+    errors?: ReadonlyArray<GraphQLError>;
 }
-export interface InternalChatGPT__Chat__CreateOneHistoryInput {
-  title: string
-  userId?: string
+export interface Chat__CreateOneResponseData {
+    data?: {
+        chatId?: number
+        createdAt?: string
+        id?: number
+        parentMessageId?: number
+        text?: string
+    },
 }
-export interface InjectedChatGPT__Chat__CreateOneHistoryInput {
-  title: string
-  userId: string
-
+export interface Chat__DeleteOneInput {
+     id: number
+            
 }
-
-export interface ChatGPT__Chat__CreateOneHistoryResponse {
-  data?: ChatGPT__Chat__CreateOneHistoryResponseData
-  errors?: ReadonlyArray<GraphQLError>
+export interface InternalChat__DeleteOneInput {
+      id: number
 }
-export interface ChatGPT__Chat__CreateOneHistoryResponseData {
-  data?: {
-    createdAt?: string
-    id?: number
-    title?: string
-    updatedAt?: string
-  }
-}
-export interface ChatGPT__Chat__DeleteOneChatMessageInput {
-  id: number
-
-}
-export interface InternalChatGPT__Chat__DeleteOneChatMessageInput {
-  id: number
-}
-export interface InjectedChatGPT__Chat__DeleteOneChatMessageInput {
-  id: number
-
+    export interface InjectedChat__DeleteOneInput {
+     id: number
+    
 }
 
-export interface ChatGPT__Chat__DeleteOneChatMessageResponse {
-  data?: ChatGPT__Chat__DeleteOneChatMessageResponseData
-  errors?: ReadonlyArray<GraphQLError>
-}
-export interface ChatGPT__Chat__DeleteOneChatMessageResponseData {
-  data?: {
-    id?: number
-  }
-}
-export interface ChatGPT__Chat__DeleteOneHistoryInput {
-  id: number
 
+    
+export interface Chat__DeleteOneResponse {
+    data?: Chat__DeleteOneResponseData
+    errors?: ReadonlyArray<GraphQLError>;
 }
-export interface InternalChatGPT__Chat__DeleteOneHistoryInput {
-  id: number
+export interface Chat__DeleteOneResponseData {
+    data?: {
+        id?: number
+    },
 }
-export interface InjectedChatGPT__Chat__DeleteOneHistoryInput {
-  id: number
-
+export interface Chat__GetByHistoryInput {
+     historyId?: number
+            
 }
-
-export interface ChatGPT__Chat__DeleteOneHistoryResponse {
-  data?: ChatGPT__Chat__DeleteOneHistoryResponseData
-  errors?: ReadonlyArray<GraphQLError>
+export interface InternalChat__GetByHistoryInput {
+      historyId?: number
 }
-export interface ChatGPT__Chat__DeleteOneHistoryResponseData {
-  data?: {
-    id?: number
-  }
-}
-export interface ChatGPT__Chat__GetHistoryListInput {
-  take?: number
-  orderBy?: {
-  }[]
-  skip?: number
-
-}
-export interface InternalChatGPT__Chat__GetHistoryListInput {
-  orderBy?: {
-  }[]
-  skip?: number
-  take?: number
-}
-export interface InjectedChatGPT__Chat__GetHistoryListInput {
-  orderBy?: {
-  }[]
-  skip?: number
-  take?: number
-
+    export interface InjectedChat__GetByHistoryInput {
+     historyId?: number
+    
 }
 
-export interface ChatGPT__Chat__GetHistoryListResponse {
-  data?: ChatGPT__Chat__GetHistoryListResponseData
-  errors?: ReadonlyArray<GraphQLError>
+
+    
+export interface Chat__GetByHistoryResponse {
+    data?: Chat__GetByHistoryResponseData
+    errors?: ReadonlyArray<GraphQLError>;
 }
-export interface ChatGPT__Chat__GetHistoryListResponseData {
-  total?: number
-  data?: {
-    createdAt?: string
-    id?: number
-    title?: string
-    updatedAt?: string
-  }[]
+export interface Chat__GetByHistoryResponseData {
+    data?: {
+        parentMessageId?: number
+        text?: string
+        id?: number
+    }[],
+}
+    
+
+    
+export interface Chat__GetListResponse {
+    data?: Chat__GetListResponseData
+    errors?: ReadonlyArray<GraphQLError>;
+}
+export interface Chat__GetListResponseData {
+    data?: {
+        chatId?: number
+        createdAt?: string
+        id?: number
+        parentMessageId?: number
+        text?: string
+    }[],
+}
+export interface Chat__UpdateChatTextInput {
+     id: number
+                 text: string
+            
+}
+export interface InternalChat__UpdateChatTextInput {
+      id: number
+      text: string
+}
+    export interface InjectedChat__UpdateChatTextInput {
+     id: number
+         text: string
+    
 }
 
-export interface ChatGPT__Chat__GetManyChatMessageResponse {
-  data?: ChatGPT__Chat__GetManyChatMessageResponseData
-  errors?: ReadonlyArray<GraphQLError>
-}
-export interface ChatGPT__Chat__GetManyChatMessageResponseData {
-  data?: {
-    chatId?: number
-    createdAt?: string
-    id?: number
-    parentMessageId?: string
-    text?: string
-  }[]
-}
-export interface ChatGPT__Chat__UpdateOneHistoryInput {
-  id: number
-  title?: string
 
+    
+export interface Chat__UpdateChatTextResponse {
+    data?: Chat__UpdateChatTextResponseData
+    errors?: ReadonlyArray<GraphQLError>;
 }
-export interface InternalChatGPT__Chat__UpdateOneHistoryInput {
-  id: number
-  title?: string
+export interface Chat__UpdateChatTextResponseData {
+    grace_upsertOneChatMessage?: {
+        id?: number
+    },
 }
-export interface InjectedChatGPT__Chat__UpdateOneHistoryInput {
-  id: number
-  title?: string
-
+export interface History__CreateOneInput {
+     title: string
+            
+}
+export interface InternalHistory__CreateOneInput {
+      userId?: string
+      title: string
+}
+    export interface InjectedHistory__CreateOneInput {
+     title: string
+         userId: string
+    
 }
 
-export interface ChatGPT__Chat__UpdateOneHistoryResponse {
-  data?: ChatGPT__Chat__UpdateOneHistoryResponseData
-  errors?: ReadonlyArray<GraphQLError>
-}
-export interface ChatGPT__Chat__UpdateOneHistoryResponseData {
-  data?: {
-    createdAt?: string
-    id?: number
-    title?: string
-    updatedAt?: string
-  }
-}
-export interface ChatGPT__Propmt__CreateOnePromptInput {
-  prompt: string
-  title: string
 
+    
+export interface History__CreateOneResponse {
+    data?: History__CreateOneResponseData
+    errors?: ReadonlyArray<GraphQLError>;
 }
-export interface InternalChatGPT__Propmt__CreateOnePromptInput {
-  prompt: string
-  title: string
-  updatedAt?: string
+export interface History__CreateOneResponseData {
+    data?: {
+        updatedAt?: string
+        createdAt?: string
+        id?: number
+        title?: string
+    },
 }
-export interface InjectedChatGPT__Propmt__CreateOnePromptInput {
-  prompt: string
-  title: string
-  updatedAt: string
-
+export interface History__DeleteOneInput {
+     id: number
+            
+}
+export interface InternalHistory__DeleteOneInput {
+      id: number
+}
+    export interface InjectedHistory__DeleteOneInput {
+     id: number
+    
 }
 
-export interface ChatGPT__Propmt__CreateOnePromptResponse {
-  data?: ChatGPT__Propmt__CreateOnePromptResponseData
-  errors?: ReadonlyArray<GraphQLError>
-}
-export interface ChatGPT__Propmt__CreateOnePromptResponseData {
-  data?: {
-    id?: number
-    prompt?: string
-    title?: string
-    updatedAt?: string
-    createdAt?: string
-  }
-}
-export interface ChatGPT__Propmt__DeleteManyPromptInput {
-  ids: {
-  }[]
 
+    
+export interface History__DeleteOneResponse {
+    data?: History__DeleteOneResponseData
+    errors?: ReadonlyArray<GraphQLError>;
 }
-export interface InternalChatGPT__Propmt__DeleteManyPromptInput {
-  ids: {
-  }[]
+export interface History__DeleteOneResponseData {
+    data?: {
+        id?: number
+    },
 }
-export interface InjectedChatGPT__Propmt__DeleteManyPromptInput {
-  ids: {
-  }[]
-
+export interface InternalHistory__GetListInput {
+      userId?: string
+}
+    export interface InjectedHistory__GetListInput {
+     userId: string
+    
 }
 
-export interface ChatGPT__Propmt__DeleteManyPromptResponse {
-  data?: ChatGPT__Propmt__DeleteManyPromptResponseData
-  errors?: ReadonlyArray<GraphQLError>
-}
-export interface ChatGPT__Propmt__DeleteManyPromptResponseData {
-  data?: {
-    count?: number
-  }
-}
-export interface ChatGPT__Propmt__DeleteOnePromptInput {
-  id: number
 
+    
+export interface History__GetListResponse {
+    data?: History__GetListResponseData
+    errors?: ReadonlyArray<GraphQLError>;
 }
-export interface InternalChatGPT__Propmt__DeleteOnePromptInput {
-  id: number
+export interface History__GetListResponseData {
+    data?: {
+        createdAt?: string
+        id?: number
+        title?: string
+        updatedAt?: string
+    }[],
 }
-export interface InjectedChatGPT__Propmt__DeleteOnePromptInput {
-  id: number
-
+export interface History__UpdateOneInput {
+     title?: string
+                 id: number
+            
 }
-
-export interface ChatGPT__Propmt__DeleteOnePromptResponse {
-  data?: ChatGPT__Propmt__DeleteOnePromptResponseData
-  errors?: ReadonlyArray<GraphQLError>
+export interface InternalHistory__UpdateOneInput {
+      title?: string
+      id: number
 }
-export interface ChatGPT__Propmt__DeleteOnePromptResponseData {
-  data?: {
-    id?: number
-  }
-}
-export interface ChatGPT__Propmt__GetPromptListInput {
-  orderBy?: {
-  }[]
-  skip?: number
-  take?: number
-
-}
-export interface InternalChatGPT__Propmt__GetPromptListInput {
-  skip?: number
-  take?: number
-  orderBy?: {
-  }[]
-}
-export interface InjectedChatGPT__Propmt__GetPromptListInput {
-  orderBy?: {
-  }[]
-  skip?: number
-  take?: number
-
+    export interface InjectedHistory__UpdateOneInput {
+     id: number
+         title?: string
+    
 }
 
-export interface ChatGPT__Propmt__GetPromptListResponse {
-  data?: ChatGPT__Propmt__GetPromptListResponseData
-  errors?: ReadonlyArray<GraphQLError>
-}
-export interface ChatGPT__Propmt__GetPromptListResponseData {
-  data?: {
-    id?: number
-    prompt?: string
-    title?: string
-    updatedAt?: string
-    createdAt?: string
-  }[]
-  total?: number
-}
-export interface ChatGPT__Propmt__UpdateOnePromptInput {
-  id: number
-  prompt?: string
-  title?: string
 
+    
+export interface History__UpdateOneResponse {
+    data?: History__UpdateOneResponseData
+    errors?: ReadonlyArray<GraphQLError>;
 }
-export interface InternalChatGPT__Propmt__UpdateOnePromptInput {
-  title?: string
-  updatedAt?: string
-  id: number
-  prompt?: string
+export interface History__UpdateOneResponseData {
+    data?: {
+        createdAt?: string
+        id?: number
+        title?: string
+        updatedAt?: string
+    },
 }
-export interface InjectedChatGPT__Propmt__UpdateOnePromptInput {
-  prompt?: string
-  title?: string
-  updatedAt: string
-  id: number
-
+export interface Propmt__CreateOneInput {
+     prompt: string
+                 title: string
+            
+}
+export interface InternalPropmt__CreateOneInput {
+      prompt: string
+      title: string
+      userId?: string
+}
+    export interface InjectedPropmt__CreateOneInput {
+     prompt: string
+         title: string
+         userId: string
+    
 }
 
-export interface ChatGPT__Propmt__UpdateOnePromptResponse {
-  data?: ChatGPT__Propmt__UpdateOnePromptResponseData
-  errors?: ReadonlyArray<GraphQLError>
+
+    
+export interface Propmt__CreateOneResponse {
+    data?: Propmt__CreateOneResponseData
+    errors?: ReadonlyArray<GraphQLError>;
 }
-export interface ChatGPT__Propmt__UpdateOnePromptResponseData {
-  data?: {
-    prompt?: string
-    title?: string
-    updatedAt?: string
-    createdAt?: string
-    id?: number
-  }
+export interface Propmt__CreateOneResponseData {
+    data?: {
+        updatedAt?: string
+        createdAt?: string
+        id?: number
+        prompt?: string
+        title?: string
+    },
+}
+export interface Propmt__DeleteManyInput {
+   ids: {
+   }[],
+            
+}
+export interface InternalPropmt__DeleteManyInput {
+    ids: {
+    }[],
+}
+    export interface InjectedPropmt__DeleteManyInput {
+   ids: {
+   }[],
+    
+}
+
+
+    
+export interface Propmt__DeleteManyResponse {
+    data?: Propmt__DeleteManyResponseData
+    errors?: ReadonlyArray<GraphQLError>;
+}
+export interface Propmt__DeleteManyResponseData {
+    data?: {
+        count?: number
+    },
+}
+export interface Propmt__DeleteOneInput {
+     id: number
+            
+}
+export interface InternalPropmt__DeleteOneInput {
+      id: number
+}
+    export interface InjectedPropmt__DeleteOneInput {
+     id: number
+    
+}
+
+
+    
+export interface Propmt__DeleteOneResponse {
+    data?: Propmt__DeleteOneResponseData
+    errors?: ReadonlyArray<GraphQLError>;
+}
+export interface Propmt__DeleteOneResponseData {
+    data?: {
+        id?: number
+    },
+}
+export interface Propmt__GetListInput {
+     skip?: number
+                 take?: number
+               orderBy?: {
+   }[],
+                        
+}
+export interface InternalPropmt__GetListInput {
+    orderBy?: {
+    }[],
+      skip?: number
+      take?: number
+}
+    export interface InjectedPropmt__GetListInput {
+         skip?: number
+         take?: number
+       orderBy?: {
+   }[],
+    
+}
+
+
+    
+export interface Propmt__GetListResponse {
+    data?: Propmt__GetListResponseData
+    errors?: ReadonlyArray<GraphQLError>;
+}
+export interface Propmt__GetListResponseData {
+    data?: {
+        createdAt?: string
+        id?: number
+        prompt?: string
+        title?: string
+        updatedAt?: string
+    }[],
+      total?: number
+}
+export interface Propmt__UpdateOneInput {
+     id: number
+                 prompt?: string
+                 title?: string
+            
+}
+export interface InternalPropmt__UpdateOneInput {
+      id: number
+      prompt?: string
+      title?: string
+      updatedAt?: string
+}
+    export interface InjectedPropmt__UpdateOneInput {
+     title?: string
+         updatedAt: string
+         id: number
+         prompt?: string
+    
+}
+
+
+    
+export interface Propmt__UpdateOneResponse {
+    data?: Propmt__UpdateOneResponseData
+    errors?: ReadonlyArray<GraphQLError>;
+}
+export interface Propmt__UpdateOneResponseData {
+    data?: {
+        title?: string
+        updatedAt?: string
+        createdAt?: string
+        id?: number
+        prompt?: string
+    },
 }
 export interface User__CreateOneUserInput {
-  avatar: string
-  bio: string
-  id: string
-  name: string
-  provider?: string
-
+     providerId?: string
+                 avatar: string
+                 description: string
+                 id: string
+                 name: string
+                 provider?: string
+            
 }
 export interface InternalUser__CreateOneUserInput {
-  avatar: string
-  bio: string
-  id: string
-  name: string
-  provider?: string
+      avatar: string
+      description: string
+      id: string
+      name: string
+      provider?: string
+      providerId?: string
 }
-export interface InjectedUser__CreateOneUserInput {
-  provider?: string
-  avatar: string
-  bio: string
-  id: string
-  name: string
-
+    export interface InjectedUser__CreateOneUserInput {
+     id: string
+         name: string
+         provider?: string
+         providerId?: string
+         avatar: string
+         description: string
+    
 }
 
+
+    
 export interface User__CreateOneUserResponse {
-  data?: User__CreateOneUserResponseData
-  errors?: ReadonlyArray<GraphQLError>
+    data?: User__CreateOneUserResponseData
+    errors?: ReadonlyArray<GraphQLError>;
 }
 export interface User__CreateOneUserResponseData {
-  data?: {
-    id?: string
-  }
+    data?: {
+        id?: string
+    },
 }
 export interface User__GetOneUserInput {
-  id?: string
-
+     id?: string
+            
 }
 export interface InternalUser__GetOneUserInput {
-  id?: string
+      id?: string
 }
-export interface InjectedUser__GetOneUserInput {
-  id?: string
-
+    export interface InjectedUser__GetOneUserInput {
+     id?: string
+    
 }
 
+
+    
 export interface User__GetOneUserResponse {
-  data?: User__GetOneUserResponseData
-  errors?: ReadonlyArray<GraphQLError>
+    data?: User__GetOneUserResponseData
+    errors?: ReadonlyArray<GraphQLError>;
 }
 export interface User__GetOneUserResponseData {
-  data?: {
-    id?: string
-    name?: string
-    avatar?: string
-    bio?: string
-  }
+    data?: {
+        avatar?: string
+        description?: string
+        id?: string
+        name?: string
+    },
 }
-export interface ChatGPT__Subscription__ChatSSEInput {
-  prompt: string
-  chatId?: string
-  regenerateId?: string
-
+export interface InternalUser__MeInput {
+      equals?: string
 }
-export interface InternalChatGPT__Subscription__ChatSSEInput {
-  chatId?: string
-  regenerateId?: string
-  prompt: string
+    export interface InjectedUser__MeInput {
+     equals: string
+    
 }
 
-export type ChatGPT__Subscription__ChatSSEResponseData = ExtractResponse<typeof function_ChatGPT__Subscription__ChatSSE>
 
-export interface ChatGPT__Subscription__ChatSSEResponse {
-  data?: ChatGPT__Subscription__ChatSSEResponseData
-  errors?: ReadonlyArray<GraphQLError>
+    
+export interface User__MeResponse {
+    data?: User__MeResponseData
+    errors?: ReadonlyArray<GraphQLError>;
+}
+export interface User__MeResponseData {
+    data?: {
+        avatar?: string
+        description?: string
+        id?: string
+        name?: string
+    },
+}
+export interface User__UpdateInfoInput {
+     avatar?: string
+                 description?: string
+                 name?: string
+            
+}
+export interface InternalUser__UpdateInfoInput {
+      avatar?: string
+      description?: string
+      id?: string
+      name?: string
+}
+    export interface InjectedUser__UpdateInfoInput {
+     avatar?: string
+         description?: string
+         id: string
+         name?: string
+    
 }
 
-export type JSONValue = string | number | boolean | JSONObject | Array<JSONValue>
 
-export interface JSONObject { [key: string]: JSONValue }
+    
+export interface User__UpdateInfoResponse {
+    data?: User__UpdateInfoResponseData
+    errors?: ReadonlyArray<GraphQLError>;
+}
+export interface User__UpdateInfoResponseData {
+    data?: {
+        avatar?: string
+        description?: string
+        id?: string
+        name?: string
+    },
+}
+export interface Chat__ChatSSEInput {
+     prompt: string
+                             regenerateId?: string
+            
+}
+export interface InternalChat__ChatSSEInput {
+      prompt: string
+      regenerateId?: string
+}
+    
+
+export type Chat__ChatSSEResponseData = ExtractResponse<typeof function_Chat__ChatSSE>
+
+export interface Chat__ChatSSEResponse {
+    data?: Chat__ChatSSEResponseData
+    errors?: ReadonlyArray<GraphQLError>;
+}
+    
+export type JSONValue = string | number | boolean | JSONObject | Array<JSONValue>;
+
+export type JSONObject = { [key: string]: JSONValue };
 
 export interface GraphQLError {
-  message: string
-  path?: ReadonlyArray<string | number>
+    message: string;
+    path?: ReadonlyArray<string | number>;
 }

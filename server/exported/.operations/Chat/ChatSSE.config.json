@@ -1,8 +1,8 @@
 {
   "internal": false,
   "operationType": 2,
-  "tsPath": "ChatGPT/Subscription/ChatSSE.ts",
-  "variablesSchema": "{\"type\":\"object\",\"properties\":{\"prompt\":{\"type\":\"string\"},\"chatId\":{\"type\":\"string\"},\"regenerateId\":{\"type\":\"string\"}},\"required\":[\"prompt\"],\"additionalProperties\":false,\"$schema\":\"http://json-schema.org/draft-07/schema#\"}",
+  "tsPath": "Chat/ChatSSE.ts",
+  "variablesSchema": "{\"type\":\"object\",\"properties\":{\"prompt\":{\"type\":\"string\"},\"chatId\":{\"type\":\"number\"},\"regenerateId\":{\"type\":\"string\"}},\"required\":[\"prompt\",\"chatId\"],\"additionalProperties\":false,\"$schema\":\"http://json-schema.org/draft-07/schema#\"}",
   "responseSchema": "{\"type\":\"object\",\"properties\":{}}",
   "liveQueryConfig": {
     "enable": false,

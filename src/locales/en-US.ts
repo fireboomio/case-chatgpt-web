@@ -25,6 +25,7 @@ export default {
     success: 'Success',
     failed: 'Failed',
     verify: 'Verify',
+    logout: 'Logout',
     unauthorizedTips: 'Unauthorized, please verify first.',
   },
   chat: {

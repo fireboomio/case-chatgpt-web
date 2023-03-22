@@ -7,17 +7,59 @@
     },
     "host": "localhost:9991",
     "paths": {
-        "/operations/ChatGPT/Chat/CreateOneChatMessage": {
-            "post": {
-                "description": "```graphql\nmutation CreateOneChatMessage($text: String!, $parentMessageId: String, $chatId: Int!) {\n  data: grace_createOneChatMessage(\n    data: {text: $text, parentMessageId: $parentMessageId, History: {connect: {id: $chatId}}}\n  ) {\n    id\n    text\n    parentMessageId\n    createdAt\n    chatId\n  }\n}\n```",
+        "/operations/Chat/ChatSSE": {
+            "get": {
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
-                    "ChatGPT"
+                    "Chat"
                 ],
-                "summary": "POST /operations/ChatGPT/Chat/CreateOneChatMessage",
-                "operationId": "ChatGPT__Chat__CreateOneChatMessage",
+                "summary": "GET /operations/Chat/ChatSSE",
+                "operationId": "Chat__ChatSSE",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "build value by graphql input",
+                        "name": "prompt",
+                        "in": "query"
+                    },
+                    {
+                        "type": "number",
+                        "description": "build value by graphql input",
+                        "name": "chatId",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "build value by graphql input",
+                        "name": "regenerateId",
+                        "in": "query"
+                    }
+                ]
+            }
+        },
+        "/operations/Chat/DeleteOne": {
+            "post": {
+                "security": [
+                    {
+                        "authing": [
+                            "user"
+                        ]
+                    },
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "description": "```graphql\nmutation DeleteOneChatMessage($id: Int!) {\n  data: grace_deleteOneChatMessage(where: {id: $id}) {\n    id\n  }\n}\n```",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Chat"
+                ],
+                "summary": "POST /operations/Chat/DeleteOne",
+                "operationId": "Chat__DeleteOne",
                 "parameters": [
                     {
                         "name": "key",
@@ -25,21 +67,11 @@
                         "schema": {
                             "type": "object",
                             "required": [
-                                "text",
-                                "chatId"
+                                "id"
                             ],
                             "properties": {
-                                "chatId": {
+                                "id": {
                                     "type": "integer"
-                                },
-                                "parentMessageId": {
-                                    "type": [
-                                        "string",
-                                        "null"
-                                    ]
-                                },
-                                "text": {
-                                    "type": "string"
                                 }
                             },
                             "additionalProperties": false
@@ -58,26 +90,11 @@
                                         "data": {
                                             "type": "object",
                                             "required": [
-                                                "id",
-                                                "text",
-                                                "createdAt",
-                                                "chatId"
+                                                "id"
                                             ],
                                             "properties": {
-                                                "chatId": {
-                                                    "type": "integer"
-                                                },
-                                                "createdAt": {
-                                                    "type": "string"
-                                                },
                                                 "id": {
                                                     "type": "integer"
-                                                },
-                                                "parentMessageId": {
-                                                    "type": "string"
-                                                },
-                                                "text": {
-                                                    "type": "string"
                                                 }
                                             }
                                         }
@@ -87,11 +104,14 @@
                             },
                             "additionalProperties": false
                         }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
                     }
                 }
             }
         },
-        "/operations/ChatGPT/Chat/CreateOneHistory": {
+        "/operations/History/CreateOne": {
             "post": {
                 "security": [
                     {
@@ -108,10 +128,10 @@
                     "application/json"
                 ],
                 "tags": [
-                    "ChatGPT"
+                    "History"
                 ],
-                "summary": "POST /operations/ChatGPT/Chat/CreateOneHistory",
-                "operationId": "ChatGPT__Chat__CreateOneHistory",
+                "summary": "POST /operations/History/CreateOne",
+                "operationId": "History__CreateOne",
                 "parameters": [
                     {
                         "name": "key",
@@ -174,76 +194,27 @@
                 }
             }
         },
-        "/operations/ChatGPT/Chat/DeleteOneChatMessage": {
+        "/operations/History/DeleteOne": {
             "post": {
-                "description": "```graphql\nmutation DeleteOneChatMessage($id: Int!) {\n  data: grace_deleteOneChatMessage(where: {id: $id}) {\n    id\n  }\n}\n```",
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "ChatGPT"
-                ],
-                "summary": "POST /operations/ChatGPT/Chat/DeleteOneChatMessage",
-                "operationId": "ChatGPT__Chat__DeleteOneChatMessage",
-                "parameters": [
+                "security": [
                     {
-                        "name": "key",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "required": [
-                                "id"
-                            ],
-                            "properties": {
-                                "id": {
-                                    "type": "integer"
-                                }
-                            },
-                            "additionalProperties": false
-                        }
+                        "authing": [
+                            "user"
+                        ]
+                    },
+                    {
+                        "Authorization": []
                     }
                 ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "data": {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "object",
-                                            "required": [
-                                                "id"
-                                            ],
-                                            "properties": {
-                                                "id": {
-                                                    "type": "integer"
-                                                }
-                                            }
-                                        }
-                                    },
-                                    "additionalProperties": false
-                                }
-                            },
-                            "additionalProperties": false
-                        }
-                    }
-                }
-            }
-        },
-        "/operations/ChatGPT/Chat/DeleteOneHistory": {
-            "post": {
                 "description": "```graphql\nmutation DeleteOneHistory($id: Int!) {\n  data: grace_deleteOneHistory(where: {id: $id}) {\n    id\n  }\n}\n```",
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
-                    "ChatGPT"
+                    "History"
                 ],
-                "summary": "POST /operations/ChatGPT/Chat/DeleteOneHistory",
-                "operationId": "ChatGPT__Chat__DeleteOneHistory",
+                "summary": "POST /operations/History/DeleteOne",
+                "operationId": "History__DeleteOne",
                 "parameters": [
                     {
                         "name": "key",
@@ -288,21 +259,105 @@
                             },
                             "additionalProperties": false
                         }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
                     }
                 }
             }
         },
-        "/operations/ChatGPT/Chat/UpdateOneHistory": {
-            "post": {
-                "description": "```graphql\nmutation UpdateOneHistory($id: Int!, $title: String) {\n  data: grace_updateOneHistory(\n    data: {title: {set: $title}}\n    where: {id: $id}\n  ) {\n    id\n    title\n    createdAt\n    updatedAt\n  }\n} \n```",
+        "/operations/History/GetList": {
+            "get": {
+                "security": [
+                    {
+                        "authing": [
+                            "user"
+                        ]
+                    },
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "description": "```graphql\nquery GetHistoryList($userId: String! @fromClaim(name: USERID)) {\n  data: grace_findManyHistory(where: { User:{ is:{id:{equals:$userId}}}}) {\n    id\n    title\n    createdAt\n    updatedAt\n  }\n}\n```",
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
-                    "ChatGPT"
+                    "History"
                 ],
-                "summary": "POST /operations/ChatGPT/Chat/UpdateOneHistory",
-                "operationId": "ChatGPT__Chat__UpdateOneHistory",
+                "summary": "GET /operations/History/GetList",
+                "operationId": "History__GetList",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "data": {
+                                    "type": "object",
+                                    "required": [
+                                        "data"
+                                    ],
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "required": [
+                                                    "id",
+                                                    "title",
+                                                    "createdAt"
+                                                ],
+                                                "properties": {
+                                                    "createdAt": {
+                                                        "type": "string"
+                                                    },
+                                                    "id": {
+                                                        "type": "integer"
+                                                    },
+                                                    "title": {
+                                                        "type": "string"
+                                                    },
+                                                    "updatedAt": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+        "/operations/History/UpdateOne": {
+            "post": {
+                "security": [
+                    {
+                        "authing": [
+                            "user"
+                        ]
+                    },
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "description": "```graphql\nmutation UpdateOneHistory($id: Int!, $title: String) {\n  data: grace_updateOneHistory(\n    data: {title: {set: $title}}\n    where: {id: $id}\n  ) {\n    id\n    title\n    createdAt\n    updatedAt\n  }\n}\n```",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "History"
+                ],
+                "summary": "POST /operations/History/UpdateOne",
+                "operationId": "History__UpdateOne",
                 "parameters": [
                     {
                         "name": "key",
@@ -364,21 +419,34 @@
                             },
                             "additionalProperties": false
                         }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
                     }
                 }
             }
         },
-        "/operations/ChatGPT/Propmt/CreateOnePrompt": {
+        "/operations/Propmt/CreateOne": {
             "post": {
-                "description": "```graphql\nmutation CreateOnePrompt($prompt: String!, $title: String!, $updatedAt: DateTime! @injectCurrentDateTime(format: UnixDate)) {\n  data: grace_createOnePrompt(data: {prompt: $prompt, title: $title, updatedAt: $updatedAt}) {\n    \n    id\n    prompt\n    title\n    createdAt\n    updatedAt\n  }\n}\n```",
+                "security": [
+                    {
+                        "authing": [
+                            "user"
+                        ]
+                    },
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "description": "```graphql\nmutation CreateOnePrompt($prompt: String!, $title: String!, $userId: String! @fromClaim(name: USERID)) {\n  data: grace_createOnePrompt(\n    data: {prompt: $prompt, title: $title, User: {connect: {id: $userId}}}\n  ) {\n    id\n    prompt\n    title\n    createdAt\n    updatedAt\n  }\n} \n```",
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
-                    "ChatGPT"
+                    "Propmt"
                 ],
-                "summary": "POST /operations/ChatGPT/Propmt/CreateOnePrompt",
-                "operationId": "ChatGPT__Propmt__CreateOnePrompt",
+                "summary": "POST /operations/Propmt/CreateOne",
+                "operationId": "Propmt__CreateOne",
                 "parameters": [
                     {
                         "name": "key",
@@ -442,21 +510,34 @@
                             },
                             "additionalProperties": false
                         }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
                     }
                 }
             }
         },
-        "/operations/ChatGPT/Propmt/DeleteManyPrompt": {
+        "/operations/Propmt/DeleteMany": {
             "post": {
+                "security": [
+                    {
+                        "authing": [
+                            "user"
+                        ]
+                    },
+                    {
+                        "Authorization": []
+                    }
+                ],
                 "description": "```graphql\nmutation DeleteManyPrompt($ids: [Int]!) {\n  data: grace_deleteManyPrompt(where: {id: {in: $ids}}) {\n    count\n  }\n}\n```",
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
-                    "ChatGPT"
+                    "Propmt"
                 ],
-                "summary": "POST /operations/ChatGPT/Propmt/DeleteManyPrompt",
-                "operationId": "ChatGPT__Propmt__DeleteManyPrompt",
+                "summary": "POST /operations/Propmt/DeleteMany",
+                "operationId": "Propmt__DeleteMany",
                 "parameters": [
                     {
                         "name": "key",
@@ -507,21 +588,34 @@
                             },
                             "additionalProperties": false
                         }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
                     }
                 }
             }
         },
-        "/operations/ChatGPT/Propmt/DeleteOnePrompt": {
+        "/operations/Propmt/DeleteOne": {
             "post": {
+                "security": [
+                    {
+                        "authing": [
+                            "user"
+                        ]
+                    },
+                    {
+                        "Authorization": []
+                    }
+                ],
                 "description": "```graphql\nmutation DeleteOnePrompt($id: Int!) {\n  data: grace_deleteOnePrompt(where: {id: $id}) {\n    id\n  }\n}\n```",
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
-                    "ChatGPT"
+                    "Propmt"
                 ],
-                "summary": "POST /operations/ChatGPT/Propmt/DeleteOnePrompt",
-                "operationId": "ChatGPT__Propmt__DeleteOnePrompt",
+                "summary": "POST /operations/Propmt/DeleteOne",
+                "operationId": "Propmt__DeleteOne",
                 "parameters": [
                     {
                         "name": "key",
@@ -566,21 +660,34 @@
                             },
                             "additionalProperties": false
                         }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
                     }
                 }
             }
         },
-        "/operations/ChatGPT/Propmt/GetPromptList": {
+        "/operations/Propmt/GetList": {
             "get": {
+                "security": [
+                    {
+                        "authing": [
+                            "user"
+                        ]
+                    },
+                    {
+                        "Authorization": []
+                    }
+                ],
                 "description": "```graphql\nquery GetPromptList($take: Int = 10, $skip: Int = 0, $orderBy: [grace_PromptOrderByWithRelationInput], $query: grace_PromptWhereInput) {\n  data: grace_findManyPrompt(\n    skip: $skip\n    take: $take\n  orderBy: $orderBy\n    where: {AND: $query}) {\n    \n    id\n    prompt\n    title\n    createdAt\n    updatedAt\n  }\n  total: grace_aggregatePrompt(where: {AND: $query}) @transform(get: \"_count.id\") {\n    _count {\n      id\n    }\n  }\n}\n```",
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
-                    "ChatGPT"
+                    "Propmt"
                 ],
-                "summary": "GET /operations/ChatGPT/Propmt/GetPromptList",
-                "operationId": "ChatGPT__Propmt__GetPromptList",
+                "summary": "GET /operations/Propmt/GetList",
+                "operationId": "Propmt__GetList",
                 "parameters": [
                     {
                         "type": "array",
@@ -657,21 +764,34 @@
                             },
                             "additionalProperties": false
                         }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
                     }
                 }
             }
         },
-        "/operations/ChatGPT/Propmt/UpdateOnePrompt": {
+        "/operations/Propmt/UpdateOne": {
             "post": {
+                "security": [
+                    {
+                        "authing": [
+                            "user"
+                        ]
+                    },
+                    {
+                        "Authorization": []
+                    }
+                ],
                 "description": "```graphql\nmutation UpdateOnePrompt($id: Int!, $prompt: String, $title: String, $updatedAt: DateTime! @injectCurrentDateTime(format: UnixDate)) {\n  data: grace_updateOnePrompt(\n    data: {prompt: {set: $prompt}, title: {set: $title}, updatedAt: {set: $updatedAt}}\n    where: {id: $id}\n  ) {\n    \n    id\n    prompt\n    title\n    createdAt\n    updatedAt\n  }\n}\n```",
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
-                    "ChatGPT"
+                    "Propmt"
                 ],
-                "summary": "POST /operations/ChatGPT/Propmt/UpdateOnePrompt",
-                "operationId": "ChatGPT__Propmt__UpdateOnePrompt",
+                "summary": "POST /operations/Propmt/UpdateOne",
+                "operationId": "Propmt__UpdateOne",
                 "parameters": [
                     {
                         "name": "key",
@@ -743,40 +863,171 @@
                             },
                             "additionalProperties": false
                         }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
                     }
                 }
             }
         },
-        "/operations/ChatGPT/Subscription/ChatSSE": {
+        "/operations/User/Me": {
             "get": {
+                "security": [
+                    {
+                        "authing": [
+                            "user"
+                        ]
+                    },
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "description": "```graphql\nquery MyQuery($equals: String! @fromClaim(name: USERID)) {\n  data: grace_findFirstUser(where: {id: {equals: $equals}}) {\n    avatar\n    description\n    id\n    name\n  }\n}\n```",
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
-                    "ChatGPT"
+                    "User"
                 ],
-                "summary": "GET /operations/ChatGPT/Subscription/ChatSSE",
-                "operationId": "ChatGPT__Subscription__ChatSSE",
+                "summary": "GET /operations/User/Me",
+                "operationId": "User__Me",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "required": [
+                                                "avatar",
+                                                "id",
+                                                "name"
+                                            ],
+                                            "properties": {
+                                                "avatar": {
+                                                    "type": "string"
+                                                },
+                                                "description": {
+                                                    "type": "string"
+                                                },
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+        "/operations/User/UpdateInfo": {
+            "post": {
+                "security": [
+                    {
+                        "authing": [
+                            "user"
+                        ]
+                    },
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "description": "```graphql\nmutation MyQuery($id: String! @fromClaim(name: USERID), $name: String = \"\", $description: String = \"\", $avatar: String = \"\") {\n  data: grace_updateOneUser(\n    where: {id: $id}\n    data: {name: {set: $name}, description: {set: $description}, avatar: {set: $avatar}}\n  ) {\n    id\n    name\n    description\n    avatar\n  }\n} \n```",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "POST /operations/User/UpdateInfo",
+                "operationId": "User__UpdateInfo",
                 "parameters": [
                     {
-                        "type": "string",
-                        "description": "build value by graphql input",
-                        "name": "prompt",
-                        "in": "query"
-                    },
-                    {
-                        "type": "string",
-                        "description": "build value by graphql input",
-                        "name": "chatId",
-                        "in": "query"
-                    },
-                    {
-                        "type": "string",
-                        "description": "build value by graphql input",
-                        "name": "regenerateId",
-                        "in": "query"
+                        "name": "key",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "avatar": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                },
+                                "description": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                },
+                                "name": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                }
+                            },
+                            "additionalProperties": false
+                        }
                     }
-                ]
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "required": [
+                                                "id",
+                                                "name",
+                                                "avatar"
+                                            ],
+                                            "properties": {
+                                                "avatar": {
+                                                    "type": "string"
+                                                },
+                                                "description": {
+                                                    "type": "string"
+                                                },
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
             }
         }
     }

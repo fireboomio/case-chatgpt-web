@@ -1,6 +1,6 @@
 // import fetch from '@web-std/fetch'
 import type { RequestOptions, UserListener, Response } from 'fireboom-wundersdk/server';
-import type { ChatGPT__Chat__CreateOneChatMessageInput,ChatGPT__Chat__CreateOneChatMessageResponse,ChatGPT__Chat__CreateOneHistoryInput,ChatGPT__Chat__CreateOneHistoryResponse,ChatGPT__Chat__DeleteOneChatMessageInput,ChatGPT__Chat__DeleteOneChatMessageResponse,ChatGPT__Chat__DeleteOneHistoryInput,ChatGPT__Chat__DeleteOneHistoryResponse,ChatGPT__Chat__GetHistoryListInput,ChatGPT__Chat__GetHistoryListResponse,ChatGPT__Chat__GetManyChatMessageResponse,ChatGPT__Chat__UpdateOneHistoryInput,ChatGPT__Chat__UpdateOneHistoryResponse,ChatGPT__Propmt__CreateOnePromptInput,ChatGPT__Propmt__CreateOnePromptResponse,ChatGPT__Propmt__DeleteManyPromptInput,ChatGPT__Propmt__DeleteManyPromptResponse,ChatGPT__Propmt__DeleteOnePromptInput,ChatGPT__Propmt__DeleteOnePromptResponse,ChatGPT__Propmt__GetPromptListInput,ChatGPT__Propmt__GetPromptListResponse,ChatGPT__Propmt__UpdateOnePromptInput,ChatGPT__Propmt__UpdateOnePromptResponse,User__CreateOneUserInput,User__CreateOneUserResponse,User__GetOneUserInput,User__GetOneUserResponse,ChatGPT__Subscription__ChatSSEInput,ChatGPT__Subscription__ChatSSEResponse, } from './models'
+import type { Chat__CreateOneInput,Chat__CreateOneResponse,Chat__DeleteOneInput,Chat__DeleteOneResponse,Chat__GetByHistoryInput,Chat__GetByHistoryResponse,Chat__GetListResponse,Chat__UpdateChatTextInput,Chat__UpdateChatTextResponse,History__CreateOneInput,History__CreateOneResponse,History__DeleteOneInput,History__DeleteOneResponse,History__GetListResponse,History__UpdateOneInput,History__UpdateOneResponse,Propmt__CreateOneInput,Propmt__CreateOneResponse,Propmt__DeleteManyInput,Propmt__DeleteManyResponse,Propmt__DeleteOneInput,Propmt__DeleteOneResponse,Propmt__GetListInput,Propmt__GetListResponse,Propmt__UpdateOneInput,Propmt__UpdateOneResponse,User__CreateOneUserInput,User__CreateOneUserResponse,User__GetOneUserInput,User__GetOneUserResponse,User__MeResponse,User__UpdateInfoInput,User__UpdateInfoResponse,Chat__ChatSSEInput,Chat__ChatSSEResponse, } from './models'
 import type { User, Role } from './claims'
 
 import {
@@ -33,7 +33,7 @@ export class Client {
 
         this._client = new WunderGraphClient({
             baseURL,
-            applicationHash: "89f283af",
+            applicationHash: "f823b703",
             sdkVersion: "",
             // customFetch: fetch,
             ...rest
@@ -80,29 +80,37 @@ export class Client {
     } as Response<any>;
 	};
     public query = {
-        'ChatGPT/Chat/GetHistoryList': async (options: RequestOptions<ChatGPT__Chat__GetHistoryListInput,ChatGPT__Chat__GetHistoryListResponse>) => {
+        'Chat/GetByHistory': async (options: RequestOptions<Chat__GetByHistoryInput,Chat__GetByHistoryResponse>) => {
             const result = await this._client.query({
-                operationName: 'ChatGPT__Chat__GetHistoryList',
+                operationName: 'Chat__GetByHistory',
                 input: options.input,
                 abortSignal: options.abortSignal,
             })
-            return this.resultToResponse<ChatGPT__Chat__GetHistoryListResponse>(result)
+            return this.resultToResponse<Chat__GetByHistoryResponse>(result)
         },
-        'ChatGPT/Chat/GetManyChatMessage': async (options: RequestOptions<never,ChatGPT__Chat__GetManyChatMessageResponse>) => {
+        'Chat/GetList': async (options: RequestOptions<never,Chat__GetListResponse>) => {
             const result = await this._client.query({
-                operationName: 'ChatGPT__Chat__GetManyChatMessage',
+                operationName: 'Chat__GetList',
                 input: options.input,
                 abortSignal: options.abortSignal,
             })
-            return this.resultToResponse<ChatGPT__Chat__GetManyChatMessageResponse>(result)
+            return this.resultToResponse<Chat__GetListResponse>(result)
         },
-        'ChatGPT/Propmt/GetPromptList': async (options: RequestOptions<ChatGPT__Propmt__GetPromptListInput,ChatGPT__Propmt__GetPromptListResponse>) => {
+        'History/GetList': async (options: RequestOptions<never,History__GetListResponse>) => {
             const result = await this._client.query({
-                operationName: 'ChatGPT__Propmt__GetPromptList',
+                operationName: 'History__GetList',
                 input: options.input,
                 abortSignal: options.abortSignal,
             })
-            return this.resultToResponse<ChatGPT__Propmt__GetPromptListResponse>(result)
+            return this.resultToResponse<History__GetListResponse>(result)
+        },
+        'Propmt/GetList': async (options: RequestOptions<Propmt__GetListInput,Propmt__GetListResponse>) => {
+            const result = await this._client.query({
+                operationName: 'Propmt__GetList',
+                input: options.input,
+                abortSignal: options.abortSignal,
+            })
+            return this.resultToResponse<Propmt__GetListResponse>(result)
         },
         'User/GetOneUser': async (options: RequestOptions<User__GetOneUserInput,User__GetOneUserResponse>) => {
             const result = await this._client.query({
@@ -112,80 +120,96 @@ export class Client {
             })
             return this.resultToResponse<User__GetOneUserResponse>(result)
         },
+        'User/Me': async (options: RequestOptions<never,User__MeResponse>) => {
+            const result = await this._client.query({
+                operationName: 'User__Me',
+                input: options.input,
+                abortSignal: options.abortSignal,
+            })
+            return this.resultToResponse<User__MeResponse>(result)
+        },
     }
     
     public mutation = {
-        'ChatGPT/Chat/CreateOneChatMessage': async (options: RequestOptions<ChatGPT__Chat__CreateOneChatMessageInput,ChatGPT__Chat__CreateOneChatMessageResponse>) => {
+        'Chat/CreateOne': async (options: RequestOptions<Chat__CreateOneInput,Chat__CreateOneResponse>) => {
             const result =  await this._client.mutate({
-                operationName: 'ChatGPT__Chat__CreateOneChatMessage',
+                operationName: 'Chat__CreateOne',
                 input: options.input,
                 abortSignal: options.abortSignal,
             })
-            return this.resultToResponse<ChatGPT__Chat__CreateOneChatMessageResponse>(result)
+            return this.resultToResponse<Chat__CreateOneResponse>(result)
         },
-        'ChatGPT/Chat/CreateOneHistory': async (options: RequestOptions<ChatGPT__Chat__CreateOneHistoryInput,ChatGPT__Chat__CreateOneHistoryResponse>) => {
+        'Chat/DeleteOne': async (options: RequestOptions<Chat__DeleteOneInput,Chat__DeleteOneResponse>) => {
             const result =  await this._client.mutate({
-                operationName: 'ChatGPT__Chat__CreateOneHistory',
+                operationName: 'Chat__DeleteOne',
                 input: options.input,
                 abortSignal: options.abortSignal,
             })
-            return this.resultToResponse<ChatGPT__Chat__CreateOneHistoryResponse>(result)
+            return this.resultToResponse<Chat__DeleteOneResponse>(result)
         },
-        'ChatGPT/Chat/DeleteOneChatMessage': async (options: RequestOptions<ChatGPT__Chat__DeleteOneChatMessageInput,ChatGPT__Chat__DeleteOneChatMessageResponse>) => {
+        'Chat/UpdateChatText': async (options: RequestOptions<Chat__UpdateChatTextInput,Chat__UpdateChatTextResponse>) => {
             const result =  await this._client.mutate({
-                operationName: 'ChatGPT__Chat__DeleteOneChatMessage',
+                operationName: 'Chat__UpdateChatText',
                 input: options.input,
                 abortSignal: options.abortSignal,
             })
-            return this.resultToResponse<ChatGPT__Chat__DeleteOneChatMessageResponse>(result)
+            return this.resultToResponse<Chat__UpdateChatTextResponse>(result)
         },
-        'ChatGPT/Chat/DeleteOneHistory': async (options: RequestOptions<ChatGPT__Chat__DeleteOneHistoryInput,ChatGPT__Chat__DeleteOneHistoryResponse>) => {
+        'History/CreateOne': async (options: RequestOptions<History__CreateOneInput,History__CreateOneResponse>) => {
             const result =  await this._client.mutate({
-                operationName: 'ChatGPT__Chat__DeleteOneHistory',
+                operationName: 'History__CreateOne',
                 input: options.input,
                 abortSignal: options.abortSignal,
             })
-            return this.resultToResponse<ChatGPT__Chat__DeleteOneHistoryResponse>(result)
+            return this.resultToResponse<History__CreateOneResponse>(result)
         },
-        'ChatGPT/Chat/UpdateOneHistory': async (options: RequestOptions<ChatGPT__Chat__UpdateOneHistoryInput,ChatGPT__Chat__UpdateOneHistoryResponse>) => {
+        'History/DeleteOne': async (options: RequestOptions<History__DeleteOneInput,History__DeleteOneResponse>) => {
             const result =  await this._client.mutate({
-                operationName: 'ChatGPT__Chat__UpdateOneHistory',
+                operationName: 'History__DeleteOne',
                 input: options.input,
                 abortSignal: options.abortSignal,
             })
-            return this.resultToResponse<ChatGPT__Chat__UpdateOneHistoryResponse>(result)
+            return this.resultToResponse<History__DeleteOneResponse>(result)
         },
-        'ChatGPT/Propmt/CreateOnePrompt': async (options: RequestOptions<ChatGPT__Propmt__CreateOnePromptInput,ChatGPT__Propmt__CreateOnePromptResponse>) => {
+        'History/UpdateOne': async (options: RequestOptions<History__UpdateOneInput,History__UpdateOneResponse>) => {
             const result =  await this._client.mutate({
-                operationName: 'ChatGPT__Propmt__CreateOnePrompt',
+                operationName: 'History__UpdateOne',
                 input: options.input,
                 abortSignal: options.abortSignal,
             })
-            return this.resultToResponse<ChatGPT__Propmt__CreateOnePromptResponse>(result)
+            return this.resultToResponse<History__UpdateOneResponse>(result)
         },
-        'ChatGPT/Propmt/DeleteManyPrompt': async (options: RequestOptions<ChatGPT__Propmt__DeleteManyPromptInput,ChatGPT__Propmt__DeleteManyPromptResponse>) => {
+        'Propmt/CreateOne': async (options: RequestOptions<Propmt__CreateOneInput,Propmt__CreateOneResponse>) => {
             const result =  await this._client.mutate({
-                operationName: 'ChatGPT__Propmt__DeleteManyPrompt',
+                operationName: 'Propmt__CreateOne',
                 input: options.input,
                 abortSignal: options.abortSignal,
             })
-            return this.resultToResponse<ChatGPT__Propmt__DeleteManyPromptResponse>(result)
+            return this.resultToResponse<Propmt__CreateOneResponse>(result)
         },
-        'ChatGPT/Propmt/DeleteOnePrompt': async (options: RequestOptions<ChatGPT__Propmt__DeleteOnePromptInput,ChatGPT__Propmt__DeleteOnePromptResponse>) => {
+        'Propmt/DeleteMany': async (options: RequestOptions<Propmt__DeleteManyInput,Propmt__DeleteManyResponse>) => {
             const result =  await this._client.mutate({
-                operationName: 'ChatGPT__Propmt__DeleteOnePrompt',
+                operationName: 'Propmt__DeleteMany',
                 input: options.input,
                 abortSignal: options.abortSignal,
             })
-            return this.resultToResponse<ChatGPT__Propmt__DeleteOnePromptResponse>(result)
+            return this.resultToResponse<Propmt__DeleteManyResponse>(result)
         },
-        'ChatGPT/Propmt/UpdateOnePrompt': async (options: RequestOptions<ChatGPT__Propmt__UpdateOnePromptInput,ChatGPT__Propmt__UpdateOnePromptResponse>) => {
+        'Propmt/DeleteOne': async (options: RequestOptions<Propmt__DeleteOneInput,Propmt__DeleteOneResponse>) => {
             const result =  await this._client.mutate({
-                operationName: 'ChatGPT__Propmt__UpdateOnePrompt',
+                operationName: 'Propmt__DeleteOne',
                 input: options.input,
                 abortSignal: options.abortSignal,
             })
-            return this.resultToResponse<ChatGPT__Propmt__UpdateOnePromptResponse>(result)
+            return this.resultToResponse<Propmt__DeleteOneResponse>(result)
+        },
+        'Propmt/UpdateOne': async (options: RequestOptions<Propmt__UpdateOneInput,Propmt__UpdateOneResponse>) => {
+            const result =  await this._client.mutate({
+                operationName: 'Propmt__UpdateOne',
+                input: options.input,
+                abortSignal: options.abortSignal,
+            })
+            return this.resultToResponse<Propmt__UpdateOneResponse>(result)
         },
         'User/CreateOneUser': async (options: RequestOptions<User__CreateOneUserInput,User__CreateOneUserResponse>) => {
             const result =  await this._client.mutate({
@@ -195,16 +219,24 @@ export class Client {
             })
             return this.resultToResponse<User__CreateOneUserResponse>(result)
         },
+        'User/UpdateInfo': async (options: RequestOptions<User__UpdateInfoInput,User__UpdateInfoResponse>) => {
+            const result =  await this._client.mutate({
+                operationName: 'User__UpdateInfo',
+                input: options.input,
+                abortSignal: options.abortSignal,
+            })
+            return this.resultToResponse<User__UpdateInfoResponse>(result)
+        },
     }
     
     public subscription = {
-        'ChatGPT/Subscription/ChatSSE': (options: RequestOptions<ChatGPT__Subscription__ChatSSEInput,ChatGPT__Subscription__ChatSSEResponse>, cb: (response: Response<ChatGPT__Subscription__ChatSSEResponse>) => void) => {
+        'Chat/ChatSSE': (options: RequestOptions<Chat__ChatSSEInput,Chat__ChatSSEResponse>, cb: (response: Response<Chat__ChatSSEResponse>) => void) => {
             return this._client.subscribe({
-                operationName: 'ChatGPT__Subscription__ChatSSE',
+                operationName: 'Chat__ChatSSE',
                 liveQuery: false,
                 input: options.input,
                 abortSignal: options.abortSignal,
-            }, (result) => cb(this.resultToResponse<ChatGPT__Subscription__ChatSSEResponse>(result)));
+            }, (result) => cb(this.resultToResponse<Chat__ChatSSEResponse>(result)));
         },
     }
     

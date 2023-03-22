@@ -2,63 +2,73 @@
   "api": {
     "operations": [
       {
-        "name": "ChatGPT__Chat__CreateOneChatMessage",
-        "path": "ChatGPT/Chat/CreateOneChatMessage",
+        "name": "Chat__CreateOne",
+        "path": "Chat/CreateOne",
         "operationType": 1
       },
       {
-        "name": "ChatGPT__Chat__CreateOneHistory",
-        "path": "ChatGPT/Chat/CreateOneHistory",
+        "name": "Chat__DeleteOne",
+        "path": "Chat/DeleteOne",
         "operationType": 1
       },
       {
-        "name": "ChatGPT__Chat__DeleteOneChatMessage",
-        "path": "ChatGPT/Chat/DeleteOneChatMessage",
-        "operationType": 1
-      },
-      {
-        "name": "ChatGPT__Chat__DeleteOneHistory",
-        "path": "ChatGPT/Chat/DeleteOneHistory",
-        "operationType": 1
-      },
-      {
-        "name": "ChatGPT__Chat__GetHistoryList",
-        "path": "ChatGPT/Chat/GetHistoryList",
+        "name": "Chat__GetByHistory",
+        "path": "Chat/GetByHistory",
         "operationType": 0
       },
       {
-        "name": "ChatGPT__Chat__GetManyChatMessage",
-        "path": "ChatGPT/Chat/GetManyChatMessage",
+        "name": "Chat__GetList",
+        "path": "Chat/GetList",
         "operationType": 0
       },
       {
-        "name": "ChatGPT__Chat__UpdateOneHistory",
-        "path": "ChatGPT/Chat/UpdateOneHistory",
+        "name": "Chat__UpdateChatText",
+        "path": "Chat/UpdateChatText",
         "operationType": 1
       },
       {
-        "name": "ChatGPT__Propmt__CreateOnePrompt",
-        "path": "ChatGPT/Propmt/CreateOnePrompt",
+        "name": "History__CreateOne",
+        "path": "History/CreateOne",
         "operationType": 1
       },
       {
-        "name": "ChatGPT__Propmt__DeleteManyPrompt",
-        "path": "ChatGPT/Propmt/DeleteManyPrompt",
+        "name": "History__DeleteOne",
+        "path": "History/DeleteOne",
         "operationType": 1
       },
       {
-        "name": "ChatGPT__Propmt__DeleteOnePrompt",
-        "path": "ChatGPT/Propmt/DeleteOnePrompt",
-        "operationType": 1
-      },
-      {
-        "name": "ChatGPT__Propmt__GetPromptList",
-        "path": "ChatGPT/Propmt/GetPromptList",
+        "name": "History__GetList",
+        "path": "History/GetList",
         "operationType": 0
       },
       {
-        "name": "ChatGPT__Propmt__UpdateOnePrompt",
-        "path": "ChatGPT/Propmt/UpdateOnePrompt",
+        "name": "History__UpdateOne",
+        "path": "History/UpdateOne",
+        "operationType": 1
+      },
+      {
+        "name": "Propmt__CreateOne",
+        "path": "Propmt/CreateOne",
+        "operationType": 1
+      },
+      {
+        "name": "Propmt__DeleteMany",
+        "path": "Propmt/DeleteMany",
+        "operationType": 1
+      },
+      {
+        "name": "Propmt__DeleteOne",
+        "path": "Propmt/DeleteOne",
+        "operationType": 1
+      },
+      {
+        "name": "Propmt__GetList",
+        "path": "Propmt/GetList",
+        "operationType": 0
+      },
+      {
+        "name": "Propmt__UpdateOne",
+        "path": "Propmt/UpdateOne",
         "operationType": 1
       },
       {
@@ -72,8 +82,18 @@
         "operationType": 0
       },
       {
-        "name": "ChatGPT__Subscription__ChatSSE",
-        "path": "ChatGPT/Subscription/ChatSSE",
+        "name": "User__Me",
+        "path": "User/Me",
+        "operationType": 0
+      },
+      {
+        "name": "User__UpdateInfo",
+        "path": "User/UpdateInfo",
+        "operationType": 1
+      },
+      {
+        "name": "Chat__ChatSSE",
+        "path": "Chat/ChatSSE",
         "operationType": 2
       }
     ],
@@ -94,14 +114,14 @@
               },
               "clientId": {
                 "kind": 0,
-                "staticVariableContent": "641976e6570caa8192cf3f93",
+                "staticVariableContent": "641a942dd9081d5dd1bb5b49",
                 "environmentVariableName": "",
                 "environmentVariableDefaultValue": "",
                 "placeholderVariableName": ""
               },
               "clientSecret": {
                 "kind": 0,
-                "staticVariableContent": "535b9ee 30f13f9df7b33e35737d584efdbf1e7a 9d950bc58980221242da3464c",
+                "staticVariableContent": "b33a08ce16b60d0713e76dda64f6f0a3",
                 "environmentVariableName": "",
                 "environmentVariableDefaultValue": "",
                 "placeholderVariableName": ""
@@ -123,6 +143,13 @@
           {
             "kind": 0,
             "staticVariableContent": "http://localhost:9123/#/workbench/rapi/loginBack",
+            "environmentVariableName": "",
+            "environmentVariableDefaultValue": "",
+            "placeholderVariableName": ""
+          },
+          {
+            "kind": 0,
+            "staticVariableContent": "http://localhost:1002/#/chat",
             "environmentVariableName": "",
             "environmentVariableDefaultValue": "",
             "placeholderVariableName": ""
@@ -159,7 +186,26 @@
         "TsPathMap": null
       },
       "jwksBased": {
-        "providers": []
+        "providers": [
+          {
+            "jwksUrl": {
+              "kind": 0,
+              "staticVariableContent": "https://fb-chatgpt-web.authing.cn/oidc/.well-known/jwks.json",
+              "environmentVariableName": "",
+              "environmentVariableDefaultValue": "",
+              "placeholderVariableName": ""
+            },
+            "jwksJson": null,
+            "userInfoEndpoint": {
+              "kind": 0,
+              "staticVariableContent": "https://fb-chatgpt-web.authing.cn/oidc/me",
+              "environmentVariableName": "",
+              "environmentVariableDefaultValue": "",
+              "placeholderVariableName": ""
+            },
+            "userInfoCacheTtlSeconds": 3600
+          }
+        ]
       }
     },
     "webhooks": [],

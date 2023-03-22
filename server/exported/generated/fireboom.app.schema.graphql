@@ -108,32 +108,26 @@ input grace_StringFilter {
   not: grace_NestedStringFilter
 }
 
-input grace_NestedStringNullableFilter {
-  equals: String
-  in: [String]
-  notIn: [String]
-  lt: String
-  lte: String
-  gt: String
-  gte: String
-  contains: String
-  startsWith: String
-  endsWith: String
-  not: grace_NestedStringNullableFilter
+input grace_NestedIntNullableFilter {
+  equals: Int
+  in: [Int]
+  notIn: [Int]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: grace_NestedIntNullableFilter
 }
 
-input grace_StringNullableFilter {
-  equals: String
-  in: [String]
-  notIn: [String]
-  lt: String
-  lte: String
-  gt: String
-  gte: String
-  contains: String
-  startsWith: String
-  endsWith: String
-  not: grace_NestedStringNullableFilter
+input grace_IntNullableFilter {
+  equals: Int
+  in: [Int]
+  notIn: [Int]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: grace_NestedIntNullableFilter
 }
 
 input grace_NestedDateTimeFilter {
@@ -180,6 +174,34 @@ input grace_DateTimeNullableFilter {
   not: grace_NestedDateTimeNullableFilter
 }
 
+input grace_NestedStringNullableFilter {
+  equals: String
+  in: [String]
+  notIn: [String]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: grace_NestedStringNullableFilter
+}
+
+input grace_StringNullableFilter {
+  equals: String
+  in: [String]
+  notIn: [String]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: grace_NestedStringNullableFilter
+}
+
 input grace_HistoryListRelationFilter {
   every: grace_HistoryWhereInput
   some: grace_HistoryWhereInput
@@ -212,9 +234,10 @@ input grace_UserWhereInput {
   id: grace_StringFilter
   name: grace_StringFilter
   avatar: grace_StringFilter
-  bio: grace_StringNullableFilter
+  description: grace_StringNullableFilter
   provider: grace_StringFilter
   createdAt: grace_DateTimeFilter
+  providerId: grace_StringFilter
   History: grace_HistoryListRelationFilter
   Prompt: grace_PromptListRelationFilter
 }
@@ -254,7 +277,7 @@ input grace_ChatMessageWhereInput {
   NOT: grace_ChatMessageWhereInput
   id: grace_IntFilter
   text: grace_StringFilter
-  parentMessageId: grace_StringNullableFilter
+  parentMessageId: grace_IntNullableFilter
   createdAt: grace_DateTimeFilter
   chatId: grace_IntFilter
   History: grace_HistoryRelationFilter
@@ -277,9 +300,10 @@ input grace_UserOrderByWithRelationInput {
   id: grace_SortOrder
   name: grace_SortOrder
   avatar: grace_SortOrder
-  bio: grace_SortOrder
+  description: grace_SortOrder
   provider: grace_SortOrder
   createdAt: grace_SortOrder
+  providerId: grace_SortOrder
   History: grace_HistoryOrderByRelationAggregateInput
   Prompt: grace_PromptOrderByRelationAggregateInput
 }
@@ -375,9 +399,10 @@ type grace_User {
   id: String!
   name: String!
   avatar: String!
-  bio: String
+  description: String
   provider: String!
   createdAt: DateTime!
+  providerId: String!
   History(where: grace_HistoryWhereInput, orderBy: [grace_HistoryOrderByWithRelationInput], cursor: grace_HistoryWhereUniqueInput, take: Int, skip: Int, distinct: [grace_HistoryScalarFieldEnum]): [grace_History]
   Prompt(where: grace_PromptWhereInput, orderBy: [grace_PromptOrderByWithRelationInput], cursor: grace_PromptWhereUniqueInput, take: Int, skip: Int, distinct: [grace_PromptScalarFieldEnum]): [grace_Prompt]
   _count: grace_UserCountOutputType!
@@ -404,7 +429,7 @@ type grace_History {
 type grace_ChatMessage {
   id: Int!
   text: String!
-  parentMessageId: String
+  parentMessageId: Int
   createdAt: DateTime!
   chatId: Int!
   History: grace_History!
@@ -423,12 +448,14 @@ type grace_ChatMessageCountAggregateOutputType {
 
 type grace_ChatMessageAvgAggregateOutputType {
   id: Float
+  parentMessageId: Float
   chatId: Float
   _join: Query!
 }
 
 type grace_ChatMessageSumAggregateOutputType {
   id: Int
+  parentMessageId: Int
   chatId: Int
   _join: Query!
 }
@@ -436,7 +463,7 @@ type grace_ChatMessageSumAggregateOutputType {
 type grace_ChatMessageMinAggregateOutputType {
   id: Int
   text: String
-  parentMessageId: String
+  parentMessageId: Int
   createdAt: DateTime
   chatId: Int
   _join: Query!
@@ -445,7 +472,7 @@ type grace_ChatMessageMinAggregateOutputType {
 type grace_ChatMessageMaxAggregateOutputType {
   id: Int
   text: String
-  parentMessageId: String
+  parentMessageId: Int
   createdAt: DateTime
   chatId: Int
   _join: Query!
@@ -470,6 +497,7 @@ input grace_ChatMessageCountOrderByAggregateInput {
 
 input grace_ChatMessageAvgOrderByAggregateInput {
   id: grace_SortOrder
+  parentMessageId: grace_SortOrder
   chatId: grace_SortOrder
 }
 
@@ -491,6 +519,7 @@ input grace_ChatMessageMinOrderByAggregateInput {
 
 input grace_ChatMessageSumOrderByAggregateInput {
   id: grace_SortOrder
+  parentMessageId: grace_SortOrder
   chatId: grace_SortOrder
 }
 
@@ -584,7 +613,18 @@ input grace_StringWithAggregatesFilter {
   _max: grace_NestedStringFilter
 }
 
-input grace_NestedIntNullableFilter {
+input grace_NestedFloatNullableFilter {
+  equals: Float
+  in: [Float]
+  notIn: [Float]
+  lt: Float
+  lte: Float
+  gt: Float
+  gte: Float
+  not: grace_NestedFloatNullableFilter
+}
+
+input grace_NestedIntNullableWithAggregatesFilter {
   equals: Int
   in: [Int]
   notIn: [Int]
@@ -592,41 +632,28 @@ input grace_NestedIntNullableFilter {
   lte: Int
   gt: Int
   gte: Int
-  not: grace_NestedIntNullableFilter
+  not: grace_NestedIntNullableWithAggregatesFilter
+  _count: grace_NestedIntNullableFilter
+  _avg: grace_NestedFloatNullableFilter
+  _sum: grace_NestedIntNullableFilter
+  _min: grace_NestedIntNullableFilter
+  _max: grace_NestedIntNullableFilter
 }
 
-input grace_NestedStringNullableWithAggregatesFilter {
-  equals: String
-  in: [String]
-  notIn: [String]
-  lt: String
-  lte: String
-  gt: String
-  gte: String
-  contains: String
-  startsWith: String
-  endsWith: String
-  not: grace_NestedStringNullableWithAggregatesFilter
+input grace_IntNullableWithAggregatesFilter {
+  equals: Int
+  in: [Int]
+  notIn: [Int]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: grace_NestedIntNullableWithAggregatesFilter
   _count: grace_NestedIntNullableFilter
-  _min: grace_NestedStringNullableFilter
-  _max: grace_NestedStringNullableFilter
-}
-
-input grace_StringNullableWithAggregatesFilter {
-  equals: String
-  in: [String]
-  notIn: [String]
-  lt: String
-  lte: String
-  gt: String
-  gte: String
-  contains: String
-  startsWith: String
-  endsWith: String
-  not: grace_NestedStringNullableWithAggregatesFilter
-  _count: grace_NestedIntNullableFilter
-  _min: grace_NestedStringNullableFilter
-  _max: grace_NestedStringNullableFilter
+  _avg: grace_NestedFloatNullableFilter
+  _sum: grace_NestedIntNullableFilter
+  _min: grace_NestedIntNullableFilter
+  _max: grace_NestedIntNullableFilter
 }
 
 input grace_NestedDateTimeWithAggregatesFilter {
@@ -663,7 +690,7 @@ input grace_ChatMessageScalarWhereWithAggregatesInput {
   NOT: grace_ChatMessageScalarWhereWithAggregatesInput
   id: grace_IntWithAggregatesFilter
   text: grace_StringWithAggregatesFilter
-  parentMessageId: grace_StringNullableWithAggregatesFilter
+  parentMessageId: grace_IntNullableWithAggregatesFilter
   createdAt: grace_DateTimeWithAggregatesFilter
   chatId: grace_IntWithAggregatesFilter
 }
@@ -671,7 +698,7 @@ input grace_ChatMessageScalarWhereWithAggregatesInput {
 type grace_ChatMessageGroupByOutputType {
   id: Int!
   text: String!
-  parentMessageId: String
+  parentMessageId: Int
   createdAt: DateTime!
   chatId: Int!
   _count: grace_ChatMessageCountAggregateOutputType
@@ -961,18 +988,20 @@ enum grace_UserScalarFieldEnum {
   id
   name
   avatar
-  bio
+  description
   provider
   createdAt
+  providerId
 }
 
 type grace_UserCountAggregateOutputType {
   id: Int!
   name: Int!
   avatar: Int!
-  bio: Int!
+  description: Int!
   provider: Int!
   createdAt: Int!
+  providerId: Int!
   _all: Int!
   _join: Query!
 }
@@ -981,9 +1010,10 @@ type grace_UserMinAggregateOutputType {
   id: String
   name: String
   avatar: String
-  bio: String
+  description: String
   provider: String
   createdAt: DateTime
+  providerId: String
   _join: Query!
 }
 
@@ -991,9 +1021,10 @@ type grace_UserMaxAggregateOutputType {
   id: String
   name: String
   avatar: String
-  bio: String
+  description: String
   provider: String
   createdAt: DateTime
+  providerId: String
   _join: Query!
 }
 
@@ -1008,39 +1039,77 @@ input grace_UserCountOrderByAggregateInput {
   id: grace_SortOrder
   name: grace_SortOrder
   avatar: grace_SortOrder
-  bio: grace_SortOrder
+  description: grace_SortOrder
   provider: grace_SortOrder
   createdAt: grace_SortOrder
+  providerId: grace_SortOrder
 }
 
 input grace_UserMaxOrderByAggregateInput {
   id: grace_SortOrder
   name: grace_SortOrder
   avatar: grace_SortOrder
-  bio: grace_SortOrder
+  description: grace_SortOrder
   provider: grace_SortOrder
   createdAt: grace_SortOrder
+  providerId: grace_SortOrder
 }
 
 input grace_UserMinOrderByAggregateInput {
   id: grace_SortOrder
   name: grace_SortOrder
   avatar: grace_SortOrder
-  bio: grace_SortOrder
+  description: grace_SortOrder
   provider: grace_SortOrder
   createdAt: grace_SortOrder
+  providerId: grace_SortOrder
 }
 
 input grace_UserOrderByWithAggregationInput {
   id: grace_SortOrder
   name: grace_SortOrder
   avatar: grace_SortOrder
-  bio: grace_SortOrder
+  description: grace_SortOrder
   provider: grace_SortOrder
   createdAt: grace_SortOrder
+  providerId: grace_SortOrder
   _count: grace_UserCountOrderByAggregateInput
   _max: grace_UserMaxOrderByAggregateInput
   _min: grace_UserMinOrderByAggregateInput
+}
+
+input grace_NestedStringNullableWithAggregatesFilter {
+  equals: String
+  in: [String]
+  notIn: [String]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: grace_NestedStringNullableWithAggregatesFilter
+  _count: grace_NestedIntNullableFilter
+  _min: grace_NestedStringNullableFilter
+  _max: grace_NestedStringNullableFilter
+}
+
+input grace_StringNullableWithAggregatesFilter {
+  equals: String
+  in: [String]
+  notIn: [String]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: grace_NestedStringNullableWithAggregatesFilter
+  _count: grace_NestedIntNullableFilter
+  _min: grace_NestedStringNullableFilter
+  _max: grace_NestedStringNullableFilter
 }
 
 input grace_UserScalarWhereWithAggregatesInput {
@@ -1050,18 +1119,20 @@ input grace_UserScalarWhereWithAggregatesInput {
   id: grace_StringWithAggregatesFilter
   name: grace_StringWithAggregatesFilter
   avatar: grace_StringWithAggregatesFilter
-  bio: grace_StringNullableWithAggregatesFilter
+  description: grace_StringNullableWithAggregatesFilter
   provider: grace_StringWithAggregatesFilter
   createdAt: grace_DateTimeWithAggregatesFilter
+  providerId: grace_StringWithAggregatesFilter
 }
 
 type grace_UserGroupByOutputType {
   id: String!
   name: String!
   avatar: String!
-  bio: String
+  description: String
   provider: String!
   createdAt: DateTime!
+  providerId: String!
   _count: grace_UserCountAggregateOutputType
   _min: grace_UserMinAggregateOutputType
   _max: grace_UserMaxAggregateOutputType
@@ -1090,9 +1161,10 @@ input grace_UserCreateWithoutHistoryInput {
   id: String!
   name: String!
   avatar: String!
-  bio: String
+  description: String
   provider: String!
   createdAt: DateTime
+  providerId: String!
   Prompt: grace_PromptCreateNestedManyWithoutUserInput
 }
 
@@ -1127,7 +1199,7 @@ input grace_HistoryCreateNestedOneWithoutChatMessageInput {
 
 input grace_ChatMessageCreateInput {
   text: String!
-  parentMessageId: String
+  parentMessageId: Int
   createdAt: DateTime
   History: grace_HistoryCreateNestedOneWithoutChatMessageInput!
 }
@@ -1136,8 +1208,12 @@ input grace_StringFieldUpdateOperationsInput {
   set: String
 }
 
-input grace_NullableStringFieldUpdateOperationsInput {
-  set: String
+input grace_NullableIntFieldUpdateOperationsInput {
+  set: Int
+  increment: Int
+  decrement: Int
+  multiply: Int
+  divide: Int
 }
 
 input grace_DateTimeFieldUpdateOperationsInput {
@@ -1146,6 +1222,10 @@ input grace_DateTimeFieldUpdateOperationsInput {
 
 input grace_NullableDateTimeFieldUpdateOperationsInput {
   set: DateTime
+}
+
+input grace_NullableStringFieldUpdateOperationsInput {
+  set: String
 }
 
 input grace_PromptUpdateWithoutUserInput {
@@ -1207,9 +1287,10 @@ input grace_UserUpdateWithoutHistoryInput {
   id: grace_StringFieldUpdateOperationsInput
   name: grace_StringFieldUpdateOperationsInput
   avatar: grace_StringFieldUpdateOperationsInput
-  bio: grace_NullableStringFieldUpdateOperationsInput
+  description: grace_NullableStringFieldUpdateOperationsInput
   provider: grace_StringFieldUpdateOperationsInput
   createdAt: grace_DateTimeFieldUpdateOperationsInput
+  providerId: grace_StringFieldUpdateOperationsInput
   Prompt: grace_PromptUpdateManyWithoutUserNestedInput
 }
 
@@ -1248,14 +1329,14 @@ input grace_HistoryUpdateOneRequiredWithoutChatMessageNestedInput {
 
 input grace_ChatMessageUpdateInput {
   text: grace_StringFieldUpdateOperationsInput
-  parentMessageId: grace_NullableStringFieldUpdateOperationsInput
+  parentMessageId: grace_NullableIntFieldUpdateOperationsInput
   createdAt: grace_DateTimeFieldUpdateOperationsInput
   History: grace_HistoryUpdateOneRequiredWithoutChatMessageNestedInput
 }
 
 input grace_ChatMessageUpdateManyMutationInput {
   text: grace_StringFieldUpdateOperationsInput
-  parentMessageId: grace_NullableStringFieldUpdateOperationsInput
+  parentMessageId: grace_NullableIntFieldUpdateOperationsInput
   createdAt: grace_DateTimeFieldUpdateOperationsInput
 }
 
@@ -1266,7 +1347,7 @@ type grace_AffectedRowsOutput {
 
 input grace_ChatMessageCreateWithoutHistoryInput {
   text: String!
-  parentMessageId: String
+  parentMessageId: Int
   createdAt: DateTime
 }
 
@@ -1291,7 +1372,7 @@ input grace_HistoryCreateInput {
 
 input grace_ChatMessageUpdateWithoutHistoryInput {
   text: grace_StringFieldUpdateOperationsInput
-  parentMessageId: grace_NullableStringFieldUpdateOperationsInput
+  parentMessageId: grace_NullableIntFieldUpdateOperationsInput
   createdAt: grace_DateTimeFieldUpdateOperationsInput
 }
 
@@ -1312,7 +1393,7 @@ input grace_ChatMessageScalarWhereInput {
   NOT: grace_ChatMessageScalarWhereInput
   id: grace_IntFilter
   text: grace_StringFilter
-  parentMessageId: grace_StringNullableFilter
+  parentMessageId: grace_IntNullableFilter
   createdAt: grace_DateTimeFilter
   chatId: grace_IntFilter
 }
@@ -1371,9 +1452,10 @@ input grace_UserCreateWithoutPromptInput {
   id: String!
   name: String!
   avatar: String!
-  bio: String
+  description: String
   provider: String!
   createdAt: DateTime
+  providerId: String!
   History: grace_HistoryCreateNestedManyWithoutUserInput
 }
 
@@ -1447,9 +1529,10 @@ input grace_UserUpdateWithoutPromptInput {
   id: grace_StringFieldUpdateOperationsInput
   name: grace_StringFieldUpdateOperationsInput
   avatar: grace_StringFieldUpdateOperationsInput
-  bio: grace_NullableStringFieldUpdateOperationsInput
+  description: grace_NullableStringFieldUpdateOperationsInput
   provider: grace_StringFieldUpdateOperationsInput
   createdAt: grace_DateTimeFieldUpdateOperationsInput
+  providerId: grace_StringFieldUpdateOperationsInput
   History: grace_HistoryUpdateManyWithoutUserNestedInput
 }
 
@@ -1478,9 +1561,10 @@ input grace_UserCreateInput {
   id: String!
   name: String!
   avatar: String!
-  bio: String
+  description: String
   provider: String!
   createdAt: DateTime
+  providerId: String!
   History: grace_HistoryCreateNestedManyWithoutUserInput
   Prompt: grace_PromptCreateNestedManyWithoutUserInput
 }
@@ -1489,9 +1573,10 @@ input grace_UserUpdateInput {
   id: grace_StringFieldUpdateOperationsInput
   name: grace_StringFieldUpdateOperationsInput
   avatar: grace_StringFieldUpdateOperationsInput
-  bio: grace_NullableStringFieldUpdateOperationsInput
+  description: grace_NullableStringFieldUpdateOperationsInput
   provider: grace_StringFieldUpdateOperationsInput
   createdAt: grace_DateTimeFieldUpdateOperationsInput
+  providerId: grace_StringFieldUpdateOperationsInput
   History: grace_HistoryUpdateManyWithoutUserNestedInput
   Prompt: grace_PromptUpdateManyWithoutUserNestedInput
 }
@@ -1500,9 +1585,10 @@ input grace_UserUpdateManyMutationInput {
   id: grace_StringFieldUpdateOperationsInput
   name: grace_StringFieldUpdateOperationsInput
   avatar: grace_StringFieldUpdateOperationsInput
-  bio: grace_NullableStringFieldUpdateOperationsInput
+  description: grace_NullableStringFieldUpdateOperationsInput
   provider: grace_StringFieldUpdateOperationsInput
   createdAt: grace_DateTimeFieldUpdateOperationsInput
+  providerId: grace_StringFieldUpdateOperationsInput
 }
 
 scalar DateTime

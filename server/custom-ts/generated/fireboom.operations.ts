@@ -23,20 +23,24 @@ export interface OperationsConfiguration {
     // custom allows you to override settings for each individual operation
     // the input config is the default config + the query/mutation/subscription extra config
     custom?: {
-        "ChatGPT/Chat/CreateOneChatMessage"?: CustomizeMutation;
-        "ChatGPT/Chat/CreateOneHistory"?: CustomizeMutation;
-        "ChatGPT/Chat/DeleteOneChatMessage"?: CustomizeMutation;
-        "ChatGPT/Chat/DeleteOneHistory"?: CustomizeMutation;
-        "ChatGPT/Chat/GetHistoryList"?: CustomizeQuery;
-        "ChatGPT/Chat/GetManyChatMessage"?: CustomizeQuery;
-        "ChatGPT/Chat/UpdateOneHistory"?: CustomizeMutation;
-        "ChatGPT/Propmt/CreateOnePrompt"?: CustomizeMutation;
-        "ChatGPT/Propmt/DeleteManyPrompt"?: CustomizeMutation;
-        "ChatGPT/Propmt/DeleteOnePrompt"?: CustomizeMutation;
-        "ChatGPT/Propmt/GetPromptList"?: CustomizeQuery;
-        "ChatGPT/Propmt/UpdateOnePrompt"?: CustomizeMutation;
+        "Chat/CreateOne"?: CustomizeMutation;
+        "Chat/DeleteOne"?: CustomizeMutation;
+        "Chat/GetByHistory"?: CustomizeQuery;
+        "Chat/GetList"?: CustomizeQuery;
+        "Chat/UpdateChatText"?: CustomizeMutation;
+        "History/CreateOne"?: CustomizeMutation;
+        "History/DeleteOne"?: CustomizeMutation;
+        "History/GetList"?: CustomizeQuery;
+        "History/UpdateOne"?: CustomizeMutation;
+        "Propmt/CreateOne"?: CustomizeMutation;
+        "Propmt/DeleteMany"?: CustomizeMutation;
+        "Propmt/DeleteOne"?: CustomizeMutation;
+        "Propmt/GetList"?: CustomizeQuery;
+        "Propmt/UpdateOne"?: CustomizeMutation;
         "User/CreateOneUser"?: CustomizeMutation;
         "User/GetOneUser"?: CustomizeQuery;
-        "ChatGPT/Subscription/ChatSSE"?: CustomizeSubscription;
+        "User/Me"?: CustomizeQuery;
+        "User/UpdateInfo"?: CustomizeMutation;
+        "Chat/ChatSSE"?: CustomizeSubscription;
     }
 }

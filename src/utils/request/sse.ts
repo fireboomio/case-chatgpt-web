@@ -2,7 +2,7 @@ export async function* streamAPI<TSource extends Record<string, any> = any, TRes
   method = 'get',
   params,
 }: {
-  method: 'get' | 'post'
+  method?: 'get' | 'post'
   params?: TSource
 }) {
   const query = new URLSearchParams({ wg_sse: 'true' })

@@ -1,0 +1,9 @@
+query MyQuery($historyId: Int = 10) @internalOperation {
+  data: grace_findManyChatMessage(
+    where: {History: {is: {id: {equals: $historyId}}}}
+  ) {
+    id
+    text
+    parentMessageId
+  }
+}

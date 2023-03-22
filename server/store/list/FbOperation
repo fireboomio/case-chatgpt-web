@@ -104,7 +104,7 @@
 		"restUrl": "",
 		"roleType": "",
 		"roles": "",
-		"title": "/ChatGPT/Chat/CreateOneHistory",
+		"title": "/History/CreateOne",
 		"updateTime": "2023-03-21 09:18:03Z"
 	},
 	{
@@ -122,11 +122,11 @@
 		"restUrl": "",
 		"roleType": "",
 		"roles": "",
-		"title": "/ChatGPT/Chat/DeleteOneHistory",
+		"title": "/History/DeleteOne",
 		"updateTime": "2023-03-19 10:44:14Z"
 	},
 	{
-		"content": "mutation UpdateOneHistory($id: Int!, $title: String) {\n  data: grace_updateOneHistory(\n    data: {title: {set: $title}}\n    where: {id: $id}\n  ) {\n    id\n    title\n    createdAt\n    updatedAt\n  }\n} ",
+		"content": "mutation UpdateOneHistory($id: Int!, $title: String) {\n  data: grace_updateOneHistory(\n    data: {title: {set: $title}}\n    where: {id: $id}\n  ) {\n    id\n    title\n    createdAt\n    updatedAt\n  }\n}",
 		"createTime": "",
 		"deleteTime": "",
 		"enabled": true,
@@ -140,17 +140,17 @@
 		"restUrl": "",
 		"roleType": "",
 		"roles": "",
-		"title": "/ChatGPT/Chat/UpdateOneHistory",
-		"updateTime": "2023-03-20 10:03:18Z"
+		"title": "/History/UpdateOne",
+		"updateTime": "2023-03-22 07:42:54Z"
 	},
 	{
-		"content": "query GetHistoryList($take: Int = 10, $skip: Int = 0, $orderBy: [grace_HistoryOrderByWithRelationInput], $query: grace_HistoryWhereInput) @internalOperation {\n  data: grace_findManyHistory(\n    skip: $skip\n    take: $take\n    orderBy: $orderBy\n    where: {AND: $query}\n  ) {\n    id\n    title\n    createdAt\n    updatedAt\n  }\n  total: grace_aggregateHistory(where: {AND: $query}) @transform(get: \"_count.id\") {\n    _count {\n      id\n    }\n  }\n}",
+		"content": "query GetHistoryList($userId: String! @fromClaim(name: USERID)) {\n  data: grace_findManyHistory(where: { User:{ is:{id:{equals:$userId}}}}) {\n    id\n    title\n    createdAt\n    updatedAt\n  }\n}",
 		"createTime": "",
 		"deleteTime": "",
 		"enabled": true,
 		"id": 1464832906428416,
 		"illegal": false,
-		"isPublic": false,
+		"isPublic": true,
 		"liveQuery": false,
 		"method": "GET",
 		"operationType": "queries",
@@ -158,17 +158,17 @@
 		"restUrl": "",
 		"roleType": "",
 		"roles": "",
-		"title": "/ChatGPT/Chat/GetHistoryList",
-		"updateTime": "2023-03-20 10:01:55Z"
+		"title": "/History/GetList",
+		"updateTime": "2023-03-22 08:16:51Z"
 	},
 	{
-		"content": "mutation CreateOneChatMessage($text: String!, $parentMessageId: String, $chatId: Int!) {\n  data: grace_createOneChatMessage(\n    data: {text: $text, parentMessageId: $parentMessageId, History: {connect: {id: $chatId}}}\n  ) {\n    id\n    text\n    parentMessageId\n    createdAt\n    chatId\n  }\n}",
+		"content": "mutation CreateOneChatMessage($text: String!, $parentMessageId: Int, $chatId: Int!) @internalOperation {\n  data: grace_createOneChatMessage(\n    data: {text: $text, parentMessageId: $parentMessageId, History: {connect: {id: $chatId}}}\n  ) {\n    id\n    text\n    parentMessageId\n    createdAt\n    chatId\n  }\n} ",
 		"createTime": "",
 		"deleteTime": "",
 		"enabled": true,
 		"id": 1464845192396800,
 		"illegal": false,
-		"isPublic": true,
+		"isPublic": false,
 		"liveQuery": false,
 		"method": "POST",
 		"operationType": "mutations",
@@ -176,8 +176,8 @@
 		"restUrl": "",
 		"roleType": "",
 		"roles": "",
-		"title": "/ChatGPT/Chat/CreateOneChatMessage",
-		"updateTime": "2023-03-20 10:00:43Z"
+		"title": "/Chat/CreateOne",
+		"updateTime": "2023-03-22 09:28:20Z"
 	},
 	{
 		"content": "mutation DeleteOneChatMessage($id: Int!) {\n  data: grace_deleteOneChatMessage(where: {id: $id}) {\n    id\n  }\n}",
@@ -194,7 +194,7 @@
 		"restUrl": "",
 		"roleType": "",
 		"roles": "",
-		"title": "/ChatGPT/Chat/DeleteOneChatMessage",
+		"title": "/Chat/DeleteOne",
 		"updateTime": "2023-03-19 10:44:10Z"
 	},
 	{
@@ -212,11 +212,11 @@
 		"restUrl": "",
 		"roleType": "",
 		"roles": "",
-		"title": "/ChatGPT/Chat/GetManyChatMessage",
+		"title": "/Chat/GetList",
 		"updateTime": "2023-03-19 10:44:31Z"
 	},
 	{
-		"content": "mutation CreateOnePrompt($prompt: String!, $title: String!, $updatedAt: DateTime! @injectCurrentDateTime(format: UnixDate)) {\n  data: grace_createOnePrompt(data: {prompt: $prompt, title: $title, updatedAt: $updatedAt}) {\n    \n    id\n    prompt\n    title\n    createdAt\n    updatedAt\n  }\n}",
+		"content": "mutation CreateOnePrompt($prompt: String!, $title: String!, $userId: String! @fromClaim(name: USERID)) {\n  data: grace_createOnePrompt(\n    data: {prompt: $prompt, title: $title, User: {connect: {id: $userId}}}\n  ) {\n    id\n    prompt\n    title\n    createdAt\n    updatedAt\n  }\n} ",
 		"createTime": "2023-03-19 06:42:29Z",
 		"deleteTime": "",
 		"enabled": true,
@@ -230,8 +230,8 @@
 		"restUrl": "",
 		"roleType": "",
 		"roles": "",
-		"title": "/ChatGPT/Propmt/CreateOnePrompt",
-		"updateTime": "2023-03-19 08:03:52Z"
+		"title": "/Propmt/CreateOne",
+		"updateTime": "2023-03-22 09:04:18Z"
 	},
 	{
 		"content": "mutation DeleteOnePrompt($id: Int!) {\n  data: grace_deleteOnePrompt(where: {id: $id}) {\n    id\n  }\n}",
@@ -248,7 +248,7 @@
 		"restUrl": "",
 		"roleType": "",
 		"roles": "",
-		"title": "/ChatGPT/Propmt/DeleteOnePrompt",
+		"title": "/Propmt/DeleteOne",
 		"updateTime": "2023-03-19 08:03:52Z"
 	},
 	{
@@ -266,7 +266,7 @@
 		"restUrl": "",
 		"roleType": "",
 		"roles": "",
-		"title": "/ChatGPT/Propmt/UpdateOnePrompt",
+		"title": "/Propmt/UpdateOne",
 		"updateTime": "2023-03-19 08:03:57Z"
 	},
 	{
@@ -284,7 +284,7 @@
 		"restUrl": "",
 		"roleType": "",
 		"roles": "",
-		"title": "/ChatGPT/Propmt/GetPromptList",
+		"title": "/Propmt/GetList",
 		"updateTime": "2023-03-19 08:03:52Z"
 	},
 	{
@@ -302,11 +302,11 @@
 		"restUrl": "",
 		"roleType": "",
 		"roles": "",
-		"title": "/ChatGPT/Propmt/DeleteManyPrompt",
+		"title": "/Propmt/DeleteMany",
 		"updateTime": "2023-03-19 08:03:52Z"
 	},
 	{
-		"content": "query MyQuery($id: String = \"\") @internalOperation {\n  data: grace_findFirstUser(where: {id: {equals: $id}}) {\n    id\n    bio\n    avatar\n    name\n  }\n}",
+		"content": "query MyQuery($id: String = \"\") @internalOperation {\n  data: grace_findFirstUser(where: {id: {equals: $id}}) {\n    id\n    description\n    avatar\n    name\n  }\n}",
 		"createTime": "2023-03-21 09:25:16Z",
 		"deleteTime": "",
 		"enabled": true,
@@ -321,10 +321,82 @@
 		"roleType": "",
 		"roles": "",
 		"title": "/User/GetOneUser",
-		"updateTime": "2023-03-21 09:28:59Z"
+		"updateTime": "2023-03-22 06:34:10Z"
 	},
 	{
+		"content": "mutation MyQuery($avatar: String!, $description: String!, $id: String!, $name: String!, $provider: String = \"\", $providerId: String = \"\") @internalOperation {\n  data: grace_createOneUser(\n    data: {id: $id, name: $name, avatar: $avatar, description: $description, provider: $provider, providerId: $providerId}\n  ) {\n    id\n  }\n}",
+		"createTime": "2023-03-21 09:25:58Z",
+		"deleteTime": "",
+		"enabled": true,
 		"id": 1476828421160960,
+		"illegal": false,
+		"isPublic": false,
+		"liveQuery": false,
+		"method": "POST",
+		"operationType": "mutations",
+		"remark": "",
+		"restUrl": "",
+		"roleType": "",
+		"roles": "",
+		"title": "/User/CreateOneUser",
+		"updateTime": "2023-03-22 06:34:24Z"
+	},
+	{
+		"content": "query MyQuery($equals: String! @fromClaim(name: USERID)) {\n  data: grace_findFirstUser(where: {id: {equals: $equals}}) {\n    avatar\n    description\n    id\n    name\n  }\n}",
+		"createTime": "2023-03-22 06:01:20Z",
+		"deleteTime": "",
+		"enabled": true,
+		"id": 1481686093266944,
+		"illegal": false,
+		"isPublic": true,
+		"liveQuery": false,
+		"method": "GET",
+		"operationType": "queries",
+		"remark": "",
+		"restUrl": "",
+		"roleType": "",
+		"roles": "",
+		"title": "/User/Me",
+		"updateTime": "2023-03-22 06:34:06Z"
+	},
+	{
+		"content": "mutation MyQuery($id: String! @fromClaim(name: USERID), $name: String = \"\", $description: String = \"\", $avatar: String = \"\") {\n  data: grace_updateOneUser(\n    where: {id: $id}\n    data: {name: {set: $name}, description: {set: $description}, avatar: {set: $avatar}}\n  ) {\n    id\n    name\n    description\n    avatar\n  }\n} ",
+		"createTime": "2023-03-22 06:12:22Z",
+		"deleteTime": "",
+		"enabled": true,
+		"id": 1481729507065856,
+		"illegal": false,
+		"isPublic": true,
+		"liveQuery": false,
+		"method": "POST",
+		"operationType": "mutations",
+		"remark": "",
+		"restUrl": "",
+		"roleType": "",
+		"roles": "",
+		"title": "/User/UpdateInfo",
+		"updateTime": "2023-03-22 07:17:04Z"
+	},
+	{
+		"content": "query MyQuery($historyId: Int = 10) @internalOperation {\n  data: grace_findManyChatMessage(\n    where: {History: {is: {id: {equals: $historyId}}}}\n  ) {\n    id\n    text\n    parentMessageId\n  }\n}",
+		"createTime": "2023-03-22 09:12:26Z",
+		"deleteTime": "",
+		"enabled": true,
+		"id": 1482437538938880,
+		"illegal": false,
+		"isPublic": false,
+		"liveQuery": false,
+		"method": "GET",
+		"operationType": "queries",
+		"remark": "",
+		"restUrl": "",
+		"roleType": "",
+		"roles": "",
+		"title": "/Chat/GetByHistory",
+		"updateTime": "2023-03-22 09:13:37Z"
+	},
+	{
+		"id": 1482528392740864,
 		"method": "POST",
 		"restUrl": "",
 		"operationType": "mutations",
@@ -332,11 +404,11 @@
 		"remark": "",
 		"illegal": false,
 		"liveQuery": false,
-		"title": "/User/CreateOneUser",
-		"content": "mutation MyQuery($avatar: String!, $bio: String!, $id: String!, $name: String!, $provider: String = \"\") @internalOperation {\n  data: grace_createOneUser(\n    data: {id: $id, name: $name, avatar: $avatar, bio: $bio, provider: $provider}\n  ) {\n    id\n  }\n}",
+		"title": "/Chat/UpdateChatText",
+		"content": "mutation MyQuery($text: String!, $id: Int!) @internalOperation {\n  grace_upsertOneChatMessage(\n    create: {text: $text, History: {}}\n    update: {}\n    where: {id: $id}\n  ) {\n    id\n  }\n}",
 		"enabled": true,
-		"createTime": "2023-03-21 09:25:58Z",
-		"updateTime": "2023-03-21 09:32:14Z",
+		"createTime": "2023-03-22 09:35:32Z",
+		"updateTime": "2023-03-22 09:36:01Z",
 		"deleteTime": "",
 		"roleType": "",
 		"roles": ""

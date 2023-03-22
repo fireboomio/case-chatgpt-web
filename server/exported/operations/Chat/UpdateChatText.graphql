@@ -1,0 +1,9 @@
+mutation MyQuery($text: String!, $id: Int!) @internalOperation {
+  grace_upsertOneChatMessage(
+    create: {text: $text, History: {}}
+    update: {}
+    where: {id: $id}
+  ) {
+    id
+  }
+}

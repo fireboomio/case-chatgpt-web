@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { getToken, removeToken, setToken } from './helper'
-import { store } from '@/store'
+import { store, useChatStore, useUserStore } from '@/store'
+import client from '@/services'
 
 interface SessionResponse {
   auth: boolean
@@ -8,7 +9,7 @@ interface SessionResponse {
 }
 
 export interface AuthState {
-  token: string | undefined
+  token: string | undefined | null
   session: SessionResponse | null
 }
 
@@ -26,10 +27,30 @@ export const useAuthStore = defineStore('auth-store', {
 
   actions: {
     async getSession() {
+      const userStore = useUserStore()
+      const chatStore = useChatStore()
       try {
         this.session = { auth: true, model: 'ChatGPTAPI' }
-        // await fetchSession<SessionResponse>()
-        // this.token = '111'
+        try {
+          const userResp = await client.query({
+            operationName: 'User/Me',
+          })
+          if (!userResp.error) {
+            const user = userResp.data!.data!
+            // await fetchSession<SessionResponse>()
+            userStore.updateUserInfo({
+              avatar: user.avatar,
+              name: user.name,
+              description: user.description,
+            })
+            this.token = user.id
+            chatStore.fetchHistories()
+          }
+        }
+        catch (error) {
+          //
+        }
+
         return Promise.resolve(this.session)
       }
       catch (error) {

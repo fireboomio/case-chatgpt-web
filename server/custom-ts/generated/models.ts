@@ -1,365 +1,204 @@
-import type function_ChatGPT__Subscription__ChatSSE from '../operations/ChatGPT/Subscription/ChatSSE'
+import type function_Chat__ChatSSE from '../operations/Chat/ChatSSE'
 
 import type { ExtractResponse } from 'fireboom-wundersdk/operations'
-export interface ChatGPT__Chat__CreateOneChatMessageInput {
-     text: string
-                 chatId: number
-                 parentMessageId?: string
+export interface Chat__CreateOneInput {
+     chatId: number
+                 parentMessageId?: number
+                 text: string
             
 }
-export interface InternalChatGPT__Chat__CreateOneChatMessageInput {
+export interface InternalChat__CreateOneInput {
       chatId: number
-      parentMessageId?: string
+      parentMessageId?: number
       text: string
 }
-export interface InjectedChatGPT__Chat__CreateOneChatMessageInput {
+export interface InjectedChat__CreateOneInput {
      chatId: number
-         parentMessageId?: string
+         parentMessageId?: number
          text: string
     
 }
 
 
     
-export interface ChatGPT__Chat__CreateOneChatMessageResponse {
-    data?: ChatGPT__Chat__CreateOneChatMessageResponseData
+export interface Chat__CreateOneResponse {
+    data?: Chat__CreateOneResponseData
     errors?: ReadonlyArray<GraphQLError>;
 }
-export interface ChatGPT__Chat__CreateOneChatMessageResponseData {
+export interface Chat__CreateOneResponseData {
     data?: {
+        createdAt?: string
+        id?: number
+        parentMessageId?: number
+        text?: string
+        chatId?: number
+    },
+}export interface Chat__DeleteOneInput {
+     id: number
+            
+}
+export interface InternalChat__DeleteOneInput {
+      id: number
+}
+export interface InjectedChat__DeleteOneInput {
+     id: number
+    
+}
+
+
+    
+export interface Chat__DeleteOneResponse {
+    data?: Chat__DeleteOneResponseData
+    errors?: ReadonlyArray<GraphQLError>;
+}
+export interface Chat__DeleteOneResponseData {
+    data?: {
+        id?: number
+    },
+}export interface Chat__GetByHistoryInput {
+     historyId?: number
+            
+}
+export interface InternalChat__GetByHistoryInput {
+      historyId?: number
+}
+export interface InjectedChat__GetByHistoryInput {
+     historyId?: number
+    
+}
+
+
+    
+export interface Chat__GetByHistoryResponse {
+    data?: Chat__GetByHistoryResponseData
+    errors?: ReadonlyArray<GraphQLError>;
+}
+export interface Chat__GetByHistoryResponseData {
+    data?: {
+        parentMessageId?: number
+        text?: string
+        id?: number
+    }[],
+}
+
+    
+export interface Chat__GetListResponse {
+    data?: Chat__GetListResponseData
+    errors?: ReadonlyArray<GraphQLError>;
+}
+export interface Chat__GetListResponseData {
+    data?: {
+        parentMessageId?: number
+        text?: string
         chatId?: number
         createdAt?: string
         id?: number
-        parentMessageId?: string
-        text?: string
+    }[],
+}export interface Chat__UpdateChatTextInput {
+     id: number
+                 text: string
+            
+}
+export interface InternalChat__UpdateChatTextInput {
+      id: number
+      text: string
+}
+export interface InjectedChat__UpdateChatTextInput {
+     id: number
+         text: string
+    
+}
+
+
+    
+export interface Chat__UpdateChatTextResponse {
+    data?: Chat__UpdateChatTextResponseData
+    errors?: ReadonlyArray<GraphQLError>;
+}
+export interface Chat__UpdateChatTextResponseData {
+    grace_upsertOneChatMessage?: {
+        id?: number
     },
-}export interface ChatGPT__Chat__CreateOneHistoryInput {
+}export interface History__CreateOneInput {
      title: string
             
 }
-export interface InternalChatGPT__Chat__CreateOneHistoryInput {
+export interface InternalHistory__CreateOneInput {
       title: string
       userId?: string
 }
-export interface InjectedChatGPT__Chat__CreateOneHistoryInput {
-     title: string
-         userId: string
+export interface InjectedHistory__CreateOneInput {
+     userId: string
+         title: string
     
 }
 
 
     
-export interface ChatGPT__Chat__CreateOneHistoryResponse {
-    data?: ChatGPT__Chat__CreateOneHistoryResponseData
+export interface History__CreateOneResponse {
+    data?: History__CreateOneResponseData
     errors?: ReadonlyArray<GraphQLError>;
 }
-export interface ChatGPT__Chat__CreateOneHistoryResponseData {
+export interface History__CreateOneResponseData {
     data?: {
         createdAt?: string
         id?: number
         title?: string
         updatedAt?: string
     },
-}export interface ChatGPT__Chat__DeleteOneChatMessageInput {
+}export interface History__DeleteOneInput {
      id: number
             
 }
-export interface InternalChatGPT__Chat__DeleteOneChatMessageInput {
+export interface InternalHistory__DeleteOneInput {
       id: number
 }
-export interface InjectedChatGPT__Chat__DeleteOneChatMessageInput {
+export interface InjectedHistory__DeleteOneInput {
      id: number
     
 }
 
 
     
-export interface ChatGPT__Chat__DeleteOneChatMessageResponse {
-    data?: ChatGPT__Chat__DeleteOneChatMessageResponseData
+export interface History__DeleteOneResponse {
+    data?: History__DeleteOneResponseData
     errors?: ReadonlyArray<GraphQLError>;
 }
-export interface ChatGPT__Chat__DeleteOneChatMessageResponseData {
+export interface History__DeleteOneResponseData {
     data?: {
         id?: number
     },
-}export interface ChatGPT__Chat__DeleteOneHistoryInput {
-     id: number
-            
+}export interface InternalHistory__GetListInput {
+      userId?: string
 }
-export interface InternalChatGPT__Chat__DeleteOneHistoryInput {
-      id: number
-}
-export interface InjectedChatGPT__Chat__DeleteOneHistoryInput {
-     id: number
+export interface InjectedHistory__GetListInput {
+     userId: string
     
 }
 
 
     
-export interface ChatGPT__Chat__DeleteOneHistoryResponse {
-    data?: ChatGPT__Chat__DeleteOneHistoryResponseData
+export interface History__GetListResponse {
+    data?: History__GetListResponseData
     errors?: ReadonlyArray<GraphQLError>;
 }
-export interface ChatGPT__Chat__DeleteOneHistoryResponseData {
-    data?: {
-        id?: number
-    },
-}export interface ChatGPT__Chat__GetHistoryListInput {
-   orderBy?: {
-   }[],
-                             skip?: number
-                 take?: number
-            
-}
-export interface InternalChatGPT__Chat__GetHistoryListInput {
-    orderBy?: {
-    }[],
-      skip?: number
-      take?: number
-}
-export interface grace_HistoryListRelationFilter {
-                                    
-}
-export interface grace_HistoryOrderByWithRelationInput {
-     createdAt?: string
-                 id?: string
-                 title?: string
-                 updatedAt?: string
-                 userId?: string
-                                    
-}
-export interface grace_NestedStringNullableFilter {
-     gte?: string
-               in?: {
-   }[],
-                 lt?: string
-                 lte?: string
-                           notIn?: {
-   }[],
-                 contains?: string
-                 equals?: string
-                 gt?: string
-                 startsWith?: string
-                 endsWith?: string
-            
-}
-export interface grace_StringNullableFilter {
-     endsWith?: string
-                 gt?: string
-                 gte?: string
-               in?: {
-   }[],
-                 startsWith?: string
-               notIn?: {
-   }[],
-                 contains?: string
-                 equals?: string
-                 lt?: string
-                 lte?: string
-                        
-}
-export interface grace_UserOrderByWithRelationInput {
-     bio?: string
-                 createdAt?: string
-                 id?: string
-                 name?: string
-                 provider?: string
-                                         avatar?: string
-            
-}
-export interface grace_UserRelationFilter {
-                        
-}
-export interface grace_ChatMessageOrderByRelationAggregateInput {
-     _count?: string
-            
-}
-export interface grace_DateTimeNullableFilter {
-     lte?: string
-                           notIn?: {
-   }[],
-                 equals?: string
-                 gt?: string
-                 gte?: string
-               in?: {
-   }[],
-                 lt?: string
-            
-}
-export interface grace_NestedDateTimeNullableFilter {
-     lte?: string
-                           notIn?: {
-   }[],
-                 equals?: string
-                 gt?: string
-                 gte?: string
-               in?: {
-   }[],
-                 lt?: string
-            
-}
-export interface grace_NestedIntFilter {
-     gt?: number
-                 gte?: number
-               in?: {
-   }[],
-                 lt?: number
-                 lte?: number
-                           notIn?: {
-   }[],
-                 equals?: number
-            
-}
-export interface grace_NestedStringFilter {
-     startsWith?: string
-                 equals?: string
-                 gt?: string
-                 gte?: string
-               in?: {
-   }[],
-               notIn?: {
-   }[],
-                 contains?: string
-                 endsWith?: string
-                 lt?: string
-                 lte?: string
-                        
-}
-export interface grace_PromptOrderByRelationAggregateInput {
-     _count?: string
-            
-}
-export interface grace_UserWhereInput {
-                                       OR?: {
-   }[],
-                                                                                                
-}
-export interface grace_HistoryOrderByRelationAggregateInput {
-     _count?: string
-            
-}
-export interface grace_HistoryWhereInput {
-                                                               OR?: {
-   }[],
-                                                            
-}
-export interface grace_DateTimeFilter {
-   in?: {
-   }[],
-                 lt?: string
-                 lte?: string
-                           notIn?: {
-   }[],
-                 equals?: string
-                 gt?: string
-                 gte?: string
-            
-}
-export interface grace_NestedDateTimeFilter {
-     equals?: string
-                 gt?: string
-                 gte?: string
-               in?: {
-   }[],
-                 lt?: string
-                 lte?: string
-                           notIn?: {
-   }[],
-            
-}
-export interface grace_PromptListRelationFilter {
-                                    
-}
-export interface grace_StringFilter {
-     endsWith?: string
-                 equals?: string
-                 gte?: string
-               in?: {
-   }[],
-                 lt?: string
-                 contains?: string
-                 gt?: string
-                 lte?: string
-                           notIn?: {
-   }[],
-                 startsWith?: string
-            
-}
-export interface grace_ChatMessageListRelationFilter {
-                                    
-}
-export interface grace_ChatMessageWhereInput {
-                           OR?: {
-   }[],
-                                                                                    
-}
-export interface grace_PromptWhereInput {
-                                                                           OR?: {
-   }[],
-                                                
-}
-export interface grace_HistoryRelationFilter {
-                        
-}
-export interface grace_IntFilter {
-     gte?: number
-               in?: {
-   }[],
-                 lt?: number
-                 lte?: number
-                           notIn?: {
-   }[],
-                 equals?: number
-                 gt?: number
-            
-}
-export interface InjectedChatGPT__Chat__GetHistoryListInput {
-   orderBy?: {
-   }[],
-             skip?: number
-         take?: number
-    
-}
-
-
-    
-export interface ChatGPT__Chat__GetHistoryListResponse {
-    data?: ChatGPT__Chat__GetHistoryListResponseData
-    errors?: ReadonlyArray<GraphQLError>;
-}
-export interface ChatGPT__Chat__GetHistoryListResponseData {
+export interface History__GetListResponseData {
     data?: {
         updatedAt?: string
         createdAt?: string
         id?: number
         title?: string
     }[],
-      total?: number
-}
-
-    
-export interface ChatGPT__Chat__GetManyChatMessageResponse {
-    data?: ChatGPT__Chat__GetManyChatMessageResponseData
-    errors?: ReadonlyArray<GraphQLError>;
-}
-export interface ChatGPT__Chat__GetManyChatMessageResponseData {
-    data?: {
-        chatId?: number
-        createdAt?: string
-        id?: number
-        parentMessageId?: string
-        text?: string
-    }[],
-}export interface ChatGPT__Chat__UpdateOneHistoryInput {
-     id: number
-                 title?: string
+}export interface History__UpdateOneInput {
+     title?: string
+                 id: number
             
 }
-export interface InternalChatGPT__Chat__UpdateOneHistoryInput {
+export interface InternalHistory__UpdateOneInput {
+      id: number
       title?: string
-      id: number
 }
-export interface InjectedChatGPT__Chat__UpdateOneHistoryInput {
+export interface InjectedHistory__UpdateOneInput {
      id: number
          title?: string
     
@@ -367,58 +206,58 @@ export interface InjectedChatGPT__Chat__UpdateOneHistoryInput {
 
 
     
-export interface ChatGPT__Chat__UpdateOneHistoryResponse {
-    data?: ChatGPT__Chat__UpdateOneHistoryResponseData
+export interface History__UpdateOneResponse {
+    data?: History__UpdateOneResponseData
     errors?: ReadonlyArray<GraphQLError>;
 }
-export interface ChatGPT__Chat__UpdateOneHistoryResponseData {
+export interface History__UpdateOneResponseData {
     data?: {
-        updatedAt?: string
         createdAt?: string
         id?: number
         title?: string
+        updatedAt?: string
     },
-}export interface ChatGPT__Propmt__CreateOnePromptInput {
+}export interface Propmt__CreateOneInput {
      prompt: string
                  title: string
             
 }
-export interface InternalChatGPT__Propmt__CreateOnePromptInput {
-      updatedAt?: string
+export interface InternalPropmt__CreateOneInput {
       prompt: string
       title: string
+      userId?: string
 }
-export interface InjectedChatGPT__Propmt__CreateOnePromptInput {
+export interface InjectedPropmt__CreateOneInput {
      prompt: string
          title: string
-         updatedAt: string
+         userId: string
     
 }
 
 
     
-export interface ChatGPT__Propmt__CreateOnePromptResponse {
-    data?: ChatGPT__Propmt__CreateOnePromptResponseData
+export interface Propmt__CreateOneResponse {
+    data?: Propmt__CreateOneResponseData
     errors?: ReadonlyArray<GraphQLError>;
 }
-export interface ChatGPT__Propmt__CreateOnePromptResponseData {
+export interface Propmt__CreateOneResponseData {
     data?: {
+        title?: string
         updatedAt?: string
         createdAt?: string
         id?: number
         prompt?: string
-        title?: string
     },
-}export interface ChatGPT__Propmt__DeleteManyPromptInput {
+}export interface Propmt__DeleteManyInput {
    ids: {
    }[],
             
 }
-export interface InternalChatGPT__Propmt__DeleteManyPromptInput {
+export interface InternalPropmt__DeleteManyInput {
     ids: {
     }[],
 }
-export interface InjectedChatGPT__Propmt__DeleteManyPromptInput {
+export interface InjectedPropmt__DeleteManyInput {
    ids: {
    }[],
     
@@ -426,95 +265,48 @@ export interface InjectedChatGPT__Propmt__DeleteManyPromptInput {
 
 
     
-export interface ChatGPT__Propmt__DeleteManyPromptResponse {
-    data?: ChatGPT__Propmt__DeleteManyPromptResponseData
+export interface Propmt__DeleteManyResponse {
+    data?: Propmt__DeleteManyResponseData
     errors?: ReadonlyArray<GraphQLError>;
 }
-export interface ChatGPT__Propmt__DeleteManyPromptResponseData {
+export interface Propmt__DeleteManyResponseData {
     data?: {
         count?: number
     },
-}export interface ChatGPT__Propmt__DeleteOnePromptInput {
+}export interface Propmt__DeleteOneInput {
      id: number
             
 }
-export interface InternalChatGPT__Propmt__DeleteOnePromptInput {
+export interface InternalPropmt__DeleteOneInput {
       id: number
 }
-export interface InjectedChatGPT__Propmt__DeleteOnePromptInput {
+export interface InjectedPropmt__DeleteOneInput {
      id: number
     
 }
 
 
     
-export interface ChatGPT__Propmt__DeleteOnePromptResponse {
-    data?: ChatGPT__Propmt__DeleteOnePromptResponseData
+export interface Propmt__DeleteOneResponse {
+    data?: Propmt__DeleteOneResponseData
     errors?: ReadonlyArray<GraphQLError>;
 }
-export interface ChatGPT__Propmt__DeleteOnePromptResponseData {
+export interface Propmt__DeleteOneResponseData {
     data?: {
         id?: number
     },
-}export interface ChatGPT__Propmt__GetPromptListInput {
-                 skip?: number
-                 take?: number
-               orderBy?: {
+}export interface Propmt__GetListInput {
+   orderBy?: {
    }[],
+                             skip?: number
+                 take?: number
             
 }
-export interface InternalChatGPT__Propmt__GetPromptListInput {
+export interface InternalPropmt__GetListInput {
     orderBy?: {
     }[],
       skip?: number
       take?: number
-}
-export interface grace_HistoryRelationFilter {
-                        
-}
-export interface grace_IntFilter {
-     gte?: number
-               in?: {
-   }[],
-                 lt?: number
-                 lte?: number
-                           notIn?: {
-   }[],
-                 equals?: number
-                 gt?: number
-            
-}
-export interface grace_NestedIntFilter {
-               notIn?: {
-   }[],
-                 equals?: number
-                 gt?: number
-                 gte?: number
-               in?: {
-   }[],
-                 lt?: number
-                 lte?: number
-            
-}
-export interface grace_PromptOrderByWithRelationInput {
-     updatedAt?: string
-                 userId?: string
-                             createdAt?: string
-                 id?: string
-                 prompt?: string
-                 title?: string
-            
-}
-export interface grace_PromptWhereInput {
-                           OR?: {
-   }[],
-                                                                                                
-}
-export interface grace_UserRelationFilter {
-                        
-}
-export interface grace_ChatMessageListRelationFilter {
-                                    
 }
 export interface grace_DateTimeFilter {
      equals?: string
@@ -532,110 +324,56 @@ export interface grace_HistoryListRelationFilter {
                                     
 }
 export interface grace_NestedStringNullableFilter {
-     contains?: string
-                 endsWith?: string
-                 gt?: string
-                 gte?: string
-                 lt?: string
-                 startsWith?: string
-                 equals?: string
-               in?: {
-   }[],
-                 lte?: string
-                           notIn?: {
-   }[],
-            
-}
-export interface grace_UserOrderByWithRelationInput {
-                             avatar?: string
-                 bio?: string
-                 createdAt?: string
-                 id?: string
-                 name?: string
-                 provider?: string
-            
-}
-export interface grace_NestedDateTimeNullableFilter {
-     lte?: string
-                           notIn?: {
-   }[],
-                 equals?: string
-                 gt?: string
-                 gte?: string
-               in?: {
-   }[],
-                 lt?: string
-            
-}
-export interface grace_PromptOrderByRelationAggregateInput {
-     _count?: string
-            
-}
-export interface grace_StringFilter {
      lt?: string
                  lte?: string
-                 startsWith?: string
-                 gt?: string
-                 gte?: string
-                 equals?: string
-               in?: {
-   }[],
-                           notIn?: {
-   }[],
                  contains?: string
                  endsWith?: string
-            
-}
-export interface grace_StringNullableFilter {
-     endsWith?: string
                  equals?: string
                  gt?: string
                  gte?: string
                in?: {
    }[],
-                           notIn?: {
+               notIn?: {
    }[],
-                 contains?: string
-                 lte?: string
-                 startsWith?: string
-                 lt?: string
+                             startsWith?: string
             
 }
 export interface grace_PromptListRelationFilter {
                                     
 }
-export interface grace_UserWhereInput {
-                                                                           OR?: {
-   }[],
-                                                            
+export interface grace_PromptOrderByWithRelationInput {
+     userId?: string
+                             createdAt?: string
+                 id?: string
+                 prompt?: string
+                 title?: string
+                 updatedAt?: string
+            
 }
-export interface grace_ChatMessageWhereInput {
-                                                                           OR?: {
-   }[],
-                                    
-}
-export interface grace_DateTimeNullableFilter {
+export interface grace_StringFilter {
      lte?: string
-                           notIn?: {
+               notIn?: {
    }[],
+                 endsWith?: string
                  equals?: string
-                 gt?: string
                  gte?: string
                in?: {
    }[],
                  lt?: string
+                 contains?: string
+                 gt?: string
+                             startsWith?: string
             
 }
-export interface grace_HistoryOrderByRelationAggregateInput {
-     _count?: string
-            
-}
-export interface grace_HistoryWhereInput {
-                           OR?: {
+export interface grace_UserWhereInput {
+   OR?: {
    }[],
-                                                                                                
+                                                                                                                                                
 }
-export interface grace_NestedDateTimeFilter {
+export interface grace_ChatMessageListRelationFilter {
+                                    
+}
+export interface grace_DateTimeNullableFilter {
      gte?: string
                in?: {
    }[],
@@ -647,37 +385,162 @@ export interface grace_NestedDateTimeFilter {
                  gt?: string
             
 }
-export interface grace_NestedStringFilter {
-   in?: {
-   }[],
+export interface grace_NestedDateTimeFilter {
+     lt?: string
                  lte?: string
                            notIn?: {
    }[],
+                 equals?: string
                  gt?: string
                  gte?: string
-                 equals?: string
-                 lt?: string
-                 startsWith?: string
-                 contains?: string
-                 endsWith?: string
+               in?: {
+   }[],
             
 }
-export interface InjectedChatGPT__Propmt__GetPromptListInput {
-         skip?: number
+export interface grace_NestedDateTimeNullableFilter {
+               notIn?: {
+   }[],
+                 equals?: string
+                 gt?: string
+                 gte?: string
+               in?: {
+   }[],
+                 lt?: string
+                 lte?: string
+            
+}
+export interface grace_NestedIntFilter {
+     gte?: number
+               in?: {
+   }[],
+                 lt?: number
+                 lte?: number
+                           notIn?: {
+   }[],
+                 equals?: number
+                 gt?: number
+            
+}
+export interface grace_UserRelationFilter {
+                        
+}
+export interface grace_PromptWhereInput {
+   OR?: {
+   }[],
+                                                                                                                        
+}
+export interface grace_HistoryOrderByRelationAggregateInput {
+     _count?: string
+            
+}
+export interface grace_HistoryRelationFilter {
+                        
+}
+export interface grace_IntFilter {
+     equals?: number
+                 gt?: number
+                 gte?: number
+               in?: {
+   }[],
+                 lt?: number
+                 lte?: number
+                           notIn?: {
+   }[],
+            
+}
+export interface grace_IntNullableFilter {
+   notIn?: {
+   }[],
+                 equals?: number
+                 gt?: number
+                 gte?: number
+               in?: {
+   }[],
+                 lt?: number
+                 lte?: number
+                        
+}
+export interface grace_NestedIntNullableFilter {
+     lte?: number
+                           notIn?: {
+   }[],
+                 equals?: number
+                 gt?: number
+                 gte?: number
+               in?: {
+   }[],
+                 lt?: number
+            
+}
+export interface grace_NestedStringFilter {
+     endsWith?: string
+                 equals?: string
+                 gt?: string
+                 startsWith?: string
+                 contains?: string
+                 gte?: string
+               in?: {
+   }[],
+                 lt?: string
+                 lte?: string
+                           notIn?: {
+   }[],
+            
+}
+export interface grace_PromptOrderByRelationAggregateInput {
+     _count?: string
+            
+}
+export interface grace_StringNullableFilter {
+     contains?: string
+                           notIn?: {
+   }[],
+                 endsWith?: string
+                 equals?: string
+                 gt?: string
+                 gte?: string
+               in?: {
+   }[],
+                 lt?: string
+                 lte?: string
+                 startsWith?: string
+            
+}
+export interface grace_ChatMessageWhereInput {
+                                                               OR?: {
+   }[],
+                                                
+}
+export interface grace_HistoryWhereInput {
+                                                                           OR?: {
+   }[],
+                                                
+}
+export interface grace_UserOrderByWithRelationInput {
+     providerId?: string
+                             createdAt?: string
+                 id?: string
+                 name?: string
+                             avatar?: string
+                 description?: string
+                 provider?: string
+            
+}
+export interface InjectedPropmt__GetListInput {
+     skip?: number
          take?: number
        orderBy?: {
    }[],
-    
+        
 }
 
 
     
-export interface ChatGPT__Propmt__GetPromptListResponse {
-    data?: ChatGPT__Propmt__GetPromptListResponseData
+export interface Propmt__GetListResponse {
+    data?: Propmt__GetListResponseData
     errors?: ReadonlyArray<GraphQLError>;
 }
-export interface ChatGPT__Propmt__GetPromptListResponseData {
-      total?: number
+export interface Propmt__GetListResponseData {
     data?: {
         createdAt?: string
         id?: number
@@ -685,19 +548,20 @@ export interface ChatGPT__Propmt__GetPromptListResponseData {
         title?: string
         updatedAt?: string
     }[],
-}export interface ChatGPT__Propmt__UpdateOnePromptInput {
+      total?: number
+}export interface Propmt__UpdateOneInput {
      id: number
                  prompt?: string
                  title?: string
             
 }
-export interface InternalChatGPT__Propmt__UpdateOnePromptInput {
+export interface InternalPropmt__UpdateOneInput {
       id: number
       prompt?: string
       title?: string
       updatedAt?: string
 }
-export interface InjectedChatGPT__Propmt__UpdateOnePromptInput {
+export interface InjectedPropmt__UpdateOneInput {
      title?: string
          updatedAt: string
          id: number
@@ -707,11 +571,11 @@ export interface InjectedChatGPT__Propmt__UpdateOnePromptInput {
 
 
     
-export interface ChatGPT__Propmt__UpdateOnePromptResponse {
-    data?: ChatGPT__Propmt__UpdateOnePromptResponseData
+export interface Propmt__UpdateOneResponse {
+    data?: Propmt__UpdateOneResponseData
     errors?: ReadonlyArray<GraphQLError>;
 }
-export interface ChatGPT__Propmt__UpdateOnePromptResponseData {
+export interface Propmt__UpdateOneResponseData {
     data?: {
         id?: number
         prompt?: string
@@ -723,23 +587,26 @@ export interface ChatGPT__Propmt__UpdateOnePromptResponseData {
      id: string
                  name: string
                  provider?: string
+                 providerId?: string
                  avatar: string
-                 bio: string
+                 description: string
             
 }
 export interface InternalUser__CreateOneUserInput {
-      avatar: string
-      bio: string
       id: string
       name: string
       provider?: string
+      providerId?: string
+      avatar: string
+      description: string
 }
 export interface InjectedUser__CreateOneUserInput {
      avatar: string
-         bio: string
+         description: string
          id: string
          name: string
          provider?: string
+         providerId?: string
     
 }
 
@@ -774,27 +641,79 @@ export interface User__GetOneUserResponse {
 export interface User__GetOneUserResponseData {
     data?: {
         avatar?: string
-        bio?: string
+        description?: string
         id?: string
         name?: string
     },
-}export interface ChatGPT__Subscription__ChatSSEInput {
-     prompt: string
-                 chatId?: string
-                 regenerateId?: string
+}export interface InternalUser__MeInput {
+      equals?: string
+}
+export interface InjectedUser__MeInput {
+     equals: string
+    
+}
+
+
+    
+export interface User__MeResponse {
+    data?: User__MeResponseData
+    errors?: ReadonlyArray<GraphQLError>;
+}
+export interface User__MeResponseData {
+    data?: {
+        avatar?: string
+        description?: string
+        id?: string
+        name?: string
+    },
+}export interface User__UpdateInfoInput {
+     avatar?: string
+                 description?: string
+                 name?: string
             
 }
-export interface InternalChatGPT__Subscription__ChatSSEInput {
-      prompt: string
-      chatId?: string
-      regenerateId?: string
+export interface InternalUser__UpdateInfoInput {
+      id?: string
+      name?: string
+      avatar?: string
+      description?: string
+}
+export interface InjectedUser__UpdateInfoInput {
+     avatar?: string
+         description?: string
+         id: string
+         name?: string
+    
 }
 
 
-export type ChatGPT__Subscription__ChatSSEResponseData = ExtractResponse<typeof function_ChatGPT__Subscription__ChatSSE>
+    
+export interface User__UpdateInfoResponse {
+    data?: User__UpdateInfoResponseData
+    errors?: ReadonlyArray<GraphQLError>;
+}
+export interface User__UpdateInfoResponseData {
+    data?: {
+        id?: string
+        name?: string
+        avatar?: string
+        description?: string
+    },
+}export interface Chat__ChatSSEInput {
+     prompt: string
+                             regenerateId?: string
+            
+}
+export interface InternalChat__ChatSSEInput {
+      regenerateId?: string
+      prompt: string
+}
 
-export interface ChatGPT__Subscription__ChatSSEResponse {
-    data?: ChatGPT__Subscription__ChatSSEResponseData
+
+export type Chat__ChatSSEResponseData = ExtractResponse<typeof function_Chat__ChatSSE>
+
+export interface Chat__ChatSSEResponse {
+    data?: Chat__ChatSSEResponseData
     errors?: ReadonlyArray<GraphQLError>;
 }
     

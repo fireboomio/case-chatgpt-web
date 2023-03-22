@@ -1,5 +1,5 @@
 import type { BaseRequestContext, WunderGraphRequest, WunderGraphResponse, AuthenticationResponse, AuthenticationHookRequest, HooksConfiguration, WsTransportOnConnectionInitResponse, PreUploadHookRequest, PreUploadHookResponse, PostUploadHookRequest, PostUploadHookResponse } from "fireboom-wundersdk/server";
-import { ChatGPT__Chat__CreateOneChatMessageInput,InternalChatGPT__Chat__CreateOneChatMessageInput,InjectedChatGPT__Chat__CreateOneChatMessageInput,ChatGPT__Chat__CreateOneChatMessageResponse,ChatGPT__Chat__CreateOneHistoryInput,InternalChatGPT__Chat__CreateOneHistoryInput,InjectedChatGPT__Chat__CreateOneHistoryInput,ChatGPT__Chat__CreateOneHistoryResponse,ChatGPT__Chat__DeleteOneChatMessageInput,InternalChatGPT__Chat__DeleteOneChatMessageInput,InjectedChatGPT__Chat__DeleteOneChatMessageInput,ChatGPT__Chat__DeleteOneChatMessageResponse,ChatGPT__Chat__DeleteOneHistoryInput,InternalChatGPT__Chat__DeleteOneHistoryInput,InjectedChatGPT__Chat__DeleteOneHistoryInput,ChatGPT__Chat__DeleteOneHistoryResponse,ChatGPT__Chat__GetHistoryListInput,InternalChatGPT__Chat__GetHistoryListInput,InjectedChatGPT__Chat__GetHistoryListInput,ChatGPT__Chat__GetHistoryListResponse,ChatGPT__Chat__GetManyChatMessageResponse,ChatGPT__Chat__UpdateOneHistoryInput,InternalChatGPT__Chat__UpdateOneHistoryInput,InjectedChatGPT__Chat__UpdateOneHistoryInput,ChatGPT__Chat__UpdateOneHistoryResponse,ChatGPT__Propmt__CreateOnePromptInput,InternalChatGPT__Propmt__CreateOnePromptInput,InjectedChatGPT__Propmt__CreateOnePromptInput,ChatGPT__Propmt__CreateOnePromptResponse,ChatGPT__Propmt__DeleteManyPromptInput,InternalChatGPT__Propmt__DeleteManyPromptInput,InjectedChatGPT__Propmt__DeleteManyPromptInput,ChatGPT__Propmt__DeleteManyPromptResponse,ChatGPT__Propmt__DeleteOnePromptInput,InternalChatGPT__Propmt__DeleteOnePromptInput,InjectedChatGPT__Propmt__DeleteOnePromptInput,ChatGPT__Propmt__DeleteOnePromptResponse,ChatGPT__Propmt__GetPromptListInput,InternalChatGPT__Propmt__GetPromptListInput,InjectedChatGPT__Propmt__GetPromptListInput,ChatGPT__Propmt__GetPromptListResponse,ChatGPT__Propmt__UpdateOnePromptInput,InternalChatGPT__Propmt__UpdateOnePromptInput,InjectedChatGPT__Propmt__UpdateOnePromptInput,ChatGPT__Propmt__UpdateOnePromptResponse,User__CreateOneUserInput,InternalUser__CreateOneUserInput,InjectedUser__CreateOneUserInput,User__CreateOneUserResponse,User__GetOneUserInput,InternalUser__GetOneUserInput,InjectedUser__GetOneUserInput,User__GetOneUserResponse,ChatGPT__Subscription__ChatSSEInput,InternalChatGPT__Subscription__ChatSSEInput,ChatGPT__Subscription__ChatSSEResponse, } from "./models"
+import { Chat__CreateOneInput,InternalChat__CreateOneInput,InjectedChat__CreateOneInput,Chat__CreateOneResponse,Chat__DeleteOneInput,InternalChat__DeleteOneInput,InjectedChat__DeleteOneInput,Chat__DeleteOneResponse,Chat__GetByHistoryInput,InternalChat__GetByHistoryInput,InjectedChat__GetByHistoryInput,Chat__GetByHistoryResponse,Chat__GetListResponse,Chat__UpdateChatTextInput,InternalChat__UpdateChatTextInput,InjectedChat__UpdateChatTextInput,Chat__UpdateChatTextResponse,History__CreateOneInput,InternalHistory__CreateOneInput,InjectedHistory__CreateOneInput,History__CreateOneResponse,History__DeleteOneInput,InternalHistory__DeleteOneInput,InjectedHistory__DeleteOneInput,History__DeleteOneResponse,InternalHistory__GetListInput,InjectedHistory__GetListInput,History__GetListResponse,History__UpdateOneInput,InternalHistory__UpdateOneInput,InjectedHistory__UpdateOneInput,History__UpdateOneResponse,Propmt__CreateOneInput,InternalPropmt__CreateOneInput,InjectedPropmt__CreateOneInput,Propmt__CreateOneResponse,Propmt__DeleteManyInput,InternalPropmt__DeleteManyInput,InjectedPropmt__DeleteManyInput,Propmt__DeleteManyResponse,Propmt__DeleteOneInput,InternalPropmt__DeleteOneInput,InjectedPropmt__DeleteOneInput,Propmt__DeleteOneResponse,Propmt__GetListInput,InternalPropmt__GetListInput,InjectedPropmt__GetListInput,Propmt__GetListResponse,Propmt__UpdateOneInput,InternalPropmt__UpdateOneInput,InjectedPropmt__UpdateOneInput,Propmt__UpdateOneResponse,User__CreateOneUserInput,InternalUser__CreateOneUserInput,InjectedUser__CreateOneUserInput,User__CreateOneUserResponse,User__GetOneUserInput,InternalUser__GetOneUserInput,InjectedUser__GetOneUserInput,User__GetOneUserResponse,InternalUser__MeInput,InjectedUser__MeInput,User__MeResponse,User__UpdateInfoInput,InternalUser__UpdateInfoInput,InjectedUser__UpdateInfoInput,User__UpdateInfoResponse,Chat__ChatSSEInput,InternalChat__ChatSSEInput,Chat__ChatSSEResponse, } from "./models"
 import type { InternalClient } from "./fireboom.internal.client"
 import type { User } from "./claims"
 
@@ -10,7 +10,7 @@ export type SKIP = "skip";
 // this is semantically equal to throwing an error (500)
 export type CANCEL = "cancel";
 
-export type WUNDERGRAPH_OPERATION ="ChatGPT/Chat/CreateOneChatMessage" | "ChatGPT/Chat/CreateOneHistory" | "ChatGPT/Chat/DeleteOneChatMessage" | "ChatGPT/Chat/DeleteOneHistory" | "ChatGPT/Chat/GetHistoryList" | "ChatGPT/Chat/GetManyChatMessage" | "ChatGPT/Chat/UpdateOneHistory" | "ChatGPT/Propmt/CreateOnePrompt" | "ChatGPT/Propmt/DeleteManyPrompt" | "ChatGPT/Propmt/DeleteOnePrompt" | "ChatGPT/Propmt/GetPromptList" | "ChatGPT/Propmt/UpdateOnePrompt" | "User/CreateOneUser" | "User/GetOneUser" | "ChatGPT/Subscription/ChatSSE";
+export type WUNDERGRAPH_OPERATION ="Chat/CreateOne" | "Chat/DeleteOne" | "Chat/GetByHistory" | "Chat/GetList" | "Chat/UpdateChatText" | "History/CreateOne" | "History/DeleteOne" | "History/GetList" | "History/UpdateOne" | "Propmt/CreateOne" | "Propmt/DeleteMany" | "Propmt/DeleteOne" | "Propmt/GetList" | "Propmt/UpdateOne" | "User/CreateOneUser" | "User/GetOneUser" | "User/Me" | "User/UpdateInfo" | "Chat/ChatSSE";
 
 export type DATA_SOURCES =never;
 
@@ -106,29 +106,37 @@ export interface HooksConfig extends HooksConfiguration<Queries, Mutations, Subs
         }
 
 export interface Queries {
-        "ChatGPT/Chat/GetHistoryList"?: {
-        mockResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__GetHistoryListInput>) => Promise<ChatGPT__Chat__GetHistoryListResponse>;
-        preResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__GetHistoryListInput>) => Promise<void>;
-         mutatingPreResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__GetHistoryListInput>) => Promise<InjectedChatGPT__Chat__GetHistoryListInput>;
-        postResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__GetHistoryListInput> & HookRequestWithResponse<ChatGPT__Chat__GetHistoryListResponse>) => Promise<void>;
-        customResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__GetHistoryListInput>) => Promise<void | ChatGPT__Chat__GetHistoryListResponse | null>;
-        mutatingPostResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__GetHistoryListInput> & HookRequestWithResponse<ChatGPT__Chat__GetHistoryListResponse>) => Promise<ChatGPT__Chat__GetHistoryListResponse>;
+        "Chat/GetByHistory"?: {
+        mockResolve?: (hook: HookRequestWithInput<InjectedChat__GetByHistoryInput>) => Promise<Chat__GetByHistoryResponse>;
+        preResolve?: (hook: HookRequestWithInput<InjectedChat__GetByHistoryInput>) => Promise<void>;
+         mutatingPreResolve?: (hook: HookRequestWithInput<InjectedChat__GetByHistoryInput>) => Promise<InjectedChat__GetByHistoryInput>;
+        postResolve?: (hook: HookRequestWithInput<InjectedChat__GetByHistoryInput> & HookRequestWithResponse<Chat__GetByHistoryResponse>) => Promise<void>;
+        customResolve?: (hook: HookRequestWithInput<InjectedChat__GetByHistoryInput>) => Promise<void | Chat__GetByHistoryResponse | null>;
+        mutatingPostResolve?: (hook: HookRequestWithInput<InjectedChat__GetByHistoryInput> & HookRequestWithResponse<Chat__GetByHistoryResponse>) => Promise<Chat__GetByHistoryResponse>;
         }
-        "ChatGPT/Chat/GetManyChatMessage"?: {
-        mockResolve?: (hook: HookRequest) => Promise<ChatGPT__Chat__GetManyChatMessageResponse>;
+        "Chat/GetList"?: {
+        mockResolve?: (hook: HookRequest) => Promise<Chat__GetListResponse>;
         preResolve?: (hook: HookRequest) => Promise<void>;
         
-        postResolve?: (hook: HookRequest & HookRequestWithResponse<ChatGPT__Chat__GetManyChatMessageResponse>) => Promise<void>;
-        customResolve?: (hook: HookRequest) => Promise<void | ChatGPT__Chat__GetManyChatMessageResponse | null>;
-        mutatingPostResolve?: (hook: HookRequest & HookRequestWithResponse<ChatGPT__Chat__GetManyChatMessageResponse>) => Promise<ChatGPT__Chat__GetManyChatMessageResponse>;
+        postResolve?: (hook: HookRequest & HookRequestWithResponse<Chat__GetListResponse>) => Promise<void>;
+        customResolve?: (hook: HookRequest) => Promise<void | Chat__GetListResponse | null>;
+        mutatingPostResolve?: (hook: HookRequest & HookRequestWithResponse<Chat__GetListResponse>) => Promise<Chat__GetListResponse>;
         }
-        "ChatGPT/Propmt/GetPromptList"?: {
-        mockResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__GetPromptListInput>) => Promise<ChatGPT__Propmt__GetPromptListResponse>;
-        preResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__GetPromptListInput>) => Promise<void>;
-         mutatingPreResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__GetPromptListInput>) => Promise<InjectedChatGPT__Propmt__GetPromptListInput>;
-        postResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__GetPromptListInput> & HookRequestWithResponse<ChatGPT__Propmt__GetPromptListResponse>) => Promise<void>;
-        customResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__GetPromptListInput>) => Promise<void | ChatGPT__Propmt__GetPromptListResponse | null>;
-        mutatingPostResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__GetPromptListInput> & HookRequestWithResponse<ChatGPT__Propmt__GetPromptListResponse>) => Promise<ChatGPT__Propmt__GetPromptListResponse>;
+        "History/GetList"?: {
+        mockResolve?: (hook: HookRequestWithInput<InjectedHistory__GetListInput>) => Promise<History__GetListResponse>;
+        preResolve?: (hook: HookRequestWithInput<InjectedHistory__GetListInput>) => Promise<void>;
+         mutatingPreResolve?: (hook: HookRequestWithInput<InjectedHistory__GetListInput>) => Promise<InjectedHistory__GetListInput>;
+        postResolve?: (hook: HookRequestWithInput<InjectedHistory__GetListInput> & HookRequestWithResponse<History__GetListResponse>) => Promise<void>;
+        customResolve?: (hook: HookRequestWithInput<InjectedHistory__GetListInput>) => Promise<void | History__GetListResponse | null>;
+        mutatingPostResolve?: (hook: HookRequestWithInput<InjectedHistory__GetListInput> & HookRequestWithResponse<History__GetListResponse>) => Promise<History__GetListResponse>;
+        }
+        "Propmt/GetList"?: {
+        mockResolve?: (hook: HookRequestWithInput<InjectedPropmt__GetListInput>) => Promise<Propmt__GetListResponse>;
+        preResolve?: (hook: HookRequestWithInput<InjectedPropmt__GetListInput>) => Promise<void>;
+         mutatingPreResolve?: (hook: HookRequestWithInput<InjectedPropmt__GetListInput>) => Promise<InjectedPropmt__GetListInput>;
+        postResolve?: (hook: HookRequestWithInput<InjectedPropmt__GetListInput> & HookRequestWithResponse<Propmt__GetListResponse>) => Promise<void>;
+        customResolve?: (hook: HookRequestWithInput<InjectedPropmt__GetListInput>) => Promise<void | Propmt__GetListResponse | null>;
+        mutatingPostResolve?: (hook: HookRequestWithInput<InjectedPropmt__GetListInput> & HookRequestWithResponse<Propmt__GetListResponse>) => Promise<Propmt__GetListResponse>;
         }
         "User/GetOneUser"?: {
         mockResolve?: (hook: HookRequestWithInput<InjectedUser__GetOneUserInput>) => Promise<User__GetOneUserResponse>;
@@ -138,80 +146,96 @@ export interface Queries {
         customResolve?: (hook: HookRequestWithInput<InjectedUser__GetOneUserInput>) => Promise<void | User__GetOneUserResponse | null>;
         mutatingPostResolve?: (hook: HookRequestWithInput<InjectedUser__GetOneUserInput> & HookRequestWithResponse<User__GetOneUserResponse>) => Promise<User__GetOneUserResponse>;
         }
+        "User/Me"?: {
+        mockResolve?: (hook: HookRequestWithInput<InjectedUser__MeInput>) => Promise<User__MeResponse>;
+        preResolve?: (hook: HookRequestWithInput<InjectedUser__MeInput>) => Promise<void>;
+         mutatingPreResolve?: (hook: HookRequestWithInput<InjectedUser__MeInput>) => Promise<InjectedUser__MeInput>;
+        postResolve?: (hook: HookRequestWithInput<InjectedUser__MeInput> & HookRequestWithResponse<User__MeResponse>) => Promise<void>;
+        customResolve?: (hook: HookRequestWithInput<InjectedUser__MeInput>) => Promise<void | User__MeResponse | null>;
+        mutatingPostResolve?: (hook: HookRequestWithInput<InjectedUser__MeInput> & HookRequestWithResponse<User__MeResponse>) => Promise<User__MeResponse>;
+        }
 }
 
 export interface Mutations {
-        "ChatGPT/Chat/CreateOneChatMessage"?: {
-        mockResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__CreateOneChatMessageInput>) => Promise<ChatGPT__Chat__CreateOneChatMessageResponse>;
-        preResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__CreateOneChatMessageInput>) => Promise<void>;
-         mutatingPreResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__CreateOneChatMessageInput>) => Promise<InjectedChatGPT__Chat__CreateOneChatMessageInput>;
-        postResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__CreateOneChatMessageInput> & HookRequestWithResponse<ChatGPT__Chat__CreateOneChatMessageResponse>) => Promise<void>;
-        customResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__CreateOneChatMessageInput>) => Promise<void | ChatGPT__Chat__CreateOneChatMessageResponse>;
-        mutatingPostResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__CreateOneChatMessageInput> & HookRequestWithResponse<ChatGPT__Chat__CreateOneChatMessageResponse>) => Promise<ChatGPT__Chat__CreateOneChatMessageResponse>;
+        "Chat/CreateOne"?: {
+        mockResolve?: (hook: HookRequestWithInput<InjectedChat__CreateOneInput>) => Promise<Chat__CreateOneResponse>;
+        preResolve?: (hook: HookRequestWithInput<InjectedChat__CreateOneInput>) => Promise<void>;
+         mutatingPreResolve?: (hook: HookRequestWithInput<InjectedChat__CreateOneInput>) => Promise<InjectedChat__CreateOneInput>;
+        postResolve?: (hook: HookRequestWithInput<InjectedChat__CreateOneInput> & HookRequestWithResponse<Chat__CreateOneResponse>) => Promise<void>;
+        customResolve?: (hook: HookRequestWithInput<InjectedChat__CreateOneInput>) => Promise<void | Chat__CreateOneResponse>;
+        mutatingPostResolve?: (hook: HookRequestWithInput<InjectedChat__CreateOneInput> & HookRequestWithResponse<Chat__CreateOneResponse>) => Promise<Chat__CreateOneResponse>;
         }
-        "ChatGPT/Chat/CreateOneHistory"?: {
-        mockResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__CreateOneHistoryInput>) => Promise<ChatGPT__Chat__CreateOneHistoryResponse>;
-        preResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__CreateOneHistoryInput>) => Promise<void>;
-         mutatingPreResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__CreateOneHistoryInput>) => Promise<InjectedChatGPT__Chat__CreateOneHistoryInput>;
-        postResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__CreateOneHistoryInput> & HookRequestWithResponse<ChatGPT__Chat__CreateOneHistoryResponse>) => Promise<void>;
-        customResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__CreateOneHistoryInput>) => Promise<void | ChatGPT__Chat__CreateOneHistoryResponse>;
-        mutatingPostResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__CreateOneHistoryInput> & HookRequestWithResponse<ChatGPT__Chat__CreateOneHistoryResponse>) => Promise<ChatGPT__Chat__CreateOneHistoryResponse>;
+        "Chat/DeleteOne"?: {
+        mockResolve?: (hook: HookRequestWithInput<InjectedChat__DeleteOneInput>) => Promise<Chat__DeleteOneResponse>;
+        preResolve?: (hook: HookRequestWithInput<InjectedChat__DeleteOneInput>) => Promise<void>;
+         mutatingPreResolve?: (hook: HookRequestWithInput<InjectedChat__DeleteOneInput>) => Promise<InjectedChat__DeleteOneInput>;
+        postResolve?: (hook: HookRequestWithInput<InjectedChat__DeleteOneInput> & HookRequestWithResponse<Chat__DeleteOneResponse>) => Promise<void>;
+        customResolve?: (hook: HookRequestWithInput<InjectedChat__DeleteOneInput>) => Promise<void | Chat__DeleteOneResponse>;
+        mutatingPostResolve?: (hook: HookRequestWithInput<InjectedChat__DeleteOneInput> & HookRequestWithResponse<Chat__DeleteOneResponse>) => Promise<Chat__DeleteOneResponse>;
         }
-        "ChatGPT/Chat/DeleteOneChatMessage"?: {
-        mockResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__DeleteOneChatMessageInput>) => Promise<ChatGPT__Chat__DeleteOneChatMessageResponse>;
-        preResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__DeleteOneChatMessageInput>) => Promise<void>;
-         mutatingPreResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__DeleteOneChatMessageInput>) => Promise<InjectedChatGPT__Chat__DeleteOneChatMessageInput>;
-        postResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__DeleteOneChatMessageInput> & HookRequestWithResponse<ChatGPT__Chat__DeleteOneChatMessageResponse>) => Promise<void>;
-        customResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__DeleteOneChatMessageInput>) => Promise<void | ChatGPT__Chat__DeleteOneChatMessageResponse>;
-        mutatingPostResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__DeleteOneChatMessageInput> & HookRequestWithResponse<ChatGPT__Chat__DeleteOneChatMessageResponse>) => Promise<ChatGPT__Chat__DeleteOneChatMessageResponse>;
+        "Chat/UpdateChatText"?: {
+        mockResolve?: (hook: HookRequestWithInput<InjectedChat__UpdateChatTextInput>) => Promise<Chat__UpdateChatTextResponse>;
+        preResolve?: (hook: HookRequestWithInput<InjectedChat__UpdateChatTextInput>) => Promise<void>;
+         mutatingPreResolve?: (hook: HookRequestWithInput<InjectedChat__UpdateChatTextInput>) => Promise<InjectedChat__UpdateChatTextInput>;
+        postResolve?: (hook: HookRequestWithInput<InjectedChat__UpdateChatTextInput> & HookRequestWithResponse<Chat__UpdateChatTextResponse>) => Promise<void>;
+        customResolve?: (hook: HookRequestWithInput<InjectedChat__UpdateChatTextInput>) => Promise<void | Chat__UpdateChatTextResponse>;
+        mutatingPostResolve?: (hook: HookRequestWithInput<InjectedChat__UpdateChatTextInput> & HookRequestWithResponse<Chat__UpdateChatTextResponse>) => Promise<Chat__UpdateChatTextResponse>;
         }
-        "ChatGPT/Chat/DeleteOneHistory"?: {
-        mockResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__DeleteOneHistoryInput>) => Promise<ChatGPT__Chat__DeleteOneHistoryResponse>;
-        preResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__DeleteOneHistoryInput>) => Promise<void>;
-         mutatingPreResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__DeleteOneHistoryInput>) => Promise<InjectedChatGPT__Chat__DeleteOneHistoryInput>;
-        postResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__DeleteOneHistoryInput> & HookRequestWithResponse<ChatGPT__Chat__DeleteOneHistoryResponse>) => Promise<void>;
-        customResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__DeleteOneHistoryInput>) => Promise<void | ChatGPT__Chat__DeleteOneHistoryResponse>;
-        mutatingPostResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__DeleteOneHistoryInput> & HookRequestWithResponse<ChatGPT__Chat__DeleteOneHistoryResponse>) => Promise<ChatGPT__Chat__DeleteOneHistoryResponse>;
+        "History/CreateOne"?: {
+        mockResolve?: (hook: HookRequestWithInput<InjectedHistory__CreateOneInput>) => Promise<History__CreateOneResponse>;
+        preResolve?: (hook: HookRequestWithInput<InjectedHistory__CreateOneInput>) => Promise<void>;
+         mutatingPreResolve?: (hook: HookRequestWithInput<InjectedHistory__CreateOneInput>) => Promise<InjectedHistory__CreateOneInput>;
+        postResolve?: (hook: HookRequestWithInput<InjectedHistory__CreateOneInput> & HookRequestWithResponse<History__CreateOneResponse>) => Promise<void>;
+        customResolve?: (hook: HookRequestWithInput<InjectedHistory__CreateOneInput>) => Promise<void | History__CreateOneResponse>;
+        mutatingPostResolve?: (hook: HookRequestWithInput<InjectedHistory__CreateOneInput> & HookRequestWithResponse<History__CreateOneResponse>) => Promise<History__CreateOneResponse>;
         }
-        "ChatGPT/Chat/UpdateOneHistory"?: {
-        mockResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__UpdateOneHistoryInput>) => Promise<ChatGPT__Chat__UpdateOneHistoryResponse>;
-        preResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__UpdateOneHistoryInput>) => Promise<void>;
-         mutatingPreResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__UpdateOneHistoryInput>) => Promise<InjectedChatGPT__Chat__UpdateOneHistoryInput>;
-        postResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__UpdateOneHistoryInput> & HookRequestWithResponse<ChatGPT__Chat__UpdateOneHistoryResponse>) => Promise<void>;
-        customResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__UpdateOneHistoryInput>) => Promise<void | ChatGPT__Chat__UpdateOneHistoryResponse>;
-        mutatingPostResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Chat__UpdateOneHistoryInput> & HookRequestWithResponse<ChatGPT__Chat__UpdateOneHistoryResponse>) => Promise<ChatGPT__Chat__UpdateOneHistoryResponse>;
+        "History/DeleteOne"?: {
+        mockResolve?: (hook: HookRequestWithInput<InjectedHistory__DeleteOneInput>) => Promise<History__DeleteOneResponse>;
+        preResolve?: (hook: HookRequestWithInput<InjectedHistory__DeleteOneInput>) => Promise<void>;
+         mutatingPreResolve?: (hook: HookRequestWithInput<InjectedHistory__DeleteOneInput>) => Promise<InjectedHistory__DeleteOneInput>;
+        postResolve?: (hook: HookRequestWithInput<InjectedHistory__DeleteOneInput> & HookRequestWithResponse<History__DeleteOneResponse>) => Promise<void>;
+        customResolve?: (hook: HookRequestWithInput<InjectedHistory__DeleteOneInput>) => Promise<void | History__DeleteOneResponse>;
+        mutatingPostResolve?: (hook: HookRequestWithInput<InjectedHistory__DeleteOneInput> & HookRequestWithResponse<History__DeleteOneResponse>) => Promise<History__DeleteOneResponse>;
         }
-        "ChatGPT/Propmt/CreateOnePrompt"?: {
-        mockResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__CreateOnePromptInput>) => Promise<ChatGPT__Propmt__CreateOnePromptResponse>;
-        preResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__CreateOnePromptInput>) => Promise<void>;
-         mutatingPreResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__CreateOnePromptInput>) => Promise<InjectedChatGPT__Propmt__CreateOnePromptInput>;
-        postResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__CreateOnePromptInput> & HookRequestWithResponse<ChatGPT__Propmt__CreateOnePromptResponse>) => Promise<void>;
-        customResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__CreateOnePromptInput>) => Promise<void | ChatGPT__Propmt__CreateOnePromptResponse>;
-        mutatingPostResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__CreateOnePromptInput> & HookRequestWithResponse<ChatGPT__Propmt__CreateOnePromptResponse>) => Promise<ChatGPT__Propmt__CreateOnePromptResponse>;
+        "History/UpdateOne"?: {
+        mockResolve?: (hook: HookRequestWithInput<InjectedHistory__UpdateOneInput>) => Promise<History__UpdateOneResponse>;
+        preResolve?: (hook: HookRequestWithInput<InjectedHistory__UpdateOneInput>) => Promise<void>;
+         mutatingPreResolve?: (hook: HookRequestWithInput<InjectedHistory__UpdateOneInput>) => Promise<InjectedHistory__UpdateOneInput>;
+        postResolve?: (hook: HookRequestWithInput<InjectedHistory__UpdateOneInput> & HookRequestWithResponse<History__UpdateOneResponse>) => Promise<void>;
+        customResolve?: (hook: HookRequestWithInput<InjectedHistory__UpdateOneInput>) => Promise<void | History__UpdateOneResponse>;
+        mutatingPostResolve?: (hook: HookRequestWithInput<InjectedHistory__UpdateOneInput> & HookRequestWithResponse<History__UpdateOneResponse>) => Promise<History__UpdateOneResponse>;
         }
-        "ChatGPT/Propmt/DeleteManyPrompt"?: {
-        mockResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__DeleteManyPromptInput>) => Promise<ChatGPT__Propmt__DeleteManyPromptResponse>;
-        preResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__DeleteManyPromptInput>) => Promise<void>;
-         mutatingPreResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__DeleteManyPromptInput>) => Promise<InjectedChatGPT__Propmt__DeleteManyPromptInput>;
-        postResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__DeleteManyPromptInput> & HookRequestWithResponse<ChatGPT__Propmt__DeleteManyPromptResponse>) => Promise<void>;
-        customResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__DeleteManyPromptInput>) => Promise<void | ChatGPT__Propmt__DeleteManyPromptResponse>;
-        mutatingPostResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__DeleteManyPromptInput> & HookRequestWithResponse<ChatGPT__Propmt__DeleteManyPromptResponse>) => Promise<ChatGPT__Propmt__DeleteManyPromptResponse>;
+        "Propmt/CreateOne"?: {
+        mockResolve?: (hook: HookRequestWithInput<InjectedPropmt__CreateOneInput>) => Promise<Propmt__CreateOneResponse>;
+        preResolve?: (hook: HookRequestWithInput<InjectedPropmt__CreateOneInput>) => Promise<void>;
+         mutatingPreResolve?: (hook: HookRequestWithInput<InjectedPropmt__CreateOneInput>) => Promise<InjectedPropmt__CreateOneInput>;
+        postResolve?: (hook: HookRequestWithInput<InjectedPropmt__CreateOneInput> & HookRequestWithResponse<Propmt__CreateOneResponse>) => Promise<void>;
+        customResolve?: (hook: HookRequestWithInput<InjectedPropmt__CreateOneInput>) => Promise<void | Propmt__CreateOneResponse>;
+        mutatingPostResolve?: (hook: HookRequestWithInput<InjectedPropmt__CreateOneInput> & HookRequestWithResponse<Propmt__CreateOneResponse>) => Promise<Propmt__CreateOneResponse>;
         }
-        "ChatGPT/Propmt/DeleteOnePrompt"?: {
-        mockResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__DeleteOnePromptInput>) => Promise<ChatGPT__Propmt__DeleteOnePromptResponse>;
-        preResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__DeleteOnePromptInput>) => Promise<void>;
-         mutatingPreResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__DeleteOnePromptInput>) => Promise<InjectedChatGPT__Propmt__DeleteOnePromptInput>;
-        postResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__DeleteOnePromptInput> & HookRequestWithResponse<ChatGPT__Propmt__DeleteOnePromptResponse>) => Promise<void>;
-        customResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__DeleteOnePromptInput>) => Promise<void | ChatGPT__Propmt__DeleteOnePromptResponse>;
-        mutatingPostResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__DeleteOnePromptInput> & HookRequestWithResponse<ChatGPT__Propmt__DeleteOnePromptResponse>) => Promise<ChatGPT__Propmt__DeleteOnePromptResponse>;
+        "Propmt/DeleteMany"?: {
+        mockResolve?: (hook: HookRequestWithInput<InjectedPropmt__DeleteManyInput>) => Promise<Propmt__DeleteManyResponse>;
+        preResolve?: (hook: HookRequestWithInput<InjectedPropmt__DeleteManyInput>) => Promise<void>;
+         mutatingPreResolve?: (hook: HookRequestWithInput<InjectedPropmt__DeleteManyInput>) => Promise<InjectedPropmt__DeleteManyInput>;
+        postResolve?: (hook: HookRequestWithInput<InjectedPropmt__DeleteManyInput> & HookRequestWithResponse<Propmt__DeleteManyResponse>) => Promise<void>;
+        customResolve?: (hook: HookRequestWithInput<InjectedPropmt__DeleteManyInput>) => Promise<void | Propmt__DeleteManyResponse>;
+        mutatingPostResolve?: (hook: HookRequestWithInput<InjectedPropmt__DeleteManyInput> & HookRequestWithResponse<Propmt__DeleteManyResponse>) => Promise<Propmt__DeleteManyResponse>;
         }
-        "ChatGPT/Propmt/UpdateOnePrompt"?: {
-        mockResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__UpdateOnePromptInput>) => Promise<ChatGPT__Propmt__UpdateOnePromptResponse>;
-        preResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__UpdateOnePromptInput>) => Promise<void>;
-         mutatingPreResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__UpdateOnePromptInput>) => Promise<InjectedChatGPT__Propmt__UpdateOnePromptInput>;
-        postResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__UpdateOnePromptInput> & HookRequestWithResponse<ChatGPT__Propmt__UpdateOnePromptResponse>) => Promise<void>;
-        customResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__UpdateOnePromptInput>) => Promise<void | ChatGPT__Propmt__UpdateOnePromptResponse>;
-        mutatingPostResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Propmt__UpdateOnePromptInput> & HookRequestWithResponse<ChatGPT__Propmt__UpdateOnePromptResponse>) => Promise<ChatGPT__Propmt__UpdateOnePromptResponse>;
+        "Propmt/DeleteOne"?: {
+        mockResolve?: (hook: HookRequestWithInput<InjectedPropmt__DeleteOneInput>) => Promise<Propmt__DeleteOneResponse>;
+        preResolve?: (hook: HookRequestWithInput<InjectedPropmt__DeleteOneInput>) => Promise<void>;
+         mutatingPreResolve?: (hook: HookRequestWithInput<InjectedPropmt__DeleteOneInput>) => Promise<InjectedPropmt__DeleteOneInput>;
+        postResolve?: (hook: HookRequestWithInput<InjectedPropmt__DeleteOneInput> & HookRequestWithResponse<Propmt__DeleteOneResponse>) => Promise<void>;
+        customResolve?: (hook: HookRequestWithInput<InjectedPropmt__DeleteOneInput>) => Promise<void | Propmt__DeleteOneResponse>;
+        mutatingPostResolve?: (hook: HookRequestWithInput<InjectedPropmt__DeleteOneInput> & HookRequestWithResponse<Propmt__DeleteOneResponse>) => Promise<Propmt__DeleteOneResponse>;
+        }
+        "Propmt/UpdateOne"?: {
+        mockResolve?: (hook: HookRequestWithInput<InjectedPropmt__UpdateOneInput>) => Promise<Propmt__UpdateOneResponse>;
+        preResolve?: (hook: HookRequestWithInput<InjectedPropmt__UpdateOneInput>) => Promise<void>;
+         mutatingPreResolve?: (hook: HookRequestWithInput<InjectedPropmt__UpdateOneInput>) => Promise<InjectedPropmt__UpdateOneInput>;
+        postResolve?: (hook: HookRequestWithInput<InjectedPropmt__UpdateOneInput> & HookRequestWithResponse<Propmt__UpdateOneResponse>) => Promise<void>;
+        customResolve?: (hook: HookRequestWithInput<InjectedPropmt__UpdateOneInput>) => Promise<void | Propmt__UpdateOneResponse>;
+        mutatingPostResolve?: (hook: HookRequestWithInput<InjectedPropmt__UpdateOneInput> & HookRequestWithResponse<Propmt__UpdateOneResponse>) => Promise<Propmt__UpdateOneResponse>;
         }
         "User/CreateOneUser"?: {
         mockResolve?: (hook: HookRequestWithInput<InjectedUser__CreateOneUserInput>) => Promise<User__CreateOneUserResponse>;
@@ -221,14 +245,22 @@ export interface Mutations {
         customResolve?: (hook: HookRequestWithInput<InjectedUser__CreateOneUserInput>) => Promise<void | User__CreateOneUserResponse>;
         mutatingPostResolve?: (hook: HookRequestWithInput<InjectedUser__CreateOneUserInput> & HookRequestWithResponse<User__CreateOneUserResponse>) => Promise<User__CreateOneUserResponse>;
         }
+        "User/UpdateInfo"?: {
+        mockResolve?: (hook: HookRequestWithInput<InjectedUser__UpdateInfoInput>) => Promise<User__UpdateInfoResponse>;
+        preResolve?: (hook: HookRequestWithInput<InjectedUser__UpdateInfoInput>) => Promise<void>;
+         mutatingPreResolve?: (hook: HookRequestWithInput<InjectedUser__UpdateInfoInput>) => Promise<InjectedUser__UpdateInfoInput>;
+        postResolve?: (hook: HookRequestWithInput<InjectedUser__UpdateInfoInput> & HookRequestWithResponse<User__UpdateInfoResponse>) => Promise<void>;
+        customResolve?: (hook: HookRequestWithInput<InjectedUser__UpdateInfoInput>) => Promise<void | User__UpdateInfoResponse>;
+        mutatingPostResolve?: (hook: HookRequestWithInput<InjectedUser__UpdateInfoInput> & HookRequestWithResponse<User__UpdateInfoResponse>) => Promise<User__UpdateInfoResponse>;
+        }
 }
 
 export interface Subscriptions {
-        "ChatGPT/Subscription/ChatSSE"?: {
-        preResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Subscription__ChatSSEInput>) => Promise<void>;
-         mutatingPreResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Subscription__ChatSSEInput>) => Promise<InjectedChatGPT__Subscription__ChatSSEInput>;
-        postResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Subscription__ChatSSEInput> & HookRequestWithResponse<ChatGPT__Subscription__ChatSSEResponse>) => Promise<void>;
-        mutatingPostResolve?: (hook: HookRequestWithInput<InjectedChatGPT__Subscription__ChatSSEInput> & HookRequestWithResponse<ChatGPT__Subscription__ChatSSEResponse>) => Promise<ChatGPT__Subscription__ChatSSEResponse>;
+        "Chat/ChatSSE"?: {
+        preResolve?: (hook: HookRequestWithInput<InjectedChat__ChatSSEInput>) => Promise<void>;
+         mutatingPreResolve?: (hook: HookRequestWithInput<InjectedChat__ChatSSEInput>) => Promise<InjectedChat__ChatSSEInput>;
+        postResolve?: (hook: HookRequestWithInput<InjectedChat__ChatSSEInput> & HookRequestWithResponse<Chat__ChatSSEResponse>) => Promise<void>;
+        mutatingPostResolve?: (hook: HookRequestWithInput<InjectedChat__ChatSSEInput> & HookRequestWithResponse<Chat__ChatSSEResponse>) => Promise<Chat__ChatSSEResponse>;
         }
 }
 

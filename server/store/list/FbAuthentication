@@ -5,19 +5,20 @@
 		"name": "authing",
 		"authSupplier": "openid",
 		"switchState": [
-			"cookieBased"
+			"cookieBased",
+			"tokenBased"
 		],
 		"config": {
 			"id": "authing",
 			"clientId": {
 				"key": "",
 				"kind": "0",
-				"val": "641976e6570caa8192cf3f93"
+				"val": "641a942dd9081d5dd1bb5b49"
 			},
 			"clientSecret": {
 				"key": "",
 				"kind": "0",
-				"val": "535b9ee 30f13f9df7b33e35737d584efdbf1e7a 9d950bc58980221242da3464c"
+				"val": "b33a08ce16b60d0713e76dda64f6f0a3"
 			},
 			"issuer": "https://fb-chatgpt-web.authing.cn/oidc",
 			"discoveryURL": "",
@@ -30,7 +31,7 @@
 			"tokenEndpoint": "https://fb-chatgpt-web.authing.cn/oidc/token"
 		},
 		"createTime": "2023-03-08 06:25:03Z",
-		"updateTime": "2023-03-21 09:21:20Z",
+		"updateTime": "2023-03-22 05:39:10Z",
 		"deleteTime": ""
 	}
 ]

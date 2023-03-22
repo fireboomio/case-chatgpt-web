@@ -14,7 +14,9 @@ export function defaultState(): Chat.ChatState {
 
 export function getLocalState(): Chat.ChatState {
   const localState = ss.get(LOCAL_NAME)
-  return localState ?? defaultState()
+  const state = localState ?? defaultState()
+  state.active = null
+  return state
 }
 
 export function setLocalState(state: Chat.ChatState) {

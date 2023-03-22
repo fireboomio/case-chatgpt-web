@@ -1,13 +1,13 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue'
-import { NButton, NInput, NPopconfirm, NSelect, useMessage } from 'naive-ui'
+import { NButton, NInput, NSelect, useMessage } from 'naive-ui'
 import type { Language, Theme } from '@/store/modules/app/helper'
 import { SvgIcon } from '@/components/common'
 import { useAppStore, useUserStore } from '@/store'
 import type { UserInfo } from '@/store/modules/user/helper'
-import { getCurrentDate } from '@/utils/functions'
 import { useBasicLayout } from '@/hooks/useBasicLayout'
 import { t } from '@/locales'
+import client from '@/services'
 
 const appStore = useAppStore()
 const userStore = useUserStore()
@@ -59,71 +59,85 @@ const languageOptions: { label: string; key: Language; value: Language }[] = [
   { label: 'English', key: 'en-US', value: 'en-US' },
 ]
 
-function updateUserInfo(options: Partial<UserInfo>) {
-  userStore.updateUserInfo(options)
-  ms.success(t('common.success'))
-}
-
-function handleReset() {
-  userStore.resetUserInfo()
-  ms.success(t('common.success'))
-  window.location.reload()
-}
-
-function exportData(): void {
-  const date = getCurrentDate()
-  const data: string = localStorage.getItem('chatStorage') || '{}'
-  const jsonString: string = JSON.stringify(JSON.parse(data), null, 2)
-  const blob: Blob = new Blob([jsonString], { type: 'application/json' })
-  const url: string = URL.createObjectURL(blob)
-  const link: HTMLAnchorElement = document.createElement('a')
-  link.href = url
-  link.download = `chat-store_${date}.json`
-  document.body.appendChild(link)
-  link.click()
-  document.body.removeChild(link)
-}
-
-function importData(event: Event): void {
-  const target = event.target as HTMLInputElement
-  if (!target || !target.files)
-    return
-
-  const file: File = target.files[0]
-  if (!file)
-    return
-
-  const reader: FileReader = new FileReader()
-  reader.onload = () => {
-    try {
-      const data = JSON.parse(reader.result as string)
-      localStorage.setItem('chatStorage', JSON.stringify(data))
-      ms.success(t('common.success'))
-      location.reload()
-    }
-    catch (error) {
-      ms.error(t('common.invalidFileFormat'))
-    }
+async function updateUserInfo(options: Partial<UserInfo>) {
+  const { error } = await client.mutate({
+    operationName: 'User/UpdateInfo',
+    input: {
+      ...userInfo.value,
+      ...options,
+    },
+  })
+  if (!error) {
+    userStore.updateUserInfo(options)
+    ms.success(t('common.success'))
   }
-  reader.readAsText(file)
 }
 
-function clearData(): void {
-  localStorage.removeItem('chatStorage')
-  location.reload()
-}
+// function handleReset() {
+//   userStore.resetUserInfo()
+//   ms.success(t('common.success'))
+//   window.location.reload()
+// }
 
-function handleImportButtonClick(): void {
-  const fileInput = document.getElementById('fileInput') as HTMLElement
-  if (fileInput)
-    fileInput.click()
+// function exportData(): void {
+//   const date = getCurrentDate()
+//   const data: string = localStorage.getItem('chatStorage') || '{}'
+//   const jsonString: string = JSON.stringify(JSON.parse(data), null, 2)
+//   const blob: Blob = new Blob([jsonString], { type: 'application/json' })
+//   const url: string = URL.createObjectURL(blob)
+//   const link: HTMLAnchorElement = document.createElement('a')
+//   link.href = url
+//   link.download = `chat-store_${date}.json`
+//   document.body.appendChild(link)
+//   link.click()
+//   document.body.removeChild(link)
+// }
+
+// function importData(event: Event): void {
+//   const target = event.target as HTMLInputElement
+//   if (!target || !target.files)
+//     return
+
+//   const file: File = target.files[0]
+//   if (!file)
+//     return
+
+//   const reader: FileReader = new FileReader()
+//   reader.onload = () => {
+//     try {
+//       const data = JSON.parse(reader.result as string)
+//       localStorage.setItem('chatStorage', JSON.stringify(data))
+//       ms.success(t('common.success'))
+//       location.reload()
+//     }
+//     catch (error) {
+//       ms.error(t('common.invalidFileFormat'))
+//     }
+//   }
+//   reader.readAsText(file)
+// }
+
+// function clearData(): void {
+//   localStorage.removeItem('chatStorage')
+//   location.reload()
+// }
+
+// function handleImportButtonClick(): void {
+//   const fileInput = document.getElementById('fileInput') as HTMLElement
+//   if (fileInput)
+//     fileInput.click()
+// }
+
+async function logout() {
+  await client.logout()
+  window.location.reload()
 }
 </script>
 
 <template>
-  <div class="p-4 space-y-5 min-h-[200px]">
+  <div class="space-y-5 min-h-[200px] p-4">
     <div class="space-y-6">
-      <div class="flex items-center space-x-4">
+      <div class="flex space-x-4 items-center">
         <span class="flex-shrink-0 w-[100px]">{{ $t('setting.avatarLink') }}</span>
         <div class="flex-1">
           <NInput v-model:value="avatar" placeholder="" />
@@ -132,7 +146,7 @@ function handleImportButtonClick(): void {
           {{ $t('common.save') }}
         </NButton>
       </div>
-      <div class="flex items-center space-x-4">
+      <div class="flex space-x-4 items-center">
         <span class="flex-shrink-0 w-[100px]">{{ $t('setting.name') }}</span>
         <div class="w-[200px]">
           <NInput v-model:value="name" placeholder="" />
@@ -141,7 +155,7 @@ function handleImportButtonClick(): void {
           {{ $t('common.save') }}
         </NButton>
       </div>
-      <div class="flex items-center space-x-4">
+      <div class="flex space-x-4 items-center">
         <span class="flex-shrink-0 w-[100px]">{{ $t('setting.description') }}</span>
         <div class="flex-1">
           <NInput v-model:value="description" placeholder="" />
@@ -151,13 +165,13 @@ function handleImportButtonClick(): void {
         </NButton>
       </div>
 
-      <div
-        class="flex items-center space-x-4"
+      <!-- <div
+        class="flex space-x-4 items-center"
         :class="isMobile && 'items-start'"
       >
         <span class="flex-shrink-0 w-[100px]">{{ $t('setting.chatHistory') }}</span>
 
-        <div class="flex flex-wrap items-center gap-4">
+        <div class="flex flex-wrap gap-4 items-center">
           <NButton size="small" @click="exportData">
             <template #icon>
               <SvgIcon icon="ri:download-2-fill" />
@@ -185,10 +199,10 @@ function handleImportButtonClick(): void {
             {{ $t('chat.clearHistoryConfirm') }}
           </NPopconfirm>
         </div>
-      </div>
-      <div class="flex items-center space-x-4">
+      </div> -->
+      <div class="flex space-x-4 items-center">
         <span class="flex-shrink-0 w-[100px]">{{ $t('setting.theme') }}</span>
-        <div class="flex flex-wrap items-center gap-4">
+        <div class="flex flex-wrap gap-4 items-center">
           <template v-for="item of themeOptions" :key="item.key">
             <NButton
               size="small"
@@ -202,9 +216,9 @@ function handleImportButtonClick(): void {
           </template>
         </div>
       </div>
-      <div class="flex items-center space-x-4">
+      <div class="flex space-x-4 items-center">
         <span class="flex-shrink-0 w-[100px]">{{ $t('setting.language') }}</span>
-        <div class="flex flex-wrap items-center gap-4">
+        <div class="flex flex-wrap gap-4 items-center">
           <NSelect
             style="width: 140px"
             :value="language"
@@ -213,10 +227,15 @@ function handleImportButtonClick(): void {
           />
         </div>
       </div>
-      <div class="flex items-center space-x-4">
+      <!-- <div class="flex space-x-4 items-center">
         <span class="flex-shrink-0 w-[100px]">{{ $t('setting.resetUserInfo') }}</span>
         <NButton size="small" @click="handleReset">
           {{ $t('common.reset') }}
+        </NButton>
+      </div> -->
+      <div class="flex pl-[116px] items-center">
+        <NButton size="small" type="error" @click="logout">
+          {{ $t('common.logout') }}
         </NButton>
       </div>
     </div>

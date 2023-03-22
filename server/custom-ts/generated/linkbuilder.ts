@@ -69,104 +69,124 @@ const targetStep = <T, F extends keyof T, R>(field: F) => ({
 })
 
 interface TargetTypes {
-    grace_PromptMinAggregateOutputType:  | "title"  | "userId"  | "createdAt"  | "updatedAt"  | "_join"  | "id"  | "prompt" ;
-    grace_UserCountOutputType:  | "History"  | "Prompt"  | "_join" ;
-    grace_UserGroupByOutputType:  | "provider"  | "createdAt"  | "_min"  | "_max"  | "avatar"  | "_join"  | "_count"  | "bio"  | "id"  | "name" ;
-    grace_HistoryMinAggregateOutputType:  | "userId"  | "_join"  | "id"  | "title"  | "createdAt"  | "updatedAt" ;
-    grace_AggregateUser:  | "_count"  | "_min"  | "_max"  | "_join" ;
-    __Schema:  | "mutationType"  | "subscriptionType"  | "directives"  | "types"  | "queryType" ;
-    grace_PromptMaxAggregateOutputType:  | "_join"  | "id"  | "prompt"  | "title"  | "userId"  | "createdAt"  | "updatedAt" ;
-    grace_HistoryGroupByOutputType:  | "_count"  | "_avg"  | "_min"  | "updatedAt"  | "_sum"  | "id"  | "createdAt"  | "_join"  | "title"  | "userId"  | "_max" ;
-    grace_HistoryCountAggregateOutputType:  | "userId"  | "_all"  | "_join"  | "id"  | "title"  | "createdAt"  | "updatedAt" ;
-    grace_ChatMessageSumAggregateOutputType:  | "id"  | "chatId"  | "_join" ;
-    grace_UserMaxAggregateOutputType:  | "_join"  | "id"  | "name"  | "avatar"  | "bio"  | "provider"  | "createdAt" ;
-    __EnumValue:  | "description"  | "isDeprecated"  | "deprecationReason"  | "name" ;
-    grace_HistoryMaxAggregateOutputType:  | "userId"  | "_join"  | "id"  | "title"  | "createdAt"  | "updatedAt" ;
-    grace_HistorySumAggregateOutputType:  | "id"  | "_join" ;
-    grace_PromptSumAggregateOutputType:  | "id"  | "_join" ;
-    __Field:  | "type"  | "isDeprecated"  | "deprecationReason"  | "name"  | "description"  | "args" ;
-    grace_HistoryCountOutputType:  | "ChatMessage"  | "_join" ;
-    grace_PromptGroupByOutputType:  | "id"  | "_count"  | "_max"  | "title"  | "userId"  | "createdAt"  | "updatedAt"  | "_sum"  | "prompt"  | "_avg"  | "_min"  | "_join" ;
-    grace_Prompt:  | "id"  | "prompt"  | "title"  | "userId"  | "createdAt"  | "updatedAt"  | "User"  | "_join" ;
-    grace_User:  | "bio"  | "createdAt"  | "_count"  | "id"  | "_join"  | "Prompt"  | "name"  | "avatar"  | "provider"  | "History" ;
-    __Type:  | "fields"  | "enumValues"  | "name"  | "inputFields"  | "interfaces"  | "possibleTypes"  | "kind"  | "ofType"  | "description" ;
-    grace_ChatMessageMaxAggregateOutputType:  | "parentMessageId"  | "createdAt"  | "chatId"  | "_join"  | "id"  | "text" ;
-    grace_ChatMessageAvgAggregateOutputType:  | "_join"  | "id"  | "chatId" ;
-    __Directive:  | "onField"  | "name"  | "description"  | "locations"  | "args"  | "onOperation"  | "onFragment" ;
+    grace_User:  | "id"  | "providerId"  | "_join"  | "provider"  | "Prompt"  | "_count"  | "avatar"  | "name"  | "description"  | "createdAt"  | "History" ;
+    grace_ChatMessageMinAggregateOutputType:  | "chatId"  | "_join"  | "id"  | "text"  | "parentMessageId"  | "createdAt" ;
+    grace_History:  | "_join"  | "id"  | "_count"  | "updatedAt"  | "title"  | "createdAt"  | "User"  | "userId"  | "ChatMessage" ;
+    grace_PromptGroupByOutputType:  | "createdAt"  | "_count"  | "_min"  | "_max"  | "updatedAt"  | "prompt"  | "title"  | "id"  | "_join"  | "_avg"  | "userId"  | "_sum" ;
+    grace_HistoryCountOutputType:  | "_join"  | "ChatMessage" ;
+    grace_UserMinAggregateOutputType:  | "id"  | "name"  | "avatar"  | "description"  | "provider"  | "createdAt"  | "providerId"  | "_join" ;
+    grace_ChatMessageGroupByOutputType:  | "_max"  | "chatId"  | "_sum"  | "_count"  | "_avg"  | "_min"  | "createdAt"  | "_join"  | "id"  | "text"  | "parentMessageId" ;
     grace_AggregatePrompt:  | "_max"  | "_join"  | "_count"  | "_avg"  | "_sum"  | "_min" ;
-    grace_AggregateHistory:  | "_avg"  | "_sum"  | "_min"  | "_max"  | "_join"  | "_count" ;
-    grace_UserCountAggregateOutputType:  | "bio"  | "provider"  | "createdAt"  | "_all"  | "_join"  | "id"  | "name"  | "avatar" ;
-    grace_PromptCountAggregateOutputType:  | "title"  | "userId"  | "createdAt"  | "updatedAt"  | "_all"  | "_join"  | "id"  | "prompt" ;
-    __InputValue:  | "name"  | "description"  | "type"  | "defaultValue" ;
-    grace_ChatMessage:  | "createdAt"  | "chatId"  | "History"  | "_join"  | "id"  | "text"  | "parentMessageId" ;
-    grace_UserMinAggregateOutputType:  | "bio"  | "provider"  | "createdAt"  | "_join"  | "id"  | "name"  | "avatar" ;
-    grace_ChatMessageCountAggregateOutputType:  | "text"  | "parentMessageId"  | "createdAt"  | "chatId"  | "_all"  | "_join"  | "id" ;
-    grace_ChatMessageGroupByOutputType:  | "id"  | "chatId"  | "_min"  | "parentMessageId"  | "_sum"  | "text"  | "createdAt"  | "_count"  | "_max"  | "_avg"  | "_join" ;
-    grace_HistoryAvgAggregateOutputType:  | "_join"  | "id" ;
-    grace_ChatMessageMinAggregateOutputType:  | "id"  | "text"  | "parentMessageId"  | "createdAt"  | "chatId"  | "_join" ;
+    grace_AggregateUser:  | "_join"  | "_count"  | "_min"  | "_max" ;
     grace_AffectedRowsOutput:  | "count"  | "_join" ;
-    grace_AggregateChatMessage:  | "_sum"  | "_min"  | "_max"  | "_join"  | "_count"  | "_avg" ;
-    grace_History:  | "userId"  | "User"  | "createdAt"  | "updatedAt"  | "_count"  | "_join"  | "ChatMessage"  | "id"  | "title" ;
+    grace_ChatMessageSumAggregateOutputType:  | "parentMessageId"  | "chatId"  | "_join"  | "id" ;
+    grace_HistoryCountAggregateOutputType:  | "_all"  | "_join"  | "id"  | "title"  | "createdAt"  | "updatedAt"  | "userId" ;
+    grace_Prompt:  | "title"  | "userId"  | "createdAt"  | "updatedAt"  | "User"  | "_join"  | "id"  | "prompt" ;
+    grace_PromptCountAggregateOutputType:  | "_all"  | "_join"  | "id"  | "prompt"  | "title"  | "userId"  | "createdAt"  | "updatedAt" ;
+    __Type:  | "description"  | "possibleTypes"  | "kind"  | "name"  | "enumValues"  | "inputFields"  | "ofType"  | "fields"  | "interfaces" ;
+    __EnumValue:  | "name"  | "description"  | "isDeprecated"  | "deprecationReason" ;
+    __InputValue:  | "name"  | "description"  | "type"  | "defaultValue" ;
     grace_PromptAvgAggregateOutputType:  | "id"  | "_join" ;
+    grace_ChatMessageCountAggregateOutputType:  | "_all"  | "_join"  | "id"  | "text"  | "parentMessageId"  | "createdAt"  | "chatId" ;
+    grace_HistoryAvgAggregateOutputType:  | "id"  | "_join" ;
+    __Field:  | "name"  | "description"  | "args"  | "type"  | "isDeprecated"  | "deprecationReason" ;
+    __Directive:  | "locations"  | "args"  | "onOperation"  | "onFragment"  | "onField"  | "name"  | "description" ;
+    grace_ChatMessageMaxAggregateOutputType:  | "parentMessageId"  | "createdAt"  | "chatId"  | "_join"  | "id"  | "text" ;
+    grace_PromptMaxAggregateOutputType:  | "prompt"  | "title"  | "userId"  | "createdAt"  | "updatedAt"  | "_join"  | "id" ;
+    __Schema:  | "subscriptionType"  | "directives"  | "types"  | "queryType"  | "mutationType" ;
+    grace_HistoryGroupByOutputType:  | "_min"  | "_join"  | "_avg"  | "title"  | "updatedAt"  | "_sum"  | "_max"  | "id"  | "_count"  | "createdAt"  | "userId" ;
+    grace_ChatMessageAvgAggregateOutputType:  | "id"  | "parentMessageId"  | "chatId"  | "_join" ;
+    grace_HistorySumAggregateOutputType:  | "id"  | "_join" ;
+    grace_AggregateChatMessage:  | "_sum"  | "_min"  | "_max"  | "_join"  | "_count"  | "_avg" ;
+    grace_HistoryMaxAggregateOutputType:  | "title"  | "createdAt"  | "updatedAt"  | "userId"  | "_join"  | "id" ;
+    grace_PromptSumAggregateOutputType:  | "id"  | "_join" ;
+    grace_UserCountAggregateOutputType:  | "_all"  | "_join"  | "id"  | "providerId"  | "name"  | "avatar"  | "createdAt"  | "description"  | "provider" ;
+    grace_ChatMessage:  | "History"  | "_join"  | "id"  | "text"  | "parentMessageId"  | "createdAt"  | "chatId" ;
+    grace_HistoryMinAggregateOutputType:  | "_join"  | "id"  | "title"  | "createdAt"  | "updatedAt"  | "userId" ;
+    grace_PromptMinAggregateOutputType:  | "prompt"  | "title"  | "userId"  | "createdAt"  | "updatedAt"  | "_join"  | "id" ;
+    grace_AggregateHistory:  | "_join"  | "_count"  | "_avg"  | "_sum"  | "_min"  | "_max" ;
+    grace_UserGroupByOutputType:  | "providerId"  | "_count"  | "createdAt"  | "id"  | "description"  | "name"  | "_max"  | "_join"  | "avatar"  | "provider"  | "_min" ;
+    grace_UserMaxAggregateOutputType:  | "_join"  | "id"  | "name"  | "avatar"  | "description"  | "provider"  | "createdAt"  | "providerId" ;
+    grace_UserCountOutputType:  | "History"  | "Prompt"  | "_join" ;
 }
 
 interface SourceFields {
-    grace_aggregateHistory: {
-            skip: null;
+    grace_findManyChatMessage: {
+            distinct: null;
             where: null;
             orderBy: null;
             cursor: null;
             take: null;
-    },
-    grace_findUniquePromptOrThrow: {
-            where: null;
-    },
-    grace_findUniqueChatMessageOrThrow: {
-            where: null;
-    },
-    grace_findUniquePrompt: {
-            where: null;
-    },
-    grace_findUniqueUser: {
-            where: null;
-    },
-    grace_findUniqueHistoryOrThrow: {
-            where: null;
+            skip: null;
     },
     grace_findFirstPrompt: {
-            distinct: null;
-            where: null;
-            orderBy: null;
-            cursor: null;
-            take: null;
-            skip: null;
-    },
-    grace_findFirstChatMessageOrThrow: {
-            skip: null;
-            distinct: null;
-            where: null;
-            orderBy: null;
-            cursor: null;
-            take: null;
-    },
-    grace_findFirstUserOrThrow: {
-            cursor: null;
             take: null;
             skip: null;
             distinct: null;
             where: null;
             orderBy: null;
+            cursor: null;
     },
     grace_findUniqueChatMessage: {
             where: null;
     },
-    grace_groupByHistory: {
+    grace_findFirstHistoryOrThrow: {
+            orderBy: null;
+            cursor: null;
+            take: null;
+            skip: null;
+            distinct: null;
+            where: null;
+    },
+    grace_findUniquePromptOrThrow: {
+            where: null;
+    },
+    grace_groupByChatMessage: {
             where: null;
             orderBy: null;
             by: null;
             having: null;
             take: null;
             skip: null;
+    },
+    grace_findFirstUser: {
+            where: null;
+            orderBy: null;
+            cursor: null;
+            take: null;
+            skip: null;
+            distinct: null;
+    },
+    grace_findFirstHistory: {
+            where: null;
+            orderBy: null;
+            cursor: null;
+            take: null;
+            skip: null;
+            distinct: null;
+    },
+    grace_aggregateChatMessage: {
+            orderBy: null;
+            cursor: null;
+            take: null;
+            skip: null;
+            where: null;
+    },
+    grace_groupByHistory: {
+            take: null;
+            skip: null;
+            where: null;
+            orderBy: null;
+            by: null;
+            having: null;
+    },
+    grace_findFirstChatMessage: {
+            where: null;
+            orderBy: null;
+            cursor: null;
+            take: null;
+            skip: null;
+            distinct: null;
     },
     grace_groupByUser: {
             where: null;
@@ -176,54 +196,49 @@ interface SourceFields {
             take: null;
             skip: null;
     },
-    grace_findManyHistory: {
-            orderBy: null;
-            cursor: null;
-            take: null;
-            skip: null;
-            distinct: null;
-            where: null;
-    },
-    grace_groupByPrompt: {
-            where: null;
-            orderBy: null;
-            by: null;
-            having: null;
-            take: null;
-            skip: null;
-    },
-    grace_aggregatePrompt: {
+    grace_aggregateUser: {
             where: null;
             orderBy: null;
             cursor: null;
             take: null;
             skip: null;
-    },
-    grace_findFirstPromptOrThrow: {
-            where: null;
-            orderBy: null;
-            cursor: null;
-            take: null;
-            skip: null;
-            distinct: null;
-    },
-    grace_findManyChatMessage: {
-            where: null;
-            orderBy: null;
-            cursor: null;
-            take: null;
-            skip: null;
-            distinct: null;
-    },
-    grace_findFirstChatMessage: {
-            orderBy: null;
-            cursor: null;
-            take: null;
-            skip: null;
-            distinct: null;
-            where: null;
     },
     grace_findManyPrompt: {
+            cursor: null;
+            take: null;
+            skip: null;
+            distinct: null;
+            where: null;
+            orderBy: null;
+    },
+    grace_findManyHistory: {
+            where: null;
+            orderBy: null;
+            cursor: null;
+            take: null;
+            skip: null;
+            distinct: null;
+    },
+    grace_findFirstChatMessageOrThrow: {
+            cursor: null;
+            take: null;
+            skip: null;
+            distinct: null;
+            where: null;
+            orderBy: null;
+    },
+    grace_findFirstPromptOrThrow: {
+            orderBy: null;
+            cursor: null;
+            take: null;
+            skip: null;
+            distinct: null;
+            where: null;
+    },
+    grace_findUniqueUser: {
+            where: null;
+    },
+    grace_findFirstUserOrThrow: {
             where: null;
             orderBy: null;
             cursor: null;
@@ -234,28 +249,8 @@ interface SourceFields {
     grace_findUniqueHistory: {
             where: null;
     },
-    grace_aggregateChatMessage: {
-            take: null;
-            skip: null;
+    grace_findUniquePrompt: {
             where: null;
-            orderBy: null;
-            cursor: null;
-    },
-    grace_findFirstHistory: {
-            skip: null;
-            distinct: null;
-            where: null;
-            orderBy: null;
-            cursor: null;
-            take: null;
-    },
-    grace_findFirstHistoryOrThrow: {
-            take: null;
-            skip: null;
-            distinct: null;
-            where: null;
-            orderBy: null;
-            cursor: null;
     },
     grace_findManyUser: {
             skip: null;
@@ -265,25 +260,30 @@ interface SourceFields {
             cursor: null;
             take: null;
     },
+    grace_aggregatePrompt: {
+            where: null;
+            orderBy: null;
+            cursor: null;
+            take: null;
+            skip: null;
+    },
+    grace_findUniqueHistoryOrThrow: {
+            where: null;
+    },
     grace_findUniqueUserOrThrow: {
             where: null;
     },
-    grace_findFirstUser: {
-            where: null;
-            orderBy: null;
-            cursor: null;
-            take: null;
-            skip: null;
-            distinct: null;
-    },
-    grace_aggregateUser: {
+    grace_aggregateHistory: {
             where: null;
             orderBy: null;
             cursor: null;
             take: null;
             skip: null;
     },
-    grace_groupByChatMessage: {
+    grace_findUniqueChatMessageOrThrow: {
+            where: null;
+    },
+    grace_groupByPrompt: {
             where: null;
             orderBy: null;
             by: null;
