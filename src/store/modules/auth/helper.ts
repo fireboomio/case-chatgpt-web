@@ -1,4 +1,4 @@
-const LOCAL_NAME = 'SECRET_TOKEN'
+// const LOCAL_NAME = 'SECRET_TOKEN'
 let _token: string | null
 
 export function getToken() {

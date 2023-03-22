@@ -3,14 +3,14 @@ interface Props {
   usingContext: boolean
 }
 
-interface Emit {
-  (ev: 'export'): void
-  (ev: 'toggleUsingContext'): void
-}
+// interface Emit {
+//   (ev: 'export'): void
+//   (ev: 'toggleUsingContext'): void
+// }
 
 defineProps<Props>()
 
-const emit = defineEmits<Emit>()
+// const emit = defineEmits<Emit>()
 </script>
 
 <template>

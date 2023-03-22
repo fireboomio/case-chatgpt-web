@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { WunderGraphUser } from "fireboom-wundersdk/server"
 export type Role = "admin" | "user"
 

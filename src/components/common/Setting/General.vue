@@ -5,14 +5,13 @@ import type { Language, Theme } from '@/store/modules/app/helper'
 import { SvgIcon } from '@/components/common'
 import { useAppStore, useUserStore } from '@/store'
 import type { UserInfo } from '@/store/modules/user/helper'
-import { useBasicLayout } from '@/hooks/useBasicLayout'
 import { t } from '@/locales'
 import client from '@/services'
 
 const appStore = useAppStore()
 const userStore = useUserStore()
 
-const { isMobile } = useBasicLayout()
+// const { isMobile } = useBasicLayout()
 
 const ms = useMessage()
 

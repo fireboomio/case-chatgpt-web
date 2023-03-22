@@ -1,5 +1,5 @@
+// @ts-nocheck
 import fetch from '@web-std/fetch';
-// import axios from 'axios'
 import { createOperation, z } from 'generated/fireboom.factory'
 
 function readChunks(reader: ReadableStreamDefaultReader<Uint8Array>) {

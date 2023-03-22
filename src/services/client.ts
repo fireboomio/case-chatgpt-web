@@ -1,3 +1,4 @@
+//@ts-nocheck
 import {
 	Client,
 	ClientConfig,
@@ -108,7 +109,7 @@ export const operationMetadata: OperationMetadata = {
     "Chat/ChatSSE": {
         requiresAuthentication: false
 		}
-    
+
 }
 
 export class WunderGraphClient extends Client {
@@ -160,31 +161,31 @@ export type Queries = {
         input: Chat__GetByHistoryInput
         data: Chat__GetByHistoryResponseData
         requiresAuthentication: true
-        
+
     }
     'History/GetList': {
         input?: undefined
         data: History__GetListResponseData
         requiresAuthentication: true
-        
+
     }
     'Propmt/GetList': {
         input: Propmt__GetListInput
         data: Propmt__GetListResponseData
         requiresAuthentication: true
-        
+
     }
     'User/GetOneUser': {
         input: User__GetOneUserInput
         data: User__GetOneUserResponseData
         requiresAuthentication: true
-        
+
     }
     'User/Me': {
         input?: undefined
         data: User__MeResponseData
         requiresAuthentication: true
-        
+
     }
 }
 

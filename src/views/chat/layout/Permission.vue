@@ -1,7 +1,6 @@
 <script setup lang='ts'>
 import { ref } from 'vue'
-import { NButton, NModal, useMessage } from 'naive-ui'
-import { useAuthStore } from '@/store'
+import { NButton, NModal } from 'naive-ui'
 import Icon403 from '@/icons/403.vue'
 import fbClient from '@/services'
 
@@ -11,23 +10,23 @@ interface Props {
 
 defineProps<Props>()
 
-const authStore = useAuthStore()
+// const authStore = useAuthStore()
 
-const ms = useMessage()
+// const ms = useMessage()
 
 const loading = ref(false)
-const token = ref('')
+// const token = ref('')
 
 async function handleVerify() {
   fbClient.login('authing')
 }
 
-function handlePress(event: KeyboardEvent) {
-  if (event.key === 'Enter' && !event.shiftKey) {
-    event.preventDefault()
-    handleVerify()
-  }
-}
+// function handlePress(event: KeyboardEvent) {
+//   if (event.key === 'Enter' && !event.shiftKey) {
+//     event.preventDefault()
+//     handleVerify()
+//   }
+// }
 </script>
 
 <template>
