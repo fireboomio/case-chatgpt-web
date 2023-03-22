@@ -1,12 +1,16 @@
 export async function* streamAPI<TSource extends Record<string, any> = any, TResponse = any>(url: string, {
   method = 'get',
   params,
+  controller,
 }: {
   method?: 'get' | 'post'
   params?: TSource
+  controller?: AbortController
 }) {
   const query = new URLSearchParams({ wg_sse: 'true' })
-  const config: RequestInit = {}
+  const config: RequestInit = {
+    signal: controller?.signal,
+  }
   if (method.toLowerCase() === 'get') {
     if (params)
       Object.keys(params).forEach(key => query.append(key, params[key]))

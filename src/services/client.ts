@@ -15,7 +15,7 @@ import {
 } from "fireboom-wundersdk/client";
 
 import type { CustomClaims, Role } from './claims'
-import type { Chat__CreateOneInput,Chat__CreateOneResponse,            Chat__CreateOneResponseData,Chat__DeleteOneInput,Chat__DeleteOneResponse,            Chat__DeleteOneResponseData,Chat__GetByHistoryInput,Chat__GetByHistoryResponse,            Chat__GetByHistoryResponseData,Chat__GetListResponse,            Chat__GetListResponseData,Chat__UpdateChatTextInput,Chat__UpdateChatTextResponse,            Chat__UpdateChatTextResponseData,History__CreateOneInput,History__CreateOneResponse,            History__CreateOneResponseData,History__DeleteOneInput,History__DeleteOneResponse,            History__DeleteOneResponseData,History__GetListResponse,            History__GetListResponseData,History__UpdateOneInput,History__UpdateOneResponse,            History__UpdateOneResponseData,Propmt__CreateOneInput,Propmt__CreateOneResponse,            Propmt__CreateOneResponseData,Propmt__DeleteManyInput,Propmt__DeleteManyResponse,            Propmt__DeleteManyResponseData,Propmt__DeleteOneInput,Propmt__DeleteOneResponse,            Propmt__DeleteOneResponseData,Propmt__GetListInput,Propmt__GetListResponse,            Propmt__GetListResponseData,Propmt__UpdateOneInput,Propmt__UpdateOneResponse,            Propmt__UpdateOneResponseData,User__CreateOneUserInput,User__CreateOneUserResponse,            User__CreateOneUserResponseData,User__GetOneUserInput,User__GetOneUserResponse,            User__GetOneUserResponseData,User__MeResponse,            User__MeResponseData,User__UpdateInfoInput,User__UpdateInfoResponse,            User__UpdateInfoResponseData,Chat__ChatSSEInput,Chat__ChatSSEResponse,Chat__ChatSSEResponseData, } from './models'
+import type { Chat__CreateOneInput,Chat__CreateOneResponse,            Chat__CreateOneResponseData,Chat__DeleteOneInput,Chat__DeleteOneResponse,            Chat__DeleteOneResponseData,Chat__GetByHistoryInput,Chat__GetByHistoryResponse,            Chat__GetByHistoryResponseData,Chat__UpdateChatTextInput,Chat__UpdateChatTextResponse,            Chat__UpdateChatTextResponseData,History__CreateOneInput,History__CreateOneResponse,            History__CreateOneResponseData,History__DeleteOneInput,History__DeleteOneResponse,            History__DeleteOneResponseData,History__GetListResponse,            History__GetListResponseData,History__UpdateOneInput,History__UpdateOneResponse,            History__UpdateOneResponseData,Propmt__CreateOneInput,Propmt__CreateOneResponse,            Propmt__CreateOneResponseData,Propmt__DeleteManyInput,Propmt__DeleteManyResponse,            Propmt__DeleteManyResponseData,Propmt__DeleteOneInput,Propmt__DeleteOneResponse,            Propmt__DeleteOneResponseData,Propmt__GetListInput,Propmt__GetListResponse,            Propmt__GetListResponseData,Propmt__UpdateOneInput,Propmt__UpdateOneResponse,            Propmt__UpdateOneResponseData,User__CreateOneUserInput,User__CreateOneUserResponse,            User__CreateOneUserResponseData,User__GetOneUserInput,User__GetOneUserResponse,            User__GetOneUserResponseData,User__MeResponse,            User__MeResponseData,User__UpdateInfoInput,User__UpdateInfoResponse,            User__UpdateInfoResponseData,Chat__ChatSSEInput,Chat__ChatSSEResponse,Chat__ChatSSEResponseData, } from './models'
 
 export const WUNDERGRAPH_S3_ENABLED = false
 export const WUNDERGRAPH_AUTH_ENABLED = true
@@ -31,7 +31,7 @@ export interface AuthProvider {
 }
 
 export const defaultClientConfig: ClientConfig = {
-    applicationHash: "443fb8bd",
+    applicationHash: "20075084",
     baseURL: "http://localhost:9991",
     sdkVersion: ""
 }
@@ -46,10 +46,6 @@ export const operationMetadata: OperationMetadata = {
 		}
     ,
     "Chat/GetByHistory": {
-        requiresAuthentication: true
-		}
-    ,
-    "Chat/GetList": {
         requiresAuthentication: true
 		}
     ,
@@ -163,12 +159,6 @@ export type Queries = {
     'Chat/GetByHistory': {
         input: Chat__GetByHistoryInput
         data: Chat__GetByHistoryResponseData
-        requiresAuthentication: true
-        
-    }
-    'Chat/GetList': {
-        input?: undefined
-        data: Chat__GetListResponseData
         requiresAuthentication: true
         
     }

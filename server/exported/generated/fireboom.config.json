@@ -1366,12 +1366,300 @@
       "fieldConfigurations": [
         {
           "typeName": "Query",
-          "fieldName": "grace_findUniqueChatMessageOrThrow",
+          "fieldName": "grace_findManyChatMessage",
           "disableDefaultFieldMapping": false,
           "path": [
-            "findUniqueChatMessageOrThrow"
+            "findManyChatMessage"
           ],
           "argumentsConfiguration": [
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "orderBy",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "cursor",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "take",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "skip",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "distinct",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "grace_findFirstUser",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "findFirstUser"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "orderBy",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "cursor",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "take",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "skip",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "distinct",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "grace_findManyUser",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "findManyUser"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "orderBy",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "cursor",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "take",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "skip",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "distinct",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "grace_User",
+          "fieldName": "Prompt",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "Prompt"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "orderBy",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "cursor",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "take",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "skip",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "distinct",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Mutation",
+          "fieldName": "grace_deleteManyUser",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "deleteManyUser"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Mutation",
+          "fieldName": "grace_createOneUser",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "createOneUser"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "data",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "grace_findUniquePrompt",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "findUniquePrompt"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Mutation",
+          "fieldName": "grace_createOneChatMessage",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "createOneChatMessage"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "data",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Mutation",
+          "fieldName": "grace_deleteOnePrompt",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "deleteOnePrompt"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Mutation",
+          "fieldName": "grace_updateOneUser",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "updateOneUser"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "data",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
             {
               "name": "where",
               "sourceType": 1,
@@ -1431,59 +1719,11 @@
           "unescapeResponseJson": false
         },
         {
-          "typeName": "Query",
-          "fieldName": "grace_findUniquePrompt",
+          "typeName": "grace_History",
+          "fieldName": "ChatMessage",
           "disableDefaultFieldMapping": false,
           "path": [
-            "findUniquePrompt"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Mutation",
-          "fieldName": "grace_upsertOneChatMessage",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "upsertOneChatMessage"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "create",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "update",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Query",
-          "fieldName": "grace_findManyChatMessage",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "findManyChatMessage"
+            "ChatMessage"
           ],
           "argumentsConfiguration": [
             {
@@ -1528,6 +1768,858 @@
         },
         {
           "typeName": "Query",
+          "fieldName": "grace_findUniqueChatMessageOrThrow",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "findUniqueChatMessageOrThrow"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "grace_findUniqueHistory",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "findUniqueHistory"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Mutation",
+          "fieldName": "grace_updateOneChatMessage",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "updateOneChatMessage"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "data",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "grace_User",
+          "fieldName": "History",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "History"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "orderBy",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "cursor",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "take",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "skip",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "distinct",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Mutation",
+          "fieldName": "grace_createOnePrompt",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "createOnePrompt"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "data",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Mutation",
+          "fieldName": "grace_updateOneHistory",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "updateOneHistory"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "data",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "grace_groupByUser",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "groupByUser"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "orderBy",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "by",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "having",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "take",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "skip",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Mutation",
+          "fieldName": "grace_deleteManyChatMessage",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "deleteManyChatMessage"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "grace_findUniquePromptOrThrow",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "findUniquePromptOrThrow"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "grace_findFirstHistoryOrThrow",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "findFirstHistoryOrThrow"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "orderBy",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "cursor",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "take",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "skip",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "distinct",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Mutation",
+          "fieldName": "grace_upsertOneChatMessage",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "upsertOneChatMessage"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "create",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "update",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "grace_findFirstHistory",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "findFirstHistory"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "orderBy",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "cursor",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "take",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "skip",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "distinct",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "grace_findUniqueUserOrThrow",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "findUniqueUserOrThrow"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "grace_findUniqueUser",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "findUniqueUser"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Mutation",
+          "fieldName": "grace_deleteOneChatMessage",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "deleteOneChatMessage"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Mutation",
+          "fieldName": "grace_updateManyHistory",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "updateManyHistory"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "data",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "grace_findUniqueHistoryOrThrow",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "findUniqueHistoryOrThrow"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "grace_groupByHistory",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "groupByHistory"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "orderBy",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "by",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "having",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "take",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "skip",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Mutation",
+          "fieldName": "grace_upsertOneHistory",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "upsertOneHistory"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "create",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "update",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "grace_findManyHistory",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "findManyHistory"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "orderBy",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "cursor",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "take",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "skip",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "distinct",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "grace_groupByPrompt",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "groupByPrompt"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "orderBy",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "by",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "having",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "take",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "skip",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Mutation",
+          "fieldName": "grace_createOneHistory",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "createOneHistory"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "data",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Mutation",
+          "fieldName": "grace_updateManyPrompt",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "updateManyPrompt"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "data",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Mutation",
+          "fieldName": "grace_deleteManyPrompt",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "deleteManyPrompt"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Mutation",
+          "fieldName": "grace_upsertOneUser",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "upsertOneUser"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "create",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "update",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "grace_findFirstChatMessageOrThrow",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "findFirstChatMessageOrThrow"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "orderBy",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "cursor",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "take",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "skip",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "distinct",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Mutation",
+          "fieldName": "grace_deleteOneHistory",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "deleteOneHistory"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Mutation",
+          "fieldName": "grace_updateManyChatMessage",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "updateManyChatMessage"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "data",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "grace_aggregateChatMessage",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "aggregateChatMessage"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "orderBy",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "cursor",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "take",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "skip",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
           "fieldName": "grace_findUniqueChatMessage",
           "disableDefaultFieldMapping": false,
           "path": [
@@ -1546,10 +2638,10 @@
         },
         {
           "typeName": "Query",
-          "fieldName": "grace_findManyUser",
+          "fieldName": "grace_findFirstUserOrThrow",
           "disableDefaultFieldMapping": false,
           "path": [
-            "findManyUser"
+            "findFirstUserOrThrow"
           ],
           "argumentsConfiguration": [
             {
@@ -1624,10 +2716,10 @@
         },
         {
           "typeName": "Query",
-          "fieldName": "grace_groupByPrompt",
+          "fieldName": "grace_groupByChatMessage",
           "disableDefaultFieldMapping": false,
           "path": [
-            "groupByPrompt"
+            "groupByChatMessage"
           ],
           "argumentsConfiguration": [
             {
@@ -1672,310 +2764,10 @@
         },
         {
           "typeName": "Mutation",
-          "fieldName": "grace_createOneUser",
+          "fieldName": "grace_deleteManyHistory",
           "disableDefaultFieldMapping": false,
           "path": [
-            "createOneUser"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "data",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Mutation",
-          "fieldName": "grace_upsertOneUser",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "upsertOneUser"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "create",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "update",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Mutation",
-          "fieldName": "grace_deleteOneUser",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "deleteOneUser"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Query",
-          "fieldName": "grace_findUniqueHistoryOrThrow",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "findUniqueHistoryOrThrow"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Query",
-          "fieldName": "grace_findFirstPrompt",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "findFirstPrompt"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "orderBy",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "cursor",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "take",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "skip",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "distinct",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Mutation",
-          "fieldName": "grace_updateManyHistory",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "updateManyHistory"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "data",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Mutation",
-          "fieldName": "grace_deleteOneChatMessage",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "deleteOneChatMessage"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Mutation",
-          "fieldName": "grace_deleteOnePrompt",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "deleteOnePrompt"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Mutation",
-          "fieldName": "grace_deleteManyUser",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "deleteManyUser"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Query",
-          "fieldName": "grace_aggregateHistory",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "aggregateHistory"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "orderBy",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "cursor",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "take",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "skip",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Query",
-          "fieldName": "grace_findFirstUserOrThrow",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "findFirstUserOrThrow"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "orderBy",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "cursor",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "take",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "skip",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "distinct",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Query",
-          "fieldName": "grace_findUniqueUserOrThrow",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "findUniqueUserOrThrow"
+            "deleteManyHistory"
           ],
           "argumentsConfiguration": [
             {
@@ -2038,192 +2830,6 @@
         },
         {
           "typeName": "Query",
-          "fieldName": "grace_groupByHistory",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "groupByHistory"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "orderBy",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "by",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "having",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "take",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "skip",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Query",
-          "fieldName": "grace_groupByUser",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "groupByUser"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "orderBy",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "by",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "having",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "take",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "skip",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Mutation",
-          "fieldName": "grace_updateOneHistory",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "updateOneHistory"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "data",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Mutation",
-          "fieldName": "grace_updateOneChatMessage",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "updateOneChatMessage"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "data",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Mutation",
-          "fieldName": "grace_updateManyChatMessage",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "updateManyChatMessage"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "data",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Mutation",
-          "fieldName": "grace_deleteManyPrompt",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "deleteManyPrompt"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Query",
           "fieldName": "grace_findFirstChatMessage",
           "disableDefaultFieldMapping": false,
           "path": [
@@ -2272,544 +2878,10 @@
         },
         {
           "typeName": "Query",
-          "fieldName": "grace_findManyPrompt",
+          "fieldName": "grace_findFirstPrompt",
           "disableDefaultFieldMapping": false,
           "path": [
-            "findManyPrompt"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "orderBy",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "cursor",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "take",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "skip",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "distinct",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Query",
-          "fieldName": "grace_findUniqueUser",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "findUniqueUser"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "grace_User",
-          "fieldName": "Prompt",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "Prompt"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "orderBy",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "cursor",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "take",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "skip",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "distinct",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Query",
-          "fieldName": "grace_findFirstHistoryOrThrow",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "findFirstHistoryOrThrow"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "orderBy",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "cursor",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "take",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "skip",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "distinct",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Query",
-          "fieldName": "grace_groupByChatMessage",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "groupByChatMessage"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "orderBy",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "by",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "having",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "take",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "skip",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Mutation",
-          "fieldName": "grace_updateManyPrompt",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "updateManyPrompt"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "data",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Query",
-          "fieldName": "grace_findUniquePromptOrThrow",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "findUniquePromptOrThrow"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Query",
-          "fieldName": "grace_findManyHistory",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "findManyHistory"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "orderBy",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "cursor",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "take",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "skip",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "distinct",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Query",
-          "fieldName": "grace_findUniqueHistory",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "findUniqueHistory"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Mutation",
-          "fieldName": "grace_updateOneUser",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "updateOneUser"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "data",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Query",
-          "fieldName": "grace_findFirstHistory",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "findFirstHistory"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "orderBy",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "cursor",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "take",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "skip",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "distinct",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Mutation",
-          "fieldName": "grace_createOneHistory",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "createOneHistory"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "data",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Mutation",
-          "fieldName": "grace_createOnePrompt",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "createOnePrompt"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "data",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "grace_User",
-          "fieldName": "History",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "History"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "orderBy",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "cursor",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "take",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "skip",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "distinct",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Query",
-          "fieldName": "grace_aggregateChatMessage",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "aggregateChatMessage"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "orderBy",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "cursor",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "take",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "skip",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Mutation",
-          "fieldName": "grace_deleteManyChatMessage",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "deleteManyChatMessage"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Query",
-          "fieldName": "grace_findFirstUser",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "findFirstUser"
+            "findFirstPrompt"
           ],
           "argumentsConfiguration": [
             {
@@ -2895,15 +2967,39 @@
           "unescapeResponseJson": false
         },
         {
-          "typeName": "Mutation",
-          "fieldName": "grace_createOneChatMessage",
+          "typeName": "Query",
+          "fieldName": "grace_aggregateHistory",
           "disableDefaultFieldMapping": false,
           "path": [
-            "createOneChatMessage"
+            "aggregateHistory"
           ],
           "argumentsConfiguration": [
             {
-              "name": "data",
+              "name": "where",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "orderBy",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "cursor",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "take",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            },
+            {
+              "name": "skip",
               "sourceType": 1,
               "sourcePath": [],
               "renderConfiguration": 0
@@ -2913,11 +3009,11 @@
           "unescapeResponseJson": false
         },
         {
-          "typeName": "grace_History",
-          "fieldName": "ChatMessage",
+          "typeName": "Query",
+          "fieldName": "grace_findManyPrompt",
           "disableDefaultFieldMapping": false,
           "path": [
-            "ChatMessage"
+            "findManyPrompt"
           ],
           "argumentsConfiguration": [
             {
@@ -2952,6 +3048,24 @@
             },
             {
               "name": "distinct",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0
+            }
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Mutation",
+          "fieldName": "grace_deleteOneUser",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "deleteOneUser"
+          ],
+          "argumentsConfiguration": [
+            {
+              "name": "where",
               "sourceType": 1,
               "sourcePath": [],
               "renderConfiguration": 0
@@ -2994,120 +3108,6 @@
             },
             {
               "name": "skip",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Mutation",
-          "fieldName": "grace_upsertOneHistory",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "upsertOneHistory"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "create",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "update",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Query",
-          "fieldName": "grace_findFirstChatMessageOrThrow",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "findFirstChatMessageOrThrow"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "orderBy",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "cursor",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "take",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "skip",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            },
-            {
-              "name": "distinct",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Mutation",
-          "fieldName": "grace_deleteManyHistory",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "deleteManyHistory"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "where",
-              "sourceType": 1,
-              "sourcePath": [],
-              "renderConfiguration": 0
-            }
-          ],
-          "requiresFields": [],
-          "unescapeResponseJson": false
-        },
-        {
-          "typeName": "Mutation",
-          "fieldName": "grace_deleteOneHistory",
-          "disableDefaultFieldMapping": false,
-          "path": [
-            "deleteOneHistory"
-          ],
-          "argumentsConfiguration": [
-            {
-              "name": "where",
               "sourceType": 1,
               "sourcePath": [],
               "renderConfiguration": 0
@@ -3483,292 +3483,56 @@
       "graphqlSchema": "type Query {\n  grace_findFirstChatMessage(where: grace_ChatMessageWhereInput, orderBy: [grace_ChatMessageOrderByWithRelationInput], cursor: grace_ChatMessageWhereUniqueInput, take: Int, skip: Int, distinct: [grace_ChatMessageScalarFieldEnum]): grace_ChatMessage\n  grace_findFirstChatMessageOrThrow(where: grace_ChatMessageWhereInput, orderBy: [grace_ChatMessageOrderByWithRelationInput], cursor: grace_ChatMessageWhereUniqueInput, take: Int, skip: Int, distinct: [grace_ChatMessageScalarFieldEnum]): grace_ChatMessage\n  grace_findManyChatMessage(where: grace_ChatMessageWhereInput, orderBy: [grace_ChatMessageOrderByWithRelationInput], cursor: grace_ChatMessageWhereUniqueInput, take: Int, skip: Int, distinct: [grace_ChatMessageScalarFieldEnum]): [grace_ChatMessage]!\n  grace_aggregateChatMessage(where: grace_ChatMessageWhereInput, orderBy: [grace_ChatMessageOrderByWithRelationInput], cursor: grace_ChatMessageWhereUniqueInput, take: Int, skip: Int): grace_AggregateChatMessage!\n  grace_groupByChatMessage(where: grace_ChatMessageWhereInput, orderBy: [grace_ChatMessageOrderByWithAggregationInput], by: [grace_ChatMessageScalarFieldEnum]!, having: grace_ChatMessageScalarWhereWithAggregatesInput, take: Int, skip: Int): [grace_ChatMessageGroupByOutputType]!\n  grace_findUniqueChatMessage(where: grace_ChatMessageWhereUniqueInput!): grace_ChatMessage\n  grace_findUniqueChatMessageOrThrow(where: grace_ChatMessageWhereUniqueInput!): grace_ChatMessage\n  grace_findFirstHistory(where: grace_HistoryWhereInput, orderBy: [grace_HistoryOrderByWithRelationInput], cursor: grace_HistoryWhereUniqueInput, take: Int, skip: Int, distinct: [grace_HistoryScalarFieldEnum]): grace_History\n  grace_findFirstHistoryOrThrow(where: grace_HistoryWhereInput, orderBy: [grace_HistoryOrderByWithRelationInput], cursor: grace_HistoryWhereUniqueInput, take: Int, skip: Int, distinct: [grace_HistoryScalarFieldEnum]): grace_History\n  grace_findManyHistory(where: grace_HistoryWhereInput, orderBy: [grace_HistoryOrderByWithRelationInput], cursor: grace_HistoryWhereUniqueInput, take: Int, skip: Int, distinct: [grace_HistoryScalarFieldEnum]): [grace_History]!\n  grace_aggregateHistory(where: grace_HistoryWhereInput, orderBy: [grace_HistoryOrderByWithRelationInput], cursor: grace_HistoryWhereUniqueInput, take: Int, skip: Int): grace_AggregateHistory!\n  grace_groupByHistory(where: grace_HistoryWhereInput, orderBy: [grace_HistoryOrderByWithAggregationInput], by: [grace_HistoryScalarFieldEnum]!, having: grace_HistoryScalarWhereWithAggregatesInput, take: Int, skip: Int): [grace_HistoryGroupByOutputType]!\n  grace_findUniqueHistory(where: grace_HistoryWhereUniqueInput!): grace_History\n  grace_findUniqueHistoryOrThrow(where: grace_HistoryWhereUniqueInput!): grace_History\n  grace_findFirstPrompt(where: grace_PromptWhereInput, orderBy: [grace_PromptOrderByWithRelationInput], cursor: grace_PromptWhereUniqueInput, take: Int, skip: Int, distinct: [grace_PromptScalarFieldEnum]): grace_Prompt\n  grace_findFirstPromptOrThrow(where: grace_PromptWhereInput, orderBy: [grace_PromptOrderByWithRelationInput], cursor: grace_PromptWhereUniqueInput, take: Int, skip: Int, distinct: [grace_PromptScalarFieldEnum]): grace_Prompt\n  grace_findManyPrompt(where: grace_PromptWhereInput, orderBy: [grace_PromptOrderByWithRelationInput], cursor: grace_PromptWhereUniqueInput, take: Int, skip: Int, distinct: [grace_PromptScalarFieldEnum]): [grace_Prompt]!\n  grace_aggregatePrompt(where: grace_PromptWhereInput, orderBy: [grace_PromptOrderByWithRelationInput], cursor: grace_PromptWhereUniqueInput, take: Int, skip: Int): grace_AggregatePrompt!\n  grace_groupByPrompt(where: grace_PromptWhereInput, orderBy: [grace_PromptOrderByWithAggregationInput], by: [grace_PromptScalarFieldEnum]!, having: grace_PromptScalarWhereWithAggregatesInput, take: Int, skip: Int): [grace_PromptGroupByOutputType]!\n  grace_findUniquePrompt(where: grace_PromptWhereUniqueInput!): grace_Prompt\n  grace_findUniquePromptOrThrow(where: grace_PromptWhereUniqueInput!): grace_Prompt\n  grace_findFirstUser(where: grace_UserWhereInput, orderBy: [grace_UserOrderByWithRelationInput], cursor: grace_UserWhereUniqueInput, take: Int, skip: Int, distinct: [grace_UserScalarFieldEnum]): grace_User\n  grace_findFirstUserOrThrow(where: grace_UserWhereInput, orderBy: [grace_UserOrderByWithRelationInput], cursor: grace_UserWhereUniqueInput, take: Int, skip: Int, distinct: [grace_UserScalarFieldEnum]): grace_User\n  grace_findManyUser(where: grace_UserWhereInput, orderBy: [grace_UserOrderByWithRelationInput], cursor: grace_UserWhereUniqueInput, take: Int, skip: Int, distinct: [grace_UserScalarFieldEnum]): [grace_User]!\n  grace_aggregateUser(where: grace_UserWhereInput, orderBy: [grace_UserOrderByWithRelationInput], cursor: grace_UserWhereUniqueInput, take: Int, skip: Int): grace_AggregateUser!\n  grace_groupByUser(where: grace_UserWhereInput, orderBy: [grace_UserOrderByWithAggregationInput], by: [grace_UserScalarFieldEnum]!, having: grace_UserScalarWhereWithAggregatesInput, take: Int, skip: Int): [grace_UserGroupByOutputType]!\n  grace_findUniqueUser(where: grace_UserWhereUniqueInput!): grace_User\n  grace_findUniqueUserOrThrow(where: grace_UserWhereUniqueInput!): grace_User\n}\n\ntype Mutation {\n  grace_createOneChatMessage(data: grace_ChatMessageCreateInput!): grace_ChatMessage\n  grace_upsertOneChatMessage(where: grace_ChatMessageWhereUniqueInput!, create: grace_ChatMessageCreateInput!, update: grace_ChatMessageUpdateInput!): grace_ChatMessage\n  grace_deleteOneChatMessage(where: grace_ChatMessageWhereUniqueInput!): grace_ChatMessage\n  grace_updateOneChatMessage(data: grace_ChatMessageUpdateInput!, where: grace_ChatMessageWhereUniqueInput!): grace_ChatMessage\n  grace_updateManyChatMessage(data: grace_ChatMessageUpdateManyMutationInput!, where: grace_ChatMessageWhereInput): grace_AffectedRowsOutput\n  grace_deleteManyChatMessage(where: grace_ChatMessageWhereInput): grace_AffectedRowsOutput\n  grace_createOneHistory(data: grace_HistoryCreateInput!): grace_History\n  grace_upsertOneHistory(where: grace_HistoryWhereUniqueInput!, create: grace_HistoryCreateInput!, update: grace_HistoryUpdateInput!): grace_History\n  grace_deleteOneHistory(where: grace_HistoryWhereUniqueInput!): grace_History\n  grace_updateOneHistory(data: grace_HistoryUpdateInput!, where: grace_HistoryWhereUniqueInput!): grace_History\n  grace_updateManyHistory(data: grace_HistoryUpdateManyMutationInput!, where: grace_HistoryWhereInput): grace_AffectedRowsOutput\n  grace_deleteManyHistory(where: grace_HistoryWhereInput): grace_AffectedRowsOutput\n  grace_createOnePrompt(data: grace_PromptCreateInput!): grace_Prompt\n  grace_upsertOnePrompt(where: grace_PromptWhereUniqueInput!, create: grace_PromptCreateInput!, update: grace_PromptUpdateInput!): grace_Prompt\n  grace_deleteOnePrompt(where: grace_PromptWhereUniqueInput!): grace_Prompt\n  grace_updateOnePrompt(data: grace_PromptUpdateInput!, where: grace_PromptWhereUniqueInput!): grace_Prompt\n  grace_updateManyPrompt(data: grace_PromptUpdateManyMutationInput!, where: grace_PromptWhereInput): grace_AffectedRowsOutput\n  grace_deleteManyPrompt(where: grace_PromptWhereInput): grace_AffectedRowsOutput\n  grace_createOneUser(data: grace_UserCreateInput!): grace_User\n  grace_upsertOneUser(where: grace_UserWhereUniqueInput!, create: grace_UserCreateInput!, update: grace_UserUpdateInput!): grace_User\n  grace_deleteOneUser(where: grace_UserWhereUniqueInput!): grace_User\n  grace_updateOneUser(data: grace_UserUpdateInput!, where: grace_UserWhereUniqueInput!): grace_User\n  grace_updateManyUser(data: grace_UserUpdateManyMutationInput!, where: grace_UserWhereInput): grace_AffectedRowsOutput\n  grace_deleteManyUser(where: grace_UserWhereInput): grace_AffectedRowsOutput\n}\n\nschema {\n  query: Query\n  mutation: Mutation\n}\n\ninput grace_NestedIntFilter {\n  equals: Int\n  in: [Int]\n  notIn: [Int]\n  lt: Int\n  lte: Int\n  gt: Int\n  gte: Int\n  not: grace_NestedIntFilter\n}\n\ninput grace_IntFilter {\n  equals: Int\n  in: [Int]\n  notIn: [Int]\n  lt: Int\n  lte: Int\n  gt: Int\n  gte: Int\n  not: grace_NestedIntFilter\n}\n\ninput grace_NestedStringFilter {\n  equals: String\n  in: [String]\n  notIn: [String]\n  lt: String\n  lte: String\n  gt: String\n  gte: String\n  contains: String\n  startsWith: String\n  endsWith: String\n  not: grace_NestedStringFilter\n}\n\ninput grace_StringFilter {\n  equals: String\n  in: [String]\n  notIn: [String]\n  lt: String\n  lte: String\n  gt: String\n  gte: String\n  contains: String\n  startsWith: String\n  endsWith: String\n  not: grace_NestedStringFilter\n}\n\ninput grace_NestedIntNullableFilter {\n  equals: Int\n  in: [Int]\n  notIn: [Int]\n  lt: Int\n  lte: Int\n  gt: Int\n  gte: Int\n  not: grace_NestedIntNullableFilter\n}\n\ninput grace_IntNullableFilter {\n  equals: Int\n  in: [Int]\n  notIn: [Int]\n  lt: Int\n  lte: Int\n  gt: Int\n  gte: Int\n  not: grace_NestedIntNullableFilter\n}\n\ninput grace_NestedDateTimeFilter {\n  equals: DateTime\n  in: [DateTime]\n  notIn: [DateTime]\n  lt: DateTime\n  lte: DateTime\n  gt: DateTime\n  gte: DateTime\n  not: grace_NestedDateTimeFilter\n}\n\ninput grace_DateTimeFilter {\n  equals: DateTime\n  in: [DateTime]\n  notIn: [DateTime]\n  lt: DateTime\n  lte: DateTime\n  gt: DateTime\n  gte: DateTime\n  not: grace_NestedDateTimeFilter\n}\n\ninput grace_NestedDateTimeNullableFilter {\n  equals: DateTime\n  in: [DateTime]\n  notIn: [DateTime]\n  lt: DateTime\n  lte: DateTime\n  gt: DateTime\n  gte: DateTime\n  not: grace_NestedDateTimeNullableFilter\n}\n\ninput grace_DateTimeNullableFilter {\n  equals: DateTime\n  in: [DateTime]\n  notIn: [DateTime]\n  lt: DateTime\n  lte: DateTime\n  gt: DateTime\n  gte: DateTime\n  not: grace_NestedDateTimeNullableFilter\n}\n\ninput grace_NestedStringNullableFilter {\n  equals: String\n  in: [String]\n  notIn: [String]\n  lt: String\n  lte: String\n  gt: String\n  gte: String\n  contains: String\n  startsWith: String\n  endsWith: String\n  not: grace_NestedStringNullableFilter\n}\n\ninput grace_StringNullableFilter {\n  equals: String\n  in: [String]\n  notIn: [String]\n  lt: String\n  lte: String\n  gt: String\n  gte: String\n  contains: String\n  startsWith: String\n  endsWith: String\n  not: grace_NestedStringNullableFilter\n}\n\ninput grace_HistoryListRelationFilter {\n  every: grace_HistoryWhereInput\n  some: grace_HistoryWhereInput\n  none: grace_HistoryWhereInput\n}\n\ninput grace_PromptWhereInput {\n  AND: grace_PromptWhereInput\n  OR: [grace_PromptWhereInput]\n  NOT: grace_PromptWhereInput\n  id: grace_IntFilter\n  prompt: grace_StringFilter\n  title: grace_StringFilter\n  userId: grace_StringFilter\n  createdAt: grace_DateTimeFilter\n  updatedAt: grace_DateTimeNullableFilter\n  User: grace_UserRelationFilter\n}\n\ninput grace_PromptListRelationFilter {\n  every: grace_PromptWhereInput\n  some: grace_PromptWhereInput\n  none: grace_PromptWhereInput\n}\n\ninput grace_UserWhereInput {\n  AND: grace_UserWhereInput\n  OR: [grace_UserWhereInput]\n  NOT: grace_UserWhereInput\n  id: grace_StringFilter\n  name: grace_StringFilter\n  avatar: grace_StringFilter\n  description: grace_StringNullableFilter\n  provider: grace_StringFilter\n  createdAt: grace_DateTimeFilter\n  providerId: grace_StringFilter\n  History: grace_HistoryListRelationFilter\n  Prompt: grace_PromptListRelationFilter\n}\n\ninput grace_UserRelationFilter {\n  is: grace_UserWhereInput\n  isNot: grace_UserWhereInput\n}\n\ninput grace_ChatMessageListRelationFilter {\n  every: grace_ChatMessageWhereInput\n  some: grace_ChatMessageWhereInput\n  none: grace_ChatMessageWhereInput\n}\n\ninput grace_HistoryWhereInput {\n  AND: grace_HistoryWhereInput\n  OR: [grace_HistoryWhereInput]\n  NOT: grace_HistoryWhereInput\n  id: grace_IntFilter\n  title: grace_StringFilter\n  createdAt: grace_DateTimeFilter\n  updatedAt: grace_DateTimeNullableFilter\n  userId: grace_StringFilter\n  User: grace_UserRelationFilter\n  ChatMessage: grace_ChatMessageListRelationFilter\n}\n\ninput grace_HistoryRelationFilter {\n  is: grace_HistoryWhereInput\n  isNot: grace_HistoryWhereInput\n}\n\ninput grace_ChatMessageWhereInput {\n  AND: grace_ChatMessageWhereInput\n  OR: [grace_ChatMessageWhereInput]\n  NOT: grace_ChatMessageWhereInput\n  id: grace_IntFilter\n  text: grace_StringFilter\n  parentMessageId: grace_IntNullableFilter\n  createdAt: grace_DateTimeFilter\n  chatId: grace_IntFilter\n  History: grace_HistoryRelationFilter\n}\n\nenum grace_SortOrder {\n  asc\n  desc\n}\n\ninput grace_HistoryOrderByRelationAggregateInput {\n  _count: grace_SortOrder\n}\n\ninput grace_PromptOrderByRelationAggregateInput {\n  _count: grace_SortOrder\n}\n\ninput grace_UserOrderByWithRelationInput {\n  id: grace_SortOrder\n  name: grace_SortOrder\n  avatar: grace_SortOrder\n  description: grace_SortOrder\n  provider: grace_SortOrder\n  createdAt: grace_SortOrder\n  providerId: grace_SortOrder\n  History: grace_HistoryOrderByRelationAggregateInput\n  Prompt: grace_PromptOrderByRelationAggregateInput\n}\n\ninput grace_ChatMessageOrderByRelationAggregateInput {\n  _count: grace_SortOrder\n}\n\ninput grace_HistoryOrderByWithRelationInput {\n  id: grace_SortOrder\n  title: grace_SortOrder\n  createdAt: grace_SortOrder\n  updatedAt: grace_SortOrder\n  userId: grace_SortOrder\n  User: grace_UserOrderByWithRelationInput\n  ChatMessage: grace_ChatMessageOrderByRelationAggregateInput\n}\n\ninput grace_ChatMessageOrderByWithRelationInput {\n  id: grace_SortOrder\n  text: grace_SortOrder\n  parentMessageId: grace_SortOrder\n  createdAt: grace_SortOrder\n  chatId: grace_SortOrder\n  History: grace_HistoryOrderByWithRelationInput\n}\n\ninput grace_ChatMessageWhereUniqueInput {\n  id: Int\n}\n\nenum grace_ChatMessageScalarFieldEnum {\n  id\n  text\n  parentMessageId\n  createdAt\n  chatId\n}\n\ninput grace_HistoryWhereUniqueInput {\n  id: Int\n}\n\nenum grace_HistoryScalarFieldEnum {\n  id\n  title\n  createdAt\n  updatedAt\n  userId\n}\n\ninput grace_PromptOrderByWithRelationInput {\n  id: grace_SortOrder\n  prompt: grace_SortOrder\n  title: grace_SortOrder\n  userId: grace_SortOrder\n  createdAt: grace_SortOrder\n  updatedAt: grace_SortOrder\n  User: grace_UserOrderByWithRelationInput\n}\n\ninput grace_PromptWhereUniqueInput {\n  id: Int\n}\n\nenum grace_PromptScalarFieldEnum {\n  id\n  prompt\n  title\n  userId\n  createdAt\n  updatedAt\n}\n\ntype grace_Prompt {\n  id: Int!\n  prompt: String!\n  title: String!\n  userId: String!\n  createdAt: DateTime!\n  updatedAt: DateTime\n  User: grace_User!\n  _join: Query!\n}\n\ntype grace_UserCountOutputType {\n  History: Int!\n  Prompt: Int!\n  _join: Query!\n}\n\ntype grace_User {\n  id: String!\n  name: String!\n  avatar: String!\n  description: String\n  provider: String!\n  createdAt: DateTime!\n  providerId: String!\n  History(where: grace_HistoryWhereInput, orderBy: [grace_HistoryOrderByWithRelationInput], cursor: grace_HistoryWhereUniqueInput, take: Int, skip: Int, distinct: [grace_HistoryScalarFieldEnum]): [grace_History]\n  Prompt(where: grace_PromptWhereInput, orderBy: [grace_PromptOrderByWithRelationInput], cursor: grace_PromptWhereUniqueInput, take: Int, skip: Int, distinct: [grace_PromptScalarFieldEnum]): [grace_Prompt]\n  _count: grace_UserCountOutputType!\n  _join: Query!\n}\n\ntype grace_HistoryCountOutputType {\n  ChatMessage: Int!\n  _join: Query!\n}\n\ntype grace_History {\n  id: Int!\n  title: String!\n  createdAt: DateTime!\n  updatedAt: DateTime\n  userId: String!\n  User: grace_User!\n  ChatMessage(where: grace_ChatMessageWhereInput, orderBy: [grace_ChatMessageOrderByWithRelationInput], cursor: grace_ChatMessageWhereUniqueInput, take: Int, skip: Int, distinct: [grace_ChatMessageScalarFieldEnum]): [grace_ChatMessage]\n  _count: grace_HistoryCountOutputType!\n  _join: Query!\n}\n\ntype grace_ChatMessage {\n  id: Int!\n  text: String!\n  parentMessageId: Int\n  createdAt: DateTime!\n  chatId: Int!\n  History: grace_History!\n  _join: Query!\n}\n\ntype grace_ChatMessageCountAggregateOutputType {\n  id: Int!\n  text: Int!\n  parentMessageId: Int!\n  createdAt: Int!\n  chatId: Int!\n  _all: Int!\n  _join: Query!\n}\n\ntype grace_ChatMessageAvgAggregateOutputType {\n  id: Float\n  parentMessageId: Float\n  chatId: Float\n  _join: Query!\n}\n\ntype grace_ChatMessageSumAggregateOutputType {\n  id: Int\n  parentMessageId: Int\n  chatId: Int\n  _join: Query!\n}\n\ntype grace_ChatMessageMinAggregateOutputType {\n  id: Int\n  text: String\n  parentMessageId: Int\n  createdAt: DateTime\n  chatId: Int\n  _join: Query!\n}\n\ntype grace_ChatMessageMaxAggregateOutputType {\n  id: Int\n  text: String\n  parentMessageId: Int\n  createdAt: DateTime\n  chatId: Int\n  _join: Query!\n}\n\ntype grace_AggregateChatMessage {\n  _count: grace_ChatMessageCountAggregateOutputType\n  _avg: grace_ChatMessageAvgAggregateOutputType\n  _sum: grace_ChatMessageSumAggregateOutputType\n  _min: grace_ChatMessageMinAggregateOutputType\n  _max: grace_ChatMessageMaxAggregateOutputType\n  _join: Query!\n}\n\ninput grace_ChatMessageCountOrderByAggregateInput {\n  id: grace_SortOrder\n  text: grace_SortOrder\n  parentMessageId: grace_SortOrder\n  createdAt: grace_SortOrder\n  chatId: grace_SortOrder\n}\n\ninput grace_ChatMessageAvgOrderByAggregateInput {\n  id: grace_SortOrder\n  parentMessageId: grace_SortOrder\n  chatId: grace_SortOrder\n}\n\ninput grace_ChatMessageMaxOrderByAggregateInput {\n  id: grace_SortOrder\n  text: grace_SortOrder\n  parentMessageId: grace_SortOrder\n  createdAt: grace_SortOrder\n  chatId: grace_SortOrder\n}\n\ninput grace_ChatMessageMinOrderByAggregateInput {\n  id: grace_SortOrder\n  text: grace_SortOrder\n  parentMessageId: grace_SortOrder\n  createdAt: grace_SortOrder\n  chatId: grace_SortOrder\n}\n\ninput grace_ChatMessageSumOrderByAggregateInput {\n  id: grace_SortOrder\n  parentMessageId: grace_SortOrder\n  chatId: grace_SortOrder\n}\n\ninput grace_ChatMessageOrderByWithAggregationInput {\n  id: grace_SortOrder\n  text: grace_SortOrder\n  parentMessageId: grace_SortOrder\n  createdAt: grace_SortOrder\n  chatId: grace_SortOrder\n  _count: grace_ChatMessageCountOrderByAggregateInput\n  _avg: grace_ChatMessageAvgOrderByAggregateInput\n  _max: grace_ChatMessageMaxOrderByAggregateInput\n  _min: grace_ChatMessageMinOrderByAggregateInput\n  _sum: grace_ChatMessageSumOrderByAggregateInput\n}\n\ninput grace_NestedFloatFilter {\n  equals: Float\n  in: [Float]\n  notIn: [Float]\n  lt: Float\n  lte: Float\n  gt: Float\n  gte: Float\n  not: grace_NestedFloatFilter\n}\n\ninput grace_NestedIntWithAggregatesFilter {\n  equals: Int\n  in: [Int]\n  notIn: [Int]\n  lt: Int\n  lte: Int\n  gt: Int\n  gte: Int\n  not: grace_NestedIntWithAggregatesFilter\n  _count: grace_NestedIntFilter\n  _avg: grace_NestedFloatFilter\n  _sum: grace_NestedIntFilter\n  _min: grace_NestedIntFilter\n  _max: grace_NestedIntFilter\n}\n\ninput grace_IntWithAggregatesFilter {\n  equals: Int\n  in: [Int]\n  notIn: [Int]\n  lt: Int\n  lte: Int\n  gt: Int\n  gte: Int\n  not: grace_NestedIntWithAggregatesFilter\n  _count: grace_NestedIntFilter\n  _avg: grace_NestedFloatFilter\n  _sum: grace_NestedIntFilter\n  _min: grace_NestedIntFilter\n  _max: grace_NestedIntFilter\n}\n\ninput grace_NestedStringWithAggregatesFilter {\n  equals: String\n  in: [String]\n  notIn: [String]\n  lt: String\n  lte: String\n  gt: String\n  gte: String\n  contains: String\n  startsWith: String\n  endsWith: String\n  not: grace_NestedStringWithAggregatesFilter\n  _count: grace_NestedIntFilter\n  _min: grace_NestedStringFilter\n  _max: grace_NestedStringFilter\n}\n\ninput grace_StringWithAggregatesFilter {\n  equals: String\n  in: [String]\n  notIn: [String]\n  lt: String\n  lte: String\n  gt: String\n  gte: String\n  contains: String\n  startsWith: String\n  endsWith: String\n  not: grace_NestedStringWithAggregatesFilter\n  _count: grace_NestedIntFilter\n  _min: grace_NestedStringFilter\n  _max: grace_NestedStringFilter\n}\n\ninput grace_NestedFloatNullableFilter {\n  equals: Float\n  in: [Float]\n  notIn: [Float]\n  lt: Float\n  lte: Float\n  gt: Float\n  gte: Float\n  not: grace_NestedFloatNullableFilter\n}\n\ninput grace_NestedIntNullableWithAggregatesFilter {\n  equals: Int\n  in: [Int]\n  notIn: [Int]\n  lt: Int\n  lte: Int\n  gt: Int\n  gte: Int\n  not: grace_NestedIntNullableWithAggregatesFilter\n  _count: grace_NestedIntNullableFilter\n  _avg: grace_NestedFloatNullableFilter\n  _sum: grace_NestedIntNullableFilter\n  _min: grace_NestedIntNullableFilter\n  _max: grace_NestedIntNullableFilter\n}\n\ninput grace_IntNullableWithAggregatesFilter {\n  equals: Int\n  in: [Int]\n  notIn: [Int]\n  lt: Int\n  lte: Int\n  gt: Int\n  gte: Int\n  not: grace_NestedIntNullableWithAggregatesFilter\n  _count: grace_NestedIntNullableFilter\n  _avg: grace_NestedFloatNullableFilter\n  _sum: grace_NestedIntNullableFilter\n  _min: grace_NestedIntNullableFilter\n  _max: grace_NestedIntNullableFilter\n}\n\ninput grace_NestedDateTimeWithAggregatesFilter {\n  equals: DateTime\n  in: [DateTime]\n  notIn: [DateTime]\n  lt: DateTime\n  lte: DateTime\n  gt: DateTime\n  gte: DateTime\n  not: grace_NestedDateTimeWithAggregatesFilter\n  _count: grace_NestedIntFilter\n  _min: grace_NestedDateTimeFilter\n  _max: grace_NestedDateTimeFilter\n}\n\ninput grace_DateTimeWithAggregatesFilter {\n  equals: DateTime\n  in: [DateTime]\n  notIn: [DateTime]\n  lt: DateTime\n  lte: DateTime\n  gt: DateTime\n  gte: DateTime\n  not: grace_NestedDateTimeWithAggregatesFilter\n  _count: grace_NestedIntFilter\n  _min: grace_NestedDateTimeFilter\n  _max: grace_NestedDateTimeFilter\n}\n\ninput grace_ChatMessageScalarWhereWithAggregatesInput {\n  AND: grace_ChatMessageScalarWhereWithAggregatesInput\n  OR: [grace_ChatMessageScalarWhereWithAggregatesInput]\n  NOT: grace_ChatMessageScalarWhereWithAggregatesInput\n  id: grace_IntWithAggregatesFilter\n  text: grace_StringWithAggregatesFilter\n  parentMessageId: grace_IntNullableWithAggregatesFilter\n  createdAt: grace_DateTimeWithAggregatesFilter\n  chatId: grace_IntWithAggregatesFilter\n}\n\ntype grace_ChatMessageGroupByOutputType {\n  id: Int!\n  text: String!\n  parentMessageId: Int\n  createdAt: DateTime!\n  chatId: Int!\n  _count: grace_ChatMessageCountAggregateOutputType\n  _avg: grace_ChatMessageAvgAggregateOutputType\n  _sum: grace_ChatMessageSumAggregateOutputType\n  _min: grace_ChatMessageMinAggregateOutputType\n  _max: grace_ChatMessageMaxAggregateOutputType\n  _join: Query!\n}\n\ntype grace_HistoryCountAggregateOutputType {\n  id: Int!\n  title: Int!\n  createdAt: Int!\n  updatedAt: Int!\n  userId: Int!\n  _all: Int!\n  _join: Query!\n}\n\ntype grace_HistoryAvgAggregateOutputType {\n  id: Float\n  _join: Query!\n}\n\ntype grace_HistorySumAggregateOutputType {\n  id: Int\n  _join: Query!\n}\n\ntype grace_HistoryMinAggregateOutputType {\n  id: Int\n  title: String\n  createdAt: DateTime\n  updatedAt: DateTime\n  userId: String\n  _join: Query!\n}\n\ntype grace_HistoryMaxAggregateOutputType {\n  id: Int\n  title: String\n  createdAt: DateTime\n  updatedAt: DateTime\n  userId: String\n  _join: Query!\n}\n\ntype grace_AggregateHistory {\n  _count: grace_HistoryCountAggregateOutputType\n  _avg: grace_HistoryAvgAggregateOutputType\n  _sum: grace_HistorySumAggregateOutputType\n  _min: grace_HistoryMinAggregateOutputType\n  _max: grace_HistoryMaxAggregateOutputType\n  _join: Query!\n}\n\ninput grace_HistoryCountOrderByAggregateInput {\n  id: grace_SortOrder\n  title: grace_SortOrder\n  createdAt: grace_SortOrder\n  updatedAt: grace_SortOrder\n  userId: grace_SortOrder\n}\n\ninput grace_HistoryAvgOrderByAggregateInput {\n  id: grace_SortOrder\n}\n\ninput grace_HistoryMaxOrderByAggregateInput {\n  id: grace_SortOrder\n  title: grace_SortOrder\n  createdAt: grace_SortOrder\n  updatedAt: grace_SortOrder\n  userId: grace_SortOrder\n}\n\ninput grace_HistoryMinOrderByAggregateInput {\n  id: grace_SortOrder\n  title: grace_SortOrder\n  createdAt: grace_SortOrder\n  updatedAt: grace_SortOrder\n  userId: grace_SortOrder\n}\n\ninput grace_HistorySumOrderByAggregateInput {\n  id: grace_SortOrder\n}\n\ninput grace_HistoryOrderByWithAggregationInput {\n  id: grace_SortOrder\n  title: grace_SortOrder\n  createdAt: grace_SortOrder\n  updatedAt: grace_SortOrder\n  userId: grace_SortOrder\n  _count: grace_HistoryCountOrderByAggregateInput\n  _avg: grace_HistoryAvgOrderByAggregateInput\n  _max: grace_HistoryMaxOrderByAggregateInput\n  _min: grace_HistoryMinOrderByAggregateInput\n  _sum: grace_HistorySumOrderByAggregateInput\n}\n\ninput grace_NestedDateTimeNullableWithAggregatesFilter {\n  equals: DateTime\n  in: [DateTime]\n  notIn: [DateTime]\n  lt: DateTime\n  lte: DateTime\n  gt: DateTime\n  gte: DateTime\n  not: grace_NestedDateTimeNullableWithAggregatesFilter\n  _count: grace_NestedIntNullableFilter\n  _min: grace_NestedDateTimeNullableFilter\n  _max: grace_NestedDateTimeNullableFilter\n}\n\ninput grace_DateTimeNullableWithAggregatesFilter {\n  equals: DateTime\n  in: [DateTime]\n  notIn: [DateTime]\n  lt: DateTime\n  lte: DateTime\n  gt: DateTime\n  gte: DateTime\n  not: grace_NestedDateTimeNullableWithAggregatesFilter\n  _count: grace_NestedIntNullableFilter\n  _min: grace_NestedDateTimeNullableFilter\n  _max: grace_NestedDateTimeNullableFilter\n}\n\ninput grace_HistoryScalarWhereWithAggregatesInput {\n  AND: grace_HistoryScalarWhereWithAggregatesInput\n  OR: [grace_HistoryScalarWhereWithAggregatesInput]\n  NOT: grace_HistoryScalarWhereWithAggregatesInput\n  id: grace_IntWithAggregatesFilter\n  title: grace_StringWithAggregatesFilter\n  createdAt: grace_DateTimeWithAggregatesFilter\n  updatedAt: grace_DateTimeNullableWithAggregatesFilter\n  userId: grace_StringWithAggregatesFilter\n}\n\ntype grace_HistoryGroupByOutputType {\n  id: Int!\n  title: String!\n  createdAt: DateTime!\n  updatedAt: DateTime\n  userId: String!\n  _count: grace_HistoryCountAggregateOutputType\n  _avg: grace_HistoryAvgAggregateOutputType\n  _sum: grace_HistorySumAggregateOutputType\n  _min: grace_HistoryMinAggregateOutputType\n  _max: grace_HistoryMaxAggregateOutputType\n  _join: Query!\n}\n\ntype grace_PromptCountAggregateOutputType {\n  id: Int!\n  prompt: Int!\n  title: Int!\n  userId: Int!\n  createdAt: Int!\n  updatedAt: Int!\n  _all: Int!\n  _join: Query!\n}\n\ntype grace_PromptAvgAggregateOutputType {\n  id: Float\n  _join: Query!\n}\n\ntype grace_PromptSumAggregateOutputType {\n  id: Int\n  _join: Query!\n}\n\ntype grace_PromptMinAggregateOutputType {\n  id: Int\n  prompt: String\n  title: String\n  userId: String\n  createdAt: DateTime\n  updatedAt: DateTime\n  _join: Query!\n}\n\ntype grace_PromptMaxAggregateOutputType {\n  id: Int\n  prompt: String\n  title: String\n  userId: String\n  createdAt: DateTime\n  updatedAt: DateTime\n  _join: Query!\n}\n\ntype grace_AggregatePrompt {\n  _count: grace_PromptCountAggregateOutputType\n  _avg: grace_PromptAvgAggregateOutputType\n  _sum: grace_PromptSumAggregateOutputType\n  _min: grace_PromptMinAggregateOutputType\n  _max: grace_PromptMaxAggregateOutputType\n  _join: Query!\n}\n\ninput grace_PromptCountOrderByAggregateInput {\n  id: grace_SortOrder\n  prompt: grace_SortOrder\n  title: grace_SortOrder\n  userId: grace_SortOrder\n  createdAt: grace_SortOrder\n  updatedAt: grace_SortOrder\n}\n\ninput grace_PromptAvgOrderByAggregateInput {\n  id: grace_SortOrder\n}\n\ninput grace_PromptMaxOrderByAggregateInput {\n  id: grace_SortOrder\n  prompt: grace_SortOrder\n  title: grace_SortOrder\n  userId: grace_SortOrder\n  createdAt: grace_SortOrder\n  updatedAt: grace_SortOrder\n}\n\ninput grace_PromptMinOrderByAggregateInput {\n  id: grace_SortOrder\n  prompt: grace_SortOrder\n  title: grace_SortOrder\n  userId: grace_SortOrder\n  createdAt: grace_SortOrder\n  updatedAt: grace_SortOrder\n}\n\ninput grace_PromptSumOrderByAggregateInput {\n  id: grace_SortOrder\n}\n\ninput grace_PromptOrderByWithAggregationInput {\n  id: grace_SortOrder\n  prompt: grace_SortOrder\n  title: grace_SortOrder\n  userId: grace_SortOrder\n  createdAt: grace_SortOrder\n  updatedAt: grace_SortOrder\n  _count: grace_PromptCountOrderByAggregateInput\n  _avg: grace_PromptAvgOrderByAggregateInput\n  _max: grace_PromptMaxOrderByAggregateInput\n  _min: grace_PromptMinOrderByAggregateInput\n  _sum: grace_PromptSumOrderByAggregateInput\n}\n\ninput grace_PromptScalarWhereWithAggregatesInput {\n  AND: grace_PromptScalarWhereWithAggregatesInput\n  OR: [grace_PromptScalarWhereWithAggregatesInput]\n  NOT: grace_PromptScalarWhereWithAggregatesInput\n  id: grace_IntWithAggregatesFilter\n  prompt: grace_StringWithAggregatesFilter\n  title: grace_StringWithAggregatesFilter\n  userId: grace_StringWithAggregatesFilter\n  createdAt: grace_DateTimeWithAggregatesFilter\n  updatedAt: grace_DateTimeNullableWithAggregatesFilter\n}\n\ntype grace_PromptGroupByOutputType {\n  id: Int!\n  prompt: String!\n  title: String!\n  userId: String!\n  createdAt: DateTime!\n  updatedAt: DateTime\n  _count: grace_PromptCountAggregateOutputType\n  _avg: grace_PromptAvgAggregateOutputType\n  _sum: grace_PromptSumAggregateOutputType\n  _min: grace_PromptMinAggregateOutputType\n  _max: grace_PromptMaxAggregateOutputType\n  _join: Query!\n}\n\ninput grace_UserWhereUniqueInput {\n  id: String\n}\n\nenum grace_UserScalarFieldEnum {\n  id\n  name\n  avatar\n  description\n  provider\n  createdAt\n  providerId\n}\n\ntype grace_UserCountAggregateOutputType {\n  id: Int!\n  name: Int!\n  avatar: Int!\n  description: Int!\n  provider: Int!\n  createdAt: Int!\n  providerId: Int!\n  _all: Int!\n  _join: Query!\n}\n\ntype grace_UserMinAggregateOutputType {\n  id: String\n  name: String\n  avatar: String\n  description: String\n  provider: String\n  createdAt: DateTime\n  providerId: String\n  _join: Query!\n}\n\ntype grace_UserMaxAggregateOutputType {\n  id: String\n  name: String\n  avatar: String\n  description: String\n  provider: String\n  createdAt: DateTime\n  providerId: String\n  _join: Query!\n}\n\ntype grace_AggregateUser {\n  _count: grace_UserCountAggregateOutputType\n  _min: grace_UserMinAggregateOutputType\n  _max: grace_UserMaxAggregateOutputType\n  _join: Query!\n}\n\ninput grace_UserCountOrderByAggregateInput {\n  id: grace_SortOrder\n  name: grace_SortOrder\n  avatar: grace_SortOrder\n  description: grace_SortOrder\n  provider: grace_SortOrder\n  createdAt: grace_SortOrder\n  providerId: grace_SortOrder\n}\n\ninput grace_UserMaxOrderByAggregateInput {\n  id: grace_SortOrder\n  name: grace_SortOrder\n  avatar: grace_SortOrder\n  description: grace_SortOrder\n  provider: grace_SortOrder\n  createdAt: grace_SortOrder\n  providerId: grace_SortOrder\n}\n\ninput grace_UserMinOrderByAggregateInput {\n  id: grace_SortOrder\n  name: grace_SortOrder\n  avatar: grace_SortOrder\n  description: grace_SortOrder\n  provider: grace_SortOrder\n  createdAt: grace_SortOrder\n  providerId: grace_SortOrder\n}\n\ninput grace_UserOrderByWithAggregationInput {\n  id: grace_SortOrder\n  name: grace_SortOrder\n  avatar: grace_SortOrder\n  description: grace_SortOrder\n  provider: grace_SortOrder\n  createdAt: grace_SortOrder\n  providerId: grace_SortOrder\n  _count: grace_UserCountOrderByAggregateInput\n  _max: grace_UserMaxOrderByAggregateInput\n  _min: grace_UserMinOrderByAggregateInput\n}\n\ninput grace_NestedStringNullableWithAggregatesFilter {\n  equals: String\n  in: [String]\n  notIn: [String]\n  lt: String\n  lte: String\n  gt: String\n  gte: String\n  contains: String\n  startsWith: String\n  endsWith: String\n  not: grace_NestedStringNullableWithAggregatesFilter\n  _count: grace_NestedIntNullableFilter\n  _min: grace_NestedStringNullableFilter\n  _max: grace_NestedStringNullableFilter\n}\n\ninput grace_StringNullableWithAggregatesFilter {\n  equals: String\n  in: [String]\n  notIn: [String]\n  lt: String\n  lte: String\n  gt: String\n  gte: String\n  contains: String\n  startsWith: String\n  endsWith: String\n  not: grace_NestedStringNullableWithAggregatesFilter\n  _count: grace_NestedIntNullableFilter\n  _min: grace_NestedStringNullableFilter\n  _max: grace_NestedStringNullableFilter\n}\n\ninput grace_UserScalarWhereWithAggregatesInput {\n  AND: grace_UserScalarWhereWithAggregatesInput\n  OR: [grace_UserScalarWhereWithAggregatesInput]\n  NOT: grace_UserScalarWhereWithAggregatesInput\n  id: grace_StringWithAggregatesFilter\n  name: grace_StringWithAggregatesFilter\n  avatar: grace_StringWithAggregatesFilter\n  description: grace_StringNullableWithAggregatesFilter\n  provider: grace_StringWithAggregatesFilter\n  createdAt: grace_DateTimeWithAggregatesFilter\n  providerId: grace_StringWithAggregatesFilter\n}\n\ntype grace_UserGroupByOutputType {\n  id: String!\n  name: String!\n  avatar: String!\n  description: String\n  provider: String!\n  createdAt: DateTime!\n  providerId: String!\n  _count: grace_UserCountAggregateOutputType\n  _min: grace_UserMinAggregateOutputType\n  _max: grace_UserMaxAggregateOutputType\n  _join: Query!\n}\n\ninput grace_PromptCreateWithoutUserInput {\n  prompt: String!\n  title: String!\n  createdAt: DateTime\n  updatedAt: DateTime\n}\n\ninput grace_PromptCreateOrConnectWithoutUserInput {\n  where: grace_PromptWhereUniqueInput!\n  create: grace_PromptCreateWithoutUserInput!\n}\n\ninput grace_PromptCreateNestedManyWithoutUserInput {\n  create: grace_PromptCreateWithoutUserInput\n  connectOrCreate: grace_PromptCreateOrConnectWithoutUserInput\n  connect: grace_PromptWhereUniqueInput\n}\n\ninput grace_UserCreateWithoutHistoryInput {\n  id: String!\n  name: String!\n  avatar: String!\n  description: String\n  provider: String!\n  createdAt: DateTime\n  providerId: String!\n  Prompt: grace_PromptCreateNestedManyWithoutUserInput\n}\n\ninput grace_UserCreateOrConnectWithoutHistoryInput {\n  where: grace_UserWhereUniqueInput!\n  create: grace_UserCreateWithoutHistoryInput!\n}\n\ninput grace_UserCreateNestedOneWithoutHistoryInput {\n  create: grace_UserCreateWithoutHistoryInput\n  connectOrCreate: grace_UserCreateOrConnectWithoutHistoryInput\n  connect: grace_UserWhereUniqueInput\n}\n\ninput grace_HistoryCreateWithoutChatMessageInput {\n  title: String!\n  createdAt: DateTime\n  updatedAt: DateTime\n  User: grace_UserCreateNestedOneWithoutHistoryInput!\n}\n\ninput grace_HistoryCreateOrConnectWithoutChatMessageInput {\n  where: grace_HistoryWhereUniqueInput!\n  create: grace_HistoryCreateWithoutChatMessageInput!\n}\n\ninput grace_HistoryCreateNestedOneWithoutChatMessageInput {\n  create: grace_HistoryCreateWithoutChatMessageInput\n  connectOrCreate: grace_HistoryCreateOrConnectWithoutChatMessageInput\n  connect: grace_HistoryWhereUniqueInput\n}\n\ninput grace_ChatMessageCreateInput {\n  text: String!\n  parentMessageId: Int\n  createdAt: DateTime\n  History: grace_HistoryCreateNestedOneWithoutChatMessageInput!\n}\n\ninput grace_StringFieldUpdateOperationsInput {\n  set: String\n}\n\ninput grace_NullableIntFieldUpdateOperationsInput {\n  set: Int\n  increment: Int\n  decrement: Int\n  multiply: Int\n  divide: Int\n}\n\ninput grace_DateTimeFieldUpdateOperationsInput {\n  set: DateTime\n}\n\ninput grace_NullableDateTimeFieldUpdateOperationsInput {\n  set: DateTime\n}\n\ninput grace_NullableStringFieldUpdateOperationsInput {\n  set: String\n}\n\ninput grace_PromptUpdateWithoutUserInput {\n  prompt: grace_StringFieldUpdateOperationsInput\n  title: grace_StringFieldUpdateOperationsInput\n  createdAt: grace_DateTimeFieldUpdateOperationsInput\n  updatedAt: grace_NullableDateTimeFieldUpdateOperationsInput\n}\n\ninput grace_PromptUpsertWithWhereUniqueWithoutUserInput {\n  where: grace_PromptWhereUniqueInput!\n  update: grace_PromptUpdateWithoutUserInput!\n  create: grace_PromptCreateWithoutUserInput!\n}\n\ninput grace_PromptUpdateWithWhereUniqueWithoutUserInput {\n  where: grace_PromptWhereUniqueInput!\n  data: grace_PromptUpdateWithoutUserInput!\n}\n\ninput grace_PromptScalarWhereInput {\n  AND: grace_PromptScalarWhereInput\n  OR: [grace_PromptScalarWhereInput]\n  NOT: grace_PromptScalarWhereInput\n  id: grace_IntFilter\n  prompt: grace_StringFilter\n  title: grace_StringFilter\n  userId: grace_StringFilter\n  createdAt: grace_DateTimeFilter\n  updatedAt: grace_DateTimeNullableFilter\n}\n\ninput grace_PromptUpdateManyMutationInput {\n  prompt: grace_StringFieldUpdateOperationsInput\n  title: grace_StringFieldUpdateOperationsInput\n  createdAt: grace_DateTimeFieldUpdateOperationsInput\n  updatedAt: grace_NullableDateTimeFieldUpdateOperationsInput\n}\n\ninput grace_PromptUpdateManyWithWhereWithoutUserInput {\n  where: grace_PromptScalarWhereInput!\n  data: grace_PromptUpdateManyMutationInput!\n}\n\ninput grace_PromptUpdateManyWithoutUserNestedInput {\n  create: grace_PromptCreateWithoutUserInput\n  connectOrCreate: grace_PromptCreateOrConnectWithoutUserInput\n  upsert: grace_PromptUpsertWithWhereUniqueWithoutUserInput\n  set: grace_PromptWhereUniqueInput\n  disconnect: grace_PromptWhereUniqueInput\n  delete: grace_PromptWhereUniqueInput\n  connect: grace_PromptWhereUniqueInput\n  update: grace_PromptUpdateWithWhereUniqueWithoutUserInput\n  updateMany: grace_PromptUpdateManyWithWhereWithoutUserInput\n  deleteMany: grace_PromptScalarWhereInput\n}\n\ninput grace_UserUpdateWithoutHistoryInput {\n  id: grace_StringFieldUpdateOperationsInput\n  name: grace_StringFieldUpdateOperationsInput\n  avatar: grace_StringFieldUpdateOperationsInput\n  description: grace_NullableStringFieldUpdateOperationsInput\n  provider: grace_StringFieldUpdateOperationsInput\n  createdAt: grace_DateTimeFieldUpdateOperationsInput\n  providerId: grace_StringFieldUpdateOperationsInput\n  Prompt: grace_PromptUpdateManyWithoutUserNestedInput\n}\n\ninput grace_UserUpsertWithoutHistoryInput {\n  update: grace_UserUpdateWithoutHistoryInput!\n  create: grace_UserCreateWithoutHistoryInput!\n}\n\ninput grace_UserUpdateOneRequiredWithoutHistoryNestedInput {\n  create: grace_UserCreateWithoutHistoryInput\n  connectOrCreate: grace_UserCreateOrConnectWithoutHistoryInput\n  upsert: grace_UserUpsertWithoutHistoryInput\n  connect: grace_UserWhereUniqueInput\n  update: grace_UserUpdateWithoutHistoryInput\n}\n\ninput grace_HistoryUpdateWithoutChatMessageInput {\n  title: grace_StringFieldUpdateOperationsInput\n  createdAt: grace_DateTimeFieldUpdateOperationsInput\n  updatedAt: grace_NullableDateTimeFieldUpdateOperationsInput\n  User: grace_UserUpdateOneRequiredWithoutHistoryNestedInput\n}\n\ninput grace_HistoryUpsertWithoutChatMessageInput {\n  update: grace_HistoryUpdateWithoutChatMessageInput!\n  create: grace_HistoryCreateWithoutChatMessageInput!\n}\n\ninput grace_HistoryUpdateOneRequiredWithoutChatMessageNestedInput {\n  create: grace_HistoryCreateWithoutChatMessageInput\n  connectOrCreate: grace_HistoryCreateOrConnectWithoutChatMessageInput\n  upsert: grace_HistoryUpsertWithoutChatMessageInput\n  connect: grace_HistoryWhereUniqueInput\n  update: grace_HistoryUpdateWithoutChatMessageInput\n}\n\ninput grace_ChatMessageUpdateInput {\n  text: grace_StringFieldUpdateOperationsInput\n  parentMessageId: grace_NullableIntFieldUpdateOperationsInput\n  createdAt: grace_DateTimeFieldUpdateOperationsInput\n  History: grace_HistoryUpdateOneRequiredWithoutChatMessageNestedInput\n}\n\ninput grace_ChatMessageUpdateManyMutationInput {\n  text: grace_StringFieldUpdateOperationsInput\n  parentMessageId: grace_NullableIntFieldUpdateOperationsInput\n  createdAt: grace_DateTimeFieldUpdateOperationsInput\n}\n\ntype grace_AffectedRowsOutput {\n  count: Int!\n  _join: Query!\n}\n\ninput grace_ChatMessageCreateWithoutHistoryInput {\n  text: String!\n  parentMessageId: Int\n  createdAt: DateTime\n}\n\ninput grace_ChatMessageCreateOrConnectWithoutHistoryInput {\n  where: grace_ChatMessageWhereUniqueInput!\n  create: grace_ChatMessageCreateWithoutHistoryInput!\n}\n\ninput grace_ChatMessageCreateNestedManyWithoutHistoryInput {\n  create: grace_ChatMessageCreateWithoutHistoryInput\n  connectOrCreate: grace_ChatMessageCreateOrConnectWithoutHistoryInput\n  connect: grace_ChatMessageWhereUniqueInput\n}\n\ninput grace_HistoryCreateInput {\n  title: String!\n  createdAt: DateTime\n  updatedAt: DateTime\n  User: grace_UserCreateNestedOneWithoutHistoryInput!\n  ChatMessage: grace_ChatMessageCreateNestedManyWithoutHistoryInput\n}\n\ninput grace_ChatMessageUpdateWithoutHistoryInput {\n  text: grace_StringFieldUpdateOperationsInput\n  parentMessageId: grace_NullableIntFieldUpdateOperationsInput\n  createdAt: grace_DateTimeFieldUpdateOperationsInput\n}\n\ninput grace_ChatMessageUpsertWithWhereUniqueWithoutHistoryInput {\n  where: grace_ChatMessageWhereUniqueInput!\n  update: grace_ChatMessageUpdateWithoutHistoryInput!\n  create: grace_ChatMessageCreateWithoutHistoryInput!\n}\n\ninput grace_ChatMessageUpdateWithWhereUniqueWithoutHistoryInput {\n  where: grace_ChatMessageWhereUniqueInput!\n  data: grace_ChatMessageUpdateWithoutHistoryInput!\n}\n\ninput grace_ChatMessageScalarWhereInput {\n  AND: grace_ChatMessageScalarWhereInput\n  OR: [grace_ChatMessageScalarWhereInput]\n  NOT: grace_ChatMessageScalarWhereInput\n  id: grace_IntFilter\n  text: grace_StringFilter\n  parentMessageId: grace_IntNullableFilter\n  createdAt: grace_DateTimeFilter\n  chatId: grace_IntFilter\n}\n\ninput grace_ChatMessageUpdateManyWithWhereWithoutHistoryInput {\n  where: grace_ChatMessageScalarWhereInput!\n  data: grace_ChatMessageUpdateManyMutationInput!\n}\n\ninput grace_ChatMessageUpdateManyWithoutHistoryNestedInput {\n  create: grace_ChatMessageCreateWithoutHistoryInput\n  connectOrCreate: grace_ChatMessageCreateOrConnectWithoutHistoryInput\n  upsert: grace_ChatMessageUpsertWithWhereUniqueWithoutHistoryInput\n  set: grace_ChatMessageWhereUniqueInput\n  disconnect: grace_ChatMessageWhereUniqueInput\n  delete: grace_ChatMessageWhereUniqueInput\n  connect: grace_ChatMessageWhereUniqueInput\n  update: grace_ChatMessageUpdateWithWhereUniqueWithoutHistoryInput\n  updateMany: grace_ChatMessageUpdateManyWithWhereWithoutHistoryInput\n  deleteMany: grace_ChatMessageScalarWhereInput\n}\n\ninput grace_HistoryUpdateInput {\n  title: grace_StringFieldUpdateOperationsInput\n  createdAt: grace_DateTimeFieldUpdateOperationsInput\n  updatedAt: grace_NullableDateTimeFieldUpdateOperationsInput\n  User: grace_UserUpdateOneRequiredWithoutHistoryNestedInput\n  ChatMessage: grace_ChatMessageUpdateManyWithoutHistoryNestedInput\n}\n\ninput grace_HistoryUpdateManyMutationInput {\n  title: grace_StringFieldUpdateOperationsInput\n  createdAt: grace_DateTimeFieldUpdateOperationsInput\n  updatedAt: grace_NullableDateTimeFieldUpdateOperationsInput\n}\n\ninput grace_HistoryCreateWithoutUserInput {\n  title: String!\n  createdAt: DateTime\n  updatedAt: DateTime\n  ChatMessage: grace_ChatMessageCreateNestedManyWithoutHistoryInput\n}\n\ninput grace_HistoryCreateOrConnectWithoutUserInput {\n  where: grace_HistoryWhereUniqueInput!\n  create: grace_HistoryCreateWithoutUserInput!\n}\n\ninput grace_HistoryCreateNestedManyWithoutUserInput {\n  create: grace_HistoryCreateWithoutUserInput\n  connectOrCreate: grace_HistoryCreateOrConnectWithoutUserInput\n  connect: grace_HistoryWhereUniqueInput\n}\n\ninput grace_UserCreateWithoutPromptInput {\n  id: String!\n  name: String!\n  avatar: String!\n  description: String\n  provider: String!\n  createdAt: DateTime\n  providerId: String!\n  History: grace_HistoryCreateNestedManyWithoutUserInput\n}\n\ninput grace_UserCreateOrConnectWithoutPromptInput {\n  where: grace_UserWhereUniqueInput!\n  create: grace_UserCreateWithoutPromptInput!\n}\n\ninput grace_UserCreateNestedOneWithoutPromptInput {\n  create: grace_UserCreateWithoutPromptInput\n  connectOrCreate: grace_UserCreateOrConnectWithoutPromptInput\n  connect: grace_UserWhereUniqueInput\n}\n\ninput grace_PromptCreateInput {\n  prompt: String!\n  title: String!\n  createdAt: DateTime\n  updatedAt: DateTime\n  User: grace_UserCreateNestedOneWithoutPromptInput!\n}\n\ninput grace_HistoryUpdateWithoutUserInput {\n  title: grace_StringFieldUpdateOperationsInput\n  createdAt: grace_DateTimeFieldUpdateOperationsInput\n  updatedAt: grace_NullableDateTimeFieldUpdateOperationsInput\n  ChatMessage: grace_ChatMessageUpdateManyWithoutHistoryNestedInput\n}\n\ninput grace_HistoryUpsertWithWhereUniqueWithoutUserInput {\n  where: grace_HistoryWhereUniqueInput!\n  update: grace_HistoryUpdateWithoutUserInput!\n  create: grace_HistoryCreateWithoutUserInput!\n}\n\ninput grace_HistoryUpdateWithWhereUniqueWithoutUserInput {\n  where: grace_HistoryWhereUniqueInput!\n  data: grace_HistoryUpdateWithoutUserInput!\n}\n\ninput grace_HistoryScalarWhereInput {\n  AND: grace_HistoryScalarWhereInput\n  OR: [grace_HistoryScalarWhereInput]\n  NOT: grace_HistoryScalarWhereInput\n  id: grace_IntFilter\n  title: grace_StringFilter\n  createdAt: grace_DateTimeFilter\n  updatedAt: grace_DateTimeNullableFilter\n  userId: grace_StringFilter\n}\n\ninput grace_HistoryUpdateManyWithWhereWithoutUserInput {\n  where: grace_HistoryScalarWhereInput!\n  data: grace_HistoryUpdateManyMutationInput!\n}\n\ninput grace_HistoryUpdateManyWithoutUserNestedInput {\n  create: grace_HistoryCreateWithoutUserInput\n  connectOrCreate: grace_HistoryCreateOrConnectWithoutUserInput\n  upsert: grace_HistoryUpsertWithWhereUniqueWithoutUserInput\n  set: grace_HistoryWhereUniqueInput\n  disconnect: grace_HistoryWhereUniqueInput\n  delete: grace_HistoryWhereUniqueInput\n  connect: grace_HistoryWhereUniqueInput\n  update: grace_HistoryUpdateWithWhereUniqueWithoutUserInput\n  updateMany: grace_HistoryUpdateManyWithWhereWithoutUserInput\n  deleteMany: grace_HistoryScalarWhereInput\n}\n\ninput grace_UserUpdateWithoutPromptInput {\n  id: grace_StringFieldUpdateOperationsInput\n  name: grace_StringFieldUpdateOperationsInput\n  avatar: grace_StringFieldUpdateOperationsInput\n  description: grace_NullableStringFieldUpdateOperationsInput\n  provider: grace_StringFieldUpdateOperationsInput\n  createdAt: grace_DateTimeFieldUpdateOperationsInput\n  providerId: grace_StringFieldUpdateOperationsInput\n  History: grace_HistoryUpdateManyWithoutUserNestedInput\n}\n\ninput grace_UserUpsertWithoutPromptInput {\n  update: grace_UserUpdateWithoutPromptInput!\n  create: grace_UserCreateWithoutPromptInput!\n}\n\ninput grace_UserUpdateOneRequiredWithoutPromptNestedInput {\n  create: grace_UserCreateWithoutPromptInput\n  connectOrCreate: grace_UserCreateOrConnectWithoutPromptInput\n  upsert: grace_UserUpsertWithoutPromptInput\n  connect: grace_UserWhereUniqueInput\n  update: grace_UserUpdateWithoutPromptInput\n}\n\ninput grace_PromptUpdateInput {\n  prompt: grace_StringFieldUpdateOperationsInput\n  title: grace_StringFieldUpdateOperationsInput\n  createdAt: grace_DateTimeFieldUpdateOperationsInput\n  updatedAt: grace_NullableDateTimeFieldUpdateOperationsInput\n  User: grace_UserUpdateOneRequiredWithoutPromptNestedInput\n}\n\ninput grace_UserCreateInput {\n  id: String!\n  name: String!\n  avatar: String!\n  description: String\n  provider: String!\n  createdAt: DateTime\n  providerId: String!\n  History: grace_HistoryCreateNestedManyWithoutUserInput\n  Prompt: grace_PromptCreateNestedManyWithoutUserInput\n}\n\ninput grace_UserUpdateInput {\n  id: grace_StringFieldUpdateOperationsInput\n  name: grace_StringFieldUpdateOperationsInput\n  avatar: grace_StringFieldUpdateOperationsInput\n  description: grace_NullableStringFieldUpdateOperationsInput\n  provider: grace_StringFieldUpdateOperationsInput\n  createdAt: grace_DateTimeFieldUpdateOperationsInput\n  providerId: grace_StringFieldUpdateOperationsInput\n  History: grace_HistoryUpdateManyWithoutUserNestedInput\n  Prompt: grace_PromptUpdateManyWithoutUserNestedInput\n}\n\ninput grace_UserUpdateManyMutationInput {\n  id: grace_StringFieldUpdateOperationsInput\n  name: grace_StringFieldUpdateOperationsInput\n  avatar: grace_StringFieldUpdateOperationsInput\n  description: grace_NullableStringFieldUpdateOperationsInput\n  provider: grace_StringFieldUpdateOperationsInput\n  createdAt: grace_DateTimeFieldUpdateOperationsInput\n  providerId: grace_StringFieldUpdateOperationsInput\n}\n\nscalar DateTime\n\nscalar grace_Json\n\nscalar UUID\n\nscalar BigInt\n\nscalar grace_Decimal\n\nscalar grace_Bytes\n\ndirective @rbac(\n  \n  \"\"\"the user must match all roles\"\"\"\n  requireMatchAll: [WG_ROLE]\n  \n  \"\"\"the user must match at least one of the roles\"\"\"\n  requireMatchAny: [WG_ROLE]\n  \n  \"\"\"the user must not match all of the roles\"\"\"\n  denyMatchAll: [WG_ROLE]\n  \n  \"\"\"the user must not match any of the roles\"\"\"\n  denyMatchAny: [WG_ROLE]\n) on QUERY | MUTATION | SUBSCRIPTION\n\nenum WG_ROLE {\n  admin\n  user\n}\n\ndirective @fromClaim(name: Claim) on VARIABLE_DEFINITION\n\nenum Claim {\n  USERID\n  EMAIL\n  EMAIL_VERIFIED\n  NAME\n  NICKNAME\n  LOCATION\n  PROVIDER\n}\n\ndirective @hooksVariable on VARIABLE_DEFINITION\n\ndirective @jsonSchema(\n  \n  \"\"\"\n  The value of both of these keywords MUST be a string.\n  \n  Both of these keywords can be used to decorate a user interface with\n  information about the data produced by this user interface.  A title\n  will preferably be short, whereas a description will provide\n  explanation about the purpose of the instance described by this\n  schema.\n  \"\"\"\n  title: String\n  \n  \"\"\"\n  The value of both of these keywords MUST be a string.\n  \n  Both of these keywords can be used to decorate a user interface with\n  information about the data produced by this user interface.  A title\n  will preferably be short, whereas a description will provide\n  explanation about the purpose of the instance described by this\n  schema.\n  \"\"\"\n  description: String\n  \n  \"\"\"\n  The value of \"multipleOf\" MUST be a number, strictly greater than 0.\n  \n  A numeric instance is valid only if division by this keyword's value\n  results in an integer.\n  \"\"\"\n  multipleOf: Int\n  \n  \"\"\"\n  The value of \"maximum\" MUST be a number, representing an inclusive\n  upper limit for a numeric instance.\n  \n  If the instance is a number, then this keyword validates only if the\n  instance is less than or exactly equal to \"maximum\".\n  \"\"\"\n  maximum: Int\n  \n  \"\"\"\n  The value of \"exclusiveMaximum\" MUST be number, representing an\n  exclusive upper limit for a numeric instance.\n  \n  If the instance is a number, then the instance is valid only if it\n  has a value strictly less than (not equal to) \"exclusiveMaximum\".\n  \"\"\"\n  exclusiveMaximum: Int\n  \n  \"\"\"\n  The value of \"minimum\" MUST be a number, representing an inclusive\n  lower limit for a numeric instance.\n  \n  If the instance is a number, then this keyword validates only if the\n  instance is greater than or exactly equal to \"minimum\".\n  \"\"\"\n  minimum: Int\n  \n  \"\"\"\n  The value of \"exclusiveMinimum\" MUST be number, representing an\n  exclusive lower limit for a numeric instance.\n  \n  If the instance is a number, then the instance is valid only if it\n  has a value strictly greater than (not equal to) \"exclusiveMinimum\".\n  \"\"\"\n  exclusiveMinimum: Int\n  \n  \"\"\"\n  The value of this keyword MUST be a non-negative integer.\n  \n  A string instance is valid against this keyword if its length is less\n  than, or equal to, the value of this keyword.\n  \n  The length of a string instance is defined as the number of its\n  characters as defined by RFC 7159 [RFC7159].\n  \"\"\"\n  maxLength: Int\n  \n  \"\"\"\n  The value of this keyword MUST be a non-negative integer.\n  \n  A string instance is valid against this keyword if its length is\n  greater than, or equal to, the value of this keyword.\n  \n  The length of a string instance is defined as the number of its\n  characters as defined by RFC 7159 [RFC7159].\n  \n  Omitting this keyword has the same behavior as a value of 0.\n  \"\"\"\n  minLength: Int\n  \n  \"\"\"\n  The value of this keyword MUST be a string.  This string SHOULD be a\n  valid regular expression, according to the ECMA 262 regular\n  expression dialect.\n  \n  A string instance is considered valid if the regular expression\n  matches the instance successfully.  Recall: regular expressions are\n  not implicitly anchored.\n  \"\"\"\n  pattern: String\n  \n  \"\"\"\n  The value of this keyword MUST be a non-negative integer.\n  \n  An array instance is valid against \"maxItems\" if its size is less\n  than, or equal to, the value of this keyword.\n  \"\"\"\n  maxItems: Int\n  \n  \"\"\"\n  The value of this keyword MUST be a non-negative integer.\n  \n  An array instance is valid against \"minItems\" if its size is greater\n  than, or equal to, the value of this keyword.\n  \n  Omitting this keyword has the same behavior as a value of 0.\n  \"\"\"\n  minItems: Int\n  \n  \"\"\"\n  The value of this keyword MUST be a boolean.\n  \n  If this keyword has boolean value false, the instance validates\n  successfully.  If it has boolean value true, the instance validates\n  successfully if all of its elements are unique.\n  \n  Omitting this keyword has the same behavior as a value of false.\n  \"\"\"\n  uniqueItems: Boolean\n  commonPattern: COMMON_REGEX_PATTERN\n) on VARIABLE_DEFINITION\n\nenum COMMON_REGEX_PATTERN {\n  EMAIL\n  DOMAIN\n}\n\n\"\"\"\nThe directive @injectCurrentDateTime injects a DateTime string of the current date and time into the variable.\nThis variable MUST be a string compatible scalar. \n\nThe default format, is: ISO 8601\nIf no format is chosen, the default format is used.\nCustom formats are allowed by specifying a format conforming to the Golang specification for specifying a date time format.\n\"\"\"\ndirective @injectCurrentDateTime(\n  format: WunderGraphDateTimeFormat = ISO8601\n  \n  \"\"\"customFormat must conform to the Golang specification for specifying a date time format\"\"\"\n  customFormat: String\n) on VARIABLE_DEFINITION\n\nenum WunderGraphDateTimeFormat {\n  \n  \"\"\"2006-01-02T15:04:05-0700\"\"\"\n  ISO8601\n  \n  \"\"\"Mon Jan _2 15:04:05 2006\"\"\"\n  ANSIC\n  \n  \"\"\"Mon Jan _2 15:04:05 MST 2006\"\"\"\n  UnixDate\n  \n  \"\"\"Mon Jan 02 15:04:05 -0700 2006\"\"\"\n  RubyDate\n  \n  \"\"\"02 Jan 06 15:04 MST\"\"\"\n  RFC822\n  \n  \"\"\"02 Jan 06 15:04 -0700\"\"\"\n  RFC822Z\n  \n  \"\"\"Monday, 02-Jan-06 15:04:05 MST\"\"\"\n  RFC850\n  \n  \"\"\"Mon, 02 Jan 2006 15:04:05 MST\"\"\"\n  RFC1123\n  \n  \"\"\"Mon, 02 Jan 2006 15:04:05 -0700\"\"\"\n  RFC1123Z\n  \n  \"\"\"2006-01-02T15:04:05Z07:00\"\"\"\n  RFC3339\n  \n  \"\"\"2006-01-02T15:04:05.999999999Z07:00\"\"\"\n  RFC3339Nano\n  \n  \"\"\"3:04PM\"\"\"\n  Kitchen\n  \n  \"\"\"Jan _2 15:04:05\"\"\"\n  Stamp\n  \n  \"\"\"Jan _2 15:04:05.000\"\"\"\n  StampMilli\n  \n  \"\"\"Jan _2 15:04:05.000000\"\"\"\n  StampMicro\n  \n  \"\"\"Jan _2 15:04:05.000000000\"\"\"\n  StampNano\n}\n\n\"\"\"\nThe directive @injectGeneratedUUID injects a generated UUID into the variable.\nThis variable MUST be a string.\nAt the same time, it removes the variable from the input definition,\ndisallowing the user to supply it.\n\nThis means, the UUID is 100% generated server-side and can be considered untempered.\n\"\"\"\ndirective @injectGeneratedUUID on VARIABLE_DEFINITION\n\n\"\"\"\nThe @internalOperation Directive marks an Operation as internal.\nBy doing so, the Operation is no longer accessible from the public API.\nIt can only be accessed by internal services, like hooks.\n\"\"\"\ndirective @internalOperation on QUERY | MUTATION | SUBSCRIPTION\n\n\"\"\"The directive @injectEnvironmentVariable allows you to inject an environment variable into the variable definition.\"\"\"\ndirective @injectEnvironmentVariable(name: String!) on VARIABLE_DEFINITION\n\n\"\"\"\nThe @export directive instructs the Execution Planner to export the field during the execution into the variable of the 'as' argument.\nAs the execution is depth first, a field can only be used after it has been exported.\nAdditionally, a field can only be used after using the '_join' field or on a different data source.\nIt's not possible to export a field and use it in for the same data source.\n\nNote that the @export directive only works on fields that return a single value.\nIt's not possible to export a list or object field.\n\"\"\"\ndirective @export(\n  \n  \"\"\"The argument 'as' is the name of the variable to export the field to.\"\"\"\n  as: String!\n) on FIELD\n\n\"\"\"\nThe directive @internal marks a variable definition as internal so that clients can't access it.\nThe field is also not visible in the public API.\nIt's only being used as an internal variable to export fields into.\n\"\"\"\ndirective @internal on VARIABLE_DEFINITION\n\n\"\"\"\nThe @transform directive allows to apply transformations to the response.\nBy applying the directive, the shape of the response can be altered,\nwhich will also modify the JSON-Schema of the response.\nThat is, you will keep full type safety and code-generation for transformed fields.\n\"\"\"\ndirective @transform(\n  \n  \"\"\"\n  Using the 'get' transformation allows you to extract a nested field using a JSON path.\n  This is useful to unnest data, e.g. when using the '_join' field, which adds an extra layer of nesting.\n  \n  Example:\n  \n  query GetName {\n  name: me @transform(get: \"info.name\") {\n      info {\n          name\n      }\n  }\n  }\n  \n  Before the transformation, the resolve looks like this:\n  \n  {\n  \"name\": {\n      \"info\": {\n          \"name\": \"John Doe\"\n      }\n  }\n  }\n  \n  With the transformation applied, the response will be reshaped like this:\n  \n  {\n  \"name\": \"John Doe\"\n  }\n  \"\"\"\n  get: String\n) on FIELD\n",
       "typeConfigurations": [
         {
-          "typeName": "grace_ChatMessageCreateWithoutHistoryInput",
-          "renameTo": "ChatMessageCreateWithoutHistoryInput"
+          "typeName": "grace_UserUpsertWithoutHistoryInput",
+          "renameTo": "UserUpsertWithoutHistoryInput"
         },
         {
-          "typeName": "grace_UserCreateNestedOneWithoutPromptInput",
-          "renameTo": "UserCreateNestedOneWithoutPromptInput"
-        },
-        {
-          "typeName": "grace_UserUpsertWithoutPromptInput",
-          "renameTo": "UserUpsertWithoutPromptInput"
-        },
-        {
-          "typeName": "grace_HistoryOrderByWithRelationInput",
-          "renameTo": "HistoryOrderByWithRelationInput"
-        },
-        {
-          "typeName": "grace_HistoryCountAggregateOutputType",
-          "renameTo": "HistoryCountAggregateOutputType"
-        },
-        {
-          "typeName": "grace_AggregatePrompt",
-          "renameTo": "AggregatePrompt"
-        },
-        {
-          "typeName": "grace_PromptSumOrderByAggregateInput",
-          "renameTo": "PromptSumOrderByAggregateInput"
-        },
-        {
-          "typeName": "grace_StringWithAggregatesFilter",
-          "renameTo": "StringWithAggregatesFilter"
-        },
-        {
-          "typeName": "grace_PromptGroupByOutputType",
-          "renameTo": "PromptGroupByOutputType"
-        },
-        {
-          "typeName": "grace_ChatMessageCreateNestedManyWithoutHistoryInput",
-          "renameTo": "ChatMessageCreateNestedManyWithoutHistoryInput"
-        },
-        {
-          "typeName": "grace_Decimal",
-          "renameTo": "Decimal"
-        },
-        {
-          "typeName": "grace_UserWhereInput",
-          "renameTo": "UserWhereInput"
-        },
-        {
-          "typeName": "grace_PromptOrderByWithRelationInput",
-          "renameTo": "PromptOrderByWithRelationInput"
-        },
-        {
-          "typeName": "grace_PromptScalarFieldEnum",
-          "renameTo": "PromptScalarFieldEnum"
-        },
-        {
-          "typeName": "grace_ChatMessageMinOrderByAggregateInput",
-          "renameTo": "ChatMessageMinOrderByAggregateInput"
-        },
-        {
-          "typeName": "grace_Bytes",
-          "renameTo": "Bytes"
-        },
-        {
-          "typeName": "grace_HistoryCountOutputType",
-          "renameTo": "HistoryCountOutputType"
-        },
-        {
-          "typeName": "grace_DateTimeNullableWithAggregatesFilter",
-          "renameTo": "DateTimeNullableWithAggregatesFilter"
-        },
-        {
-          "typeName": "grace_DateTimeFieldUpdateOperationsInput",
-          "renameTo": "DateTimeFieldUpdateOperationsInput"
-        },
-        {
-          "typeName": "grace_UserUpdateInput",
-          "renameTo": "UserUpdateInput"
-        },
-        {
-          "typeName": "grace_HistoryUpdateManyWithWhereWithoutUserInput",
-          "renameTo": "HistoryUpdateManyWithWhereWithoutUserInput"
-        },
-        {
-          "typeName": "grace_NestedDateTimeNullableWithAggregatesFilter",
-          "renameTo": "NestedDateTimeNullableWithAggregatesFilter"
-        },
-        {
-          "typeName": "grace_PromptSumAggregateOutputType",
-          "renameTo": "PromptSumAggregateOutputType"
-        },
-        {
-          "typeName": "grace_PromptOrderByWithAggregationInput",
-          "renameTo": "PromptOrderByWithAggregationInput"
-        },
-        {
-          "typeName": "grace_ChatMessageUpsertWithWhereUniqueWithoutHistoryInput",
-          "renameTo": "ChatMessageUpsertWithWhereUniqueWithoutHistoryInput"
-        },
-        {
-          "typeName": "grace_NestedIntFilter",
-          "renameTo": "NestedIntFilter"
-        },
-        {
-          "typeName": "grace_SortOrder",
-          "renameTo": "SortOrder"
-        },
-        {
-          "typeName": "grace_PromptUpdateManyWithoutUserNestedInput",
-          "renameTo": "PromptUpdateManyWithoutUserNestedInput"
-        },
-        {
-          "typeName": "grace_ChatMessageCreateOrConnectWithoutHistoryInput",
-          "renameTo": "ChatMessageCreateOrConnectWithoutHistoryInput"
-        },
-        {
-          "typeName": "grace_StringFilter",
-          "renameTo": "StringFilter"
-        },
-        {
-          "typeName": "grace_PromptCountAggregateOutputType",
-          "renameTo": "PromptCountAggregateOutputType"
-        },
-        {
-          "typeName": "grace_StringFieldUpdateOperationsInput",
-          "renameTo": "StringFieldUpdateOperationsInput"
-        },
-        {
-          "typeName": "grace_HistoryScalarWhereInput",
-          "renameTo": "HistoryScalarWhereInput"
-        },
-        {
-          "typeName": "grace_HistoryRelationFilter",
-          "renameTo": "HistoryRelationFilter"
-        },
-        {
-          "typeName": "grace_ChatMessageOrderByWithRelationInput",
-          "renameTo": "ChatMessageOrderByWithRelationInput"
-        },
-        {
-          "typeName": "grace_User",
-          "renameTo": "User"
-        },
-        {
-          "typeName": "grace_UserCreateWithoutPromptInput",
-          "renameTo": "UserCreateWithoutPromptInput"
-        },
-        {
-          "typeName": "grace_UserCreateOrConnectWithoutPromptInput",
-          "renameTo": "UserCreateOrConnectWithoutPromptInput"
-        },
-        {
-          "typeName": "grace_PromptUpdateInput",
-          "renameTo": "PromptUpdateInput"
-        },
-        {
-          "typeName": "grace_PromptWhereUniqueInput",
-          "renameTo": "PromptWhereUniqueInput"
-        },
-        {
-          "typeName": "grace_HistoryAvgOrderByAggregateInput",
-          "renameTo": "HistoryAvgOrderByAggregateInput"
-        },
-        {
-          "typeName": "grace_HistoryOrderByWithAggregationInput",
-          "renameTo": "HistoryOrderByWithAggregationInput"
-        },
-        {
-          "typeName": "grace_AffectedRowsOutput",
-          "renameTo": "AffectedRowsOutput"
-        },
-        {
-          "typeName": "grace_UserCreateOrConnectWithoutHistoryInput",
-          "renameTo": "UserCreateOrConnectWithoutHistoryInput"
-        },
-        {
-          "typeName": "grace_NullableStringFieldUpdateOperationsInput",
-          "renameTo": "NullableStringFieldUpdateOperationsInput"
-        },
-        {
-          "typeName": "grace_PromptListRelationFilter",
-          "renameTo": "PromptListRelationFilter"
-        },
-        {
-          "typeName": "grace_HistoryMinAggregateOutputType",
-          "renameTo": "HistoryMinAggregateOutputType"
-        },
-        {
-          "typeName": "grace_PromptCountOrderByAggregateInput",
-          "renameTo": "PromptCountOrderByAggregateInput"
-        },
-        {
-          "typeName": "grace_PromptCreateOrConnectWithoutUserInput",
-          "renameTo": "PromptCreateOrConnectWithoutUserInput"
-        },
-        {
-          "typeName": "grace_UserCountAggregateOutputType",
-          "renameTo": "UserCountAggregateOutputType"
-        },
-        {
-          "typeName": "grace_UserMaxOrderByAggregateInput",
-          "renameTo": "UserMaxOrderByAggregateInput"
-        },
-        {
-          "typeName": "grace_HistoryCreateOrConnectWithoutUserInput",
-          "renameTo": "HistoryCreateOrConnectWithoutUserInput"
-        },
-        {
-          "typeName": "grace_AggregateUser",
-          "renameTo": "AggregateUser"
-        },
-        {
-          "typeName": "grace_PromptCreateNestedManyWithoutUserInput",
-          "renameTo": "PromptCreateNestedManyWithoutUserInput"
-        },
-        {
-          "typeName": "grace_PromptUpdateWithoutUserInput",
-          "renameTo": "PromptUpdateWithoutUserInput"
-        },
-        {
-          "typeName": "grace_UserUpdateOneRequiredWithoutHistoryNestedInput",
-          "renameTo": "UserUpdateOneRequiredWithoutHistoryNestedInput"
-        },
-        {
-          "typeName": "grace_NestedDateTimeNullableFilter",
-          "renameTo": "NestedDateTimeNullableFilter"
-        },
-        {
-          "typeName": "grace_ChatMessageOrderByRelationAggregateInput",
-          "renameTo": "ChatMessageOrderByRelationAggregateInput"
-        },
-        {
-          "typeName": "grace_ChatMessageScalarWhereWithAggregatesInput",
-          "renameTo": "ChatMessageScalarWhereWithAggregatesInput"
-        },
-        {
-          "typeName": "grace_HistoryMaxOrderByAggregateInput",
-          "renameTo": "HistoryMaxOrderByAggregateInput"
-        },
-        {
-          "typeName": "grace_HistoryCreateWithoutChatMessageInput",
-          "renameTo": "HistoryCreateWithoutChatMessageInput"
-        },
-        {
-          "typeName": "grace_PromptScalarWhereInput",
-          "renameTo": "PromptScalarWhereInput"
-        },
-        {
-          "typeName": "grace_ChatMessageUpdateManyMutationInput",
-          "renameTo": "ChatMessageUpdateManyMutationInput"
+          "typeName": "grace_ChatMessageUpdateWithoutHistoryInput",
+          "renameTo": "ChatMessageUpdateWithoutHistoryInput"
         },
         {
           "typeName": "grace_NestedIntNullableFilter",
           "renameTo": "NestedIntNullableFilter"
         },
         {
-          "typeName": "grace_ChatMessageOrderByWithAggregationInput",
-          "renameTo": "ChatMessageOrderByWithAggregationInput"
+          "typeName": "grace_PromptOrderByWithRelationInput",
+          "renameTo": "PromptOrderByWithRelationInput"
         },
         {
-          "typeName": "grace_UserScalarFieldEnum",
-          "renameTo": "UserScalarFieldEnum"
+          "typeName": "grace_ChatMessageSumAggregateOutputType",
+          "renameTo": "ChatMessageSumAggregateOutputType"
         },
         {
-          "typeName": "grace_UserMaxAggregateOutputType",
-          "renameTo": "UserMaxAggregateOutputType"
+          "typeName": "grace_AggregateHistory",
+          "renameTo": "AggregateHistory"
         },
         {
-          "typeName": "grace_StringNullableWithAggregatesFilter",
-          "renameTo": "StringNullableWithAggregatesFilter"
+          "typeName": "grace_PromptMaxOrderByAggregateInput",
+          "renameTo": "PromptMaxOrderByAggregateInput"
         },
         {
-          "typeName": "grace_UserCreateWithoutHistoryInput",
-          "renameTo": "UserCreateWithoutHistoryInput"
+          "typeName": "grace_UserMinOrderByAggregateInput",
+          "renameTo": "UserMinOrderByAggregateInput"
         },
         {
-          "typeName": "grace_HistoryUpdateWithWhereUniqueWithoutUserInput",
-          "renameTo": "HistoryUpdateWithWhereUniqueWithoutUserInput"
+          "typeName": "grace_UserCreateWithoutPromptInput",
+          "renameTo": "UserCreateWithoutPromptInput"
         },
         {
-          "typeName": "grace_NestedStringNullableFilter",
-          "renameTo": "NestedStringNullableFilter"
+          "typeName": "grace_ChatMessageCreateOrConnectWithoutHistoryInput",
+          "renameTo": "ChatMessageCreateOrConnectWithoutHistoryInput"
         },
         {
-          "typeName": "grace_HistoryListRelationFilter",
-          "renameTo": "HistoryListRelationFilter"
+          "typeName": "grace_ChatMessageAvgOrderByAggregateInput",
+          "renameTo": "ChatMessageAvgOrderByAggregateInput"
+        },
+        {
+          "typeName": "grace_NestedStringWithAggregatesFilter",
+          "renameTo": "NestedStringWithAggregatesFilter"
+        },
+        {
+          "typeName": "grace_PromptCountOrderByAggregateInput",
+          "renameTo": "PromptCountOrderByAggregateInput"
         },
         {
           "typeName": "grace_PromptMinOrderByAggregateInput",
@@ -3779,392 +3543,256 @@
           "renameTo": "NestedStringNullableWithAggregatesFilter"
         },
         {
-          "typeName": "grace_StringNullableFilter",
-          "renameTo": "StringNullableFilter"
+          "typeName": "grace_PromptUpdateManyMutationInput",
+          "renameTo": "PromptUpdateManyMutationInput"
         },
         {
-          "typeName": "grace_ChatMessage",
-          "renameTo": "ChatMessage"
+          "typeName": "grace_UserUpdateOneRequiredWithoutHistoryNestedInput",
+          "renameTo": "UserUpdateOneRequiredWithoutHistoryNestedInput"
         },
         {
-          "typeName": "grace_HistoryMinOrderByAggregateInput",
-          "renameTo": "HistoryMinOrderByAggregateInput"
-        },
-        {
-          "typeName": "grace_PromptUpsertWithWhereUniqueWithoutUserInput",
-          "renameTo": "PromptUpsertWithWhereUniqueWithoutUserInput"
-        },
-        {
-          "typeName": "grace_ChatMessageWhereUniqueInput",
-          "renameTo": "ChatMessageWhereUniqueInput"
-        },
-        {
-          "typeName": "grace_ChatMessageCountOrderByAggregateInput",
-          "renameTo": "ChatMessageCountOrderByAggregateInput"
-        },
-        {
-          "typeName": "grace_ChatMessageUpdateInput",
-          "renameTo": "ChatMessageUpdateInput"
-        },
-        {
-          "typeName": "grace_ChatMessageScalarWhereInput",
-          "renameTo": "ChatMessageScalarWhereInput"
-        },
-        {
-          "typeName": "grace_UserUpdateWithoutHistoryInput",
-          "renameTo": "UserUpdateWithoutHistoryInput"
-        },
-        {
-          "typeName": "grace_NestedStringFilter",
-          "renameTo": "NestedStringFilter"
-        },
-        {
-          "typeName": "grace_PromptWhereInput",
-          "renameTo": "PromptWhereInput"
-        },
-        {
-          "typeName": "grace_UserRelationFilter",
-          "renameTo": "UserRelationFilter"
-        },
-        {
-          "typeName": "grace_HistoryAvgAggregateOutputType",
-          "renameTo": "HistoryAvgAggregateOutputType"
-        },
-        {
-          "typeName": "grace_HistoryCreateNestedManyWithoutUserInput",
-          "renameTo": "HistoryCreateNestedManyWithoutUserInput"
-        },
-        {
-          "typeName": "grace_ChatMessageScalarFieldEnum",
-          "renameTo": "ChatMessageScalarFieldEnum"
+          "typeName": "grace_NestedStringNullableFilter",
+          "renameTo": "NestedStringNullableFilter"
         },
         {
           "typeName": "grace_HistoryWhereUniqueInput",
           "renameTo": "HistoryWhereUniqueInput"
         },
         {
-          "typeName": "grace_ChatMessageAvgOrderByAggregateInput",
-          "renameTo": "ChatMessageAvgOrderByAggregateInput"
-        },
-        {
-          "typeName": "grace_ChatMessageUpdateWithoutHistoryInput",
-          "renameTo": "ChatMessageUpdateWithoutHistoryInput"
-        },
-        {
-          "typeName": "grace_NestedFloatFilter",
-          "renameTo": "NestedFloatFilter"
-        },
-        {
-          "typeName": "grace_UserScalarWhereWithAggregatesInput",
-          "renameTo": "UserScalarWhereWithAggregatesInput"
-        },
-        {
-          "typeName": "grace_NullableDateTimeFieldUpdateOperationsInput",
-          "renameTo": "NullableDateTimeFieldUpdateOperationsInput"
-        },
-        {
-          "typeName": "grace_NestedIntNullableWithAggregatesFilter",
-          "renameTo": "NestedIntNullableWithAggregatesFilter"
-        },
-        {
-          "typeName": "grace_HistoryUpdateInput",
-          "renameTo": "HistoryUpdateInput"
-        },
-        {
           "typeName": "grace_NestedIntWithAggregatesFilter",
           "renameTo": "NestedIntWithAggregatesFilter"
-        },
-        {
-          "typeName": "grace_PromptMaxAggregateOutputType",
-          "renameTo": "PromptMaxAggregateOutputType"
-        },
-        {
-          "typeName": "grace_ChatMessageUpdateWithWhereUniqueWithoutHistoryInput",
-          "renameTo": "ChatMessageUpdateWithWhereUniqueWithoutHistoryInput"
-        },
-        {
-          "typeName": "grace_UserCreateNestedOneWithoutHistoryInput",
-          "renameTo": "UserCreateNestedOneWithoutHistoryInput"
-        },
-        {
-          "typeName": "grace_PromptUpdateManyMutationInput",
-          "renameTo": "PromptUpdateManyMutationInput"
-        },
-        {
-          "typeName": "grace_PromptUpdateManyWithWhereWithoutUserInput",
-          "renameTo": "PromptUpdateManyWithWhereWithoutUserInput"
-        },
-        {
-          "typeName": "grace_HistoryUpsertWithWhereUniqueWithoutUserInput",
-          "renameTo": "HistoryUpsertWithWhereUniqueWithoutUserInput"
-        },
-        {
-          "typeName": "grace_ChatMessageSumAggregateOutputType",
-          "renameTo": "ChatMessageSumAggregateOutputType"
-        },
-        {
-          "typeName": "grace_ChatMessageSumOrderByAggregateInput",
-          "renameTo": "ChatMessageSumOrderByAggregateInput"
-        },
-        {
-          "typeName": "grace_UserMinOrderByAggregateInput",
-          "renameTo": "UserMinOrderByAggregateInput"
-        },
-        {
-          "typeName": "grace_UserGroupByOutputType",
-          "renameTo": "UserGroupByOutputType"
-        },
-        {
-          "typeName": "grace_NestedStringWithAggregatesFilter",
-          "renameTo": "NestedStringWithAggregatesFilter"
-        },
-        {
-          "typeName": "grace_AggregateHistory",
-          "renameTo": "AggregateHistory"
-        },
-        {
-          "typeName": "grace_HistoryGroupByOutputType",
-          "renameTo": "HistoryGroupByOutputType"
-        },
-        {
-          "typeName": "grace_UserCreateInput",
-          "renameTo": "UserCreateInput"
-        },
-        {
-          "typeName": "grace_ChatMessageUpdateManyWithoutHistoryNestedInput",
-          "renameTo": "ChatMessageUpdateManyWithoutHistoryNestedInput"
-        },
-        {
-          "typeName": "grace_UserCountOutputType",
-          "renameTo": "UserCountOutputType"
-        },
-        {
-          "typeName": "grace_PromptCreateWithoutUserInput",
-          "renameTo": "PromptCreateWithoutUserInput"
-        },
-        {
-          "typeName": "grace_HistoryCreateOrConnectWithoutChatMessageInput",
-          "renameTo": "HistoryCreateOrConnectWithoutChatMessageInput"
-        },
-        {
-          "typeName": "grace_HistoryUpdateWithoutChatMessageInput",
-          "renameTo": "HistoryUpdateWithoutChatMessageInput"
-        },
-        {
-          "typeName": "grace_UserUpsertWithoutHistoryInput",
-          "renameTo": "UserUpsertWithoutHistoryInput"
-        },
-        {
-          "typeName": "grace_HistoryUpdateManyWithoutUserNestedInput",
-          "renameTo": "HistoryUpdateManyWithoutUserNestedInput"
-        },
-        {
-          "typeName": "grace_ChatMessageCountAggregateOutputType",
-          "renameTo": "ChatMessageCountAggregateOutputType"
-        },
-        {
-          "typeName": "grace_IntNullableWithAggregatesFilter",
-          "renameTo": "IntNullableWithAggregatesFilter"
-        },
-        {
-          "typeName": "grace_PromptMaxOrderByAggregateInput",
-          "renameTo": "PromptMaxOrderByAggregateInput"
-        },
-        {
-          "typeName": "grace_PromptUpdateWithWhereUniqueWithoutUserInput",
-          "renameTo": "PromptUpdateWithWhereUniqueWithoutUserInput"
-        },
-        {
-          "typeName": "grace_DateTimeWithAggregatesFilter",
-          "renameTo": "DateTimeWithAggregatesFilter"
-        },
-        {
-          "typeName": "grace_ChatMessageGroupByOutputType",
-          "renameTo": "ChatMessageGroupByOutputType"
-        },
-        {
-          "typeName": "grace_HistoryCountOrderByAggregateInput",
-          "renameTo": "HistoryCountOrderByAggregateInput"
         },
         {
           "typeName": "grace_HistoryScalarWhereWithAggregatesInput",
           "renameTo": "HistoryScalarWhereWithAggregatesInput"
         },
         {
-          "typeName": "grace_IntFilter",
-          "renameTo": "IntFilter"
+          "typeName": "grace_HistoryGroupByOutputType",
+          "renameTo": "HistoryGroupByOutputType"
         },
         {
-          "typeName": "grace_NestedDateTimeFilter",
-          "renameTo": "NestedDateTimeFilter"
+          "typeName": "grace_PromptMaxAggregateOutputType",
+          "renameTo": "PromptMaxAggregateOutputType"
         },
         {
-          "typeName": "grace_AggregateChatMessage",
-          "renameTo": "AggregateChatMessage"
+          "typeName": "grace_NullableStringFieldUpdateOperationsInput",
+          "renameTo": "NullableStringFieldUpdateOperationsInput"
         },
         {
-          "typeName": "grace_NestedFloatNullableFilter",
-          "renameTo": "NestedFloatNullableFilter"
-        },
-        {
-          "typeName": "grace_PromptAvgAggregateOutputType",
-          "renameTo": "PromptAvgAggregateOutputType"
-        },
-        {
-          "typeName": "grace_PromptMinAggregateOutputType",
-          "renameTo": "PromptMinAggregateOutputType"
-        },
-        {
-          "typeName": "grace_PromptScalarWhereWithAggregatesInput",
-          "renameTo": "PromptScalarWhereWithAggregatesInput"
-        },
-        {
-          "typeName": "grace_HistoryCreateInput",
-          "renameTo": "HistoryCreateInput"
-        },
-        {
-          "typeName": "grace_ChatMessageUpdateManyWithWhereWithoutHistoryInput",
-          "renameTo": "ChatMessageUpdateManyWithWhereWithoutHistoryInput"
-        },
-        {
-          "typeName": "grace_PromptCreateInput",
-          "renameTo": "PromptCreateInput"
-        },
-        {
-          "typeName": "grace_IntNullableFilter",
-          "renameTo": "IntNullableFilter"
-        },
-        {
-          "typeName": "grace_ChatMessageWhereInput",
-          "renameTo": "ChatMessageWhereInput"
-        },
-        {
-          "typeName": "grace_Prompt",
-          "renameTo": "Prompt"
-        },
-        {
-          "typeName": "grace_UserOrderByWithAggregationInput",
-          "renameTo": "UserOrderByWithAggregationInput"
-        },
-        {
-          "typeName": "grace_HistoryUpsertWithoutChatMessageInput",
-          "renameTo": "HistoryUpsertWithoutChatMessageInput"
-        },
-        {
-          "typeName": "grace_HistoryUpdateOneRequiredWithoutChatMessageNestedInput",
-          "renameTo": "HistoryUpdateOneRequiredWithoutChatMessageNestedInput"
-        },
-        {
-          "typeName": "grace_UserUpdateWithoutPromptInput",
-          "renameTo": "UserUpdateWithoutPromptInput"
-        },
-        {
-          "typeName": "grace_HistoryScalarFieldEnum",
-          "renameTo": "HistoryScalarFieldEnum"
-        },
-        {
-          "typeName": "grace_ChatMessageAvgAggregateOutputType",
-          "renameTo": "ChatMessageAvgAggregateOutputType"
-        },
-        {
-          "typeName": "grace_HistorySumAggregateOutputType",
-          "renameTo": "HistorySumAggregateOutputType"
-        },
-        {
-          "typeName": "grace_UserMinAggregateOutputType",
-          "renameTo": "UserMinAggregateOutputType"
-        },
-        {
-          "typeName": "grace_UserUpdateOneRequiredWithoutPromptNestedInput",
-          "renameTo": "UserUpdateOneRequiredWithoutPromptNestedInput"
-        },
-        {
-          "typeName": "grace_DateTimeFilter",
-          "renameTo": "DateTimeFilter"
-        },
-        {
-          "typeName": "grace_HistoryOrderByRelationAggregateInput",
-          "renameTo": "HistoryOrderByRelationAggregateInput"
-        },
-        {
-          "typeName": "grace_ChatMessageMaxOrderByAggregateInput",
-          "renameTo": "ChatMessageMaxOrderByAggregateInput"
-        },
-        {
-          "typeName": "grace_NullableIntFieldUpdateOperationsInput",
-          "renameTo": "NullableIntFieldUpdateOperationsInput"
+          "typeName": "grace_ChatMessageUpdateInput",
+          "renameTo": "ChatMessageUpdateInput"
         },
         {
           "typeName": "grace_DateTimeNullableFilter",
           "renameTo": "DateTimeNullableFilter"
         },
         {
-          "typeName": "grace_PromptOrderByRelationAggregateInput",
-          "renameTo": "PromptOrderByRelationAggregateInput"
+          "typeName": "grace_UserRelationFilter",
+          "renameTo": "UserRelationFilter"
         },
         {
-          "typeName": "grace_UserCountOrderByAggregateInput",
-          "renameTo": "UserCountOrderByAggregateInput"
+          "typeName": "grace_UserCountOutputType",
+          "renameTo": "UserCountOutputType"
         },
         {
-          "typeName": "grace_HistorySumOrderByAggregateInput",
-          "renameTo": "HistorySumOrderByAggregateInput"
+          "typeName": "grace_ChatMessageMaxOrderByAggregateInput",
+          "renameTo": "ChatMessageMaxOrderByAggregateInput"
         },
         {
-          "typeName": "grace_HistoryUpdateManyMutationInput",
-          "renameTo": "HistoryUpdateManyMutationInput"
+          "typeName": "grace_HistoryCountOrderByAggregateInput",
+          "renameTo": "HistoryCountOrderByAggregateInput"
         },
         {
-          "typeName": "grace_HistoryCreateWithoutUserInput",
-          "renameTo": "HistoryCreateWithoutUserInput"
+          "typeName": "grace_UserMinAggregateOutputType",
+          "renameTo": "UserMinAggregateOutputType"
         },
         {
-          "typeName": "grace_Json",
-          "renameTo": "Json"
+          "typeName": "grace_AffectedRowsOutput",
+          "renameTo": "AffectedRowsOutput"
         },
         {
-          "typeName": "grace_History",
-          "renameTo": "History"
+          "typeName": "grace_HistoryCreateNestedManyWithoutUserInput",
+          "renameTo": "HistoryCreateNestedManyWithoutUserInput"
         },
         {
-          "typeName": "grace_ChatMessageMinAggregateOutputType",
-          "renameTo": "ChatMessageMinAggregateOutputType"
+          "typeName": "grace_HistoryOrderByRelationAggregateInput",
+          "renameTo": "HistoryOrderByRelationAggregateInput"
         },
         {
-          "typeName": "grace_NestedDateTimeWithAggregatesFilter",
-          "renameTo": "NestedDateTimeWithAggregatesFilter"
+          "typeName": "grace_ChatMessageGroupByOutputType",
+          "renameTo": "ChatMessageGroupByOutputType"
         },
         {
-          "typeName": "grace_HistoryMaxAggregateOutputType",
-          "renameTo": "HistoryMaxAggregateOutputType"
+          "typeName": "grace_UserWhereUniqueInput",
+          "renameTo": "UserWhereUniqueInput"
         },
         {
-          "typeName": "grace_ChatMessageCreateInput",
-          "renameTo": "ChatMessageCreateInput"
+          "typeName": "grace_HistoryUpsertWithWhereUniqueWithoutUserInput",
+          "renameTo": "HistoryUpsertWithWhereUniqueWithoutUserInput"
+        },
+        {
+          "typeName": "grace_NestedDateTimeNullableWithAggregatesFilter",
+          "renameTo": "NestedDateTimeNullableWithAggregatesFilter"
+        },
+        {
+          "typeName": "grace_PromptCountAggregateOutputType",
+          "renameTo": "PromptCountAggregateOutputType"
+        },
+        {
+          "typeName": "grace_PromptMinAggregateOutputType",
+          "renameTo": "PromptMinAggregateOutputType"
+        },
+        {
+          "typeName": "grace_AggregatePrompt",
+          "renameTo": "AggregatePrompt"
+        },
+        {
+          "typeName": "grace_HistoryCreateInput",
+          "renameTo": "HistoryCreateInput"
+        },
+        {
+          "typeName": "grace_NestedIntFilter",
+          "renameTo": "NestedIntFilter"
+        },
+        {
+          "typeName": "grace_NestedFloatFilter",
+          "renameTo": "NestedFloatFilter"
+        },
+        {
+          "typeName": "grace_ChatMessageUpdateManyWithoutHistoryNestedInput",
+          "renameTo": "ChatMessageUpdateManyWithoutHistoryNestedInput"
+        },
+        {
+          "typeName": "grace_SortOrder",
+          "renameTo": "SortOrder"
+        },
+        {
+          "typeName": "grace_UserCreateNestedOneWithoutHistoryInput",
+          "renameTo": "UserCreateNestedOneWithoutHistoryInput"
         },
         {
           "typeName": "grace_HistoryUpdateWithoutUserInput",
           "renameTo": "HistoryUpdateWithoutUserInput"
         },
         {
-          "typeName": "grace_UserUpdateManyMutationInput",
-          "renameTo": "UserUpdateManyMutationInput"
-        },
-        {
-          "typeName": "grace_ChatMessageListRelationFilter",
-          "renameTo": "ChatMessageListRelationFilter"
+          "typeName": "grace_PromptCreateOrConnectWithoutUserInput",
+          "renameTo": "PromptCreateOrConnectWithoutUserInput"
         },
         {
           "typeName": "grace_ChatMessageMaxAggregateOutputType",
           "renameTo": "ChatMessageMaxAggregateOutputType"
         },
         {
-          "typeName": "grace_IntWithAggregatesFilter",
-          "renameTo": "IntWithAggregatesFilter"
+          "typeName": "grace_ChatMessageCountOrderByAggregateInput",
+          "renameTo": "ChatMessageCountOrderByAggregateInput"
         },
         {
-          "typeName": "grace_HistoryCreateNestedOneWithoutChatMessageInput",
-          "renameTo": "HistoryCreateNestedOneWithoutChatMessageInput"
+          "typeName": "grace_UserCreateNestedOneWithoutPromptInput",
+          "renameTo": "UserCreateNestedOneWithoutPromptInput"
+        },
+        {
+          "typeName": "grace_HistoryCreateOrConnectWithoutUserInput",
+          "renameTo": "HistoryCreateOrConnectWithoutUserInput"
+        },
+        {
+          "typeName": "grace_HistoryListRelationFilter",
+          "renameTo": "HistoryListRelationFilter"
+        },
+        {
+          "typeName": "grace_HistoryOrderByWithRelationInput",
+          "renameTo": "HistoryOrderByWithRelationInput"
+        },
+        {
+          "typeName": "grace_PromptOrderByWithAggregationInput",
+          "renameTo": "PromptOrderByWithAggregationInput"
+        },
+        {
+          "typeName": "grace_PromptGroupByOutputType",
+          "renameTo": "PromptGroupByOutputType"
+        },
+        {
+          "typeName": "grace_UserGroupByOutputType",
+          "renameTo": "UserGroupByOutputType"
+        },
+        {
+          "typeName": "grace_HistoryUpdateInput",
+          "renameTo": "HistoryUpdateInput"
+        },
+        {
+          "typeName": "grace_ChatMessageCountAggregateOutputType",
+          "renameTo": "ChatMessageCountAggregateOutputType"
+        },
+        {
+          "typeName": "grace_HistoryCreateOrConnectWithoutChatMessageInput",
+          "renameTo": "HistoryCreateOrConnectWithoutChatMessageInput"
+        },
+        {
+          "typeName": "grace_HistoryUpdateManyWithoutUserNestedInput",
+          "renameTo": "HistoryUpdateManyWithoutUserNestedInput"
+        },
+        {
+          "typeName": "grace_PromptScalarWhereWithAggregatesInput",
+          "renameTo": "PromptScalarWhereWithAggregatesInput"
+        },
+        {
+          "typeName": "grace_UserMaxAggregateOutputType",
+          "renameTo": "UserMaxAggregateOutputType"
+        },
+        {
+          "typeName": "grace_HistoryCreateWithoutChatMessageInput",
+          "renameTo": "HistoryCreateWithoutChatMessageInput"
+        },
+        {
+          "typeName": "grace_PromptUpdateWithoutUserInput",
+          "renameTo": "PromptUpdateWithoutUserInput"
+        },
+        {
+          "typeName": "grace_ChatMessageUpdateManyWithWhereWithoutHistoryInput",
+          "renameTo": "ChatMessageUpdateManyWithWhereWithoutHistoryInput"
+        },
+        {
+          "typeName": "grace_UserUpsertWithoutPromptInput",
+          "renameTo": "UserUpsertWithoutPromptInput"
+        },
+        {
+          "typeName": "grace_ChatMessageListRelationFilter",
+          "renameTo": "ChatMessageListRelationFilter"
+        },
+        {
+          "typeName": "grace_ChatMessageMinAggregateOutputType",
+          "renameTo": "ChatMessageMinAggregateOutputType"
+        },
+        {
+          "typeName": "grace_HistoryMaxAggregateOutputType",
+          "renameTo": "HistoryMaxAggregateOutputType"
+        },
+        {
+          "typeName": "grace_DateTimeFieldUpdateOperationsInput",
+          "renameTo": "DateTimeFieldUpdateOperationsInput"
+        },
+        {
+          "typeName": "grace_HistoryUpdateWithWhereUniqueWithoutUserInput",
+          "renameTo": "HistoryUpdateWithWhereUniqueWithoutUserInput"
+        },
+        {
+          "typeName": "grace_PromptScalarFieldEnum",
+          "renameTo": "PromptScalarFieldEnum"
+        },
+        {
+          "typeName": "grace_StringWithAggregatesFilter",
+          "renameTo": "StringWithAggregatesFilter"
+        },
+        {
+          "typeName": "grace_NestedStringFilter",
+          "renameTo": "NestedStringFilter"
+        },
+        {
+          "typeName": "grace_DateTimeFilter",
+          "renameTo": "DateTimeFilter"
+        },
+        {
+          "typeName": "grace_PromptListRelationFilter",
+          "renameTo": "PromptListRelationFilter"
         },
         {
           "typeName": "grace_HistoryWhereInput",
@@ -4175,12 +3803,384 @@
           "renameTo": "UserOrderByWithRelationInput"
         },
         {
+          "typeName": "grace_ChatMessageScalarFieldEnum",
+          "renameTo": "ChatMessageScalarFieldEnum"
+        },
+        {
+          "typeName": "grace_HistoryCreateWithoutUserInput",
+          "renameTo": "HistoryCreateWithoutUserInput"
+        },
+        {
+          "typeName": "grace_NestedDateTimeWithAggregatesFilter",
+          "renameTo": "NestedDateTimeWithAggregatesFilter"
+        },
+        {
+          "typeName": "grace_UserCountOrderByAggregateInput",
+          "renameTo": "UserCountOrderByAggregateInput"
+        },
+        {
+          "typeName": "grace_UserMaxOrderByAggregateInput",
+          "renameTo": "UserMaxOrderByAggregateInput"
+        },
+        {
+          "typeName": "grace_UserOrderByWithAggregationInput",
+          "renameTo": "UserOrderByWithAggregationInput"
+        },
+        {
+          "typeName": "grace_ChatMessageCreateInput",
+          "renameTo": "ChatMessageCreateInput"
+        },
+        {
+          "typeName": "grace_PromptUpsertWithWhereUniqueWithoutUserInput",
+          "renameTo": "PromptUpsertWithWhereUniqueWithoutUserInput"
+        },
+        {
+          "typeName": "grace_PromptOrderByRelationAggregateInput",
+          "renameTo": "PromptOrderByRelationAggregateInput"
+        },
+        {
+          "typeName": "grace_User",
+          "renameTo": "User"
+        },
+        {
+          "typeName": "grace_PromptCreateNestedManyWithoutUserInput",
+          "renameTo": "PromptCreateNestedManyWithoutUserInput"
+        },
+        {
+          "typeName": "grace_UserCreateOrConnectWithoutHistoryInput",
+          "renameTo": "UserCreateOrConnectWithoutHistoryInput"
+        },
+        {
+          "typeName": "grace_PromptCreateInput",
+          "renameTo": "PromptCreateInput"
+        },
+        {
+          "typeName": "grace_UserUpdateWithoutPromptInput",
+          "renameTo": "UserUpdateWithoutPromptInput"
+        },
+        {
+          "typeName": "grace_UserCreateWithoutHistoryInput",
+          "renameTo": "UserCreateWithoutHistoryInput"
+        },
+        {
+          "typeName": "grace_PromptUpdateWithWhereUniqueWithoutUserInput",
+          "renameTo": "PromptUpdateWithWhereUniqueWithoutUserInput"
+        },
+        {
+          "typeName": "grace_NestedDateTimeNullableFilter",
+          "renameTo": "NestedDateTimeNullableFilter"
+        },
+        {
+          "typeName": "grace_HistoryCountOutputType",
+          "renameTo": "HistoryCountOutputType"
+        },
+        {
+          "typeName": "grace_AggregateChatMessage",
+          "renameTo": "AggregateChatMessage"
+        },
+        {
+          "typeName": "grace_IntWithAggregatesFilter",
+          "renameTo": "IntWithAggregatesFilter"
+        },
+        {
+          "typeName": "grace_HistoryMinOrderByAggregateInput",
+          "renameTo": "HistoryMinOrderByAggregateInput"
+        },
+        {
+          "typeName": "grace_UserCountAggregateOutputType",
+          "renameTo": "UserCountAggregateOutputType"
+        },
+        {
+          "typeName": "grace_HistoryScalarWhereInput",
+          "renameTo": "HistoryScalarWhereInput"
+        },
+        {
+          "typeName": "grace_PromptUpdateInput",
+          "renameTo": "PromptUpdateInput"
+        },
+        {
+          "typeName": "grace_IntFilter",
+          "renameTo": "IntFilter"
+        },
+        {
+          "typeName": "grace_ChatMessageWhereUniqueInput",
+          "renameTo": "ChatMessageWhereUniqueInput"
+        },
+        {
+          "typeName": "grace_IntNullableWithAggregatesFilter",
+          "renameTo": "IntNullableWithAggregatesFilter"
+        },
+        {
+          "typeName": "grace_HistoryMaxOrderByAggregateInput",
+          "renameTo": "HistoryMaxOrderByAggregateInput"
+        },
+        {
+          "typeName": "grace_ChatMessageCreateWithoutHistoryInput",
+          "renameTo": "ChatMessageCreateWithoutHistoryInput"
+        },
+        {
+          "typeName": "grace_ChatMessageCreateNestedManyWithoutHistoryInput",
+          "renameTo": "ChatMessageCreateNestedManyWithoutHistoryInput"
+        },
+        {
+          "typeName": "grace_UserWhereInput",
+          "renameTo": "UserWhereInput"
+        },
+        {
+          "typeName": "grace_ChatMessageWhereInput",
+          "renameTo": "ChatMessageWhereInput"
+        },
+        {
+          "typeName": "grace_NullableIntFieldUpdateOperationsInput",
+          "renameTo": "NullableIntFieldUpdateOperationsInput"
+        },
+        {
+          "typeName": "grace_PromptUpdateManyWithWhereWithoutUserInput",
+          "renameTo": "PromptUpdateManyWithWhereWithoutUserInput"
+        },
+        {
+          "typeName": "grace_ChatMessageMinOrderByAggregateInput",
+          "renameTo": "ChatMessageMinOrderByAggregateInput"
+        },
+        {
+          "typeName": "grace_UserScalarWhereWithAggregatesInput",
+          "renameTo": "UserScalarWhereWithAggregatesInput"
+        },
+        {
+          "typeName": "grace_PromptUpdateManyWithoutUserNestedInput",
+          "renameTo": "PromptUpdateManyWithoutUserNestedInput"
+        },
+        {
+          "typeName": "grace_ChatMessageUpsertWithWhereUniqueWithoutHistoryInput",
+          "renameTo": "ChatMessageUpsertWithWhereUniqueWithoutHistoryInput"
+        },
+        {
+          "typeName": "grace_ChatMessageAvgAggregateOutputType",
+          "renameTo": "ChatMessageAvgAggregateOutputType"
+        },
+        {
+          "typeName": "grace_DateTimeWithAggregatesFilter",
+          "renameTo": "DateTimeWithAggregatesFilter"
+        },
+        {
+          "typeName": "grace_HistoryCountAggregateOutputType",
+          "renameTo": "HistoryCountAggregateOutputType"
+        },
+        {
+          "typeName": "grace_NullableDateTimeFieldUpdateOperationsInput",
+          "renameTo": "NullableDateTimeFieldUpdateOperationsInput"
+        },
+        {
+          "typeName": "grace_UserCreateOrConnectWithoutPromptInput",
+          "renameTo": "UserCreateOrConnectWithoutPromptInput"
+        },
+        {
+          "typeName": "grace_StringNullableFilter",
+          "renameTo": "StringNullableFilter"
+        },
+        {
+          "typeName": "grace_HistorySumOrderByAggregateInput",
+          "renameTo": "HistorySumOrderByAggregateInput"
+        },
+        {
+          "typeName": "grace_StringNullableWithAggregatesFilter",
+          "renameTo": "StringNullableWithAggregatesFilter"
+        },
+        {
+          "typeName": "grace_ChatMessageUpdateWithWhereUniqueWithoutHistoryInput",
+          "renameTo": "ChatMessageUpdateWithWhereUniqueWithoutHistoryInput"
+        },
+        {
+          "typeName": "grace_Bytes",
+          "renameTo": "Bytes"
+        },
+        {
+          "typeName": "grace_PromptSumAggregateOutputType",
+          "renameTo": "PromptSumAggregateOutputType"
+        },
+        {
+          "typeName": "grace_StringFieldUpdateOperationsInput",
+          "renameTo": "StringFieldUpdateOperationsInput"
+        },
+        {
+          "typeName": "grace_Json",
+          "renameTo": "Json"
+        },
+        {
+          "typeName": "grace_StringFilter",
+          "renameTo": "StringFilter"
+        },
+        {
+          "typeName": "grace_Prompt",
+          "renameTo": "Prompt"
+        },
+        {
+          "typeName": "grace_HistorySumAggregateOutputType",
+          "renameTo": "HistorySumAggregateOutputType"
+        },
+        {
+          "typeName": "grace_HistoryOrderByWithAggregationInput",
+          "renameTo": "HistoryOrderByWithAggregationInput"
+        },
+        {
+          "typeName": "grace_HistoryUpdateOneRequiredWithoutChatMessageNestedInput",
+          "renameTo": "HistoryUpdateOneRequiredWithoutChatMessageNestedInput"
+        },
+        {
+          "typeName": "grace_UserUpdateInput",
+          "renameTo": "UserUpdateInput"
+        },
+        {
+          "typeName": "grace_ChatMessageOrderByRelationAggregateInput",
+          "renameTo": "ChatMessageOrderByRelationAggregateInput"
+        },
+        {
+          "typeName": "grace_ChatMessageOrderByWithRelationInput",
+          "renameTo": "ChatMessageOrderByWithRelationInput"
+        },
+        {
+          "typeName": "grace_ChatMessage",
+          "renameTo": "ChatMessage"
+        },
+        {
+          "typeName": "grace_PromptAvgAggregateOutputType",
+          "renameTo": "PromptAvgAggregateOutputType"
+        },
+        {
+          "typeName": "grace_PromptSumOrderByAggregateInput",
+          "renameTo": "PromptSumOrderByAggregateInput"
+        },
+        {
+          "typeName": "grace_HistoryUpsertWithoutChatMessageInput",
+          "renameTo": "HistoryUpsertWithoutChatMessageInput"
+        },
+        {
+          "typeName": "grace_ChatMessageScalarWhereInput",
+          "renameTo": "ChatMessageScalarWhereInput"
+        },
+        {
+          "typeName": "grace_IntNullableFilter",
+          "renameTo": "IntNullableFilter"
+        },
+        {
+          "typeName": "grace_PromptWhereInput",
+          "renameTo": "PromptWhereInput"
+        },
+        {
+          "typeName": "grace_HistoryRelationFilter",
+          "renameTo": "HistoryRelationFilter"
+        },
+        {
+          "typeName": "grace_History",
+          "renameTo": "History"
+        },
+        {
+          "typeName": "grace_ChatMessageOrderByWithAggregationInput",
+          "renameTo": "ChatMessageOrderByWithAggregationInput"
+        },
+        {
+          "typeName": "grace_HistoryMinAggregateOutputType",
+          "renameTo": "HistoryMinAggregateOutputType"
+        },
+        {
+          "typeName": "grace_UserCreateInput",
+          "renameTo": "UserCreateInput"
+        },
+        {
+          "typeName": "grace_PromptWhereUniqueInput",
+          "renameTo": "PromptWhereUniqueInput"
+        },
+        {
+          "typeName": "grace_ChatMessageSumOrderByAggregateInput",
+          "renameTo": "ChatMessageSumOrderByAggregateInput"
+        },
+        {
+          "typeName": "grace_ChatMessageScalarWhereWithAggregatesInput",
+          "renameTo": "ChatMessageScalarWhereWithAggregatesInput"
+        },
+        {
+          "typeName": "grace_HistoryCreateNestedOneWithoutChatMessageInput",
+          "renameTo": "HistoryCreateNestedOneWithoutChatMessageInput"
+        },
+        {
+          "typeName": "grace_UserUpdateWithoutHistoryInput",
+          "renameTo": "UserUpdateWithoutHistoryInput"
+        },
+        {
+          "typeName": "grace_UserUpdateOneRequiredWithoutPromptNestedInput",
+          "renameTo": "UserUpdateOneRequiredWithoutPromptNestedInput"
+        },
+        {
+          "typeName": "grace_HistoryUpdateManyMutationInput",
+          "renameTo": "HistoryUpdateManyMutationInput"
+        },
+        {
+          "typeName": "grace_HistoryAvgAggregateOutputType",
+          "renameTo": "HistoryAvgAggregateOutputType"
+        },
+        {
+          "typeName": "grace_DateTimeNullableWithAggregatesFilter",
+          "renameTo": "DateTimeNullableWithAggregatesFilter"
+        },
+        {
+          "typeName": "grace_PromptScalarWhereInput",
+          "renameTo": "PromptScalarWhereInput"
+        },
+        {
+          "typeName": "grace_HistoryUpdateWithoutChatMessageInput",
+          "renameTo": "HistoryUpdateWithoutChatMessageInput"
+        },
+        {
+          "typeName": "grace_HistoryUpdateManyWithWhereWithoutUserInput",
+          "renameTo": "HistoryUpdateManyWithWhereWithoutUserInput"
+        },
+        {
+          "typeName": "grace_UserUpdateManyMutationInput",
+          "renameTo": "UserUpdateManyMutationInput"
+        },
+        {
+          "typeName": "grace_NestedDateTimeFilter",
+          "renameTo": "NestedDateTimeFilter"
+        },
+        {
+          "typeName": "grace_NestedIntNullableWithAggregatesFilter",
+          "renameTo": "NestedIntNullableWithAggregatesFilter"
+        },
+        {
+          "typeName": "grace_ChatMessageUpdateManyMutationInput",
+          "renameTo": "ChatMessageUpdateManyMutationInput"
+        },
+        {
+          "typeName": "grace_Decimal",
+          "renameTo": "Decimal"
+        },
+        {
+          "typeName": "grace_HistoryScalarFieldEnum",
+          "renameTo": "HistoryScalarFieldEnum"
+        },
+        {
+          "typeName": "grace_NestedFloatNullableFilter",
+          "renameTo": "NestedFloatNullableFilter"
+        },
+        {
+          "typeName": "grace_HistoryAvgOrderByAggregateInput",
+          "renameTo": "HistoryAvgOrderByAggregateInput"
+        },
+        {
+          "typeName": "grace_AggregateUser",
+          "renameTo": "AggregateUser"
+        },
+        {
           "typeName": "grace_PromptAvgOrderByAggregateInput",
           "renameTo": "PromptAvgOrderByAggregateInput"
         },
         {
-          "typeName": "grace_UserWhereUniqueInput",
-          "renameTo": "UserWhereUniqueInput"
+          "typeName": "grace_UserScalarFieldEnum",
+          "renameTo": "UserScalarFieldEnum"
+        },
+        {
+          "typeName": "grace_PromptCreateWithoutUserInput",
+          "renameTo": "PromptCreateWithoutUserInput"
         }
       ]
     },
@@ -4278,9 +4278,9 @@
       },
       {
         "name": "Chat__GetByHistory",
-        "content": "query Chat__GetByHistory($historyId: Int = 10) @internalOperation {\n  data: grace_findManyChatMessage(where: {History: {is: {id: {equals: $historyId}}}}) {\n    id\n    text\n    parentMessageId\n  }\n}\n",
+        "content": "query Chat__GetByHistory($historyId: Int!) @internalOperation {\n  data: grace_findManyChatMessage(where: {History: {is: {id: {equals: $historyId}}}}, orderBy: {createdAt: asc}) {\n    id\n    text\n    parentMessageId\n  }\n}\n",
         "operationType": 0,
-        "variablesSchema": "{\"type\":\"object\",\"properties\":{\"historyId\":{\"type\":[\"integer\",\"null\"]}},\"additionalProperties\":false}",
+        "variablesSchema": "{\"type\":\"object\",\"properties\":{\"historyId\":{\"type\":\"integer\"}},\"additionalProperties\":false,\"required\":[\"historyId\"]}",
         "responseSchema": "{\"type\":\"object\",\"properties\":{\"data\":{\"type\":\"object\",\"properties\":{\"data\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"integer\"},\"parentMessageId\":{\"type\":\"integer\"},\"text\":{\"type\":\"string\"}},\"required\":[\"id\",\"text\"]}}},\"additionalProperties\":false,\"required\":[\"data\"]}},\"additionalProperties\":false}",
         "cacheConfig": {
           "enabled": false,
@@ -4322,72 +4322,19 @@
           "injectVariables": []
         },
         "internal": true,
-        "interpolationVariablesSchema": "{\"type\":\"object\",\"properties\":{\"historyId\":{\"type\":[\"integer\",\"null\"]}},\"additionalProperties\":false}",
+        "interpolationVariablesSchema": "{\"type\":\"object\",\"properties\":{\"historyId\":{\"type\":\"integer\"}},\"additionalProperties\":false,\"required\":[\"historyId\"]}",
         "postResolveTransformations": [],
         "engine": 0,
         "path": "Chat/GetByHistory",
-        "InternalVariablesSchema": "{\"type\":\"object\",\"properties\":{\"historyId\":{\"type\":[\"integer\",\"null\"]}},\"additionalProperties\":false}",
-        "InjectedVariablesSchema": "{\"type\":\"object\",\"properties\":{\"historyId\":{\"type\":[\"integer\",\"null\"]}},\"additionalProperties\":false}"
-      },
-      {
-        "name": "Chat__GetList",
-        "content": "query Chat__GetList @internalOperation {\n  data: grace_findManyChatMessage {\n    id\n    text\n    parentMessageId\n    createdAt\n    chatId\n  }\n}\n",
-        "operationType": 0,
-        "variablesSchema": "{\"type\":\"object\",\"additionalProperties\":false}",
-        "responseSchema": "{\"type\":\"object\",\"properties\":{\"data\":{\"type\":\"object\",\"properties\":{\"data\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"chatId\":{\"type\":\"integer\"},\"createdAt\":{\"type\":\"string\"},\"id\":{\"type\":\"integer\"},\"parentMessageId\":{\"type\":\"integer\"},\"text\":{\"type\":\"string\"}},\"required\":[\"id\",\"text\",\"createdAt\",\"chatId\"]}}},\"additionalProperties\":false,\"required\":[\"data\"]}},\"additionalProperties\":false}",
-        "cacheConfig": {
-          "enabled": false,
-          "maxAge": 0,
-          "public": false,
-          "staleWhileRevalidate": 0
-        },
-        "authenticationConfig": {
-          "authRequired": true
-        },
-        "liveQueryConfig": {
-          "enabled": false,
-          "pollingIntervalSeconds": 0
-        },
-        "authorizationConfig": {
-          "claims": [],
-          "roleConfig": {
-            "requireMatchAll": [],
-            "requireMatchAny": [],
-            "denyMatchAll": [],
-            "denyMatchAny": []
-          }
-        },
-        "hooksConfiguration": {
-          "preResolve": false,
-          "postResolve": false,
-          "mutatingPreResolve": false,
-          "mutatingPostResolve": false,
-          "mockResolve": {
-            "enabled": false,
-            "subscriptionPollingIntervalMillis": 0
-          },
-          "httpTransportOnRequest": false,
-          "httpTransportOnResponse": false,
-          "customResolve": false,
-          "tsPathMap": null
-        },
-        "variablesConfiguration": {
-          "injectVariables": []
-        },
-        "internal": true,
-        "interpolationVariablesSchema": "{\"type\":\"object\",\"additionalProperties\":false}",
-        "postResolveTransformations": [],
-        "engine": 0,
-        "path": "Chat/GetList",
-        "InternalVariablesSchema": "{\"type\":\"object\",\"additionalProperties\":false}",
-        "InjectedVariablesSchema": "{\"type\":\"object\",\"additionalProperties\":false}"
+        "InternalVariablesSchema": "{\"type\":\"object\",\"properties\":{\"historyId\":{\"type\":\"integer\"}},\"additionalProperties\":false,\"required\":[\"historyId\"]}",
+        "InjectedVariablesSchema": "{\"type\":\"object\",\"properties\":{\"historyId\":{\"type\":\"integer\"}},\"additionalProperties\":false,\"required\":[\"historyId\"]}"
       },
       {
         "name": "Chat__UpdateChatText",
-        "content": "mutation Chat__UpdateChatText($text: String!, $id: Int!) @internalOperation {\n  grace_upsertOneChatMessage(create: {text: $text, History: {}}, update: {}, where: {id: $id}) {\n    id\n  }\n}\n",
+        "content": "mutation Chat__UpdateChatText($text: String!, $id: Int!) @internalOperation {\n  data: grace_updateOneChatMessage(where: {id: $id}, data: {text: {set: $text}}) {\n    id\n  }\n}\n",
         "operationType": 1,
         "variablesSchema": "{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"integer\"},\"text\":{\"type\":\"string\"}},\"additionalProperties\":false,\"required\":[\"text\",\"id\"]}",
-        "responseSchema": "{\"type\":\"object\",\"properties\":{\"data\":{\"type\":\"object\",\"properties\":{\"grace_upsertOneChatMessage\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"integer\"}},\"required\":[\"id\"]}},\"additionalProperties\":false}},\"additionalProperties\":false}",
+        "responseSchema": "{\"type\":\"object\",\"properties\":{\"data\":{\"type\":\"object\",\"properties\":{\"data\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"integer\"}},\"required\":[\"id\"]}},\"additionalProperties\":false}},\"additionalProperties\":false}",
         "cacheConfig": null,
         "authenticationConfig": {
           "authRequired": true
@@ -4524,7 +4471,7 @@
       },
       {
         "name": "History__GetList",
-        "content": "query History__GetList($userId: String!) {\n  data: grace_findManyHistory(where: {User: {is: {id: {equals: $userId}}}}) {\n    id\n    title\n    createdAt\n    updatedAt\n  }\n}\n",
+        "content": "query History__GetList($userId: String!) {\n  data: grace_findManyHistory(where: {User: {is: {id: {equals: $userId}}}}, orderBy: {createdAt: desc}) {\n    id\n    title\n    createdAt\n    updatedAt\n  }\n}\n",
         "operationType": 0,
         "variablesSchema": "{\"type\":\"object\",\"additionalProperties\":false}",
         "responseSchema": "{\"type\":\"object\",\"properties\":{\"data\":{\"type\":\"object\",\"properties\":{\"data\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"createdAt\":{\"type\":\"string\"},\"id\":{\"type\":\"integer\"},\"title\":{\"type\":\"string\"},\"updatedAt\":{\"type\":\"string\"}},\"required\":[\"id\",\"title\",\"createdAt\"]}}},\"additionalProperties\":false,\"required\":[\"data\"]}},\"additionalProperties\":false}",

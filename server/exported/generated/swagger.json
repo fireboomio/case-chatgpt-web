@@ -278,7 +278,7 @@
                         "Authorization": []
                     }
                 ],
-                "description": "```graphql\nquery GetHistoryList($userId: String! @fromClaim(name: USERID)) {\n  data: grace_findManyHistory(where: { User:{ is:{id:{equals:$userId}}}}) {\n    id\n    title\n    createdAt\n    updatedAt\n  }\n}\n```",
+                "description": "```graphql\nquery GetHistoryList($userId: String! @fromClaim(name: USERID)) {\n  data: grace_findManyHistory(\n    where: {User: {is: {id: {equals: $userId}}}}\n    orderBy: {createdAt: desc}\n  ) {\n    id\n    title\n    createdAt\n    updatedAt\n  }\n} \n```",
                 "produces": [
                     "application/json"
                 ],

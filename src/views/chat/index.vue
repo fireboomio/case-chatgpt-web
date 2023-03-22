@@ -136,11 +136,16 @@ async function onConversation() {
     let spokenText = ''
     const speaker = new sdk.SpeechSynthesizer(speechConfig)
     const fetchChatAPIOnce = async () => {
-      const res = await streamAPI<{ prompt: string; chatId: number }, { data: { completion: string; id: string } }>('/Chat/ChatSSE', {
+      const res = await streamAPI<{
+        prompt: string
+        chatId: number
+      }, { data: { completion: string; id: string } }
+      >('/Chat/ChatSSE', {
         params: {
           prompt: message,
           chatId: +uuid,
         },
+        controller,
       })
       const messages: string[] = []
       const msgStr = messages.join('')
@@ -162,18 +167,6 @@ async function onConversation() {
       }
       speaker.speakTextAsync(msgStr.replace(spokenText, '').trim())
       spokenText = msgStr
-
-      // if (openLongReply && data.detail.choices[0].finish_reason === 'length') {
-      //   options.parentMessageId = data.id
-      //   lastText = data.text
-      //   message = ''
-      //   return fetchChatAPIOnce()
-      // }
-      // if (data.detail.choices[0].finish_reason === 'stop' || data.text.match(/[.!?,]\s*$/)) {
-      //   speaker.speakTextAsync(data.text.replace(spokenText, '').trim())
-      //   spokenText = data.text
-      // }
-
       scrollToBottom()
     }
 
