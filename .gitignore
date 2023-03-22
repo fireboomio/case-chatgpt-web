@@ -35,6 +35,6 @@ fireboom
 server/log
 server/custom-ts/**/*.js
 server/.env
-# server/.process
-# server/exported
-# generated
+server/.process
+server/exported
+generated
