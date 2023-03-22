@@ -25,6 +25,9 @@ export default configureWunderGraphServer<HooksConfig, InternalClient, {}>(() =>
     
 
         },
+        uploads: {
+
+        },
     },
     graphqlServers: [
     ]
