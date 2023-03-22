@@ -1,6 +1,6 @@
 {{~#with (filterOperations operations "engine" 1)}}
     {{#each this}}
-import type function_{{name}} from '../../../server/custom-ts/operations/{{path}}'
+import type function_{{name}} from '../server/custom-ts/operations/{{path}}'
     {{/each}}
     {{~#if (isNotEmpty this)}}
 import type { ExtractResponse } from 'fireboom-wundersdk/operations'

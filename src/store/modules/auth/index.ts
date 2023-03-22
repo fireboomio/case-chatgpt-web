@@ -29,7 +29,7 @@ export const useAuthStore = defineStore('auth-store', {
       try {
         this.session = { auth: true, model: 'ChatGPTAPI' }
         // await fetchSession<SessionResponse>()
-        this.token = '111'
+        // this.token = '111'
         return Promise.resolve(this.session)
       }
       catch (error) {

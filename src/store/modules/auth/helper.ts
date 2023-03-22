@@ -1,7 +1,5 @@
-import { ss } from '@/utils/storage'
-
 const LOCAL_NAME = 'SECRET_TOKEN'
-let _token: string| null
+let _token: string | null
 
 export function getToken() {
   return _token
