@@ -1,0 +1,8 @@
+query MyQuery($equals: String! @fromClaim(name: USERID)) {
+  data: grace_findFirstUser(where: {id: {equals: $equals}}) {
+    avatar
+    description
+    id
+    name
+  }
+}

@@ -36,7 +36,8 @@ server/log
 server/custom-ts/**/*.js
 server/.env
 server/.process
-server/exported/
+server/exported/*
+!server/exported/operations
 server/store/object/global_config.json
 server/store/object/global_system_config.json
 generated/

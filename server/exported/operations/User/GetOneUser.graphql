@@ -1,0 +1,8 @@
+query MyQuery($id: String = "") @internalOperation {
+  data: grace_findFirstUser(where: {id: {equals: $id}}) {
+    id
+    description
+    avatar
+    name
+  }
+}
