@@ -1,8 +1,0 @@
-mutation MyQuery($text: String!, $id: Int!) @internalOperation {
-  data: grace_updateOneChatMessage(
-    where: {id: $id}
-    data: {text: {set: $text}}
-  ) {
-    id
-  }
-}

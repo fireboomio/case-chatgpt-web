@@ -1,1 +1,0 @@
-{"projects":{"app":{"name":"app","schemaPath":"exported/generated/fireboom.app.schema.graphql","extensions":{"endpoints":{"app":{"url":"http://localhost:9991/app/main/graphql","headers":{"user-agent":"WunderGraph Client"},"introspect":false}}}}}}

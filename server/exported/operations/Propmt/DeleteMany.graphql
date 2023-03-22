@@ -1,5 +1,0 @@
-mutation DeleteManyPrompt($ids: [Int]!) {
-  data: grace_deleteManyPrompt(where: {id: {in: $ids}}) {
-    count
-  }
-}

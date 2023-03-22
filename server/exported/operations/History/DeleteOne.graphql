@@ -1,5 +1,0 @@
-mutation DeleteOneHistory($id: Int!) {
-  data: grace_deleteOneHistory(where: {id: $id}) {
-    id
-  }
-}
