@@ -44,7 +44,6 @@ async function readDir(rootPath: string, ...dirPath: string[]) {
     if (stats.isDirectory()) {
       ret.push(...await readDir(rootPath, ...dirPath, file))
     } else if (stats.isFile()) {
-      console.log(parse(file))
       if (parse(file).ext !== '.ts') {
         continue
       }
