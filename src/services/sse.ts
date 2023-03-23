@@ -20,7 +20,7 @@ export async function* streamAPI<TSource extends Record<string, any> = any, TRes
       config.body = JSON.stringify(params)
   }
 
-  const resp = await fetch(`/operations${url}?${query.toString()}`, config)
+  const resp = await fetch(`${import.meta.env.VITE_APP_API_BASE_URL}/operations${url}?${query.toString()}`, config)
   if (resp.ok) {
     // 使用yield以流的方式读取
     const reader = resp.body!.getReader()
