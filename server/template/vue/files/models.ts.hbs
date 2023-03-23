@@ -1,4 +1,5 @@
-{{~#with (filterOperations operations "engine" 1)}}
+// @ts-nocheck
+{{#with (filterOperations operations "engine" 1)}}
     {{#each this}}
 import type function_{{name}} from '../../server/custom-ts/operations/{{path}}'
     {{/each}}

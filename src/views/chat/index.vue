@@ -17,7 +17,7 @@ import { SvgIcon } from '@/components/common'
 import { useBasicLayout } from '@/hooks/useBasicLayout'
 import { useChatStore, usePromptStore } from '@/store'
 import { fetchChatAPIProcess } from '@/api'
-import { streamAPI } from '@/utils/request/sse'
+import client from '@/services'
 
 import { t } from '@/locales'
 
@@ -132,42 +132,53 @@ async function onConversation() {
   scrollToBottom()
 
   try {
-    const lastText = ''
-    let spokenText = ''
-    const speaker = new sdk.SpeechSynthesizer(speechConfig)
+    // const lastText = ''
+    // const spokenText = ''
+    // const speaker = new sdk.SpeechSynthesizer(speechConfig)
     const fetchChatAPIOnce = async () => {
-      const res = await streamAPI<{
-        prompt: string
-        chatId: number
-      }, { data: { completion: string; id: string } }
-      >('/Chat/ChatSSE', {
-        params: {
+      client.subscribe({
+        operationName: 'Chat/ChatSSE',
+        abortSignal: controller.signal,
+        input: {
           prompt: message,
           chatId: +uuid,
         },
-        controller,
+      }, (data) => {
+        if (!data.error)
+          console.log(data.data)
       })
-      const messages: string[] = []
-      const msgStr = messages.join('')
-      for await (const data of res) {
-        messages.push(data.data.completion)
-        updateChat(
-          +uuid,
-          dataSources.value.length - 1,
-          {
-            dateTime: new Date().toLocaleString(),
-            text: lastText + (messages.join('')),
-            inversion: false,
-            error: false,
-            loading: false,
-            conversationOptions: { parentMessageId: data.data.id },
-            requestOptions: { prompt: message, options: { ...options } },
-          },
-        )
-      }
-      speaker.speakTextAsync(msgStr.replace(spokenText, '').trim())
-      spokenText = msgStr
-      scrollToBottom()
+      // const res = await streamAPI<{
+      //   prompt: string
+      //   chatId: number
+      // }, { data: { completion: string; id: string } }
+      // >('/Chat/ChatSSE', {
+      //   params: {
+      //     prompt: message,
+      //     chatId: +uuid,
+      //   },
+      //   controller,
+      // })
+      // const messages: string[] = []
+      // const msgStr = messages.join('')
+      // for await (const data of res) {
+      //   messages.push(data.data.completion)
+      //   updateChat(
+      //     +uuid,
+      //     dataSources.value.length - 1,
+      //     {
+      //       dateTime: new Date().toLocaleString(),
+      //       text: lastText + (messages.join('')),
+      //       inversion: false,
+      //       error: false,
+      //       loading: false,
+      //       conversationOptions: { parentMessageId: data.data.id },
+      //       requestOptions: { prompt: message, options: { ...options } },
+      //     },
+      //   )
+      // }
+      // speaker.speakTextAsync(msgStr.replace(spokenText, '').trim())
+      // spokenText = msgStr
+      // scrollToBottom()
     }
 
     await fetchChatAPIOnce()

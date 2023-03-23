@@ -29,6 +29,7 @@ coverage
 *.sw?
 
 # Environment variables files
+.env
 node_modules
 dist
 fireboom

@@ -20,6 +20,7 @@
     "fastify": "^4.9.2",
     "nodemon": "^2.0.20",
     "ts-node": "^10.9.1",
+    "tsc-alias": "^1.8.4",
     "tsconfig-paths": "^4.1.2",
     "typescript": "^4.1.3",
     "zod": "^3.21.4",
@@ -27,12 +28,12 @@
   },
   "name": "fireboom-hooks",
   "scripts": {
-    "build": "tsc",
-    "build-operations": "ts-node scripts/buildOperations.ts && tsc --project operations.tsconfig.json",
-    "clear": "rm -rf **/*.js",
     "dev": "npm run build-operations && cross-env WG_CLI_LOG_PRETTY=true START_HOOKS_SERVER=true WG_DIR_ABS=. ts-node fireboom.server.ts --files",
-    "start": "cross-env NODE_ENV=production START_HOOKS_SERVER=true WG_DIR_ABS=. node fireboom.server.js",
-    "watch": "nodemon"
+    "watch": "nodemon",
+    "build-operations": "ts-node scripts/buildOperations.ts && tsc --project operations.tsconfig.json && tsc-alias -p operations.tsconfig.json",
+    "build": "npm run build-operations && tsc && tsc-alias",
+    "clear": "rm -rf **/*.js && rm -rf **/*.d.ts",
+    "start": "cross-env NODE_ENV=production START_HOOKS_SERVER=true WG_DIR_ABS=. node fireboom.server.js"
   },
   "stackblitz": {
     "startCommand": "npm run dev"
