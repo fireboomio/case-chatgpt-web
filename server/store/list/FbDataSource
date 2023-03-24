@@ -1,10 +1,12 @@
 [
 	{
+		"id": 1471257658589184,
+		"name": "grace",
+		"sourceType": 1,
 		"config": {
 			"apiNamespace": "grace",
 			"appendType": "",
 			"databaseUrl": {
-				"key": "",
 				"kind": "0",
 				"val": "grace.db"
 			},
@@ -25,12 +27,9 @@
 				"val": ""
 			}
 		},
-		"createTime": "2023-03-20 09:49:14Z",
-		"deleteTime": "",
 		"enabled": true,
-		"id": 1471257658589184,
-		"name": "grace",
-		"sourceType": 1,
-		"updateTime": "2023-03-20 09:49:16Z"
+		"createTime": "2023-03-20 09:49:14Z",
+		"updateTime": "2023-03-24 11:48:02Z",
+		"deleteTime": ""
 	}
 ]
