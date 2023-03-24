@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { NAutoComplete, NButton, NInput, useDialog, useMessage } from 'naive-ui'
@@ -20,6 +20,7 @@ import { fetchChatAPIProcess } from '@/api'
 
 import { t } from '@/locales'
 import { streamAPI } from '@/services/sse'
+import client from '@/services'
 
 let controller = new AbortController()
 
@@ -40,7 +41,8 @@ const { usingContext, toggleUsingContext } = useUsingContext()
 
 const { uuid } = route.params as { uuid: string }
 
-const dataSources = computed(() => chatStore.getChatByUuid(+uuid))
+// const dataSources = computed(() => chatStore.getChatByUuid(+uuid))
+const dataSources = ref<Chat.Chat[]>([])
 // const conversationList = computed(() => dataSources.value.filter(item => (!item.inversion && !item.error)))
 
 const prompt = ref<string>('')
@@ -99,8 +101,7 @@ async function onConversation() {
     return
 
   controller = new AbortController()
-  addChat(
-    +uuid,
+  dataSources.value.push(
     {
       dateTime: new Date().toLocaleString(),
       text: message,
@@ -117,8 +118,7 @@ async function onConversation() {
 
   const options: Chat.ConversationRequest = {}
 
-  addChat(
-    +uuid,
+  dataSources.value.push(
     {
       dateTime: new Date().toLocaleString(),
       text: '',
@@ -129,10 +129,10 @@ async function onConversation() {
       requestOptions: { prompt: message, options: { ...options } },
     },
   )
+  const currentChat = dataSources.value[dataSources.value.length - 1]
   scrollToBottom()
 
   try {
-    const lastText = ''
     let spokenText = ''
     const speaker = new sdk.SpeechSynthesizer(speechConfig)
     const fetchChatAPIOnce = async () => {
@@ -151,20 +151,11 @@ async function onConversation() {
       const msgStr = messages.join('')
       for await (const data of res) {
         messages.push(data.data.completion)
-        updateChat(
-          +uuid,
-          dataSources.value.length - 1,
-          {
-            dateTime: new Date().toLocaleString(),
-            text: lastText + (messages.join('')),
-            inversion: false,
-            error: false,
-            loading: false,
-            conversationOptions: { parentMessageId: data.data.id },
-            requestOptions: { prompt: message, options: { ...options } },
-          },
-        )
+        currentChat.text = messages.join('')
+        currentChat.loading = false
+        currentChat.conversationOptions = { parentMessageId: data.data.id }
       }
+      currentChat.loading = false
       speaker.speakTextAsync(msgStr.replace(spokenText, '').trim())
       spokenText = msgStr
       scrollToBottom()
@@ -174,47 +165,19 @@ async function onConversation() {
   }
   catch (error: any) {
     const errorMessage = error?.message ?? t('common.wrong')
-
+    currentChat.loading = false
     if (error.message === 'canceled') {
-      updateChatSome(
-        +uuid,
-        dataSources.value.length - 1,
-        {
-          loading: false,
-        },
-      )
       scrollToBottom()
       return
     }
 
-    const currentChat = getChatByUuidAndIndex(+uuid, dataSources.value.length - 1)
-
     if (currentChat?.text && currentChat.text !== '') {
-      updateChatSome(
-        +uuid,
-        dataSources.value.length - 1,
-        {
-          text: `${currentChat.text}\n[${errorMessage}]`,
-          error: false,
-          loading: false,
-        },
-      )
+      currentChat.text = `${currentChat.text}\n[${errorMessage}]`
+      currentChat.error = false
       return
     }
 
-    updateChat(
-      +uuid,
-      dataSources.value.length - 1,
-      {
-        dateTime: new Date().toLocaleString(),
-        text: errorMessage,
-        inversion: false,
-        error: true,
-        loading: false,
-        conversationOptions: null,
-        requestOptions: { prompt: message, options: { ...options } },
-      },
-    )
+    currentChat.text = errorMessage
     scrollToBottom()
   }
   finally {
@@ -482,6 +445,35 @@ onMounted(() => {
 onUnmounted(() => {
   if (loading.value)
     controller.abort()
+})
+
+watchEffect(async () => {
+  const chatId = +(route.params as { uuid: string }).uuid
+  if (chatId) {
+    const { error, data } = await client.query({
+      operationName: 'Chat/GetMyHistoryChats',
+      input: {
+        chatId,
+      },
+    })
+    if (error) {
+      dataSources.value = []
+    }
+    else {
+      dataSources.value = data!.data!.map<Chat.Chat>(item => ({
+        dateTime: item.createdAt!,
+        text: item.text!,
+        loading: !item.text,
+        error: false,
+        inversion: !item.parentMessageId,
+        requestOptions: { prompt: item.text!, options: {} },
+        conversationOptions: item.parentMessageId ? { parentMessageId: item.parentMessageId.toString() } : undefined,
+      }))
+    }
+  }
+  else {
+    dataSources.value = []
+  }
 })
 </script>
 

@@ -162,7 +162,7 @@
 		"updateTime": "2023-03-22 11:48:19Z"
 	},
 	{
-		"content": "mutation CreateOneChatMessage($text: String!, $parentMessageId: Int, $chatId: Int!) @internalOperation {\n  data: grace_createOneChatMessage(\n    data: {text: $text, parentMessageId: $parentMessageId, History: {connect: {id: $chatId}}}\n  ) {\n    id\n    text\n    parentMessageId\n    createdAt\n    chatId\n  }\n} ",
+		"content": "mutation CreateOneChatMessage($text: String!, $parentMessageId: Int, $chatId: Int!) @internalOperation {\n  data: grace_createOneChatMessage(\n    data: {text: $text, parentMessageId: $parentMessageId, History: {connect: {id: $chatId}}}\n  ) {\n    id\n    text\n    parentMessageId\n    createdAt\n    chatId\n  }\n}",
 		"createTime": "",
 		"deleteTime": "",
 		"enabled": true,
@@ -177,7 +177,7 @@
 		"roleType": "",
 		"roles": "",
 		"title": "/Chat/CreateOne",
-		"updateTime": "2023-03-22 09:28:20Z"
+		"updateTime": "2023-03-24 07:08:58Z"
 	},
 	{
 		"content": "mutation DeleteOneChatMessage($id: Int!) {\n  data: grace_deleteOneChatMessage(where: {id: $id}) {\n    id\n  }\n}",
@@ -394,5 +394,23 @@
 		"roles": "",
 		"title": "/Chat/UpdateChatText",
 		"updateTime": "2023-03-22 11:57:23Z"
+	},
+	{
+		"content": "query MyQuery($chatId: Int!, $userId: String! @fromClaim(name: USERID)) {\n  data: grace_findManyChatMessage(\n    where: {History: {is: {User: {is: {id: {equals: $userId}}}}}, chatId: {equals: $chatId}}\n  ) {\n    id\n    parentMessageId\n    text\n    createdAt\n  }\n}",
+		"createTime": "2023-03-24 03:49:20Z",
+		"deleteTime": "",
+		"enabled": true,
+		"id": 1492491704795136,
+		"illegal": false,
+		"isPublic": true,
+		"liveQuery": false,
+		"method": "GET",
+		"operationType": "queries",
+		"remark": "",
+		"restUrl": "",
+		"roleType": "",
+		"roles": "",
+		"title": "/Chat/GetMyHistoryChats",
+		"updateTime": "2023-03-24 03:50:56Z"
 	}
 ]

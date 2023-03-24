@@ -8,4 +8,4 @@ mutation CreateOneChatMessage($text: String!, $parentMessageId: Int, $chatId: In
     createdAt
     chatId
   }
-} 
+}

@@ -1,0 +1,10 @@
+query MyQuery($chatId: Int!, $userId: String! @fromClaim(name: USERID)) {
+  data: grace_findManyChatMessage(
+    where: {History: {is: {User: {is: {id: {equals: $userId}}}}}, chatId: {equals: $chatId}}
+  ) {
+    id
+    parentMessageId
+    text
+    createdAt
+  }
+}
