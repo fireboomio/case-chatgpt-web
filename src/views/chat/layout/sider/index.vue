@@ -4,12 +4,15 @@ import { computed, ref, watch } from 'vue'
 import { NButton, NLayoutSider } from 'naive-ui'
 import List from './List.vue'
 import Footer from './Footer.vue'
-import { useAppStore, useChatStore } from '@/store'
+import {useAppStore, useAuthStore, useChatStore} from '@/store'
 import { useBasicLayout } from '@/hooks/useBasicLayout'
 import { PromptStore } from '@/components/common'
 
+const authStore = useAuthStore()
 const appStore = useAppStore()
 const chatStore = useChatStore()
+
+const needPermission = computed(() => !!authStore.session?.auth && !authStore.token)
 
 const { isMobile } = useBasicLayout()
 const show = ref(false)
@@ -83,7 +86,7 @@ watch(
           </NButton>
         </div>
       </main>
-      <Footer />
+      <Footer v-if="!needPermission" />
     </div>
   </NLayoutSider>
   <template v-if="isMobile">
