@@ -215,17 +215,17 @@ async function logout() {
           </template>
         </div>
       </div>
-      <div class="flex space-x-4 items-center">
-        <span class="flex-shrink-0 w-[100px]">{{ $t('setting.language') }}</span>
-        <div class="flex flex-wrap gap-4 items-center">
-          <NSelect
-            style="width: 140px"
-            :value="language"
-            :options="languageOptions"
-            @update-value="value => appStore.setLanguage(value)"
-          />
-        </div>
-      </div>
+<!--      <div class="flex space-x-4 items-center">-->
+<!--        <span class="flex-shrink-0 w-[100px]">{{ $t('setting.language') }}</span>-->
+<!--        <div class="flex flex-wrap gap-4 items-center">-->
+<!--          <NSelect-->
+<!--            style="width: 140px"-->
+<!--            :value="language"-->
+<!--            :options="languageOptions"-->
+<!--            @update-value="value => appStore.setLanguage(value)"-->
+<!--          />-->
+<!--        </div>-->
+<!--      </div>-->
       <!-- <div class="flex space-x-4 items-center">
         <span class="flex-shrink-0 w-[100px]">{{ $t('setting.resetUserInfo') }}</span>
         <NButton size="small" @click="handleReset">

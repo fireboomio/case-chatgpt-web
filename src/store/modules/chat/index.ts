@@ -79,6 +79,14 @@ export const useChatStore = defineStore('chat-store', {
       }
     },
 
+    async resetEdit(uuid: number) {
+      const index = this.history.findIndex(item => item.uuid === uuid)
+      if (index !== -1) {
+        this.history[index] = { ...this.history[index], isEdit: false }
+        this.recordState()
+      }
+    },
+
     async deleteHistory(index: number) {
       const { error } = await client.mutate({
         operationName: 'History/DeleteOne',

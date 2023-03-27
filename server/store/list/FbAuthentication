@@ -1,15 +1,8 @@
 [
 	{
-		"id": 1402506998906880,
-		"point": "http://localhost:9991/auth/cookie/authorize/authing?redirect_uri=",
-		"name": "authing",
 		"authSupplier": "openid",
-		"switchState": [
-			"cookieBased",
-			"tokenBased"
-		],
 		"config": {
-			"id": "authing",
+			"AuthorizationEndpoint": "https://fb-chatgpt-web.authing.cn/oidc/auth",
 			"clientId": {
 				"key": "",
 				"kind": "0",
@@ -20,18 +13,25 @@
 				"kind": "0",
 				"val": "b33a08ce16b60d0713e76dda64f6f0a3"
 			},
-			"issuer": "https://fb-chatgpt-web.authing.cn/oidc",
 			"discoveryURL": "",
+			"id": "authing",
+			"issuer": "https://fb-chatgpt-web.authing.cn/oidc",
 			"jwks": 0,
 			"jwksJSON": "",
 			"jwksURL": "https://fb-chatgpt-web.authing.cn/oidc/.well-known/jwks.json",
-			"userInfoEndpoint": "https://fb-chatgpt-web.authing.cn/oidc/me",
+			"tokenEndpoint": "https://fb-chatgpt-web.authing.cn/oidc/token",
 			"userInfoCacheTtlSeconds": 0,
-			"AuthorizationEndpoint": "https://fb-chatgpt-web.authing.cn/oidc/auth",
-			"tokenEndpoint": "https://fb-chatgpt-web.authing.cn/oidc/token"
+			"userInfoEndpoint": "https://fb-chatgpt-web.authing.cn/oidc/me"
 		},
 		"createTime": "2023-03-08 06:25:03Z",
-		"updateTime": "2023-03-22 05:39:10Z",
-		"deleteTime": ""
+		"deleteTime": "",
+		"id": 1402506998906880,
+		"name": "authing",
+		"point": "http://localhost:9991/auth/cookie/authorize/authing?redirect_uri=",
+		"switchState": [
+			"cookieBased",
+			"tokenBased"
+		],
+		"updateTime": "2023-03-22 05:39:10Z"
 	}
 ]

@@ -2,7 +2,7 @@
 import { computed, onMounted, onUnmounted, ref, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
-import { NAutoComplete, NButton, NInput, useDialog, useMessage } from 'naive-ui'
+import { NAutoComplete, NButton, NInput, NSpin, useDialog, useMessage } from 'naive-ui'
 import html2canvas from 'html2canvas'
 import * as sdk from 'microsoft-cognitiveservices-speech-sdk'
 import { ResultReason } from 'microsoft-cognitiveservices-speech-sdk'
@@ -461,7 +461,7 @@ watchEffect(async () => {
     }
     else {
       dataSources.value = data!.data!.map<Chat.Chat>(item => ({
-        dateTime: item.createdAt!,
+        dateTime: new Date(item.createdAt!).toLocaleString()!,
         text: item.text!,
         loading: !item.text,
         error: false,
@@ -573,8 +573,8 @@ watchEffect(async () => {
               <span v-if="!speaking" class="dark:text-black">
                 <SvgIcon icon="mdi:microphone" />
               </span>
-              <NSpin v-if="speaking" class="scale-50" size="small" />
             </template>
+            <NSpin v-if="speaking" class="scale-50" size="small" />
           </NButton>
         </div>
       </div>

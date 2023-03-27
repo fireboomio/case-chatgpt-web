@@ -327,8 +327,6 @@ const dataSource = computed(() => {
 <template>
   <NModal v-model:show="show" style="width: 90%; max-width: 900px;" preset="card">
     <div class="space-y-4">
-      <NTabs type="segment">
-        <NTabPane name="local" :tab="$t('store.local')">
           <div
             class="flex gap-3 mb-4"
             :class="[isMobile ? 'flex-col' : 'flex-row justify-between']"
@@ -340,19 +338,6 @@ const dataSource = computed(() => {
                 @click="changeShowModal('add')"
               >
                 {{ $t('common.add') }}
-              </NButton>
-              <NButton
-                size="small"
-                @click="changeShowModal('local_import')"
-              >
-                {{ $t('common.import') }}
-              </NButton>
-              <NButton
-                size="small"
-                :loading="exportLoading"
-                @click="exportPromptTemplate()"
-              >
-                {{ $t('common.export') }}
               </NButton>
               <NPopconfirm @positive-click="clearPromptTemplate">
                 <template #trigger>
@@ -390,61 +375,6 @@ const dataSource = computed(() => {
               </template>
             </NListItem>
           </NList>
-        </NTabPane>
-        <NTabPane name="download" :tab="$t('store.online')">
-          <p class="mb-4">
-            {{ $t('store.onlineImportWarning') }}
-          </p>
-          <div class="flex items-center gap-4">
-            <NInput v-model:value="downloadURL" placeholder="" />
-            <NButton
-              strong
-              secondary
-              :disabled="downloadDisabled"
-              :loading="importLoading"
-              @click="downloadPromptTemplate()"
-            >
-              {{ $t('common.download') }}
-            </NButton>
-          </div>
-          <NDivider />
-          <NLayoutContent
-            style="height: 360px"
-            content-style="background: none;"
-            :native-scrollbar="false"
-          >
-            <NCard
-              v-for="info in promptRecommendList"
-              :key="info.key" :title="info.key"
-              style="margin: 5px;"
-              embedded
-              :bordered="true"
-            >
-              <p
-                class="overflow-hidden text-ellipsis whitespace-nowrap"
-                :title="info.desc"
-              >
-                {{ info.desc }}
-              </p>
-              <template #footer>
-                <div class="flex items-center justify-end space-x-4">
-                  <NButton text>
-                    <a
-                      :href="info.url"
-                      target="_blank"
-                    >
-                      <SvgIcon class="text-xl" icon="ri:link" />
-                    </a>
-                  </NButton>
-                  <NButton text @click="setDownloadURL(info.downloadUrl) ">
-                    <SvgIcon class="text-xl" icon="ri:add-fill" />
-                  </NButton>
-                </div>
-              </template>
-            </NCard>
-          </NLayoutContent>
-        </NTabPane>
-      </NTabs>
     </div>
   </NModal>
 

@@ -1,31 +1,40 @@
 <script setup lang='ts'>
-import { computed } from 'vue'
-import { NInput, NPopconfirm, NScrollbar } from 'naive-ui'
+import {computed, watch} from 'vue'
+import {NInput, NPopconfirm, NScrollbar, useMessage} from 'naive-ui'
 import { SvgIcon } from '@/components/common'
 import { useAppStore, useChatStore } from '@/store'
 import { useBasicLayout } from '@/hooks/useBasicLayout'
+import {t} from "@/locales";
+import {useRoute, useRouter} from "vue-router";
 
 const { isMobile } = useBasicLayout()
 
+const message = useMessage()
+
 const appStore = useAppStore()
 const chatStore = useChatStore()
+const route = useRoute()
+const uuid = computed(() => route.params.uuid)
 
 const dataSources = computed(() => chatStore.history)
-
+chatStore.setActive(Number(route.params.uuid))
 async function handleSelect({ uuid }: Chat.History) {
   if (isActive(uuid))
     return
 
   if (chatStore.active)
-    chatStore.updateHistory(chatStore.active, { isEdit: false })
+    chatStore.resetEdit(chatStore.active)
   await chatStore.setActive(uuid)
 
   if (isMobile.value)
     appStore.setSiderCollapsed(true)
 }
 
-function handleEdit({ uuid }: Chat.History, isEdit: boolean, event?: MouseEvent) {
+function handleEdit({ uuid, title }: Chat.History, isEdit: boolean, event?: MouseEvent) {
   event?.stopPropagation()
+  if (!title) {
+    return message.error('名称不能为空')
+  }
   chatStore.updateHistory(uuid, { isEdit })
 }
 
