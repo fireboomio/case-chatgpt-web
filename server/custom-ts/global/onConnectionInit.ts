@@ -1,1 +1,4 @@
 //
+export default function onConnectionInit() {
+  //
+}
