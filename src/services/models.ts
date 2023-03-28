@@ -28,11 +28,11 @@ export interface Chat__CreateOneResponse {
 }
 export interface Chat__CreateOneResponseData {
     data?: {
-        parentMessageId?: number
         text?: string
         chatId?: number
         createdAt?: string
         id?: number
+        parentMessageId?: number
     },
 }
 export interface Chat__DeleteOneInput {
@@ -78,9 +78,9 @@ export interface Chat__GetByHistoryResponse {
 }
 export interface Chat__GetByHistoryResponseData {
     data?: {
+        parentMessageId?: number
         text?: string
         id?: number
-        parentMessageId?: number
     }[],
 }
 export interface Chat__GetMyHistoryChatsInput {
@@ -92,8 +92,8 @@ export interface InternalChat__GetMyHistoryChatsInput {
       userId?: string
 }
     export interface InjectedChat__GetMyHistoryChatsInput {
-     userId: string
-         chatId: number
+     chatId: number
+         userId: string
     
 }
 
@@ -105,10 +105,10 @@ export interface Chat__GetMyHistoryChatsResponse {
 }
 export interface Chat__GetMyHistoryChatsResponseData {
     data?: {
+        createdAt?: string
         id?: number
         parentMessageId?: number
         text?: string
-        createdAt?: string
     }[],
 }
 export interface Chat__UpdateChatTextInput {
@@ -159,10 +159,10 @@ export interface History__CreateOneResponse {
 }
 export interface History__CreateOneResponseData {
     data?: {
+        id?: number
         title?: string
         updatedAt?: string
         createdAt?: string
-        id?: number
     },
 }
 export interface History__DeleteOneInput {
@@ -211,13 +211,13 @@ export interface History__GetListResponseData {
     }[],
 }
 export interface History__UpdateOneInput {
-     id: number
-                 title?: string
+     title?: string
+                 id: number
             
 }
 export interface InternalHistory__UpdateOneInput {
-      title?: string
       id: number
+      title?: string
 }
     export interface InjectedHistory__UpdateOneInput {
      id: number
@@ -233,15 +233,15 @@ export interface History__UpdateOneResponse {
 }
 export interface History__UpdateOneResponseData {
     data?: {
-        title?: string
-        updatedAt?: string
         createdAt?: string
         id?: number
+        title?: string
+        updatedAt?: string
     },
 }
 export interface Propmt__CreateOneInput {
-     title: string
-                 prompt: string
+     prompt: string
+                 title: string
             
 }
 export interface InternalPropmt__CreateOneInput {
@@ -264,11 +264,11 @@ export interface Propmt__CreateOneResponse {
 }
 export interface Propmt__CreateOneResponseData {
     data?: {
-        title?: string
-        updatedAt?: string
         createdAt?: string
         id?: number
         prompt?: string
+        title?: string
+        updatedAt?: string
     },
 }
 export interface Propmt__DeleteManyInput {
@@ -321,17 +321,17 @@ export interface Propmt__DeleteOneResponseData {
     },
 }
 export interface Propmt__GetListInput {
-     skip?: number
-                 take?: number
-               orderBy?: {
+   orderBy?: {
    }[],
-                        
+                             skip?: number
+                 take?: number
+            
 }
 export interface InternalPropmt__GetListInput {
-      take?: number
     orderBy?: {
     }[],
       skip?: number
+      take?: number
 }
     export interface InjectedPropmt__GetListInput {
    orderBy?: {
@@ -348,6 +348,7 @@ export interface Propmt__GetListResponse {
     errors?: ReadonlyArray<GraphQLError>;
 }
 export interface Propmt__GetListResponseData {
+      total?: number
     data?: {
         createdAt?: string
         id?: number
@@ -355,7 +356,6 @@ export interface Propmt__GetListResponseData {
         title?: string
         updatedAt?: string
     }[],
-      total?: number
 }
 export interface Propmt__UpdateOneInput {
      id: number
@@ -370,10 +370,10 @@ export interface InternalPropmt__UpdateOneInput {
       updatedAt?: string
 }
     export interface InjectedPropmt__UpdateOneInput {
-     updatedAt: string
+     title?: string
+         updatedAt: string
          id: number
          prompt?: string
-         title?: string
     
 }
 
@@ -410,12 +410,12 @@ export interface InternalUser__CreateOneUserInput {
       name: string
 }
     export interface InjectedUser__CreateOneUserInput {
-     name: string
-         provider?: string
-         providerId?: string
+     providerId?: string
          avatar: string
          description: string
          id: string
+         name: string
+         provider?: string
     
 }
 
@@ -472,16 +472,16 @@ export interface User__MeResponse {
 }
 export interface User__MeResponseData {
     data?: {
-        description?: string
         id?: string
         name?: string
         avatar?: string
+        description?: string
     },
 }
 export interface User__UpdateInfoInput {
-     description?: string
-                 name?: string
+     name?: string
                  avatar?: string
+                 description?: string
             
 }
 export interface InternalUser__UpdateInfoInput {
@@ -491,10 +491,10 @@ export interface InternalUser__UpdateInfoInput {
       name?: string
 }
     export interface InjectedUser__UpdateInfoInput {
-     name?: string
-         avatar?: string
+     avatar?: string
          description?: string
          id: string
+         name?: string
     
 }
 
@@ -506,10 +506,10 @@ export interface User__UpdateInfoResponse {
 }
 export interface User__UpdateInfoResponseData {
     data?: {
+        avatar?: string
         description?: string
         id?: string
         name?: string
-        avatar?: string
     },
 }
 export interface Chat__ChatSSEInput {
