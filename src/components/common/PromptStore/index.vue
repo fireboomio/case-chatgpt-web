@@ -1,9 +1,9 @@
 <script setup lang='ts'>
 import type { DataTableColumns } from 'naive-ui'
 import { computed, h, ref, watch } from 'vue'
-import { NButton, NCard, NDataTable, NDivider, NInput, NLayoutContent, NList, NListItem, NModal, NPopconfirm, NSpace, NTabPane, NTabs, NThing, useMessage } from 'naive-ui'
-import PromptRecommend from '../../../assets/recommend.json'
-import { SvgIcon } from '..'
+import { NButton, NDataTable, NInput, NList, NListItem, NModal, NPopconfirm, NSpace, NThing, useMessage } from 'naive-ui'
+// import PromptRecommend from '../../../assets/recommend.json'
+// import { SvgIcon } from '..'
 import { usePromptStore } from '@/store'
 import { useBasicLayout } from '@/hooks/useBasicLayout'
 import { t } from '@/locales'
@@ -36,8 +36,8 @@ const show = computed({
 
 const showModal = ref(false)
 
-const importLoading = ref(false)
-const exportLoading = ref(false)
+// const importLoading = ref(false)
+// const exportLoading = ref(false)
 
 const searchValue = ref<string>('')
 
@@ -47,7 +47,7 @@ const { isMobile } = useBasicLayout()
 const promptStore = usePromptStore()
 
 // Prompt在线导入推荐List,根据部署者喜好进行修改(assets/recommend.json)
-const promptRecommendList = PromptRecommend
+// const promptRecommendList = PromptRecommend
 const promptList = ref<any>(promptStore.promptList)
 
 // 用于添加修改的临时prompt参数
@@ -80,11 +80,11 @@ const changeShowModal = (mode: 'add' | 'modify' | 'local_import', selected = { k
 }
 
 // 在线导入相关
-const downloadURL = ref('')
-const downloadDisabled = computed(() => downloadURL.value.trim().length < 1)
-const setDownloadURL = (url: string) => {
-  downloadURL.value = url
-}
+// const downloadURL = ref('')
+// const downloadDisabled = computed(() => downloadURL.value.trim().length < 1)
+// const setDownloadURL = (url: string) => {
+//   downloadURL.value = url
+// }
 
 // 控制 input 按钮
 const inputStatus = computed (() => tempPromptKey.value.trim().length < 1 || tempPromptValue.value.trim().length < 1)
@@ -194,47 +194,47 @@ const importPromptTemplate = () => {
 }
 
 // 模板导出
-const exportPromptTemplate = () => {
-  exportLoading.value = true
-  const jsonDataStr = JSON.stringify(promptList.value)
-  const blob = new Blob([jsonDataStr], { type: 'application/json' })
-  const url = URL.createObjectURL(blob)
-  const link = document.createElement('a')
-  link.href = url
-  link.download = 'ChatGPTPromptTemplate.json'
-  link.click()
-  URL.revokeObjectURL(url)
-  exportLoading.value = false
-}
+// const exportPromptTemplate = () => {
+//   exportLoading.value = true
+//   const jsonDataStr = JSON.stringify(promptList.value)
+//   const blob = new Blob([jsonDataStr], { type: 'application/json' })
+//   const url = URL.createObjectURL(blob)
+//   const link = document.createElement('a')
+//   link.href = url
+//   link.download = 'ChatGPTPromptTemplate.json'
+//   link.click()
+//   URL.revokeObjectURL(url)
+//   exportLoading.value = false
+// }
 
 // 模板在线导入
-const downloadPromptTemplate = async () => {
-  try {
-    importLoading.value = true
-    const response = await fetch(downloadURL.value)
-    const jsonData = await response.json()
-    if ('key' in jsonData[0] && 'value' in jsonData[0])
-      tempPromptValue.value = JSON.stringify(jsonData)
-    if ('act' in jsonData[0] && 'prompt' in jsonData[0]) {
-      const newJsonData = jsonData.map((item: { act: string; prompt: string }) => {
-        return {
-          key: item.act,
-          value: item.prompt,
-        }
-      })
-      tempPromptValue.value = JSON.stringify(newJsonData)
-    }
-    importPromptTemplate()
-    downloadURL.value = ''
-  }
-  catch {
-    message.error(t('store.downloadError'))
-    downloadURL.value = ''
-  }
-  finally {
-    importLoading.value = false
-  }
-}
+// const downloadPromptTemplate = async () => {
+//   try {
+//     importLoading.value = true
+//     const response = await fetch(downloadURL.value)
+//     const jsonData = await response.json()
+//     if ('key' in jsonData[0] && 'value' in jsonData[0])
+//       tempPromptValue.value = JSON.stringify(jsonData)
+//     if ('act' in jsonData[0] && 'prompt' in jsonData[0]) {
+//       const newJsonData = jsonData.map((item: { act: string; prompt: string }) => {
+//         return {
+//           key: item.act,
+//           value: item.prompt,
+//         }
+//       })
+//       tempPromptValue.value = JSON.stringify(newJsonData)
+//     }
+//     importPromptTemplate()
+//     downloadURL.value = ''
+//   }
+//   catch {
+//     message.error(t('store.downloadError'))
+//     downloadURL.value = ''
+//   }
+//   finally {
+//     importLoading.value = false
+//   }
+// }
 
 // 移动端自适应相关
 const renderTemplate = () => {
@@ -327,54 +327,54 @@ const dataSource = computed(() => {
 <template>
   <NModal v-model:show="show" style="width: 90%; max-width: 900px;" preset="card">
     <div class="space-y-4">
-          <div
-            class="flex gap-3 mb-4"
-            :class="[isMobile ? 'flex-col' : 'flex-row justify-between']"
+      <div
+        class="flex mb-4 gap-3"
+        :class="[isMobile ? 'flex-col' : 'flex-row justify-between']"
+      >
+        <div class="flex space-x-4 items-center">
+          <NButton
+            type="primary"
+            size="small"
+            @click="changeShowModal('add')"
           >
-            <div class="flex items-center space-x-4">
-              <NButton
-                type="primary"
-                size="small"
-                @click="changeShowModal('add')"
-              >
-                {{ $t('common.add') }}
+            {{ $t('common.add') }}
+          </NButton>
+          <NPopconfirm @positive-click="clearPromptTemplate">
+            <template #trigger>
+              <NButton size="small">
+                {{ $t('common.clear') }}
               </NButton>
-              <NPopconfirm @positive-click="clearPromptTemplate">
-                <template #trigger>
-                  <NButton size="small">
-                    {{ $t('common.clear') }}
-                  </NButton>
-                </template>
-                {{ $t('store.clearStoreConfirm') }}
-              </NPopconfirm>
+            </template>
+            {{ $t('store.clearStoreConfirm') }}
+          </NPopconfirm>
+        </div>
+        <div class="flex items-center">
+          <NInput v-model:value="searchValue" style="width: 100%" />
+        </div>
+      </div>
+      <NDataTable
+        v-if="!isMobile"
+        :max-height="400"
+        :columns="columns"
+        :data="dataSource"
+        :pagination="pagination"
+        :bordered="false"
+      />
+      <NList v-if="isMobile" style="max-height: 400px; overflow-y: auto;">
+        <NListItem v-for="(item, index) of dataSource" :key="index">
+          <NThing :title="item.renderKey" :description="item.renderValue" />
+          <template #suffix>
+            <div class="flex flex-col gap-2 items-center">
+              <NButton tertiary size="small" type="info" @click="changeShowModal('modify', item)">
+                {{ t('common.edit') }}
+              </NButton>
+              <NButton tertiary size="small" type="error" @click="deletePromptTemplate(item)">
+                {{ t('common.delete') }}
+              </NButton>
             </div>
-            <div class="flex items-center">
-              <NInput v-model:value="searchValue" style="width: 100%" />
-            </div>
-          </div>
-          <NDataTable
-            v-if="!isMobile"
-            :max-height="400"
-            :columns="columns"
-            :data="dataSource"
-            :pagination="pagination"
-            :bordered="false"
-          />
-          <NList v-if="isMobile" style="max-height: 400px; overflow-y: auto;">
-            <NListItem v-for="(item, index) of dataSource" :key="index">
-              <NThing :title="item.renderKey" :description="item.renderValue" />
-              <template #suffix>
-                <div class="flex flex-col items-center gap-2">
-                  <NButton tertiary size="small" type="info" @click="changeShowModal('modify', item)">
-                    {{ t('common.edit') }}
-                  </NButton>
-                  <NButton tertiary size="small" type="error" @click="deletePromptTemplate(item)">
-                    {{ t('common.delete') }}
-                  </NButton>
-                </div>
-              </template>
-            </NListItem>
-          </NList>
+          </template>
+        </NListItem>
+      </NList>
     </div>
   </NModal>
 
