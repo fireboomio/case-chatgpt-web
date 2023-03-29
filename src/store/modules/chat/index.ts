@@ -56,7 +56,7 @@ export const useChatStore = defineStore('chat-store', {
         })
         this.chat.unshift({ uuid: item.id!, data: chatData })
         this.active = item.id!
-        this.reloadRoute(item.id!)
+        await this.reloadRoute(item.id!)
       }
     },
 
