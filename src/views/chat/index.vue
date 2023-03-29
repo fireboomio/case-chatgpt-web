@@ -55,7 +55,7 @@ const promptStore = usePromptStore()
 const { promptList: promptTemplate } = storeToRefs<any>(promptStore)
 
 async function handleSubmit() {
-  if (chatStore.active == null)
+  if (!chatStore.active)
     await chatStore.addHistory({ title: prompt.value, isEdit: false })
 
   onConversation()
