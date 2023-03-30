@@ -127,9 +127,9 @@ export const useChatStore = defineStore('chat-store', {
       }
     },
 
-    async setActive(uuid: number) {
+    async setActive(uuid: number | null) {
       this.active = uuid
-      return await this.reloadRoute(uuid)
+      return await this.reloadRoute(uuid || undefined)
     },
 
     getChatByUuidAndIndex(uuid: number, index: number) {

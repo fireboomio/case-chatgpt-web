@@ -16,7 +16,9 @@ const route = useRoute()
 // const uuid = computed(() => route.params.uuid)
 
 const dataSources = computed(() => chatStore.history)
-chatStore.setActive(Number(route.params.uuid))
+if (route.params.uuid)
+  chatStore.setActive(Number(route.params.uuid))
+
 async function handleSelect({ uuid }: Chat.History) {
   if (isActive(uuid))
     return
