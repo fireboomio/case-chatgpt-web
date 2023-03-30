@@ -28,11 +28,11 @@ export interface Chat__CreateOneResponse {
 }
 export interface Chat__CreateOneResponseData {
     data?: {
-        text?: string
         chatId?: number
         createdAt?: string
         id?: number
         parentMessageId?: number
+        text?: string
     },
 }
 export interface Chat__DeleteOneInput {
@@ -159,10 +159,10 @@ export interface History__CreateOneResponse {
 }
 export interface History__CreateOneResponseData {
     data?: {
-        id?: number
-        title?: string
         updatedAt?: string
         createdAt?: string
+        id?: number
+        title?: string
     },
 }
 export interface History__DeleteOneInput {
@@ -211,8 +211,8 @@ export interface History__GetListResponseData {
     }[],
 }
 export interface History__UpdateOneInput {
-     title?: string
-                 id: number
+     id: number
+                 title?: string
             
 }
 export interface InternalHistory__UpdateOneInput {
@@ -233,10 +233,10 @@ export interface History__UpdateOneResponse {
 }
 export interface History__UpdateOneResponseData {
     data?: {
-        createdAt?: string
-        id?: number
         title?: string
         updatedAt?: string
+        createdAt?: string
+        id?: number
     },
 }
 export interface Propmt__CreateOneInput {
@@ -334,10 +334,10 @@ export interface InternalPropmt__GetListInput {
       take?: number
 }
     export interface InjectedPropmt__GetListInput {
-   orderBy?: {
+     take?: number
+       orderBy?: {
    }[],
              skip?: number
-         take?: number
     
 }
 
@@ -348,14 +348,14 @@ export interface Propmt__GetListResponse {
     errors?: ReadonlyArray<GraphQLError>;
 }
 export interface Propmt__GetListResponseData {
-      total?: number
     data?: {
-        createdAt?: string
         id?: number
         prompt?: string
         title?: string
         updatedAt?: string
+        createdAt?: string
     }[],
+      total?: number
 }
 export interface Propmt__UpdateOneInput {
      id: number
@@ -370,10 +370,10 @@ export interface InternalPropmt__UpdateOneInput {
       updatedAt?: string
 }
     export interface InjectedPropmt__UpdateOneInput {
-     title?: string
-         updatedAt: string
-         id: number
+     id: number
          prompt?: string
+         title?: string
+         updatedAt: string
     
 }
 
@@ -393,29 +393,29 @@ export interface Propmt__UpdateOneResponseData {
     },
 }
 export interface User__CreateOneUserInput {
-     name: string
-                 provider?: string
-                 providerId?: string
-                 avatar: string
+     avatar: string
                  description: string
                  id: string
+                 name: string
+                 provider?: string
+                 providerId?: string
             
 }
 export interface InternalUser__CreateOneUserInput {
-      provider?: string
-      providerId?: string
       avatar: string
       description: string
       id: string
       name: string
+      provider?: string
+      providerId?: string
 }
     export interface InjectedUser__CreateOneUserInput {
-     providerId?: string
-         avatar: string
-         description: string
-         id: string
+     id: string
          name: string
          provider?: string
+         providerId?: string
+         avatar: string
+         description: string
     
 }
 
@@ -450,10 +450,10 @@ export interface User__GetOneUserResponse {
 }
 export interface User__GetOneUserResponseData {
     data?: {
-        avatar?: string
-        description?: string
         id?: string
         name?: string
+        avatar?: string
+        description?: string
     },
 }
 export interface InternalUser__MeInput {
@@ -479,16 +479,16 @@ export interface User__MeResponseData {
     },
 }
 export interface User__UpdateInfoInput {
-     name?: string
-                 avatar?: string
+     avatar?: string
                  description?: string
+                 name?: string
             
 }
 export interface InternalUser__UpdateInfoInput {
-      avatar?: string
       description?: string
       id?: string
       name?: string
+      avatar?: string
 }
     export interface InjectedUser__UpdateInfoInput {
      avatar?: string
