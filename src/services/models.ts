@@ -28,11 +28,11 @@ export interface Chat__CreateOneResponse {
 }
 export interface Chat__CreateOneResponseData {
     data?: {
+        text?: string
         chatId?: number
         createdAt?: string
         id?: number
         parentMessageId?: number
-        text?: string
     },
 }
 export interface Chat__DeleteOneInput {
@@ -78,9 +78,9 @@ export interface Chat__GetByHistoryResponse {
 }
 export interface Chat__GetByHistoryResponseData {
     data?: {
-        parentMessageId?: number
         text?: string
         id?: number
+        parentMessageId?: number
     }[],
 }
 export interface Chat__GetMyHistoryChatsInput {
@@ -88,8 +88,8 @@ export interface Chat__GetMyHistoryChatsInput {
             
 }
 export interface InternalChat__GetMyHistoryChatsInput {
-      chatId: number
       userId?: string
+      chatId: number
 }
     export interface InjectedChat__GetMyHistoryChatsInput {
      chatId: number
@@ -105,10 +105,10 @@ export interface Chat__GetMyHistoryChatsResponse {
 }
 export interface Chat__GetMyHistoryChatsResponseData {
     data?: {
-        createdAt?: string
         id?: number
         parentMessageId?: number
         text?: string
+        createdAt?: string
     }[],
 }
 export interface Chat__UpdateChatTextInput {
@@ -220,8 +220,8 @@ export interface InternalHistory__UpdateOneInput {
       title?: string
 }
     export interface InjectedHistory__UpdateOneInput {
-     id: number
-         title?: string
+     title?: string
+         id: number
     
 }
 
@@ -233,10 +233,10 @@ export interface History__UpdateOneResponse {
 }
 export interface History__UpdateOneResponseData {
     data?: {
-        title?: string
-        updatedAt?: string
         createdAt?: string
         id?: number
+        title?: string
+        updatedAt?: string
     },
 }
 export interface Propmt__CreateOneInput {
@@ -321,10 +321,10 @@ export interface Propmt__DeleteOneResponseData {
     },
 }
 export interface Propmt__GetListInput {
-   orderBy?: {
+     take?: number
+               orderBy?: {
    }[],
                              skip?: number
-                 take?: number
             
 }
 export interface InternalPropmt__GetListInput {
@@ -334,10 +334,10 @@ export interface InternalPropmt__GetListInput {
       take?: number
 }
     export interface InjectedPropmt__GetListInput {
-     take?: number
+         skip?: number
+         take?: number
        orderBy?: {
    }[],
-             skip?: number
     
 }
 
@@ -349,11 +349,11 @@ export interface Propmt__GetListResponse {
 }
 export interface Propmt__GetListResponseData {
     data?: {
+        createdAt?: string
         id?: number
         prompt?: string
         title?: string
         updatedAt?: string
-        createdAt?: string
     }[],
       total?: number
 }
@@ -385,37 +385,106 @@ export interface Propmt__UpdateOneResponse {
 }
 export interface Propmt__UpdateOneResponseData {
     data?: {
+        title?: string
+        updatedAt?: string
         createdAt?: string
         id?: number
         prompt?: string
-        title?: string
-        updatedAt?: string
     },
 }
+export interface System__BindRoleApisInput {
+     roleCode: string
+               allRoles: {
+   }[],
+               apis: {
+   }[],
+            
+}
+export interface InternalSystem__BindRoleApisInput {
+    allRoles: {
+    }[],
+    apis: {
+    }[],
+      roleCode: string
+}
+    export interface InjectedSystem__BindRoleApisInput {
+   allRoles: {
+   }[],
+       apis: {
+   }[],
+         roleCode: string
+    
+}
+
+
+    
+export interface System__BindRoleApisResponse {
+    data?: System__BindRoleApisResponseData
+    errors?: ReadonlyArray<GraphQLError>;
+}
+export interface System__BindRoleApisResponseData {
+    data?: {
+        count?: number
+    },
+}
+export interface System__GetRoleBindApisInput {
+     code: string
+            
+}
+export interface InternalSystem__GetRoleBindApisInput {
+      code: string
+}
+    export interface InjectedSystem__GetRoleBindApisInput {
+     code: string
+    
+}
+
+
+    
+export interface System__GetRoleBindApisResponse {
+    data?: System__GetRoleBindApisResponseData
+    errors?: ReadonlyArray<GraphQLError>;
+}
+export interface System__GetRoleBindApisResponseData {
+    data?: {
+        operationType?: string
+        content?: string
+        deleteTime?: string
+        method?: string
+        updateTime?: string
+        createTime?: string
+        id?: number
+        restUrl?: string
+        title?: string
+        roleType?: string
+        roles?: string
+        remark?: string
+    }[],
+}
 export interface User__CreateOneUserInput {
-     avatar: string
-                 description: string
-                 id: string
-                 name: string
+     name: string
                  provider?: string
                  providerId?: string
+                 avatar: string
+                 description: string
+                 id: string
             
 }
 export interface InternalUser__CreateOneUserInput {
-      avatar: string
-      description: string
       id: string
       name: string
       provider?: string
       providerId?: string
+      avatar: string
+      description: string
 }
     export interface InjectedUser__CreateOneUserInput {
-     id: string
+     avatar: string
+         description: string
+         id: string
          name: string
          provider?: string
          providerId?: string
-         avatar: string
-         description: string
     
 }
 
@@ -450,10 +519,10 @@ export interface User__GetOneUserResponse {
 }
 export interface User__GetOneUserResponseData {
     data?: {
-        id?: string
-        name?: string
         avatar?: string
         description?: string
+        id?: string
+        name?: string
     },
 }
 export interface InternalUser__MeInput {
@@ -472,23 +541,23 @@ export interface User__MeResponse {
 }
 export interface User__MeResponseData {
     data?: {
-        id?: string
-        name?: string
         avatar?: string
         description?: string
+        id?: string
+        name?: string
     },
 }
 export interface User__UpdateInfoInput {
-     avatar?: string
+     name?: string
+                 avatar?: string
                  description?: string
-                 name?: string
             
 }
 export interface InternalUser__UpdateInfoInput {
-      description?: string
       id?: string
       name?: string
       avatar?: string
+      description?: string
 }
     export interface InjectedUser__UpdateInfoInput {
      avatar?: string
@@ -506,10 +575,10 @@ export interface User__UpdateInfoResponse {
 }
 export interface User__UpdateInfoResponseData {
     data?: {
-        avatar?: string
-        description?: string
         id?: string
         name?: string
+        avatar?: string
+        description?: string
     },
 }
 export interface Chat__ChatSSEInput {

@@ -1,17 +1,18 @@
 <script setup lang='ts'>
-import { ref } from 'vue'
+import { ref, watchEffect } from 'vue'
 import { NButton, NModal } from 'naive-ui'
 import Icon403 from '@/icons/403.vue'
 import fbClient from '@/services'
-import {useRouter} from "vue-router";
+import { useChatStore } from '@/store'
 
 interface Props {
   visible: boolean
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
 
 // const authStore = useAuthStore()
+const chatStore = useChatStore()
 
 // const ms = useMessage()
 
@@ -22,15 +23,19 @@ async function handleVerify() {
   fbClient.login('authing')
 }
 
-const router = useRouter()
-router.push('/')
-
 // function handlePress(event: KeyboardEvent) {
 //   if (event.key === 'Enter' && !event.shiftKey) {
 //     event.preventDefault()
 //     handleVerify()
 //   }
 // }
+watchEffect(() => {
+  if (props.visible) {
+    // const router = useRouter()
+    // router.push('/')
+    chatStore.setActive(null)
+  }
+})
 </script>
 
 <template>
