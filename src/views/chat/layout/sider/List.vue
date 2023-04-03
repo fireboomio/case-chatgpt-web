@@ -31,7 +31,7 @@ async function handleSelect({ uuid }: Chat.History) {
 
 function handleEdit({ uuid, title }: Chat.History, isEdit: boolean, event?: MouseEvent) {
   event?.stopPropagation()
-  if (!title)
+  if (!title && !isEdit)
     return message.error('名称不能为空')
 
   chatStore.updateHistory(uuid, { isEdit })
@@ -42,10 +42,14 @@ function handleDelete(index: number, event?: MouseEvent | TouchEvent) {
   chatStore.deleteHistory(index)
 }
 
-function handleEnter({ uuid }: Chat.History, isEdit: boolean, event: KeyboardEvent) {
+function handleEnter({ uuid, title }: Chat.History, isEdit: boolean, event: KeyboardEvent) {
   event?.stopPropagation()
-  if (event.key === 'Enter')
-    chatStore.updateHistory(uuid, { isEdit })
+  if (event.key === 'Enter') {
+    if (!title) {
+      return message.error('名称不能为空')
+    }
+    chatStore.updateHistory(uuid, {isEdit})
+  }
 }
 
 function isActive(uuid: number) {
