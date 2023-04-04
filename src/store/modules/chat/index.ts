@@ -35,6 +35,11 @@ export const useChatStore = defineStore('chat-store', {
           uuid: item.id!,
         }))
       }
+      if (data?.data?.length && data?.data?.length > 0) {
+        this.setActive(data!.data![0].id!)
+      } else {
+        this.addHistory({ title: 'New Chat', isEdit: false })
+      }
     },
     setUsingContext(context: boolean) {
       this.usingContext = context
