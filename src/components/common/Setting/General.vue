@@ -128,8 +128,18 @@ async function updateUserInfo(options: Partial<UserInfo>) {
 // }
 
 async function logout() {
-  await client.logout()
-  window.location.reload()
+  await client.logout({
+    logoutOpenidConnectProvider: true,
+    async redirect(url) {
+      const i = document.createElement('iframe')
+      i.src = url
+      document.body.appendChild(i)
+      return true
+    },
+    after() {
+      location.reload()
+    },
+  })
 }
 </script>
 
