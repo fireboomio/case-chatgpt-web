@@ -13,12 +13,12 @@
 			"clientId": {
 				"key": "",
 				"kind": "0",
-				"val": "b90250cff912ac669ece"
+				"val": "aca90f01227622516181"
 			},
 			"clientSecret": {
 				"key": "",
 				"kind": "0",
-				"val": "715397025b55bd7beb50d6c1b5f5b1f360e41a3d"
+				"val": "f407c9c1f309c29d2ecd1afbc4d386b6588cab03"
 			},
 			"issuer": "https://oidc.100ai.com.cn",
 			"discoveryURL": "",
@@ -31,7 +31,7 @@
 			"tokenEndpoint": "https://oidc.100ai.com.cn/api/login/oauth/access_token"
 		},
 		"createTime": "2023-03-08 06:25:03Z",
-		"updateTime": "2023-04-14 08:23:58Z",
+		"updateTime": "2023-04-14 08:56:51Z",
 		"deleteTime": ""
 	}
 ]
