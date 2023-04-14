@@ -23,7 +23,7 @@ export const WUNDERGRAPH_AUTH_ENABLED = true
 
 
 export enum AuthProviderId {
-    "authing" = "authing",
+    "casdoor" = "casdoor",
 }
 
 export interface AuthProvider {
@@ -32,7 +32,7 @@ export interface AuthProvider {
 }
 
 export const defaultClientConfig: ClientConfig = {
-    applicationHash: "a25a43dc",
+    applicationHash: "8ab15515",
     baseURL: "http://localhost:9991",
     sdkVersion: ""
 }

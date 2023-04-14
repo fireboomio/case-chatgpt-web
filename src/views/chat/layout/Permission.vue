@@ -20,7 +20,7 @@ const loading = ref(false)
 // const token = ref('')
 
 async function handleVerify() {
-  fbClient.login('authing')
+  fbClient.login('casdoor')
 }
 
 // function handlePress(event: KeyboardEvent) {

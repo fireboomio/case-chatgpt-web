@@ -1,37 +1,37 @@
 [
 	{
-		"authSupplier": "openid",
-		"config": {
-			"AuthorizationEndpoint": "https://fb-chatgpt-web.authing.cn/oidc/auth",
-			"clientId": {
-				"key": "",
-				"kind": "0",
-				"val": "641a942dd9081d5dd1bb5b49"
-			},
-			"clientSecret": {
-				"key": "",
-				"kind": "0",
-				"val": "b33a08ce16b60d0713e76dda64f6f0a3"
-			},
-			"discoveryURL": "",
-			"id": "authing",
-			"issuer": "https://fb-chatgpt-web.authing.cn/oidc",
-			"jwks": 0,
-			"jwksJSON": "",
-			"jwksURL": "https://fb-chatgpt-web.authing.cn/oidc/.well-known/jwks.json",
-			"tokenEndpoint": "https://fb-chatgpt-web.authing.cn/oidc/token",
-			"userInfoCacheTtlSeconds": 0,
-			"userInfoEndpoint": "https://fb-chatgpt-web.authing.cn/oidc/me"
-		},
-		"createTime": "2023-03-08 06:25:03Z",
-		"deleteTime": "",
 		"id": 1402506998906880,
-		"name": "authing",
-		"point": "http://localhost:9991/auth/cookie/authorize/authing?redirect_uri=",
+		"point": "http://localhost:9991/auth/cookie/authorize/casdoor?redirect_uri=",
+		"name": "casdoor",
+		"authSupplier": "openid",
 		"switchState": [
 			"cookieBased",
 			"tokenBased"
 		],
-		"updateTime": "2023-03-22 05:39:10Z"
+		"config": {
+			"id": "casdoor",
+			"clientId": {
+				"key": "",
+				"kind": "0",
+				"val": "b90250cff912ac669ece"
+			},
+			"clientSecret": {
+				"key": "",
+				"kind": "0",
+				"val": "715397025b55bd7beb50d6c1b5f5b1f360e41a3d"
+			},
+			"issuer": "https://oidc.100ai.com.cn",
+			"discoveryURL": "",
+			"jwks": 0,
+			"jwksJSON": "",
+			"jwksURL": "https://oidc.100ai.com.cn/.well-known/jwks.json",
+			"userInfoEndpoint": "https://oidc.100ai.com.cn/api/userinfo",
+			"userInfoCacheTtlSeconds": 0,
+			"AuthorizationEndpoint": "https://oidc.100ai.com.cn/login/oauth/authorize",
+			"tokenEndpoint": "https://oidc.100ai.com.cn/api/login/oauth/access_token"
+		},
+		"createTime": "2023-03-08 06:25:03Z",
+		"updateTime": "2023-04-14 08:23:58Z",
+		"deleteTime": ""
 	}
 ]
