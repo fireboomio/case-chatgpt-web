@@ -1,4 +1,5 @@
-import { writeFile, readdir, stat, mkdir,  } from 'node:fs/promises'
+import { writeFile, readdir, stat, mkdir } from 'node:fs/promises'
+import { existsSync } from 'node:fs'
 import { join, parse } from 'node:path'
 import { NodeJSOperation, OperationTypes } from 'fireboom-wundersdk/dist/operations/operations'
 import zodToJsonSchema from "zod-to-json-schema"
@@ -69,15 +70,18 @@ async function readDir(rootPath: string, ...dirPath: string[]) {
 }
 
 async function writeTsOperationsConfig() {
-  const operations = await readDir(join(__dirname, '../operations'))
-  const tsOperationConfigDir = join(__dirname, '../../exported/.operations')
-  rmSync(tsOperationConfigDir, { force: true, recursive: true })
-  await mkdir(tsOperationConfigDir)
-  for (const operation of operations) {
-    const dirPath = operation.tsPath.split('/')
-    const fileName = dirPath.pop()!
-    await mkdir(join(tsOperationConfigDir, ...dirPath), { recursive: true })
-    await writeFile(join(tsOperationConfigDir, ...dirPath, `${parse(fileName).name}.config.json`), JSON.stringify(operation, null, 2), 'utf-8')
+  const operationsDirPath = join(__dirname, '../operations')
+  if (existsSync(operationsDirPath)) {
+    const operations = await readDir(operationsDirPath)
+    const tsOperationConfigDir = join(__dirname, '../../exported/.operations')
+    rmSync(tsOperationConfigDir, { force: true, recursive: true })
+    await mkdir(tsOperationConfigDir)
+    for (const operation of operations) {
+      const dirPath = operation.tsPath.split('/')
+      const fileName = dirPath.pop()!
+      await mkdir(join(tsOperationConfigDir, ...dirPath), { recursive: true })
+      await writeFile(join(tsOperationConfigDir, ...dirPath, `${parse(fileName).name}.config.json`), JSON.stringify(operation, null, 2), 'utf-8')
+    }
   }
 }
 
