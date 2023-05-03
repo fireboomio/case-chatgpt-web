@@ -2,6 +2,7 @@ query MyQuery($historyId: Int!) @internalOperation {
   data: grace_findManyChatMessage(
     where: {History: {is: {id: {equals: $historyId}}}}
     orderBy: {createdAt: asc}
+    take: 8
   ) {
     id
     text
