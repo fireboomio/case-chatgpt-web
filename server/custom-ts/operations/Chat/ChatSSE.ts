@@ -51,7 +51,7 @@ export default createOperation.subscription({
           if (!errors) {
             // 删除最后一个预置的空机器人回答
             data!.data!.pop()
-            for (const item of data!.data!) {
+            for (const item of data!.data!.reverse()) {
               // 无parentMessageId表示用户发问，否则是机器人返回结果
               if (item.parentMessageId) {
                 msg.push({ role: 'assistant', content: item.text! })
