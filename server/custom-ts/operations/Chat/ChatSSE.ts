@@ -1,10 +1,10 @@
 // @ts-nocheck
 import fetch from '@web-std/fetch';
-import { createOperation, z } from 'generated/fireboom.factory'
+import {createOperation, z} from 'generated/fireboom.factory'
 
 function readChunks(reader: ReadableStreamDefaultReader<Uint8Array>) {
   return {
-    async*[Symbol.asyncIterator]() {
+    async* [Symbol.asyncIterator]() {
       let readResult = await reader.read();
       while (!readResult.done) {
         yield readResult.value;
@@ -20,7 +20,7 @@ export default createOperation.subscription({
     chatId: z.number(),
     regenerateId: z.optional(z.string())
   }),
-  handler: async function* ({ input, internalClient }) {
+  handler: async function* ({input, internalClient}) {
     const chatId = +input.chatId
     const prompt = input.prompt
     try {
@@ -43,7 +43,7 @@ export default createOperation.subscription({
         if (!insertedA.errors) {
           // 读取历史对话
           const msg: { role: 'system' | 'user' | 'assistant', content: string }[] = []
-          const { data, errors } = await internalClient.queries['Chat__GetByHistory']({
+          const {data, errors} = await internalClient.queries['Chat__GetByHistory']({
             input: {
               historyId: chatId,
             }
@@ -54,22 +54,25 @@ export default createOperation.subscription({
             for (const item of data!.data!.reverse()) {
               // 无parentMessageId表示用户发问，否则是机器人返回结果
               if (item.parentMessageId) {
-                msg.push({ role: 'assistant', content: item.text! })
+                msg.push({role: 'assistant', content: item.text!})
               } else {
-                msg.push(({ role: "user", content: item.text! }))
+                msg.push(({role: "user", content: item.text!}))
               }
             }
           } else {
             throw errors
           }
-          const res = await fetch('https://api.openai.com/v1/chat/completions', {
+          // const res = await fetch('https://api.openai.com/v1/chat/completions', {
+          const res = await fetch('https://freetalkchatgpt.openai.azure.com/openai/deployments/gpt-35-turbo_0301/chat/completions?api-version=2023-05-15', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': 'Bearer ' + process.env.OPENAI_KEY
+              //'Authorization': 'Bearer ' + process.env.OPENAI_KEY,
+              'api-key': '2ce466c24f924a51b843be70709621d2',
             },
             body: JSON.stringify({
-              model: 'gpt-3.5-turbo',
+              //model: 'gpt-3.5-turbo',
+              model: 'gpt-35-turbo',
               messages: msg,
               stream: true
             })
@@ -89,7 +92,7 @@ export default createOperation.subscription({
                     const delta = json.choices[0].delta
                     if (delta.content) {
                       resStrArr.push(delta.content)
-                      yield { completion: delta.content, id: id }
+                      yield {completion: delta.content, id: id}
                     }
                   }
                 }
@@ -99,11 +102,11 @@ export default createOperation.subscription({
 
           } else {
             result = res.statusText
-            yield { completion: result }
+            yield {completion: result}
           }
           // 更新机器人回答的文字内容
           const updateResp = await internalClient.mutations['Chat__UpdateChatText']({
-            input: { id: insertedA.data!.data!.id!, text: result }
+            input: {id: insertedA.data!.data!.id!, text: result}
           })
           if (updateResp.errors) {
             console.log(updateResp.errors)
