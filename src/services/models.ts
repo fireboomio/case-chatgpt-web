@@ -392,6 +392,75 @@ export interface Propmt__UpdateOneResponseData {
         updatedAt?: string
     },
 }
+export interface System__BindRoleApisInput {
+   allRoles: {
+   }[],
+               apis: {
+   }[],
+                 roleCode: string
+            
+}
+export interface InternalSystem__BindRoleApisInput {
+    allRoles: {
+    }[],
+    apis: {
+    }[],
+      roleCode: string
+}
+    export interface InjectedSystem__BindRoleApisInput {
+   allRoles: {
+   }[],
+       apis: {
+   }[],
+         roleCode: string
+    
+}
+
+
+    
+export interface System__BindRoleApisResponse {
+    data?: System__BindRoleApisResponseData
+    errors?: ReadonlyArray<GraphQLError>;
+}
+export interface System__BindRoleApisResponseData {
+    data?: {
+        count?: number
+    },
+}
+export interface System__GetRoleBindApisInput {
+     code: string
+            
+}
+export interface InternalSystem__GetRoleBindApisInput {
+      code: string
+}
+    export interface InjectedSystem__GetRoleBindApisInput {
+     code: string
+    
+}
+
+
+    
+export interface System__GetRoleBindApisResponse {
+    data?: System__GetRoleBindApisResponseData
+    errors?: ReadonlyArray<GraphQLError>;
+}
+export interface System__GetRoleBindApisResponseData {
+    data?: {
+        content?: string
+        createTime?: string
+        deleteTime?: string
+        id?: number
+        method?: string
+        operationType?: string
+        remark?: string
+        restUrl?: string
+        roleType?: string
+        roles?: string
+        title?: string
+        updateTime?: string
+    }[],
+}
 export interface User__CreateOneUserInput {
      avatar: string
                  description: string

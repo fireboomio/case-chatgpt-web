@@ -1,0 +1,89 @@
+
+> fireboom-hooks@1.0.1 start /root/case-chatgpt-web/server/custom-ts
+> cross-env NODE_ENV=production START_HOOKS_SERVER=true WG_DIR_ABS=. node fireboom.server.js
+
+{"level":"info","time":1684994939013,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","msg":"Registered route ($resolvePath('index.html'){routeOptions.method}) '/authentication/postAuthentication'"}
+{"level":"info","time":1684994939015,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","msg":"Registered route ($resolvePath('index.html'){routeOptions.method}) '/global/httpTransport/onOriginRequest'"}
+{"level":"info","time":1684994939015,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","msg":"Registered route ($resolvePath('index.html'){routeOptions.method}) '/global/httpTransport/onOriginResponse'"}
+{"level":"debug","time":1684994939016,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","msg":"Registered (7) query operations"}
+{"level":"debug","time":1684994939016,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","msg":"Registered (13) mutation operations"}
+{"level":"debug","time":1684994939016,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","msg":"Registered (1) subscription operations"}
+{"level":"debug","time":1684994939016,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","msg":"Registered (0) upload hooks"}
+{"level":"info","time":1684994939016,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","msg":"Hooks plugin registered"}
+{"level":"info","time":1684994939028,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","msg":"Registered route ($resolvePath('index.html'){routeOptions.method}) '/functions/Chat/ChatSSE'"}
+{"level":"debug","time":1684994939028,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","msg":"Function 'Chat__ChatSSE' registered at /functions/Chat/ChatSSE"}
+{"level":"info","time":1684994939028,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","msg":"Functions plugin registered"}
+{"level":"info","time":1684994939035,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","msg":"Server listening at http://127.0.0.1:9992"}
+{"level":"info","time":1684995042722,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"2f221bc3-e007-6775-e05a-4f3b5e78d0bc","req":{"method":"POST","url":"/authentication/postAuthentication","hostname":"localhost:9992","remoteAddress":"127.0.0.1","remotePort":57616},"msg":"incoming request"}
+{"level":"info","time":1684995042751,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"2f221bc3-e007-6775-e05a-4f3b5e78d0bc","res":{"statusCode":200},"responseTime":29.024813999887556,"msg":"request completed"}
+{"level":"info","time":1684995176431,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"ba59924a-4f91-318f-41b4-4fbbfceb4066","req":{"method":"POST","url":"/authentication/postAuthentication","hostname":"localhost:9992","remoteAddress":"127.0.0.1","remotePort":51802},"msg":"incoming request"}
+{"level":"info","time":1684995176446,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"ba59924a-4f91-318f-41b4-4fbbfceb4066","res":{"statusCode":200},"responseTime":14.761204999871552,"msg":"request completed"}
+{"level":"info","time":1684995389172,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"e6b0bfc2-e4fb-e216-707e-1ce29e44263e","req":{"method":"POST","url":"/authentication/postAuthentication","hostname":"localhost:9992","remoteAddress":"127.0.0.1","remotePort":38970},"msg":"incoming request"}
+{"level":"info","time":1684995389176,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"e6b0bfc2-e4fb-e216-707e-1ce29e44263e","res":{"statusCode":200},"responseTime":2.945140999974683,"msg":"request completed"}
+{"level":"info","time":1684995910549,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"15dfc74a-2d98-40fb-84ec-51ab3b70b2b2","req":{"method":"POST","url":"/authentication/postAuthentication","hostname":"localhost:9992","remoteAddress":"127.0.0.1","remotePort":39480},"msg":"incoming request"}
+{"level":"info","time":1684995910563,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"15dfc74a-2d98-40fb-84ec-51ab3b70b2b2","res":{"statusCode":200},"responseTime":14.206718999892473,"msg":"request completed"}
+{"level":"info","time":1684995977835,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"1376f20d-0730-02bb-cfb2-d824ed26f305","req":{"method":"POST","url":"/functions/Chat/ChatSSE","hostname":"localhost:9992","remoteAddress":"127.0.0.1","remotePort":34550},"msg":"incoming request"}
+client disconnected
+{"level":"info","time":1684995977939,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"1376f20d-0730-02bb-cfb2-d824ed26f305","res":{"statusCode":200},"responseTime":104.37987399986014,"msg":"request completed"}
+{"level":"info","time":1684996005137,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"cff923ba-be51-6cef-914c-7bb3bdaa561c","req":{"method":"POST","url":"/functions/Chat/ChatSSE","hostname":"localhost:9992","remoteAddress":"127.0.0.1","remotePort":34550},"msg":"incoming request"}
+client disconnected
+{"level":"info","time":1684996005230,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"cff923ba-be51-6cef-914c-7bb3bdaa561c","res":{"statusCode":200},"responseTime":92.34165899967775,"msg":"request completed"}
+{"level":"info","time":1684996010509,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"73823f6e-4a35-b26c-f3d9-4da85c3ae424","req":{"method":"POST","url":"/functions/Chat/ChatSSE","hostname":"localhost:9992","remoteAddress":"127.0.0.1","remotePort":34550},"msg":"incoming request"}
+client disconnected
+{"level":"info","time":1684996010600,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"73823f6e-4a35-b26c-f3d9-4da85c3ae424","res":{"statusCode":200},"responseTime":90.46272399974987,"msg":"request completed"}
+{"level":"info","time":1684996025273,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"b138054f-875c-4d48-1936-fd4e73f7dd14","req":{"method":"POST","url":"/functions/Chat/ChatSSE","hostname":"localhost:9992","remoteAddress":"127.0.0.1","remotePort":34550},"msg":"incoming request"}
+client disconnected
+{"level":"info","time":1684996025367,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"b138054f-875c-4d48-1936-fd4e73f7dd14","res":{"statusCode":200},"responseTime":93.18427600013092,"msg":"request completed"}
+{"level":"info","time":1684996130924,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"3b457f2c-1b7a-72b9-8f9f-7c787d14afc5","req":{"method":"POST","url":"/functions/Chat/ChatSSE","hostname":"localhost:9992","remoteAddress":"127.0.0.1","remotePort":53782},"msg":"incoming request"}
+client disconnected
+{"level":"info","time":1684996131027,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"3b457f2c-1b7a-72b9-8f9f-7c787d14afc5","res":{"statusCode":200},"responseTime":103.59020800003782,"msg":"request completed"}
+ ELIFECYCLE  Command failed.
+{"level":"info","time":1684996485419,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","signal":"SIGTERM","msg":"graceful shutdown was initiated manually"}
+{"level":"info","time":1684996485420,"pid":2415,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","signal":"SIGTERM","msg":"server process shutdown"}
+
+> fireboom-hooks@1.0.1 start /root/case-chatgpt-web/server/custom-ts
+> cross-env NODE_ENV=production START_HOOKS_SERVER=true WG_DIR_ABS=. node fireboom.server.js
+
+{"level":"info","time":1684996609154,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","msg":"Registered route ($resolvePath('index.html'){routeOptions.method}) '/authentication/postAuthentication'"}
+{"level":"info","time":1684996609156,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","msg":"Registered route ($resolvePath('index.html'){routeOptions.method}) '/global/httpTransport/onOriginRequest'"}
+{"level":"info","time":1684996609156,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","msg":"Registered route ($resolvePath('index.html'){routeOptions.method}) '/global/httpTransport/onOriginResponse'"}
+{"level":"debug","time":1684996609157,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","msg":"Registered (7) query operations"}
+{"level":"debug","time":1684996609157,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","msg":"Registered (13) mutation operations"}
+{"level":"debug","time":1684996609157,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","msg":"Registered (1) subscription operations"}
+{"level":"debug","time":1684996609157,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","msg":"Registered (0) upload hooks"}
+{"level":"info","time":1684996609157,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","msg":"Hooks plugin registered"}
+{"level":"info","time":1684996609169,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","msg":"Registered route ($resolvePath('index.html'){routeOptions.method}) '/functions/Chat/ChatSSE'"}
+{"level":"debug","time":1684996609169,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","msg":"Function 'Chat__ChatSSE' registered at /functions/Chat/ChatSSE"}
+{"level":"info","time":1684996609170,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","msg":"Functions plugin registered"}
+{"level":"info","time":1684996609177,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","msg":"Server listening at http://127.0.0.1:9992"}
+{"level":"info","time":1684996609338,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"6aa0a274-4220-2fbc-e327-5c7151a015ff","req":{"method":"POST","url":"/functions/Chat/ChatSSE","hostname":"localhost:9992","remoteAddress":"127.0.0.1","remotePort":57842},"msg":"incoming request"}
+client disconnected
+{"level":"info","time":1684996610257,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"6aa0a274-4220-2fbc-e327-5c7151a015ff","res":{"statusCode":200},"responseTime":918.3611159999855,"msg":"request completed"}
+{"level":"info","time":1684996651983,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"a77a989a-de23-e660-c402-4e25d269bf0b","req":{"method":"POST","url":"/functions/Chat/ChatSSE","hostname":"localhost:9992","remoteAddress":"127.0.0.1","remotePort":57842},"msg":"incoming request"}
+client disconnected
+{"level":"info","time":1684996653746,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"a77a989a-de23-e660-c402-4e25d269bf0b","res":{"statusCode":200},"responseTime":1763.021791999694,"msg":"request completed"}
+{"level":"info","time":1684996669794,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"7183e103-9125-1be9-8c2a-b098334c027e","req":{"method":"POST","url":"/functions/Chat/ChatSSE","hostname":"localhost:9992","remoteAddress":"127.0.0.1","remotePort":57842},"msg":"incoming request"}
+client disconnected
+{"level":"info","time":1684996675664,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"7183e103-9125-1be9-8c2a-b098334c027e","res":{"statusCode":200},"responseTime":5869.182412000373,"msg":"request completed"}
+{"level":"info","time":1684996805974,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"a92500ec-62cc-4a7e-5492-6acbb398e1b5","req":{"method":"POST","url":"/authentication/postAuthentication","hostname":"localhost:9992","remoteAddress":"127.0.0.1","remotePort":56992},"msg":"incoming request"}
+{"level":"info","time":1684996805978,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"a92500ec-62cc-4a7e-5492-6acbb398e1b5","res":{"statusCode":200},"responseTime":3.7485410002991557,"msg":"request completed"}
+{"level":"info","time":1684996861366,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"7706f109-f7ae-d953-0dd0-1cc29d7f1d0d","req":{"method":"POST","url":"/authentication/postAuthentication","hostname":"localhost:9992","remoteAddress":"127.0.0.1","remotePort":56992},"msg":"incoming request"}
+{"level":"info","time":1684996861380,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"7706f109-f7ae-d953-0dd0-1cc29d7f1d0d","res":{"statusCode":200},"responseTime":14.060650000348687,"msg":"request completed"}
+{"level":"info","time":1684997731031,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"f4e40dfa-283f-56e0-be91-70c6d6fd602c","req":{"method":"POST","url":"/functions/Chat/ChatSSE","hostname":"localhost:9992","remoteAddress":"127.0.0.1","remotePort":38044},"msg":"incoming request"}
+client disconnected
+{"level":"info","time":1684997733504,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"f4e40dfa-283f-56e0-be91-70c6d6fd602c","res":{"statusCode":200},"responseTime":2472.986014999915,"msg":"request completed"}
+{"level":"info","time":1685002467487,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"3ef1ae5b-6cdb-8319-63af-414c4144a1b9","req":{"method":"POST","url":"/functions/Chat/ChatSSE","hostname":"localhost:9992","remoteAddress":"127.0.0.1","remotePort":49576},"msg":"incoming request"}
+client disconnected
+{"level":"info","time":1685002470361,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"3ef1ae5b-6cdb-8319-63af-414c4144a1b9","res":{"statusCode":200},"responseTime":2873.8242160007358,"msg":"request completed"}
+{"level":"info","time":1685002485784,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"da4edfd2-b1f3-ef18-65e5-5e4dae6bd8ae","req":{"method":"POST","url":"/functions/Chat/ChatSSE","hostname":"localhost:9992","remoteAddress":"127.0.0.1","remotePort":49576},"msg":"incoming request"}
+client disconnected
+{"level":"info","time":1685002496911,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"da4edfd2-b1f3-ef18-65e5-5e4dae6bd8ae","res":{"statusCode":200},"responseTime":11126.455350000411,"msg":"request completed"}
+{"level":"info","time":1685002620057,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"da336de2-c206-fc9c-13d8-ae3b32f9975f","req":{"method":"POST","url":"/functions/Chat/ChatSSE","hostname":"localhost:9992","remoteAddress":"127.0.0.1","remotePort":42056},"msg":"incoming request"}
+client disconnected
+{"level":"info","time":1685002639314,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"da336de2-c206-fc9c-13d8-ae3b32f9975f","res":{"statusCode":200},"responseTime":19256.95990699902,"msg":"request completed"}
+{"level":"info","time":1685002722903,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"8cb73b73-06df-2993-7150-495c0644ea80","req":{"method":"POST","url":"/functions/Chat/ChatSSE","hostname":"localhost:9992","remoteAddress":"127.0.0.1","remotePort":45616},"msg":"incoming request"}
+client disconnected
+{"level":"info","time":1685002754912,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"8cb73b73-06df-2993-7150-495c0644ea80","res":{"statusCode":200},"responseTime":32008.170159000903,"msg":"request completed"}
+{"level":"info","time":1685002838095,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"e6dbdee2-be7e-2f21-ab46-6002f3b1b5c1","req":{"method":"POST","url":"/functions/Chat/ChatSSE","hostname":"localhost:9992","remoteAddress":"127.0.0.1","remotePort":49786},"msg":"incoming request"}
+client disconnected
+{"level":"info","time":1685002872997,"pid":3184,"hostname":"iZrj9g8eszahauyuthqdvtZ","component":"@wundergraph/server","reqId":"e6dbdee2-be7e-2f21-ab46-6002f3b1b5c1","res":{"statusCode":200},"responseTime":34902.28678399883,"msg":"request completed"}

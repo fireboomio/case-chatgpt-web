@@ -1,0 +1,20 @@
+query GetRoleBindApis($code: String!) {
+  data: system_getRoleBindApis(code: $code) {
+    content
+    createTime
+    deleteTime
+    enabled
+    id
+    illegal
+    isPublic
+    liveQuery
+    method
+    operationType
+    remark
+    restUrl
+    roleType
+    roles
+    title
+    updateTime
+  }
+}
