@@ -81,10 +81,10 @@ export default createOperation.subscription({
           let result: string
           if (res.ok) {
             const headerData = 'data:'
-            const headerSubIndex = headerData.length + 1
+            const headerDataLength = headerData.length
             const trimPrefixFunc = function f(line: string): string {
               if (line.startsWith(headerData)) {
-                return line.substring(headerSubIndex).trim()
+                return line.substring(headerDataLength).trim()
               }
 
               return
