@@ -77,25 +77,41 @@ export default createOperation.subscription({
               stream: true
             })
           })
-          const id = Math.random().toString(36).substring(2)
+
           let result: string
           if (res.ok) {
+            const headerData = 'data:'
+            const headerSubIndex = headerData.length + 1
+            const trimPrefixFunc = function f(line: string): string {
+              if (line.startsWith(headerData)) {
+                return line.substring(headerSubIndex).trim()
+              }
+
+              return
+            }
+            const id = Math.random().toString(36).substring(2)
             const resStrArr: string[] = []
             const reader = res.body!.getReader();
             for await (const chunk of readChunks(reader)) {
               const str = chunk.toString()
-              const lines = str.split('\n').map(line => line.substring(6)).filter(Boolean)
+              const lines = str.split('\n').map(trimPrefixFunc).filter(Boolean)
               for (const line of lines) {
-                if (line !== '[DONE]') {
-                  const json = JSON.parse(line)
-                  if (json.choices.length > 0) {
-                    const delta = json.choices[0].delta
-                    if (delta.content) {
-                      resStrArr.push(delta.content)
-                      yield {completion: delta.content, id: id}
-                    }
-                  }
+                if (line === '[DONE]') {
+                  continue
                 }
+
+                const json = JSON.parse(line)
+                if (json.choices.length == 0) {
+                  continue
+                }
+
+                const delta = json.choices[0].delta
+                if (!delta.content) {
+                  continue
+                }
+
+                resStrArr.push(delta.content)
+                yield {completion: delta.content, id: id}
               }
             }
             result = resStrArr.join('')
