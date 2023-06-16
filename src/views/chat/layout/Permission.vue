@@ -59,6 +59,7 @@ watchEffect(() => {
         >
           {{ $t('common.verify') }}
         </NButton>
+        <div style="text-align:center;font-size:20px"><a href="https://beian.miit.gov.cn/#/Integrated/index">苏ICP备18035857号-6</a></div>        
       </div>
     </div>
   </NModal>

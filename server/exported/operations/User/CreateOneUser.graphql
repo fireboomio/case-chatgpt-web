@@ -4,4 +4,4 @@ mutation MyQuery($avatar: String!, $description: String!, $id: String!, $name: S
   ) {
     id
   }
-}
+} 

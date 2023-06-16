@@ -150,6 +150,7 @@ async function onConversation() {
       const messages: string[] = []
       const msgStr = messages.join('')
       for await (const data of res) {
+        console.log(data)
         messages.push(data.data.completion)
         currentChat.text = messages.join('')
         currentChat.loading = false

@@ -1,0 +1,7 @@
+mutation BindRoleApis($allRoles: [String]!, $apis: [Int]!, $roleCode: String!) {
+  data: system_bindRoleApis(
+    POSTApiV1RoleBindApiInput: {roleCode: $roleCode, apis: $apis, allRoles: $allRoles}
+  ) {
+    count
+  }
+}
