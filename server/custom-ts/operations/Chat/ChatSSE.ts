@@ -2,6 +2,9 @@
 import fetch from '@web-std/fetch';
 import { createOperation, z } from 'generated/fireboom.factory'
 
+const { OpenAIClient, AzureKeyCredential } = require("@azure/openai");
+
+const client = new OpenAIClient("https://freetalkchatgpt.openai.azure.com", new AzureKeyCredential("2ce466c24f924a51b843be70709621d2"));
 function readChunks(reader: ReadableStreamDefaultReader<Uint8Array>) {
   return {
     async*[Symbol.asyncIterator]() {
@@ -67,70 +70,21 @@ export default createOperation.subscription({
           } else {
             throw errors
           }
-
-          // const res = await fetch('https://api.openai.com/v1/chat/completions', {
-          const res = await fetch('https://freetalkchatgpt.openai.azure.com/openai/deployments/gpt-35-turbo_0301/chat/completions?api-version=2023-05-15', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              //'Authorization': 'Bearer ' + process.env.OPENAI_KEY,
-              'api-key': '2ce466c24f924a51b843be70709621d2',
-            },
-            body: JSON.stringify({
-              //model: 'gpt-3.5-turbo',
-              model: 'gpt-35-turbo',
-              messages: msg,
-              stream: true
-            })
-          })
-
+          const id = Math.random().toString(36).substring(2)
+          const resStrArr: string[] = []
           let result: string
-          if (res.ok) {
-            // const headerData = 'data:'
-            // const headerDataLength = headerData.length
-            // const trimPrefixFunc = function f(line: string): string {
-            //   return line.replace("\n",)
-            // }
-
-            //   return
-            // }
-            const id = Math.random().toString(36).substring(2)
-            const resStrArr: string[] = []
-            const reader = res.body!.getReader();
-            for await (const chunk of readChunks(reader)) {
-              const str = chunk.toString()
-              console.log("str:" + str)
-              const lines = str.split(/data: s*(?![^"]*"\,)/).filter(Boolean)
-              for (let line of lines) {
-                if (line === '[DONE]') {
-                  continue
-                }
-                console.log("line:" + line)
-                var lastIndex = line.lastIndexOf("}")
-                console.log("lastIndex:" + lastIndex)
-                line = line.substring(0, lastIndex + 1)
-                console.log("new line:" + line)
-                const json = JSON.parse(line)
-                if (json.choices.length == 0) {
-                  continue
-                }
-
-                const delta = json.choices[0].delta
-                if (!delta.content) {
-                  continue
-                }
-
-                resStrArr.push(delta.content)
-                yield { completion: delta.content, id: id }
+          const events = await client.listChatCompletions('gpt-35-turbo_0301', msg, { maxTokens: 2048 });
+          for await (const event of events) {
+            for (const choice of event.choices) {
+              const delta = choice.delta?.content;
+              if (delta !== undefined) {
+                console.log("delta:" + delta)
+                yield { completion: delta, id: id }
               }
             }
-            result = resStrArr.join('')
-
-          } else {
-            result = res.statusText
-            yield { completion: result }
           }
           // 更新机器人回答的文字内容
+          result = resStrArr.join('')
           const updateResp = await internalClient.mutations['Chat__UpdateChatText']({
             input: { id: insertedA.data!.data!.id!, text: result }
           })
