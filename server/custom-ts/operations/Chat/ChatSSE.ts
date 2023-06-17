@@ -86,26 +86,30 @@ export default createOperation.subscription({
 
           let result: string
           if (res.ok) {
-            const headerData = 'data:'
-            const headerDataLength = headerData.length
-            const trimPrefixFunc = function f(line: string): string {
-              if (line.startsWith(headerData)) {
-                return line.substring(headerDataLength).trim()
-              }
+            // const headerData = 'data:'
+            // const headerDataLength = headerData.length
+            // const trimPrefixFunc = function f(line: string): string {
+            //   return line.replace("\n",)
+            // }
 
-              return
-            }
+            //   return
+            // }
             const id = Math.random().toString(36).substring(2)
             const resStrArr: string[] = []
             const reader = res.body!.getReader();
             for await (const chunk of readChunks(reader)) {
               const str = chunk.toString()
-              const lines = str.split('\n').map(trimPrefixFunc).filter(Boolean)
-              for (const line of lines) {
+              console.log("str:" + str)
+              const lines = str.split(/data: s*(?![^"]*"\,)/).filter(Boolean)
+              for (let line of lines) {
                 if (line === '[DONE]') {
                   continue
                 }
-
+                console.log("line:" + line)
+                var lastIndex = line.lastIndexOf("}")
+                console.log("lastIndex:" + lastIndex)
+                line = line.substring(0, lastIndex + 1)
+                console.log("new line:" + line)
                 const json = JSON.parse(line)
                 if (json.choices.length == 0) {
                   continue
